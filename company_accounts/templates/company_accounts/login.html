@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Login — Appointment Setter{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Log in</h1>
+  <form method="post" novalidate>
+    {% csrf_token %}
+    {% if form.non_field_errors %}
+      <div class="field-errors" style="margin-bottom:1rem">
+        {% for error in form.non_field_errors %}{{ error }}{% endfor %}
+      </div>
+    {% endif %}
+    {% for field in form %}
+      <div class="form-group">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        {% if field.errors %}
+          <div class="field-errors">
+            {% for error in field.errors %}{{ error }}{% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+    <button type="submit">Log in</button>
+  </form>
+  <a class="link-muted" href="{% url 'company_accounts:register' %}">No account yet? Register</a>
+</div>
+{% endblock %}

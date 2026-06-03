@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Register — Appointment Setter{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Create a company account</h1>
+  <form method="post" novalidate>
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="form-group">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        {% if field.errors %}
+          <div class="field-errors">
+            {% for error in field.errors %}{{ error }}{% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+    <button type="submit">Register</button>
+  </form>
+  <a class="link-muted" href="{% url 'company_accounts:login' %}">Already have an account? Log in</a>
+</div>
+{% endblock %}

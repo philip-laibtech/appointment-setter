@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — {{ company.business_name }}{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Company Dashboard</h1>
+  <table class="info-table">
+    <tr>
+      <th>Company name</th>
+      <td>{{ company.business_name }}</td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td>{{ company.email }}</td>
+    </tr>
+    <tr>
+      <th>Slug</th>
+      <td>{{ company.slug }}</td>
+    </tr>
+    <tr>
+      <th>Public page active</th>
+      <td>{% if company.public_page_enabled %}Yes{% else %}No{% endif %}</td>
+    </tr>
+    <tr>
+      <th>Public link (future)</th>
+      <td><span style="color:#888">/b/{{ company.slug }}/</span></td>
+    </tr>
+    <tr>
+      <th>Timezone</th>
+      <td>{{ company.timezone }}</td>
+    </tr>
+    <tr>
+      <th>Created at</th>
+      <td>{{ company.created_at|date:"Y-m-d H:i" }}</td>
+    </tr>
+    <tr>
+      <th>Last updated</th>
+      <td>{{ company.updated_at|date:"Y-m-d H:i" }}</td>
+    </tr>
+  </table>
+</div>
+{% endblock %}
