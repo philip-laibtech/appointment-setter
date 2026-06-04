@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Booking Confirmed — {{ company.business_name }}{% endblock %}
+
+{% block extra_style %}
+<style>
+  main { max-width: 540px; }
+  .bk-confirmed { background: #fff; border: 1px solid #e4e4e7; border-radius: 10px; padding: 2rem; }
+  .bk-confirmed-badge {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: #f0fdf4; color: #15803d;
+    font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; padding: 0.3rem 0.75rem; border-radius: 999px; margin-bottom: 1rem;
+  }
+  .bk-confirmed-title { font-size: 1.375rem; font-weight: 700; color: #111; margin-bottom: 1.5rem; }
+  .bk-detail-table { width: 100%; border-collapse: collapse; }
+  .bk-detail-table th, .bk-detail-table td { text-align: left; padding: 0.45rem 0; font-size: 0.9rem; border-bottom: 1px solid #f3f4f6; }
+  .bk-detail-table tr:last-child th, .bk-detail-table tr:last-child td { border-bottom: none; }
+  .bk-detail-table th { color: #6b7280; font-weight: 600; width: 40%; }
+  .bk-detail-table td { color: #111; }
+  .bk-note { margin-top: 1.5rem; font-size: 0.8125rem; color: #9ca3af; line-height: 1.6; }
+  .bk-back-link { display: inline-block; margin-top: 1.5rem; color: #6b7280; font-size: 0.875rem; text-decoration: none; }
+  .bk-back-link:hover { color: #111; text-decoration: underline; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="bk-confirmed">
+  <div class="bk-confirmed-badge">
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+      <path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Confirmed
+  </div>
+
+  <h1 class="bk-confirmed-title">Your booking is confirmed.</h1>
+
+  <table class="bk-detail-table">
+    <tr><th>Company</th><td>{{ company.business_name }}</td></tr>
+    <tr><th>Staff member</th><td>{{ booking.staff_member.name }}</td></tr>
+    <tr><th>Service</th><td>{{ booking.service_offering.name }}</td></tr>
+    <tr><th>Duration</th><td>{{ booking.service_offering.duration_minutes }} min</td></tr>
+    <tr><th>Date</th><td>{{ booking.start_at|date:"l, j F Y" }}</td></tr>
+    <tr><th>Time</th><td>{{ booking.start_at|date:"H:i" }} – {{ booking.end_at|date:"H:i" }}</td></tr>
+  </table>
+
+  <p class="bk-note">Please keep this page for your records. A confirmation reference is included in your URL.</p>
+
+  <a href="{% url 'bookings:entry' company_slug=company.slug %}" class="bk-back-link">
+    &larr; Back to booking
+  </a>
+</div>
+{% endblock %}

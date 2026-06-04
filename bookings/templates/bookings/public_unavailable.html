@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Booking Unavailable{% endblock %}
+
+{% block extra_style %}
+<style>
+  .bk-unavailable {
+    background: #fff;
+    border: 1px solid #e4e4e7;
+    border-radius: 10px;
+    padding: 3rem 2rem;
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .bk-unavailable-title { font-size: 1.25rem; font-weight: 700; color: #111; margin-bottom: 0.75rem; }
+  .bk-unavailable-text  { font-size: 0.9rem; color: #6b7280; line-height: 1.6; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="bk-unavailable">
+  {% if company %}
+    <p style="font-size:0.8125rem;color:#9ca3af;margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.06em;">{{ company.business_name }}</p>
+  {% endif %}
+  <h1 class="bk-unavailable-title">
+    {% if reason == "disabled" %}Online booking is currently unavailable.
+    {% elif reason == "no_staff" %}No appointments are currently available.
+    {% else %}This page is unavailable.
+    {% endif %}
+  </h1>
+  <p class="bk-unavailable-text">Please contact the company directly to arrange an appointment.</p>
+</div>
+{% endblock %}

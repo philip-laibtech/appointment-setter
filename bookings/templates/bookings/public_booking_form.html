@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+{% block title %}Complete Your Booking — {{ company.business_name }}{% endblock %}
+
+{% block extra_style %}
+<style>
+  main { max-width: 580px; }
+  .bk-back {
+    display: inline-flex; align-items: center; gap: 0.35rem;
+    font-size: 0.8125rem; color: #6b7280; text-decoration: none; margin-bottom: 1.5rem;
+  }
+  .bk-back:hover { color: #111; text-decoration: none; }
+  .bk-company-label { font-size: 0.8125rem; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.3rem; }
+  .bk-page-title { font-size: 1.25rem; font-weight: 700; color: #111; margin-bottom: 1.25rem; }
+
+  .bk-summary {
+    background: #f9fafb; border: 1px solid #e4e4e7; border-radius: 8px;
+    padding: 1rem 1.25rem; margin-bottom: 1.75rem;
+  }
+  .bk-summary table { width: 100%; border-collapse: collapse; }
+  .bk-summary th, .bk-summary td { text-align: left; padding: 0.3rem 0; font-size: 0.875rem; }
+  .bk-summary th { color: #6b7280; font-weight: 600; width: 40%; }
+  .bk-summary td { color: #111; }
+
+  .bk-form-card { background: #fff; border: 1px solid #e4e4e7; border-radius: 10px; padding: 1.75rem; }
+  .bk-form-title { font-size: 1rem; font-weight: 700; color: #111; margin-bottom: 1.25rem; }
+  .bk-form-error {
+    background: #fef2f2; border: 1px solid #fca5a5; border-radius: 6px;
+    padding: 0.75rem 1rem; color: #b91c1c; font-size: 0.875rem; margin-bottom: 1.25rem;
+  }
+  .bk-field { margin-bottom: 1.1rem; }
+  .bk-label {
+    display: block; font-size: 0.75rem; font-weight: 700; color: #374151;
+    text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.35rem;
+  }
+  .bk-input {
+    width: 100%; padding: 0.6rem 0.875rem; border: 1px solid #d1d5db;
+    border-radius: 6px; font-size: 1rem; color: #111; background: #fff;
+  }
+  .bk-input:focus { outline: none; border-color: #111; box-shadow: 0 0 0 3px rgba(17,17,17,0.08); }
+  .bk-input--error { border-color: #fca5a5; }
+  .bk-textarea {
+    width: 100%; padding: 0.6rem 0.875rem; border: 1px solid #d1d5db;
+    border-radius: 6px; font-size: 1rem; color: #111; background: #fff; resize: vertical;
+  }
+  .bk-textarea:focus { outline: none; border-color: #111; box-shadow: 0 0 0 3px rgba(17,17,17,0.08); }
+  .bk-textarea--error { border-color: #fca5a5; }
+  .bk-field-error { color: #dc2626; font-size: 0.8125rem; margin-top: 0.3rem; }
+  .bk-row { display: flex; gap: 1rem; }
+  .bk-row .bk-field { flex: 1; }
+  .bk-checkbox-row { display: flex; align-items: flex-start; gap: 0.6rem; margin-top: 0.375rem; }
+  .bk-checkbox-row input[type=checkbox] { width: 1rem; height: 1rem; cursor: pointer; accent-color: #111; margin-top: 0.15rem; flex-shrink: 0; }
+  .bk-checkbox-label { font-size: 0.9rem; color: #374151; line-height: 1.5; }
+  .bk-privacy-note { font-size: 0.8rem; color: #9ca3af; margin-top: 0.5rem; line-height: 1.5; }
+  .bk-divider { border: none; border-top: 1px solid #f3f4f6; margin: 1.25rem 0; }
+  .bk-submit {
+    width: 100%; padding: 0.7rem; background: #111; color: #fff; border: none;
+    border-radius: 6px; font-size: 0.9375rem; font-weight: 600; cursor: pointer; margin-bottom: 0.75rem;
+  }
+  .bk-submit:hover { background: #333; }
+  .bk-cancel { display: block; text-align: center; color: #9ca3af; font-size: 0.875rem; text-decoration: none; }
+  .bk-cancel:hover { color: #374151; text-decoration: none; }
+
+  @media (max-width: 500px) {
+    .bk-row { flex-direction: column; gap: 0; }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'bookings:time_select' company_slug=company.slug staff_id=staff_member.pk service_id=service.pk date=start_at|date:'Y-m-d' %}" class="bk-back">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+    <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  Back
+</a>
+
+<p class="bk-company-label">{{ company.business_name }}</p>
+<h1 class="bk-page-title">Complete your booking</h1>
+
+<div class="bk-summary">
+  <table>
+    <tr><th>With</th><td>{{ staff_member.name }}</td></tr>
+    <tr><th>Service</th><td>{{ service.name }}</td></tr>
+    <tr><th>Duration</th><td>{{ service.duration_minutes }} min</td></tr>
+    <tr><th>Date</th><td>{{ start_at|date:"l, j F Y" }}</td></tr>
+    <tr><th>Time</th><td>{{ start_at|date:"H:i" }} – {{ end_at|date:"H:i" }}</td></tr>
+  </table>
+</div>
+
+<div class="bk-form-card">
+  <h2 class="bk-form-title">Your details</h2>
+
+  <form method="post" novalidate>
+    {% csrf_token %}
+
+    {# Honeypot — hidden from users, must remain empty #}
+    <div style="display:none" aria-hidden="true">
+      <label for="{{ form.website.id_for_label }}">Website</label>
+      <input type="text"
+             id="{{ form.website.id_for_label }}"
+             name="website"
+             value="{{ form.website.value|default_if_none:'' }}"
+             tabindex="-1"
+             autocomplete="off">
+    </div>
+
+    {% if form.non_field_errors %}
+      <div class="bk-form-error">
+        {% for error in form.non_field_errors %}{{ error }}{% endfor %}
+      </div>
+    {% endif %}
+
+    <div class="bk-row">
+      <div class="bk-field">
+        <label class="bk-label" for="{{ form.customer_first_name.id_for_label }}">First name *</label>
+        <input class="bk-input{% if form.customer_first_name.errors %} bk-input--error{% endif %}"
+               type="text" id="{{ form.customer_first_name.id_for_label }}"
+               name="customer_first_name"
+               value="{{ form.customer_first_name.value|default_if_none:'' }}"
+               maxlength="100" autocomplete="given-name" autofocus required>
+        {% for error in form.customer_first_name.errors %}<p class="bk-field-error">{{ error }}</p>{% endfor %}
+      </div>
+      <div class="bk-field">
+        <label class="bk-label" for="{{ form.customer_last_name.id_for_label }}">Last name *</label>
+        <input class="bk-input{% if form.customer_last_name.errors %} bk-input--error{% endif %}"
+               type="text" id="{{ form.customer_last_name.id_for_label }}"
+               name="customer_last_name"
+               value="{{ form.customer_last_name.value|default_if_none:'' }}"
+               maxlength="100" autocomplete="family-name" required>
+        {% for error in form.customer_last_name.errors %}<p class="bk-field-error">{{ error }}</p>{% endfor %}
+      </div>
+    </div>
+
+    <div class="bk-field">
+      <label class="bk-label" for="{{ form.customer_email.id_for_label }}">Email address *</label>
+      <input class="bk-input{% if form.customer_email.errors %} bk-input--error{% endif %}"
+             type="email" id="{{ form.customer_email.id_for_label }}"
+             name="customer_email"
+             value="{{ form.customer_email.value|default_if_none:'' }}"
+             autocomplete="email" required>
+      {% for error in form.customer_email.errors %}<p class="bk-field-error">{{ error }}</p>{% endfor %}
+    </div>
+
+    <div class="bk-field">
+      <label class="bk-label" for="{{ form.customer_phone.id_for_label }}">Phone <span style="font-weight:400;text-transform:none;">(optional)</span></label>
+      <input class="bk-input{% if form.customer_phone.errors %} bk-input--error{% endif %}"
+             type="tel" id="{{ form.customer_phone.id_for_label }}"
+             name="customer_phone"
+             value="{{ form.customer_phone.value|default_if_none:'' }}"
+             maxlength="30" autocomplete="tel">
+      {% for error in form.customer_phone.errors %}<p class="bk-field-error">{{ error }}</p>{% endfor %}
+    </div>
+
+    <div class="bk-field">
+      <label class="bk-label" for="{{ form.customer_message.id_for_label }}">Message <span style="font-weight:400;text-transform:none;">(optional)</span></label>
+      <textarea class="bk-textarea{% if form.customer_message.errors %} bk-textarea--error{% endif %}"
+                id="{{ form.customer_message.id_for_label }}"
+                name="customer_message"
+                rows="3">{{ form.customer_message.value|default_if_none:'' }}</textarea>
+      {% for error in form.customer_message.errors %}<p class="bk-field-error">{{ error }}</p>{% endfor %}
+    </div>
+
+    <hr class="bk-divider">
+
+    <div class="bk-field">
+      <div class="bk-checkbox-row">
+        <input type="checkbox"
+               id="{{ form.privacy_accepted.id_for_label }}"
+               name="privacy_accepted"
+               {% if form.privacy_accepted.value %}checked{% endif %}
+               required>
+        <label class="bk-checkbox-label" for="{{ form.privacy_accepted.id_for_label }}">
+          {# TODO: Replace # with a real /privacy-policy/ URL before going to production. #}
+          I accept the <a href="#" style="color:#111;">privacy policy</a>.
+        </label>
+      </div>
+      {% for error in form.privacy_accepted.errors %}<p class="bk-field-error">{{ error }}</p>{% endfor %}
+      <p class="bk-privacy-note">Your data will be used solely to manage this appointment.</p>
+    </div>
+
+    <hr class="bk-divider">
+
+    <button type="submit" class="bk-submit">Confirm booking</button>
+    <a href="{% url 'bookings:time_select' company_slug=company.slug staff_id=staff_member.pk service_id=service.pk date=start_at|date:'Y-m-d' %}" class="bk-cancel">Cancel</a>
+  </form>
+</div>
+{% endblock %}
