@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+{% block title %}Staff Members — {{ user.business_name }}{% endblock %}
+
+{% block extra_style %}
+<style>
+  main { max-width: 820px; }
+
+  .sm-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .sm-page-title {
+    font-size: 1.625rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0.2rem;
+  }
+  .sm-page-subtitle { font-size: 0.875rem; color: #6b7280; }
+  .sm-add-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: #111;
+    color: #fff;
+    padding: 0.55rem 1.1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background 0.15s;
+    flex-shrink: 0;
+  }
+  .sm-add-btn:hover { background: #333; color: #fff; text-decoration: none; }
+
+  .sm-list {
+    border: 1px solid #e4e4e7;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+  }
+  .sm-entry {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #f3f4f6;
+    position: relative;
+  }
+  .sm-entry:last-child { border-bottom: none; }
+  .sm-entry:hover { background: #f9fafb; }
+  .sm-entry--inactive { opacity: 0.55; }
+
+  .sm-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: #374151;
+    flex-shrink: 0;
+  }
+  .sm-info { flex: 1; min-width: 0; }
+  .sm-name {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 0.15rem;
+  }
+  .sm-meta { font-size: 0.8125rem; color: #6b7280; }
+
+  .sm-badge {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 0.22rem 0.6rem;
+    border-radius: 999px;
+    flex-shrink: 0;
+  }
+  .sm-badge--active   { background: #f0fdf4; color: #15803d; }
+  .sm-badge--inactive { background: #f3f4f6; color: #9ca3af; }
+
+  .sm-actions { display: flex; gap: 0.375rem; flex-shrink: 0; }
+  .sm-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid #e4e4e7;
+    border-radius: 5px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    text-decoration: none;
+    background: #fff;
+    color: #374151;
+    transition: border-color 0.15s, background 0.15s;
+    line-height: 1.4;
+  }
+  .sm-btn:hover { border-color: #d1d5db; background: #f9fafb; color: #111; text-decoration: none; }
+  .sm-btn--danger { color: #dc2626; }
+  .sm-btn--danger:hover { border-color: #fca5a5; background: #fef2f2; color: #b91c1c; }
+
+  .sm-empty {
+    background: #fff;
+    border: 1px solid #e4e4e7;
+    border-radius: 10px;
+    padding: 3.5rem 2rem;
+    text-align: center;
+  }
+  .sm-empty-icon {
+    width: 48px; height: 48px;
+    border: 2px solid #e4e4e7; border-radius: 12px;
+    margin: 0 auto 1.25rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .sm-empty-title { font-size: 1rem; font-weight: 600; color: #374151; margin-bottom: 0.4rem; }
+  .sm-empty-text  { font-size: 0.875rem; color: #9ca3af; margin-bottom: 1.5rem; }
+  .sm-empty-cta {
+    display: inline-flex; align-items: center; gap: 0.3rem;
+    background: #111; color: #fff; padding: 0.55rem 1.25rem;
+    border-radius: 6px; text-decoration: none;
+    font-size: 0.875rem; font-weight: 600; transition: background 0.15s;
+  }
+  .sm-empty-cta:hover { background: #333; color: #fff; text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .sm-header { flex-direction: column; }
+    .sm-add-btn { width: 100%; justify-content: center; }
+    .sm-entry { flex-wrap: wrap; row-gap: 0.75rem; }
+    .sm-info { flex-basis: calc(100% - 50px); }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="sm-header">
+  <div>
+    <h1 class="sm-page-title">Staff Members</h1>
+    <p class="sm-page-subtitle">People who can be assigned to availability slots.</p>
+  </div>
+  <a href="{% url 'staff_members:create' %}" class="sm-add-btn">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+      <path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    Add staff member
+  </a>
+</div>
+
+{% if members %}
+  <ul class="sm-list" role="list">
+    {% for member in members %}
+      <li class="sm-entry{% if not member.is_active %} sm-entry--inactive{% endif %}">
+        <div class="sm-avatar" aria-hidden="true">{{ member.name|slice:":1"|upper }}</div>
+        <div class="sm-info">
+          <div class="sm-name">{{ member.name }}</div>
+          <div class="sm-meta">
+            {% if member.email %}{{ member.email }}{% endif %}
+            {% if member.email and member.phone %} &middot; {% endif %}
+            {% if member.phone %}{{ member.phone }}{% endif %}
+            {% if not member.email and not member.phone %}&mdash;{% endif %}
+          </div>
+        </div>
+        <span class="sm-badge sm-badge--{% if member.is_active %}active{% else %}inactive{% endif %}">
+          {% if member.is_active %}Active{% else %}Inactive{% endif %}
+        </span>
+        <div class="sm-actions">
+          <a href="{% url 'staff_members:edit' member.pk %}" class="sm-btn">Edit</a>
+          <a href="{% url 'staff_members:delete' member.pk %}" class="sm-btn sm-btn--danger">Delete</a>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <div class="sm-empty">
+    <div class="sm-empty-icon" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d1d5db" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="8" r="4"/>
+        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+      </svg>
+    </div>
+    <p class="sm-empty-title">No staff members yet</p>
+    <p class="sm-empty-text">Add your first staff member to assign them to availability slots.</p>
+    <a href="{% url 'staff_members:create' %}" class="sm-empty-cta">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+        <path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      Add first staff member
+    </a>
+  </div>
+{% endif %}
+{% endblock %}

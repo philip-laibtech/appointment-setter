@@ -37,5 +37,10 @@
       <td>{{ company.updated_at|date:"Y-m-d H:i" }}</td>
     </tr>
   </table>
+  <div style="margin-top:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap;">
+    <a href="{% url 'staff_members:list' %}" style="color:#111;font-size:0.95rem;">Manage staff &rarr;</a>
+    <a href="{% url 'availability:list' %}" style="color:#111;font-size:0.95rem;">Manage availability &rarr;</a>
+    <a href="{% url 'services:list' %}" style="color:#111;font-size:0.95rem;">Manage services &rarr;</a>
+  </div>
 </div>
 {% endblock %}

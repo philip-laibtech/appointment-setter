@@ -1,0 +1,346 @@
+{% extends "base.html" %}
+{% block title %}Set Recurring Hours{% endblock %}
+
+{% block extra_style %}
+<style>
+  /* ── Back link ───────────────────────────────────────── */
+  .av-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8125rem;
+    color: #6b7280;
+    text-decoration: none;
+    margin-bottom: 1.5rem;
+    transition: color 0.15s;
+  }
+  .av-back:hover { color: #111; text-decoration: none; }
+
+  /* ── Card ────────────────────────────────────────────── */
+  .av-form-card {
+    background: #fff;
+    border: 1px solid #e4e4e7;
+    border-radius: 10px;
+    padding: 2rem;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* ── Titles ──────────────────────────────────────────── */
+  .av-form-title {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0.25rem;
+  }
+  .av-form-subtitle {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 1.75rem;
+  }
+
+  /* ── Non-field errors ────────────────────────────────── */
+  .av-form-error {
+    background: #fef2f2;
+    border: 1px solid #fca5a5;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    color: #b91c1c;
+    font-size: 0.875rem;
+    margin-bottom: 1.25rem;
+  }
+
+  /* ── Section label ───────────────────────────────────── */
+  .av-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #374151;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.5rem;
+  }
+
+  /* ── Field group ─────────────────────────────────────── */
+  .av-field { margin-bottom: 1.375rem; }
+
+  .av-field-error {
+    color: #dc2626;
+    font-size: 0.8125rem;
+    margin-top: 0.3rem;
+  }
+
+  /* ── Day-of-week pill toggles ────────────────────────── */
+  .av-days-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .av-day-cb {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+  }
+  .av-day-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 3rem;
+    padding: 0.35rem 0.75rem;
+    border: 1.5px solid #e4e4e7;
+    border-radius: 999px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #6b7280;
+    background: #fff;
+    cursor: pointer;
+    user-select: none;
+    transition: border-color 0.12s, background 0.12s, color 0.12s;
+  }
+  .av-day-pill:hover {
+    border-color: #9ca3af;
+    color: #374151;
+  }
+  .av-day-cb:checked + .av-day-pill {
+    background: #111;
+    border-color: #111;
+    color: #fff;
+  }
+  .av-day-cb:focus-visible + .av-day-pill {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+  }
+  .av-days-error .av-day-pill { border-color: #fca5a5; }
+
+  /* ── Two-column row (time / date pairs) ──────────────── */
+  .av-row-2 {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: start;
+    gap: 0;
+  }
+  .av-row-sep {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.5rem;
+    color: #9ca3af;
+    padding-top: 1.875rem;
+    font-size: 1rem;
+  }
+
+  /* ── Inputs ──────────────────────────────────────────── */
+  .av-input {
+    width: 100%;
+    padding: 0.6rem 0.875rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #111;
+    background: #fff;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    appearance: auto;
+  }
+  .av-input:focus {
+    outline: none;
+    border-color: #111;
+    box-shadow: 0 0 0 3px rgba(17,17,17,0.08);
+  }
+  .av-input--error { border-color: #fca5a5; }
+
+  /* ── Section divider ─────────────────────────────────── */
+  .av-divider {
+    border: none;
+    border-top: 1px solid #f3f4f6;
+    margin: 1.5rem 0;
+  }
+
+  /* ── Info note ───────────────────────────────────────── */
+  .av-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.375rem;
+    font-size: 0.8125rem;
+    color: #475569;
+    line-height: 1.5;
+  }
+  .av-note svg { flex-shrink: 0; margin-top: 0.1rem; }
+
+  /* ── Submit / cancel ─────────────────────────────────── */
+  .av-submit {
+    width: 100%;
+    padding: 0.7rem;
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+    margin-bottom: 0.875rem;
+  }
+  .av-submit:hover { background: #333; }
+
+  .av-cancel {
+    display: block;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .av-cancel:hover { color: #374151; text-decoration: none; }
+
+  /* ── Responsive ──────────────────────────────────────── */
+  @media (max-width: 480px) {
+    .av-form-card { padding: 1.5rem; }
+    .av-row-2 { grid-template-columns: 1fr 1fr; }
+    .av-row-sep { display: none; }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'availability:list' %}" class="av-back">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+    <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  Open Hours
+</a>
+
+<div class="av-form-card">
+  <h1 class="av-form-title">Set Recurring Hours</h1>
+  <p class="av-form-subtitle">Automatically create open hours for a recurring weekday schedule.</p>
+
+  <form method="post" novalidate>
+    {% csrf_token %}
+
+    {% if form.non_field_errors %}
+      <div class="av-form-error">
+        {% for error in form.non_field_errors %}{{ error }}{% endfor %}
+      </div>
+    {% endif %}
+
+    {# ── Staff member ─────────────────────────────────── #}
+    <div class="av-field">
+      <label class="av-label" for="{{ form.staff_member.id_for_label }}">{{ form.staff_member.label }}</label>
+      <select class="av-input{% if form.staff_member.errors %} av-input--error{% endif %}"
+              id="{{ form.staff_member.id_for_label }}"
+              name="staff_member"
+              required>
+        <option value="">— Select staff member —</option>
+        {% for value, label in form.staff_member.field.choices %}
+          {% if value %}
+            <option value="{{ value }}"
+              {% if form.staff_member.value|stringformat:"s" == value|stringformat:"s" %}selected{% endif %}>
+              {{ label }}
+            </option>
+          {% endif %}
+        {% endfor %}
+      </select>
+      {% for error in form.staff_member.errors %}
+        <p class="av-field-error">{{ error }}</p>
+      {% endfor %}
+    </div>
+
+    {# ── Day-of-week picker ───────────────────────────── #}
+    <div class="av-field">
+      <span class="av-label">{{ form.weekdays.label }}</span>
+      <div class="av-days-wrap{% if form.weekdays.errors %} av-days-error{% endif %}">
+        {% for value, label in form.weekdays.field.choices %}
+          <input type="checkbox"
+                 class="av-day-cb"
+                 id="wd_{{ value }}"
+                 name="weekdays"
+                 value="{{ value }}"
+                 {% if form.weekdays.value and value in form.weekdays.value %}checked{% endif %}>
+          <label for="wd_{{ value }}" class="av-day-pill">{{ label }}</label>
+        {% endfor %}
+      </div>
+      {% for error in form.weekdays.errors %}
+        <p class="av-field-error">{{ error }}</p>
+      {% endfor %}
+    </div>
+
+    {# ── Time range ───────────────────────────────────── #}
+    <div class="av-field">
+      <div class="av-row-2">
+        <div>
+          <label class="av-label" for="{{ form.start_time.id_for_label }}">{{ form.start_time.label }}</label>
+          <input class="av-input{% if form.start_time.errors %} av-input--error{% endif %}"
+                 type="time" id="{{ form.start_time.id_for_label }}" name="start_time"
+                 value="{{ form.start_time.value|default_if_none:'' }}">
+          {% for error in form.start_time.errors %}
+            <p class="av-field-error">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <span class="av-row-sep" aria-hidden="true">&ndash;</span>
+
+        <div>
+          <label class="av-label" for="{{ form.end_time.id_for_label }}">{{ form.end_time.label }}</label>
+          <input class="av-input{% if form.end_time.errors %} av-input--error{% endif %}"
+                 type="time" id="{{ form.end_time.id_for_label }}" name="end_time"
+                 value="{{ form.end_time.value|default_if_none:'' }}">
+          {% for error in form.end_time.errors %}
+            <p class="av-field-error">{{ error }}</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    {# ── Date range ───────────────────────────────────── #}
+    <div class="av-field">
+      <div class="av-row-2">
+        <div>
+          <label class="av-label" for="{{ form.date_from.id_for_label }}">{{ form.date_from.label }}</label>
+          <input class="av-input{% if form.date_from.errors %} av-input--error{% endif %}"
+                 type="date" id="{{ form.date_from.id_for_label }}" name="date_from"
+                 value="{{ form.date_from.value|default_if_none:'' }}"
+                 min="{{ form.fields.date_from.widget.attrs.min }}"
+                 max="{{ form.fields.date_from.widget.attrs.max }}">
+          {% for error in form.date_from.errors %}
+            <p class="av-field-error">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <span class="av-row-sep" aria-hidden="true">&ndash;</span>
+
+        <div>
+          <label class="av-label" for="{{ form.date_until.id_for_label }}">{{ form.date_until.label }}</label>
+          <input class="av-input{% if form.date_until.errors %} av-input--error{% endif %}"
+                 type="date" id="{{ form.date_until.id_for_label }}" name="date_until"
+                 value="{{ form.date_until.value|default_if_none:'' }}"
+                 min="{{ form.fields.date_until.widget.attrs.min }}"
+                 max="{{ form.fields.date_until.widget.attrs.max }}">
+          {% for error in form.date_until.errors %}
+            <p class="av-field-error">{{ error }}</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="av-note">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <circle cx="8" cy="8" r="6.5" stroke="#94a3b8" stroke-width="1.5"/>
+        <path d="M8 7v4" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="8" cy="5" r="0.75" fill="#94a3b8"/>
+      </svg>
+      One block is created per matching weekday. Blocks that overlap existing open hours for the selected staff member, or fall in the past, are skipped automatically. Maximum range: one year ahead.
+    </div>
+
+    <hr class="av-divider">
+
+    <button type="submit" class="av-submit">Create schedule</button>
+    <a href="{% url 'availability:list' %}" class="av-cancel">Cancel</a>
+  </form>
+</div>
+{% endblock %}

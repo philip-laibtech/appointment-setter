@@ -17,7 +17,7 @@
     h1 { font-size: 1.4rem; margin-bottom: 1.25rem; }
     .form-group { margin-bottom: 1rem; }
     label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.35rem; }
-    input[type=email], input[type=password], input[type=text] {
+    input[type=email], input[type=password], input[type=text], input[type=date], input[type=time] {
       width: 100%; padding: 0.55rem 0.75rem; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem;
     }
     input:focus { outline: 2px solid #3b82f6; border-color: transparent; }
@@ -36,6 +36,7 @@
     .info-table th { color: #666; font-weight: 600; width: 45%; }
     .link-muted { color: #888; font-size: 0.9rem; margin-top: 1rem; display: block; }
   </style>
+  {% block extra_style %}{% endblock %}
 </head>
 <body>
   <nav>
@@ -43,6 +44,9 @@
     <span class="spacer"></span>
     {% if user.is_authenticated %}
       <a href="{% url 'company_accounts:dashboard' %}">Dashboard</a>
+      <a href="{% url 'staff_members:list' %}">Staff</a>
+      <a href="{% url 'availability:list' %}">Open Hours</a>
+      <a href="{% url 'services:list' %}">Services</a>
       <form method="post" action="{% url 'company_accounts:logout' %}" style="margin:0">
         {% csrf_token %}
         <button type="submit" style="background:none;border:none;color:#555;cursor:pointer;font-size:0.95rem;padding:0;">Logout</button>

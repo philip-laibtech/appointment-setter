@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block title %}Remove Staff Member{% endblock %}
+
+{% block extra_style %}
+<style>
+  .sm-form-card {
+    background: #fff;
+    border: 1px solid #e4e4e7;
+    border-radius: 10px;
+    padding: 2rem;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .sm-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8125rem;
+    color: #6b7280;
+    text-decoration: none;
+    margin-bottom: 1.5rem;
+    transition: color 0.15s;
+  }
+  .sm-back:hover { color: #111; text-decoration: none; }
+  .sm-form-title { font-size: 1.375rem; font-weight: 700; color: #111; margin-bottom: 0.5rem; }
+  .sm-form-subtitle { font-size: 0.9rem; color: #374151; margin-bottom: 1.5rem; line-height: 1.55; }
+  .sm-warn {
+    background: #fef2f2;
+    border: 1px solid #fca5a5;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    color: #b91c1c;
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+  }
+  .sm-divider { border: none; border-top: 1px solid #f3f4f6; margin: 1.5rem 0; }
+  .sm-btn-row { display: flex; gap: 0.75rem; }
+  .sm-submit-danger {
+    flex: 1;
+    padding: 0.65rem;
+    background: #dc2626;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .sm-submit-danger:hover { background: #b91c1c; }
+  .sm-cancel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #374151;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1.5px solid #e4e4e7;
+    border-radius: 6px;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .sm-cancel:hover { border-color: #9ca3af; background: #f9fafb; text-decoration: none; }
+</style>
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'staff_members:list' %}" class="sm-back">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+    <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  Staff Members
+</a>
+
+<div class="sm-form-card">
+  <h1 class="sm-form-title">Remove "{{ member.name }}"?</h1>
+  <p class="sm-form-subtitle">
+    {% if member.appointment_slots.exists %}
+      This staff member has existing availability slots. They will be <strong>deactivated</strong>
+      (not permanently deleted) so their slots remain intact.
+    {% else %}
+      This will permanently delete the staff member. This action cannot be undone.
+    {% endif %}
+  </p>
+
+  {% if member.appointment_slots.exists %}
+  <div class="sm-warn">
+    Deactivating will hide them from new slot assignments but keep their existing slots.
+  </div>
+  {% endif %}
+
+  <hr class="sm-divider">
+
+  <form method="post" novalidate>
+    {% csrf_token %}
+    <div class="sm-btn-row">
+      <a href="{% url 'staff_members:list' %}" class="sm-cancel">Cancel</a>
+      <button type="submit" class="sm-submit-danger">
+        {% if member.appointment_slots.exists %}Deactivate{% else %}Delete{% endif %}
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}

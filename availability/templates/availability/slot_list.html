@@ -1,0 +1,361 @@
+{% extends "base.html" %}
+{% block title %}Open Hours — {{ user.business_name }}{% endblock %}
+
+{% block extra_style %}
+<style>
+  /* ── Layout ─────────────────────────────────────────── */
+  main { max-width: 820px; }
+
+  /* ── Page header ─────────────────────────────────────── */
+  .av-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .av-page-title {
+    font-size: 1.625rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0.2rem;
+  }
+  .av-page-subtitle {
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+  .av-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+  .av-add-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: #111;
+    color: #fff;
+    padding: 0.55rem 1.1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background 0.15s;
+  }
+  .av-add-btn:hover { background: #333; color: #fff; text-decoration: none; }
+  .av-outline-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: #fff;
+    color: #374151;
+    border: 1.5px solid #e4e4e7;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .av-outline-btn:hover { border-color: #9ca3af; background: #f9fafb; color: #111; text-decoration: none; }
+
+  /* ── Staff filter bar ────────────────────────────────── */
+  .av-filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+  }
+  .av-filter-label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #6b7280;
+  }
+  .av-filter-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.875rem;
+    border: 1.5px solid #e4e4e7;
+    border-radius: 999px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: #374151;
+    text-decoration: none;
+    background: #fff;
+    transition: border-color 0.12s, background 0.12s, color 0.12s;
+  }
+  .av-filter-pill:hover { border-color: #9ca3af; background: #f9fafb; color: #111; text-decoration: none; }
+  .av-filter-pill--active { background: #111; border-color: #111; color: #fff; }
+  .av-filter-pill--active:hover { background: #333; border-color: #333; color: #fff; }
+
+  /* ── Entry list ──────────────────────────────────────── */
+  .av-list {
+    border: 1px solid #e4e4e7;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .av-entry {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #f3f4f6;
+    border-left: 3px solid transparent;
+    cursor: pointer;
+    transition: background 0.1s;
+  }
+  .av-entry:last-child { border-bottom: none; }
+  .av-entry:hover { background: #f5f5f5; }
+  .av-entry--available { border-left-color: #22c55e; }
+  .av-entry--booked    { border-left-color: #3b82f6; }
+  .av-entry--blocked   { border-left-color: #ef4444; }
+
+  .av-entry-link {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .av-badge, .av-actions { position: relative; z-index: 1; }
+
+  .av-edit-hint {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: #9ca3af;
+    margin-left: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.15s;
+    white-space: nowrap;
+  }
+  .av-entry:hover .av-edit-hint { opacity: 1; }
+
+  /* ── Entry info ──────────────────────────────────────── */
+  .av-info { flex: 1; min-width: 0; }
+  .av-date {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: 0.2rem;
+  }
+  .av-time {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: #111;
+    letter-spacing: -0.01em;
+  }
+  .av-staff-name {
+    font-size: 0.8125rem;
+    color: #6b7280;
+    margin-top: 0.15rem;
+  }
+
+  /* ── Status badge ────────────────────────────────────── */
+  .av-badge {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 0.22rem 0.6rem;
+    border-radius: 999px;
+    flex-shrink: 0;
+  }
+  .av-badge--available { background: #f0fdf4; color: #15803d; }
+  .av-badge--booked    { background: #eff6ff; color: #1d4ed8; }
+  .av-badge--blocked   { background: #fef2f2; color: #b91c1c; }
+
+  /* ── Row actions ─────────────────────────────────────── */
+  .av-actions { display: flex; gap: 0.375rem; flex-shrink: 0; }
+
+  .av-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid #e4e4e7;
+    border-radius: 5px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    background: #fff;
+    color: #374151;
+    transition: border-color 0.15s, background 0.15s, color 0.15s;
+    line-height: 1.4;
+  }
+  .av-btn:hover {
+    border-color: #d1d5db;
+    background: #f9fafb;
+    color: #111;
+    text-decoration: none;
+  }
+  .av-btn--danger { color: #dc2626; }
+  .av-btn--danger:hover {
+    border-color: #fca5a5;
+    background: #fef2f2;
+    color: #b91c1c;
+  }
+
+  /* ── Empty state ─────────────────────────────────────── */
+  .av-empty {
+    background: #fff;
+    border: 1px solid #e4e4e7;
+    border-radius: 10px;
+    padding: 3.5rem 2rem;
+    text-align: center;
+  }
+  .av-empty-icon {
+    width: 48px;
+    height: 48px;
+    border: 2px solid #e4e4e7;
+    border-radius: 12px;
+    margin: 0 auto 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .av-empty-icon svg { display: block; }
+  .av-empty-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.4rem;
+  }
+  .av-empty-text {
+    font-size: 0.875rem;
+    color: #9ca3af;
+    margin-bottom: 1.5rem;
+  }
+  .av-empty-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: #111;
+    color: #fff;
+    padding: 0.55rem 1.25rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: background 0.15s;
+  }
+  .av-empty-cta:hover { background: #333; color: #fff; text-decoration: none; }
+
+  /* ── Responsive ──────────────────────────────────────── */
+  @media (max-width: 600px) {
+    .av-header { flex-direction: column; }
+    .av-header-actions { width: 100%; }
+    .av-add-btn, .av-outline-btn { flex: 1; justify-content: center; text-align: center; }
+
+    .av-entry {
+      flex-wrap: wrap;
+      row-gap: 0.75rem;
+    }
+    .av-info { flex-basis: 100%; }
+    .av-badge { order: 3; }
+    .av-actions { order: 4; }
+    .av-edit-hint { display: none; }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="av-header">
+  <div>
+    <h1 class="av-page-title">Open Hours</h1>
+    <p class="av-page-subtitle">Your upcoming availability for {{ user.business_name }}</p>
+  </div>
+  <div class="av-header-actions">
+    <a href="{% url 'availability:create_recurring' %}" class="av-outline-btn">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M2 8a6 6 0 1 0 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+        <path d="M2 4v4h4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Set recurring
+    </a>
+    <a href="{% url 'availability:create' %}" class="av-add-btn">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+        <path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      Add once
+    </a>
+  </div>
+</div>
+
+{% if staff_members %}
+<div class="av-filter-bar">
+  <span class="av-filter-label">Staff:</span>
+  <a href="{% url 'availability:list' %}"
+     class="av-filter-pill{% if not selected_staff %} av-filter-pill--active{% endif %}">All</a>
+  {% for member in staff_members %}
+    <a href="{% url 'availability:list' %}?staff={{ member.pk }}"
+       class="av-filter-pill{% if selected_staff.pk == member.pk %} av-filter-pill--active{% endif %}">
+      {{ member.name }}{% if not member.is_active %} (inactive){% endif %}
+    </a>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% if slots %}
+  <ul class="av-list" role="list">
+    {% for slot in slots %}
+      <li class="av-entry av-entry--{{ slot.status }}">
+        <a href="{% url 'availability:edit' slot.pk %}"
+           class="av-entry-link"
+           aria-label="Edit {{ slot.start_at|date:'D, j N Y' }} {{ slot.start_at|date:'H:i' }}–{{ slot.end_at|date:'H:i' }}"></a>
+
+        <div class="av-info">
+          <div class="av-date">{{ slot.start_at|date:"D, j N Y" }}</div>
+          <div class="av-time">
+            {{ slot.start_at|date:"H:i" }}&thinsp;&ndash;&thinsp;{{ slot.end_at|date:"H:i" }}
+            <span class="av-edit-hint">&#9998; Edit</span>
+          </div>
+          {% if slot.staff_member %}
+            <div class="av-staff-name">{{ slot.staff_member.name }}</div>
+          {% endif %}
+        </div>
+
+        <span class="av-badge av-badge--{{ slot.status }}">{{ slot.get_status_display }}</span>
+
+        <div class="av-actions">
+          <form method="post" action="{% url 'availability:delete' slot.pk %}" style="display:contents;">
+            {% csrf_token %}
+            <button type="submit" class="av-btn av-btn--danger"
+                    onclick="return confirm('Delete this entry?');">Delete</button>
+          </form>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <div class="av-empty">
+    <div class="av-empty-icon" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d1d5db" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="18" rx="2"/>
+        <path d="M16 2v4M8 2v4M3 10h18"/>
+      </svg>
+    </div>
+    <p class="av-empty-title">
+      {% if selected_staff %}No upcoming open hours for {{ selected_staff.name }}{% else %}No upcoming open hours{% endif %}
+    </p>
+    <p class="av-empty-text">
+      {% if selected_staff %}Try another staff member or add a new block.{% else %}Add a block to let customers know when you're available.{% endif %}
+    </p>
+    {% if not selected_staff %}
+    <a href="{% url 'availability:create' %}" class="av-empty-cta">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+        <path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      Add your first block
+    </a>
+    {% endif %}
+  </div>
+{% endif %}
+{% endblock %}
