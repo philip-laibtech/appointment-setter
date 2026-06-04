@@ -3,6 +3,7 @@ Claude.md
 PLANUNG.md
 .claude/
 docs/
+memory/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

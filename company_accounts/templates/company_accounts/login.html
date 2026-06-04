@@ -23,6 +23,7 @@
     {% endfor %}
     <button type="submit">Log in</button>
   </form>
+  <a class="link-muted" href="{% url 'company_accounts:password_reset' %}">Forgot your password?</a>
   <a class="link-muted" href="{% url 'company_accounts:register' %}">No account yet? Register</a>
 </div>
 {% endblock %}

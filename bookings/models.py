@@ -11,8 +11,10 @@ def _generate_public_token():
 
 class Booking(models.Model):
     class Status(models.TextChoices):
+        PENDING = "pending", "Pending"
         CONFIRMED = "confirmed", "Confirmed"
         CANCELLED = "cancelled", "Cancelled"
+        DECLINED = "declined", "Declined"
 
     company = models.ForeignKey(
         settings.AUTH_USER_MODEL,

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Choose a Day — {{ company.business_name }}{% endblock %}
+{% block title %}Choose a Time — {{ company.business_name }}{% endblock %}
 
 {% block extra_style %}
 <style>
@@ -11,7 +11,6 @@
   .bk-back:hover { color: #111; text-decoration: none; }
   .bk-company-label { font-size: 0.8125rem; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.3rem; }
   .bk-page-title { font-size: 1.25rem; font-weight: 700; color: #111; margin-bottom: 0.2rem; }
-  .bk-page-subtitle { font-size: 0.9rem; color: #6b7280; margin-bottom: 1.75rem; }
   .bk-summary {
     background: #f9fafb; border: 1px solid #e4e4e7; border-radius: 8px;
     padding: 0.875rem 1.125rem; font-size: 0.875rem; color: #374151;
@@ -19,22 +18,20 @@
   }
   .bk-summary-item strong { color: #111; }
 
-  .bk-day-grid {
+  .bk-time-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 0.6rem;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 0.55rem;
   }
-  .bk-day-btn {
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  .bk-time-btn {
+    display: flex; align-items: center; justify-content: center;
     background: #fff; border: 1px solid #e4e4e7; border-radius: 8px;
-    padding: 0.875rem 0.5rem; text-decoration: none; color: #111;
+    padding: 0.75rem 0.5rem; text-decoration: none;
+    font-size: 1rem; font-weight: 600; color: #111;
     transition: border-color 0.15s, box-shadow 0.15s;
     text-align: center;
   }
-  .bk-day-btn:hover { border-color: #111; box-shadow: 0 1px 4px rgba(0,0,0,0.07); text-decoration: none; }
-  .bk-day-weekday { font-size: 0.75rem; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.2rem; }
-  .bk-day-date { font-size: 1.0625rem; font-weight: 700; color: #111; }
-  .bk-day-month { font-size: 0.8125rem; color: #6b7280; margin-top: 0.1rem; }
+  .bk-time-btn:hover { border-color: #111; box-shadow: 0 1px 4px rgba(0,0,0,0.07); text-decoration: none; color: #111; }
 
   .bk-empty { background: #fff; border: 1px solid #e4e4e7; border-radius: 10px; padding: 2.5rem 2rem; text-align: center; }
   .bk-empty-title { font-size: 1rem; font-weight: 600; color: #374151; margin-bottom: 0.4rem; }
@@ -43,40 +40,33 @@
 {% endblock %}
 
 {% block content %}
-<a href="{% url 'bookings:service_select' company_slug=company.slug staff_id=staff_member.pk %}" class="bk-back">
+<a href="{% url 'bookings:any_slot_select' company_slug=company.slug service_id=service.pk %}" class="bk-back">
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
     <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
   Back
 </a>
 
-{% include "bookings/_booking_steps.html" with current_step=2 %}
-
 <p class="bk-company-label">{{ company.business_name }}</p>
-<h1 class="bk-page-title">Choose a day</h1>
+<h1 class="bk-page-title">{{ target_date|date:"l, j F Y" }}</h1>
 
 <div class="bk-summary">
-  {% if company.show_staff_names_publicly %}
-  <span class="bk-summary-item"><strong>With:</strong> {{ staff_member.name }}</span>
-  {% endif %}
   <span class="bk-summary-item"><strong>Service:</strong> {{ service.name }} ({{ service.duration_minutes }} min)</span>
 </div>
 
-{% if days %}
-  <div class="bk-day-grid">
-    {% for day in days %}
-      <a href="{% url 'bookings:time_select' company_slug=company.slug staff_id=staff_member.pk service_id=service.pk date=day|date:'Y-m-d' %}"
-         class="bk-day-btn">
-        <div class="bk-day-weekday">{{ day|date:"D" }}</div>
-        <div class="bk-day-date">{{ day|date:"j" }}</div>
-        <div class="bk-day-month">{{ day|date:"M Y" }}</div>
+{% if windows %}
+  <div class="bk-time-grid">
+    {% for window in windows %}
+      <a href="{% url 'bookings:any_book' company_slug=company.slug service_id=service.pk date=window|date:'Y-m-d' start_time=window|date:'H-i' %}"
+         class="bk-time-btn">
+        {{ window|date:"H:i" }}
       </a>
     {% endfor %}
   </div>
 {% else %}
   <div class="bk-empty">
-    <p class="bk-empty-title">No available days</p>
-    <p class="bk-empty-text">There are currently no open appointment slots. Please check back later.</p>
+    <p class="bk-empty-title">No times available</p>
+    <p class="bk-empty-text">All slots on this day are taken. Please choose a different day.</p>
   </div>
 {% endif %}
 {% endblock %}

@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block title %}Cancel Booking — {{ company.business_name }}{% endblock %}
+
+{% block extra_style %}
+<style>
+  main { max-width: 520px; }
+  .bk-cancel-card { background: #fff; border: 1px solid #e4e4e7; border-radius: 10px; padding: 2rem; }
+  .bk-cancel-badge {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: #fef2f2; color: #b91c1c;
+    font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; padding: 0.3rem 0.75rem; border-radius: 999px; margin-bottom: 1rem;
+  }
+  .bk-cancel-title { font-size: 1.25rem; font-weight: 700; color: #111; margin-bottom: 0.5rem; }
+  .bk-cancel-lead { font-size: 0.9rem; color: #6b7280; margin-bottom: 1.5rem; line-height: 1.6; }
+  .bk-detail-table { width: 100%; border-collapse: collapse; margin-bottom: 1.75rem; }
+  .bk-detail-table th, .bk-detail-table td { text-align: left; padding: 0.45rem 0; font-size: 0.9rem; border-bottom: 1px solid #f3f4f6; }
+  .bk-detail-table tr:last-child th, .bk-detail-table tr:last-child td { border-bottom: none; }
+  .bk-detail-table th { color: #6b7280; font-weight: 600; width: 40%; }
+  .bk-detail-table td { color: #111; }
+  .bk-btn-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .bk-confirm-cancel {
+    flex: 1; padding: 0.65rem 1rem; background: #dc2626; color: #fff;
+    border: none; border-radius: 6px; font-size: 0.9375rem; font-weight: 600;
+    cursor: pointer; text-align: center;
+  }
+  .bk-confirm-cancel:hover { background: #b91c1c; }
+  .bk-keep {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    padding: 0.65rem 1rem; background: #fff; color: #374151;
+    border: 1px solid #e4e4e7; border-radius: 6px; font-size: 0.9375rem;
+    font-weight: 600; text-decoration: none;
+  }
+  .bk-keep:hover { background: #f9fafb; border-color: #9ca3af; color: #111; text-decoration: none; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="bk-cancel-card">
+  <div class="bk-cancel-badge">
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+      <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M4 4l4 4M8 4l-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    Cancel booking
+  </div>
+
+  <h1 class="bk-cancel-title">Are you sure you want to cancel?</h1>
+  <p class="bk-cancel-lead">This action cannot be undone. Your time slot will be released and may be booked by someone else.</p>
+
+  <table class="bk-detail-table">
+    <tr><th>Company</th><td>{{ company.business_name }}</td></tr>
+    <tr><th>With</th><td>{{ booking.staff_member.name }}</td></tr>
+    <tr><th>Service</th><td>{{ booking.service_offering.name }}</td></tr>
+    <tr><th>Date</th><td>{{ booking.start_at|date:"l, j F Y" }}</td></tr>
+    <tr><th>Time</th><td>{{ booking.start_at|date:"H:i" }} – {{ booking.end_at|date:"H:i" }}</td></tr>
+  </table>
+
+  <div class="bk-btn-row">
+    <form method="post" style="flex:1;display:contents;">
+      {% csrf_token %}
+      <button type="submit" class="bk-confirm-cancel">Yes, cancel booking</button>
+    </form>
+    <a href="{% url 'bookings:confirmed' company_slug=company.slug public_token=booking.public_token %}" class="bk-keep">
+      Keep booking
+    </a>
+  </div>
+</div>
+{% endblock %}

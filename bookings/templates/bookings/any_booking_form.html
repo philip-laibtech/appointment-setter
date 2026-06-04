@@ -67,20 +67,19 @@
 {% endblock %}
 
 {% block content %}
-<a href="{% url 'bookings:time_select' company_slug=company.slug staff_id=staff_member.pk service_id=service.pk date=start_at|date:'Y-m-d' %}" class="bk-back">
+<a href="{% url 'bookings:any_time_select' company_slug=company.slug service_id=service.pk date=target_date|date:'Y-m-d' %}" class="bk-back">
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
     <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
   Back
 </a>
 
-{% include "bookings/_booking_steps.html" with current_step=4 %}
-
 <p class="bk-company-label">{{ company.business_name }}</p>
 <h1 class="bk-page-title">Complete your booking</h1>
 
 <div class="bk-summary">
   <table>
+    <tr><th>Booking type</th><td>Any Employee</td></tr>
     <tr><th>With</th><td>{{ staff_member.name }}</td></tr>
     <tr><th>Service</th><td>{{ service.name }}</td></tr>
     <tr><th>Duration</th><td>{{ service.duration_minutes }} min</td></tr>
@@ -183,7 +182,7 @@
     <hr class="bk-divider">
 
     <button type="submit" class="bk-submit">Confirm booking</button>
-    <a href="{% url 'bookings:time_select' company_slug=company.slug staff_id=staff_member.pk service_id=service.pk date=start_at|date:'Y-m-d' %}" class="bk-cancel">Cancel</a>
+    <a href="{% url 'bookings:any_time_select' company_slug=company.slug service_id=service.pk date=target_date|date:'Y-m-d' %}" class="bk-cancel">Cancel</a>
   </form>
 </div>
 {% endblock %}

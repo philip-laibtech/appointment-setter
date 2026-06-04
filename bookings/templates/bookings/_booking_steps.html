@@ -1,0 +1,75 @@
+{% comment %}
+  Include with: {% include "bookings/_booking_steps.html" with current_step=N %}
+  Steps: 1=Service  2=Date  3=Time  4=Your Details
+{% endcomment %}
+<style>
+  .bk-steps {
+    display: flex; align-items: center;
+    margin-bottom: 1.75rem;
+    overflow-x: auto; padding-bottom: 0.25rem;
+  }
+  .bk-step {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 0.3rem; flex-shrink: 0;
+  }
+  .bk-step-circle {
+    width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem; font-weight: 700;
+    border: 2px solid #e4e4e7;
+    background: #fff; color: #9ca3af;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+  }
+  .bk-step--active .bk-step-circle {
+    background: #111; border-color: #111; color: #fff;
+  }
+  .bk-step--done .bk-step-circle {
+    background: #f0fdf4; border-color: #86efac; color: #15803d;
+  }
+  .bk-step-label {
+    font-size: 0.6875rem; font-weight: 600; color: #9ca3af;
+    text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap;
+  }
+  .bk-step--active .bk-step-label { color: #111; }
+  .bk-step--done  .bk-step-label { color: #6b7280; }
+  .bk-step-line {
+    flex: 1; height: 2px; background: #e4e4e7;
+    min-width: 24px; margin-bottom: 1.15rem;
+  }
+</style>
+
+<nav class="bk-steps" aria-label="Booking steps">
+
+  <span class="bk-step {% if current_step == 1 %}bk-step--active{% elif current_step > 1 %}bk-step--done{% endif %}">
+    <span class="bk-step-circle">
+      {% if current_step > 1 %}<svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>{% else %}1{% endif %}
+    </span>
+    <span class="bk-step-label">Service</span>
+  </span>
+
+  <span class="bk-step-line" aria-hidden="true"></span>
+
+  <span class="bk-step {% if current_step == 2 %}bk-step--active{% elif current_step > 2 %}bk-step--done{% endif %}">
+    <span class="bk-step-circle">
+      {% if current_step > 2 %}<svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>{% else %}2{% endif %}
+    </span>
+    <span class="bk-step-label">Date</span>
+  </span>
+
+  <span class="bk-step-line" aria-hidden="true"></span>
+
+  <span class="bk-step {% if current_step == 3 %}bk-step--active{% elif current_step > 3 %}bk-step--done{% endif %}">
+    <span class="bk-step-circle">
+      {% if current_step > 3 %}<svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>{% else %}3{% endif %}
+    </span>
+    <span class="bk-step-label">Time</span>
+  </span>
+
+  <span class="bk-step-line" aria-hidden="true"></span>
+
+  <span class="bk-step {% if current_step == 4 %}bk-step--active{% elif current_step > 4 %}bk-step--done{% endif %}">
+    <span class="bk-step-circle">4</span>
+    <span class="bk-step-label">Your Details</span>
+  </span>
+
+</nav>

@@ -31,7 +31,15 @@
     flex-shrink: 0;
   }
   .bk-staff-name { font-size: 0.9375rem; font-weight: 600; }
+  .bk-staff-meta { font-size: 0.8125rem; color: #6b7280; margin-top: 0.1rem; }
+  .bk-staff-info { display: flex; flex-direction: column; }
   .bk-chevron { margin-left: auto; color: #9ca3af; }
+  .bk-item--any a { border-color: #e4e4e7; }
+  .bk-item--any .bk-avatar { background: #f0f9ff; color: #0369a1; font-size: 1.1rem; }
+  .bk-divider-label {
+    font-size: 0.75rem; color: #9ca3af; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 1rem 0 0.5rem; padding-left: 0.25rem;
+  }
 </style>
 {% endblock %}
 
@@ -40,12 +48,33 @@
 <h1 class="bk-page-title">Book an appointment</h1>
 <p class="bk-page-subtitle">Choose who you would like to book with.</p>
 
+{% if company.enable_any_employee_option %}
+<ul class="bk-list" role="list">
+  <li class="bk-item bk-item--any">
+    <a href="{% url 'bookings:any_service_select' company_slug=company.slug %}">
+      <div class="bk-avatar" aria-hidden="true">&#10022;</div>
+      <div class="bk-staff-info">
+        <span class="bk-staff-name">Any Employee</span>
+        <span class="bk-staff-meta">Fastest available appointment with any suitable staff member.</span>
+      </div>
+      <svg class="bk-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </li>
+</ul>
+
+<p class="bk-divider-label">Or choose a specific staff member</p>
+{% endif %}
+
 <ul class="bk-list" role="list">
   {% for member in staff_members %}
   <li class="bk-item">
     <a href="{% url 'bookings:service_select' company_slug=company.slug staff_id=member.pk %}">
       <div class="bk-avatar" aria-hidden="true">{{ member.name|slice:":1"|upper }}</div>
-      <span class="bk-staff-name">{{ member.name }}</span>
+      <div class="bk-staff-info">
+        <span class="bk-staff-name">{{ member.name }}</span>
+      </div>
       <svg class="bk-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
         <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>

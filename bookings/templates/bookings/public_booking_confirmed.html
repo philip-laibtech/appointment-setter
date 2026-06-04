@@ -1,5 +1,12 @@
 {% extends "base.html" %}
-{% block title %}Booking Confirmed — {{ company.business_name }}{% endblock %}
+{% block title %}
+  {% if booking.status == "confirmed" %}Booking Confirmed
+  {% elif booking.status == "pending" %}Booking Request Received
+  {% elif booking.status == "cancelled" %}Booking Cancelled
+  {% elif booking.status == "declined" %}Booking Declined
+  {% else %}Booking — {{ company.business_name }}
+  {% endif %} — {{ company.business_name }}
+{% endblock %}
 
 {% block extra_style %}
 <style>
@@ -7,10 +14,13 @@
   .bk-confirmed { background: #fff; border: 1px solid #e4e4e7; border-radius: 10px; padding: 2rem; }
   .bk-confirmed-badge {
     display: inline-flex; align-items: center; gap: 0.4rem;
-    background: #f0fdf4; color: #15803d;
     font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
     letter-spacing: 0.06em; padding: 0.3rem 0.75rem; border-radius: 999px; margin-bottom: 1rem;
   }
+  .bk-confirmed-badge--confirmed { background: #f0fdf4; color: #15803d; }
+  .bk-confirmed-badge--pending   { background: #fffbeb; color: #92400e; }
+  .bk-confirmed-badge--cancelled { background: #fef2f2; color: #b91c1c; }
+  .bk-confirmed-badge--declined  { background: #fef2f2; color: #b91c1c; }
   .bk-confirmed-title { font-size: 1.375rem; font-weight: 700; color: #111; margin-bottom: 1.5rem; }
   .bk-detail-table { width: 100%; border-collapse: collapse; }
   .bk-detail-table th, .bk-detail-table td { text-align: left; padding: 0.45rem 0; font-size: 0.9rem; border-bottom: 1px solid #f3f4f6; }
@@ -18,21 +28,57 @@
   .bk-detail-table th { color: #6b7280; font-weight: 600; width: 40%; }
   .bk-detail-table td { color: #111; }
   .bk-note { margin-top: 1.5rem; font-size: 0.8125rem; color: #9ca3af; line-height: 1.6; }
-  .bk-back-link { display: inline-block; margin-top: 1.5rem; color: #6b7280; font-size: 0.875rem; text-decoration: none; }
+  .bk-actions { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+  .bk-back-link { color: #6b7280; font-size: 0.875rem; text-decoration: none; }
   .bk-back-link:hover { color: #111; text-decoration: underline; }
+  .bk-cancel-link { color: #dc2626; font-size: 0.8125rem; text-decoration: none; }
+  .bk-cancel-link:hover { color: #b91c1c; text-decoration: underline; }
 </style>
 {% endblock %}
 
 {% block content %}
 <div class="bk-confirmed">
-  <div class="bk-confirmed-badge">
-    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-      <path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    Confirmed
-  </div>
 
-  <h1 class="bk-confirmed-title">Your booking is confirmed.</h1>
+  {% if booking.status == "confirmed" %}
+    <div class="bk-confirmed-badge bk-confirmed-badge--confirmed">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+        <path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Confirmed
+    </div>
+    <h1 class="bk-confirmed-title">Your booking is confirmed.</h1>
+
+  {% elif booking.status == "pending" %}
+    <div class="bk-confirmed-badge bk-confirmed-badge--pending">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+        <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M6 3.5v3l1.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Awaiting confirmation
+    </div>
+    <h1 class="bk-confirmed-title">Booking request received.</h1>
+
+  {% elif booking.status == "cancelled" %}
+    <div class="bk-confirmed-badge bk-confirmed-badge--cancelled">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+        <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M4 4l4 4M8 4l-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      Cancelled
+    </div>
+    <h1 class="bk-confirmed-title">This booking has been cancelled.</h1>
+
+  {% elif booking.status == "declined" %}
+    <div class="bk-confirmed-badge bk-confirmed-badge--declined">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+        <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M4 4l4 4M8 4l-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      Declined
+    </div>
+    <h1 class="bk-confirmed-title">This booking request was declined.</h1>
+
+  {% endif %}
 
   <table class="bk-detail-table">
     <tr><th>Company</th><td>{{ company.business_name }}</td></tr>
@@ -43,10 +89,26 @@
     <tr><th>Time</th><td>{{ booking.start_at|date:"H:i" }} – {{ booking.end_at|date:"H:i" }}</td></tr>
   </table>
 
-  <p class="bk-note">Please keep this page for your records. A confirmation reference is included in your URL.</p>
+  {% if booking.status == "confirmed" %}
+    <p class="bk-note">Please keep this page for your records. A confirmation reference is included in your URL.</p>
+  {% elif booking.status == "pending" %}
+    <p class="bk-note">Your appointment request has been submitted and is waiting for confirmation from {{ company.business_name }}. You will be notified once it is reviewed.</p>
+  {% elif booking.status == "cancelled" %}
+    <p class="bk-note">Your booking has been cancelled. The time slot is now available again.</p>
+  {% elif booking.status == "declined" %}
+    <p class="bk-note">Your appointment request could not be confirmed. Please contact {{ company.business_name }} or try a different time.</p>
+  {% endif %}
 
-  <a href="{% url 'bookings:entry' company_slug=company.slug %}" class="bk-back-link">
-    &larr; Back to booking
-  </a>
+  <div class="bk-actions">
+    <a href="{% url 'bookings:entry' company_slug=company.slug %}" class="bk-back-link">
+      &larr; Back to booking
+    </a>
+    {% if booking.status == "confirmed" %}
+      <a href="{% url 'bookings:cancel' company_slug=company.slug public_token=booking.public_token %}" class="bk-cancel-link">
+        Cancel this booking
+      </a>
+    {% endif %}
+  </div>
+
 </div>
 {% endblock %}

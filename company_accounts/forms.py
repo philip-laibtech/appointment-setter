@@ -1,3 +1,5 @@
+import zoneinfo
+
 from django.contrib.auth import password_validation
 from django.contrib.auth.forms import AuthenticationForm
 from django.core.exceptions import ValidationError
@@ -49,6 +51,46 @@ class CompanyRegistrationForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+
+class CompanySettingsForm(forms.ModelForm):
+    class Meta:
+        model = CompanyAccount
+        fields = (
+            "business_name",
+            "public_page_enabled",
+            "timezone",
+            "show_staff_names_publicly",
+            "enable_any_employee_option",
+            "booking_confirmation_mode",
+        )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["business_name"].error_messages["required"] = "Business name is required."
+
+    def clean_business_name(self):
+        name = self.cleaned_data.get("business_name", "").strip()
+        if not name:
+            raise ValidationError("Business name is required.")
+        return name
+
+    def clean_timezone(self):
+        tz = self.cleaned_data.get("timezone", "").strip()
+        try:
+            zoneinfo.ZoneInfo(tz)
+        except (zoneinfo.ZoneInfoNotFoundError, KeyError):
+            raise ValidationError(
+                "Enter a valid timezone identifier (e.g. Europe/Zurich)."
+            )
+        return tz
+
+    def clean_booking_confirmation_mode(self):
+        mode = self.cleaned_data.get("booking_confirmation_mode", "")
+        valid = {c[0] for c in CompanyAccount.BookingConfirmationMode.choices}
+        if mode not in valid:
+            raise ValidationError("Select a valid confirmation mode.")
+        return mode
 
 
 class CompanyLoginForm(AuthenticationForm):

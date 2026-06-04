@@ -7,6 +7,7 @@ class AppointmentSlot(models.Model):
         AVAILABLE = "available", "Available"
         BOOKED = "booked", "Booked"
         BLOCKED = "blocked", "Blocked"
+        PENDING_CONFIRMATION = "pending_confirmation", "Pending Confirmation"
 
     company = models.ForeignKey(
         settings.AUTH_USER_MODEL,

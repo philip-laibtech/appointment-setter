@@ -1,0 +1,285 @@
+{% extends "base.html" %}
+{% block title %}Company Settings — {{ company.business_name }}{% endblock %}
+
+{% block extra_style %}
+<style>
+  main { max-width: 640px; }
+
+  .st-page-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0.25rem;
+  }
+  .st-page-sub {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-bottom: 2rem;
+  }
+
+  .st-section {
+    background: #fff;
+    border: 1px solid #e4e4e7;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .st-section-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #9ca3af;
+    margin-bottom: 1.25rem;
+  }
+
+  .st-field { margin-bottom: 1.25rem; }
+  .st-field:last-of-type { margin-bottom: 0; }
+  .st-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.35rem;
+  }
+  .st-input {
+    width: 100%;
+    padding: 0.55rem 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 0.9375rem;
+    color: #111;
+    background: #fff;
+  }
+  .st-input:focus { outline: 2px solid #3b82f6; border-color: transparent; }
+  .st-hint {
+    font-size: 0.8125rem;
+    color: #9ca3af;
+    margin-top: 0.3rem;
+  }
+  .st-field-errors {
+    color: #b91c1c;
+    font-size: 0.8125rem;
+    margin-top: 0.3rem;
+  }
+
+  .st-checkbox-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  .st-checkbox-row:last-of-type { margin-bottom: 0; }
+  .st-checkbox-row input[type=checkbox] {
+    margin-top: 0.15rem;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  .st-checkbox-label { font-size: 0.9rem; color: #374151; cursor: pointer; }
+  .st-checkbox-hint { font-size: 0.8rem; color: #9ca3af; margin-top: 0.1rem; }
+
+  .st-readonly {
+    background: #f9fafb;
+    border: 1px solid #e4e4e7;
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .st-readonly-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #9ca3af;
+    margin-bottom: 0.875rem;
+  }
+  .st-readonly-row {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 0.875rem;
+  }
+  .st-readonly-row:last-child { border-bottom: none; }
+  .st-readonly-key { color: #6b7280; font-weight: 500; width: 130px; flex-shrink: 0; }
+  .st-readonly-val { color: #111; word-break: break-all; }
+  .st-readonly-link { color: #2563eb; text-decoration: none; }
+  .st-readonly-link:hover { text-decoration: underline; }
+
+  .st-save-btn {
+    padding: 0.65rem 1.75rem;
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .st-save-btn:hover { background: #333; }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<h1 class="st-page-title">Company Settings</h1>
+<p class="st-page-sub">Manage your business profile and public booking page.</p>
+
+<form method="post" novalidate>
+  {% csrf_token %}
+
+  <div class="st-section">
+    <p class="st-section-title">Business Details</p>
+
+    <div class="st-field">
+      <label class="st-label" for="{{ form.business_name.id_for_label }}">Business name</label>
+      <input
+        class="st-input"
+        type="text"
+        id="{{ form.business_name.id_for_label }}"
+        name="{{ form.business_name.html_name }}"
+        value="{{ form.business_name.value|default:'' }}"
+        maxlength="255"
+        required
+      >
+      {% if form.business_name.errors %}
+        <div class="st-field-errors">
+          {% for error in form.business_name.errors %}{{ error }}{% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="st-field">
+      <label class="st-label" for="{{ form.timezone.id_for_label }}">Timezone</label>
+      <input
+        class="st-input"
+        type="text"
+        id="{{ form.timezone.id_for_label }}"
+        name="{{ form.timezone.html_name }}"
+        value="{{ form.timezone.value|default:'' }}"
+        maxlength="64"
+        placeholder="e.g. Europe/Zurich"
+      >
+      <p class="st-hint">Use a standard timezone name such as <em>Europe/Zurich</em>, <em>America/New_York</em>, or <em>UTC</em>.</p>
+      {% if form.timezone.errors %}
+        <div class="st-field-errors">
+          {% for error in form.timezone.errors %}{{ error }}{% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="st-section">
+    <p class="st-section-title">Public Booking Page</p>
+
+    <div class="st-checkbox-row">
+      <input
+        type="checkbox"
+        id="{{ form.public_page_enabled.id_for_label }}"
+        name="{{ form.public_page_enabled.html_name }}"
+        {% if form.public_page_enabled.value %}checked{% endif %}
+      >
+      <div>
+        <label class="st-checkbox-label" for="{{ form.public_page_enabled.id_for_label }}">Public booking page enabled</label>
+        <p class="st-checkbox-hint">When disabled, customers cannot access your booking page.</p>
+        {% if form.public_page_enabled.errors %}
+          <div class="st-field-errors">
+            {% for error in form.public_page_enabled.errors %}{{ error }}{% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="st-checkbox-row">
+      <input
+        type="checkbox"
+        id="{{ form.show_staff_names_publicly.id_for_label }}"
+        name="{{ form.show_staff_names_publicly.html_name }}"
+        {% if form.show_staff_names_publicly.value %}checked{% endif %}
+      >
+      <div>
+        <label class="st-checkbox-label" for="{{ form.show_staff_names_publicly.id_for_label }}">Show staff names publicly</label>
+        <p class="st-checkbox-hint">When disabled, staff member names are hidden on public booking pages.</p>
+        {% if form.show_staff_names_publicly.errors %}
+          <div class="st-field-errors">
+            {% for error in form.show_staff_names_publicly.errors %}{{ error }}{% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="st-checkbox-row">
+      <input
+        type="checkbox"
+        id="{{ form.enable_any_employee_option.id_for_label }}"
+        name="{{ form.enable_any_employee_option.html_name }}"
+        {% if form.enable_any_employee_option.value %}checked{% endif %}
+      >
+      <div>
+        <label class="st-checkbox-label" for="{{ form.enable_any_employee_option.id_for_label }}">Enable "Any Employee" option</label>
+        <p class="st-checkbox-hint">When enabled and you have multiple staff members, customers can book the first available appointment with any staff member.</p>
+        {% if form.enable_any_employee_option.errors %}
+          <div class="st-field-errors">
+            {% for error in form.enable_any_employee_option.errors %}{{ error }}{% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="st-section">
+    <p class="st-section-title">Booking Confirmation</p>
+    <div class="st-field">
+      <label class="st-label" for="{{ form.booking_confirmation_mode.id_for_label }}">Confirmation mode</label>
+      <select
+        class="st-input"
+        id="{{ form.booking_confirmation_mode.id_for_label }}"
+        name="{{ form.booking_confirmation_mode.html_name }}"
+      >
+        {% for value, label in form.booking_confirmation_mode.field.choices %}
+          <option value="{{ value }}"{% if form.booking_confirmation_mode.value == value %} selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+      <p class="st-hint">
+        <strong>Automatic:</strong> bookings are confirmed immediately when a customer submits the form.<br>
+        <strong>Manual:</strong> booking requests must be reviewed and approved before they are confirmed.
+      </p>
+      {% if form.booking_confirmation_mode.errors %}
+        <div class="st-field-errors">
+          {% for error in form.booking_confirmation_mode.errors %}{{ error }}{% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if form.non_field_errors %}
+    <div class="st-field-errors" style="margin-bottom:1rem;">
+      {% for error in form.non_field_errors %}{{ error }}<br>{% endfor %}
+    </div>
+  {% endif %}
+
+  <button type="submit" class="st-save-btn">Save settings</button>
+
+</form>
+
+<div class="st-readonly" style="margin-top:1.5rem;">
+  <p class="st-readonly-title">Account Information</p>
+  <div class="st-readonly-row">
+    <span class="st-readonly-key">Account email</span>
+    <span class="st-readonly-val">{{ company.email }}</span>
+  </div>
+  <div class="st-readonly-row">
+    <span class="st-readonly-key">Slug</span>
+    <span class="st-readonly-val">{{ company.slug }}</span>
+  </div>
+  <div class="st-readonly-row">
+    <span class="st-readonly-key">Public booking link</span>
+    <span class="st-readonly-val">
+      <a href="{% url 'bookings:entry' company_slug=company.slug %}" class="st-readonly-link" target="_blank" rel="noopener">/b/{{ company.slug }}/</a>
+    </span>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Page Not Found{% endblock %}
+
+{% block extra_style %}
+<style>
+  .error-card {
+    background: #fff;
+    border: 1px solid #e4e4e7;
+    border-radius: 10px;
+    padding: 3rem 2rem;
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .error-code {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #e4e4e7;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .error-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0.75rem;
+  }
+  .error-text {
+    font-size: 0.9rem;
+    color: #6b7280;
+    line-height: 1.6;
+    margin-bottom: 1.75rem;
+  }
+  .error-home {
+    display: inline-block;
+    padding: 0.6rem 1.25rem;
+    background: #111;
+    color: #fff;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .error-home:hover { background: #333; text-decoration: none; color: #fff; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="error-card">
+  <p class="error-code">404</p>
+  <h1 class="error-title">Page not found</h1>
+  <p class="error-text">The page you're looking for doesn't exist or has been moved.</p>
+  <a href="/" class="error-home">Go to homepage</a>
+</div>
+{% endblock %}

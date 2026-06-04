@@ -47,11 +47,15 @@
   Back
 </a>
 
+{% include "bookings/_booking_steps.html" with current_step=3 %}
+
 <p class="bk-company-label">{{ company.business_name }}</p>
 <h1 class="bk-page-title">{{ target_date|date:"l, j F Y" }}</h1>
 
 <div class="bk-summary">
+  {% if company.show_staff_names_publicly %}
   <span class="bk-summary-item"><strong>With:</strong> {{ staff_member.name }}</span>
+  {% endif %}
   <span class="bk-summary-item"><strong>Service:</strong> {{ service.name }} ({{ service.duration_minutes }} min)</span>
 </div>
 

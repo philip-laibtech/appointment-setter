@@ -64,11 +64,11 @@
 {% endblock %}
 
 {% block content %}
-<a href="{% url 'services:list' %}" class="sv-back">
+<a href="{% url 'services:edit' service.pk %}" class="sv-back">
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
     <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
-  Services
+  Edit Service
 </a>
 
 <div class="sv-form-card">
@@ -87,7 +87,7 @@
   <form method="post" novalidate>
     {% csrf_token %}
     <div class="sv-btn-row">
-      <a href="{% url 'services:list' %}" class="sv-cancel">Cancel</a>
+      <a href="{% url 'services:edit' service.pk %}" class="sv-cancel">Cancel</a>
       <button type="submit" class="sv-submit-danger">Deactivate</button>
     </div>
   </form>

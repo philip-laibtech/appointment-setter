@@ -11,7 +11,6 @@
   .bk-back:hover { color: #111; text-decoration: none; }
   .bk-company-label { font-size: 0.8125rem; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.3rem; }
   .bk-page-title { font-size: 1.25rem; font-weight: 700; color: #111; margin-bottom: 0.2rem; }
-  .bk-page-subtitle { font-size: 0.9rem; color: #6b7280; margin-bottom: 1.75rem; }
   .bk-summary {
     background: #f9fafb; border: 1px solid #e4e4e7; border-radius: 8px;
     padding: 0.875rem 1.125rem; font-size: 0.875rem; color: #374151;
@@ -43,29 +42,24 @@
 {% endblock %}
 
 {% block content %}
-<a href="{% url 'bookings:service_select' company_slug=company.slug staff_id=staff_member.pk %}" class="bk-back">
+<a href="{% url 'bookings:any_service_select' company_slug=company.slug %}" class="bk-back">
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
     <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
   Back
 </a>
 
-{% include "bookings/_booking_steps.html" with current_step=2 %}
-
 <p class="bk-company-label">{{ company.business_name }}</p>
 <h1 class="bk-page-title">Choose a day</h1>
 
 <div class="bk-summary">
-  {% if company.show_staff_names_publicly %}
-  <span class="bk-summary-item"><strong>With:</strong> {{ staff_member.name }}</span>
-  {% endif %}
   <span class="bk-summary-item"><strong>Service:</strong> {{ service.name }} ({{ service.duration_minutes }} min)</span>
 </div>
 
 {% if days %}
   <div class="bk-day-grid">
     {% for day in days %}
-      <a href="{% url 'bookings:time_select' company_slug=company.slug staff_id=staff_member.pk service_id=service.pk date=day|date:'Y-m-d' %}"
+      <a href="{% url 'bookings:any_time_select' company_slug=company.slug service_id=service.pk date=day|date:'Y-m-d' %}"
          class="bk-day-btn">
         <div class="bk-day-weekday">{{ day|date:"D" }}</div>
         <div class="bk-day-date">{{ day|date:"j" }}</div>

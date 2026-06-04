@@ -40,17 +40,15 @@
   Back
 </a>
 
-{% include "bookings/_booking_steps.html" with current_step=1 %}
-
 <p class="bk-company-label">{{ company.business_name }}</p>
-<h1 class="bk-staff-header">{{ staff_member.name }}</h1>
+<h1 class="bk-staff-header">Any Employee</h1>
 <p class="bk-page-subtitle">Choose a service to book.</p>
 
 {% if services %}
   <ul class="bk-list" role="list">
     {% for service in services %}
     <li class="bk-item">
-      <a href="{% url 'bookings:slot_select' company_slug=company.slug staff_id=staff_member.pk service_id=service.pk %}">
+      <a href="{% url 'bookings:any_slot_select' company_slug=company.slug service_id=service.pk %}">
         <div class="bk-service-info">
           <div class="bk-service-name">{{ service.name }}</div>
           <div class="bk-service-meta">
@@ -68,7 +66,7 @@
 {% else %}
   <div class="bk-empty">
     <p class="bk-empty-title">No services available</p>
-    <p class="bk-empty-text">There are currently no services available for this staff member.</p>
+    <p class="bk-empty-text">There are currently no services available.</p>
   </div>
 {% endif %}
 {% endblock %}

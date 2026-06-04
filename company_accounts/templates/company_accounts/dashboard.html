@@ -1,49 +1,660 @@
 {% extends "base.html" %}
 {% block title %}Dashboard — {{ company.business_name }}{% endblock %}
+
+{% block extra_style %}
+<style>
+  main { max-width: 900px; }
+
+  .db-welcome {
+    margin-bottom: 2rem;
+  }
+  .db-welcome-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #9ca3af;
+    margin-bottom: 0.3rem;
+  }
+  .db-welcome-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.2;
+  }
+  .db-welcome-sub {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-top: 0.35rem;
+  }
+
+  /* Stats row */
+  .db-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .db-stat {
+    background: #fff;
+    border: 1px solid #e4e4e7;
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+  }
+  .db-stat-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #9ca3af;
+    margin-bottom: 0.5rem;
+  }
+  .db-stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+  .db-stat-sub {
+    font-size: 0.8rem;
+    color: #6b7280;
+  }
+
+  /* Booking links row */
+  .db-links-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: start;
+  }
+
+  /* General booking link card */
+  .db-link-card {
+    background: #fff;
+    border: 1px solid #e4e4e7;
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+  .db-link-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .db-link-body { flex: 1; min-width: 0; }
+  .db-link-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #9ca3af;
+    margin-bottom: 0.3rem;
+  }
+  .db-link-url {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #111;
+    word-break: break-all;
+    margin-bottom: 0.35rem;
+  }
+  .db-link-hint { font-size: 0.8125rem; color: #6b7280; }
+  .db-link-actions { display: flex; gap: 0.5rem; margin-top: 0.875rem; flex-wrap: wrap; }
+  .db-link-copy {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.9rem;
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .db-link-copy:hover { background: #333; }
+  .db-link-open {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.9rem;
+    background: #fff;
+    color: #374151;
+    border: 1px solid #e4e4e7;
+    border-radius: 6px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .db-link-open:hover { border-color: #9ca3af; background: #f9fafb; color: #111; text-decoration: none; }
+  .db-link-inactive {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #9ca3af;
+    background: #f3f4f6;
+    border-radius: 999px;
+    padding: 0.2rem 0.65rem;
+    margin-left: 0.5rem;
+  }
+
+  /* Staff personal links card */
+  .db-staff-links-card {
+    background: #fff;
+    border: 1px solid #e4e4e7;
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .db-staff-links-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.875rem;
+    flex-shrink: 0;
+  }
+  .db-staff-links-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #9ca3af;
+  }
+  .db-staff-links-hint {
+    font-size: 0.75rem;
+    color: #9ca3af;
+  }
+  .db-staff-links-scroll {
+    overflow-y: auto;
+    max-height: 210px;
+    margin: 0 -1.5rem;
+    padding: 0 1.5rem;
+  }
+  .db-staff-links-scroll::-webkit-scrollbar { width: 4px; }
+  .db-staff-links-scroll::-webkit-scrollbar-track { background: transparent; }
+  .db-staff-links-scroll::-webkit-scrollbar-thumb { background: #e4e4e7; border-radius: 2px; }
+  .db-staff-link-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.875rem 0;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  .db-staff-link-row:last-child { border-bottom: none; padding-bottom: 1.25rem; }
+  .db-staff-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #374151;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+  .db-staff-link-info { flex: 1; min-width: 0; }
+  .db-staff-link-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 0.1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .db-staff-link-url {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    margin-bottom: 0.55rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .db-staff-link-actions { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .db-staff-links-empty {
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 0.8125rem;
+    color: #9ca3af;
+  }
+
+  /* Quick nav */
+  .db-nav-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #9ca3af;
+    margin-bottom: 0.75rem;
+  }
+  .db-nav-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .db-nav-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: #fff;
+    border: 1px solid #e4e4e7;
+    border-radius: 10px;
+    padding: 1.25rem;
+    text-decoration: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    position: relative;
+  }
+  .db-nav-card:hover { border-color: #9ca3af; box-shadow: 0 2px 8px rgba(0,0,0,0.06); text-decoration: none; }
+  .db-nav-card-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.25rem;
+  }
+  .db-nav-card-name {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #111;
+  }
+  .db-nav-card-desc {
+    font-size: 0.8rem;
+    color: #6b7280;
+    line-height: 1.4;
+  }
+  .db-nav-card-arrow {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    color: #d1d5db;
+  }
+
+  /* Upcoming bookings */
+  .db-bookings-card {
+    background: #fff;
+    border: 1px solid #e4e4e7;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+  .db-bookings-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem 0.875rem;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  .db-bookings-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #9ca3af;
+  }
+  .db-bookings-count {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #9ca3af;
+  }
+  .db-bookings-scroll {
+    overflow-y: auto;
+    max-height: 280px;
+  }
+  .db-bookings-scroll::-webkit-scrollbar { width: 4px; }
+  .db-bookings-scroll::-webkit-scrollbar-track { background: transparent; }
+  .db-bookings-scroll::-webkit-scrollbar-thumb { background: #e4e4e7; border-radius: 2px; }
+  .db-booking-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.875rem 1.5rem;
+    border-bottom: 1px solid #f9fafb;
+  }
+  .db-booking-row:last-child { border-bottom: none; }
+  .db-booking-date-col {
+    flex-shrink: 0;
+    width: 52px;
+    text-align: center;
+    background: #f9fafb;
+    border: 1px solid #f3f4f6;
+    border-radius: 6px;
+    padding: 0.3rem 0.25rem;
+  }
+  .db-booking-day {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #111;
+    line-height: 1;
+  }
+  .db-booking-month {
+    font-size: 0.625rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    margin-top: 0.1rem;
+  }
+  .db-booking-info { flex: 1; min-width: 0; }
+  .db-booking-customer {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #111;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0.15rem;
+  }
+  .db-booking-meta {
+    font-size: 0.8rem;
+    color: #6b7280;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .db-booking-time {
+    flex-shrink: 0;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #374151;
+    text-align: right;
+  }
+  .db-bookings-empty {
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    font-size: 0.875rem;
+    color: #9ca3af;
+  }
+
+  /* Info section */
+  .db-info {
+    background: #fff;
+    border: 1px solid #e4e4e7;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .db-info-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #9ca3af;
+    margin-bottom: 1rem;
+  }
+  .db-info-row {
+    display: flex;
+    gap: 1rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 0.875rem;
+  }
+  .db-info-row:last-child { border-bottom: none; }
+  .db-info-key { color: #6b7280; font-weight: 500; width: 140px; flex-shrink: 0; }
+  .db-info-val { color: #111; flex: 1; word-break: break-all; }
+
+  @media (max-width: 700px) {
+    .db-stats { grid-template-columns: 1fr 1fr; }
+    .db-stats .db-stat:last-child { grid-column: span 2; }
+    .db-nav-grid { grid-template-columns: 1fr; }
+    .db-links-row { grid-template-columns: 1fr; }
+    .db-link-card { flex-direction: column; }
+    .db-staff-links-scroll { max-height: 180px; }
+  }
+</style>
+{% endblock %}
+
 {% block content %}
-<div class="card">
-  <h1>Company Dashboard</h1>
-  <table class="info-table">
-    <tr>
-      <th>Company name</th>
-      <td>{{ company.business_name }}</td>
-    </tr>
-    <tr>
-      <th>Email</th>
-      <td>{{ company.email }}</td>
-    </tr>
-    <tr>
-      <th>Slug</th>
-      <td>{{ company.slug }}</td>
-    </tr>
-    <tr>
-      <th>Public page active</th>
-      <td>{% if company.public_page_enabled %}Yes{% else %}No{% endif %}</td>
-    </tr>
-    <tr>
-      <th>Public booking link</th>
-      <td>
-        <a href="{% url 'bookings:entry' company_slug=company.slug %}" style="color:#3b82f6;word-break:break-all;">/b/{{ company.slug }}/</a>
-        <p style="font-size:0.8rem;color:#9ca3af;margin-top:0.2rem;">Share this link with customers to let them book appointments.</p>
-      </td>
-    </tr>
-    <tr>
-      <th>Timezone</th>
-      <td>{{ company.timezone }}</td>
-    </tr>
-    <tr>
-      <th>Created at</th>
-      <td>{{ company.created_at|date:"Y-m-d H:i" }}</td>
-    </tr>
-    <tr>
-      <th>Last updated</th>
-      <td>{{ company.updated_at|date:"Y-m-d H:i" }}</td>
-    </tr>
-  </table>
-  <div style="margin-top:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap;">
-    <a href="{% url 'staff_members:list' %}" style="color:#111;font-size:0.95rem;">Manage staff &rarr;</a>
-    <a href="{% url 'availability:list' %}" style="color:#111;font-size:0.95rem;">Manage availability &rarr;</a>
-    <a href="{% url 'services:list' %}" style="color:#111;font-size:0.95rem;">Manage services &rarr;</a>
+
+<div class="db-welcome">
+  <p class="db-welcome-eyebrow">Dashboard</p>
+  <h1 class="db-welcome-title">{{ company.business_name }}</h1>
+  <p class="db-welcome-sub">{{ company.email }}</p>
+</div>
+
+<div class="db-stats">
+  <div class="db-stat">
+    <div class="db-stat-label">Staff Members</div>
+    <div class="db-stat-value">{{ staff_active }}</div>
+    <div class="db-stat-sub">{{ staff_total }} total</div>
+  </div>
+  <div class="db-stat">
+    <div class="db-stat-label">Services</div>
+    <div class="db-stat-value">{{ service_active }}</div>
+    <div class="db-stat-sub">{{ service_total }} total</div>
+  </div>
+  <div class="db-stat">
+    <div class="db-stat-label">Public Page</div>
+    <div class="db-stat-value" style="font-size:1.1rem;padding-top:0.45rem;">
+      {% if company.public_page_enabled %}
+        <span style="color:#15803d;">Active</span>
+      {% else %}
+        <span style="color:#9ca3af;">Inactive</span>
+      {% endif %}
+    </div>
+    <div class="db-stat-sub">Timezone: {{ company.timezone }}</div>
   </div>
 </div>
+
+<div class="db-bookings-card">
+  <div class="db-bookings-header">
+    <span class="db-bookings-title">Upcoming Bookings</span>
+    <span class="db-bookings-count">
+      {% if upcoming_count > 15 %}15 of {{ upcoming_count }} shown{% elif upcoming_count == 1 %}1 booking{% else %}{{ upcoming_count }} bookings{% endif %}
+    </span>
+  </div>
+  <div class="db-bookings-scroll">
+    {% if upcoming_bookings %}
+      {% for booking in upcoming_bookings %}
+        <div class="db-booking-row">
+          <div class="db-booking-date-col">
+            <div class="db-booking-day">{{ booking.start_at|date:"j" }}</div>
+            <div class="db-booking-month">{{ booking.start_at|date:"M" }}</div>
+          </div>
+          <div class="db-booking-info">
+            <div class="db-booking-customer">{{ booking.customer_first_name }} {{ booking.customer_last_name }}</div>
+            <div class="db-booking-meta">{{ booking.service_offering.name }} &middot; {{ booking.staff_member.name }}</div>
+          </div>
+          <div class="db-booking-time">{{ booking.start_at|date:"H:i" }}</div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="db-bookings-empty">No upcoming confirmed bookings.</div>
+    {% endif %}
+  </div>
+</div>
+
+<div class="db-links-row">
+
+  <div class="db-link-card">
+    <div class="db-link-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+      </svg>
+    </div>
+    <div class="db-link-body">
+      <div class="db-link-label">
+        Booking Link
+        {% if not company.public_page_enabled %}
+          <span class="db-link-inactive">Page disabled</span>
+        {% endif %}
+      </div>
+      <div class="db-link-url" id="booking-url">/b/{{ company.slug }}/</div>
+      <div class="db-link-hint">Share this with customers so they can book appointments online.</div>
+      <div class="db-link-actions">
+        <button class="db-link-copy" onclick="copyBookingLink(this)" type="button">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="9" y="9" width="13" height="13" rx="2"/>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+          </svg>
+          <span>Copy link</span>
+        </button>
+        <a href="{% url 'bookings:entry' company_slug=company.slug %}" class="db-link-open" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+          Open page
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="db-staff-links-card">
+    <div class="db-staff-links-header">
+      <span class="db-staff-links-title">Staff Links</span>
+      <span class="db-staff-links-hint">Employee pre-selected</span>
+    </div>
+    <div class="db-staff-links-scroll">
+      {% if staff_members %}
+        {% for member in staff_members %}
+          <div class="db-staff-link-row">
+            <div class="db-staff-avatar" aria-hidden="true">{{ member.name|slice:":1"|upper }}</div>
+            <div class="db-staff-link-info">
+              <div class="db-staff-link-name">{{ member.name }}</div>
+              <div class="db-staff-link-url">/b/{{ company.slug }}/staff/{{ member.pk }}/services/</div>
+              <div class="db-staff-link-actions">
+                <button class="db-link-copy" type="button"
+                  onclick="copyStaffLink(this, '/b/{{ company.slug }}/staff/{{ member.pk }}/services/')">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="9" y="9" width="13" height="13" rx="2"/>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                  </svg>
+                  <span>Copy link</span>
+                </button>
+                <a href="{% url 'bookings:service_select' company_slug=company.slug staff_id=member.pk %}"
+                   class="db-link-open" target="_blank" rel="noopener">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                  Open page
+                </a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="db-staff-links-empty">No active staff members yet.</div>
+      {% endif %}
+    </div>
+  </div>
+
+</div>
+
+<p class="db-nav-title">Manage</p>
+<div class="db-nav-grid">
+  <a href="{% url 'staff_members:list' %}" class="db-nav-card">
+    <div class="db-nav-card-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+      </svg>
+    </div>
+    <div class="db-nav-card-name">Staff Members</div>
+    <div class="db-nav-card-desc">Add and manage people assignable to bookings.</div>
+    <svg class="db-nav-card-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+  <a href="{% url 'availability:list' %}" class="db-nav-card">
+    <div class="db-nav-card-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+      </svg>
+    </div>
+    <div class="db-nav-card-name">Open Hours</div>
+    <div class="db-nav-card-desc">Define when staff are available for appointments.</div>
+    <svg class="db-nav-card-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+  <a href="{% url 'services:list' %}" class="db-nav-card">
+    <div class="db-nav-card-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div class="db-nav-card-name">Services</div>
+    <div class="db-nav-card-desc">Configure what offerings customers can book.</div>
+    <svg class="db-nav-card-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+  <a href="{% url 'company_accounts:settings' %}" class="db-nav-card">
+    <div class="db-nav-card-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+      </svg>
+    </div>
+    <div class="db-nav-card-name">Settings</div>
+    <div class="db-nav-card-desc">Update business name, timezone, and booking page options.</div>
+    <svg class="db-nav-card-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+</div>
+
+<div class="db-info">
+  <div class="db-info-title">Account Details</div>
+  <div class="db-info-row">
+    <span class="db-info-key">Slug</span>
+    <span class="db-info-val">{{ company.slug }}</span>
+  </div>
+  <div class="db-info-row">
+    <span class="db-info-key">Timezone</span>
+    <span class="db-info-val">{{ company.timezone }}</span>
+  </div>
+  <div class="db-info-row">
+    <span class="db-info-key">Created</span>
+    <span class="db-info-val">{{ company.created_at|date:"Y-m-d" }}</span>
+  </div>
+  <div class="db-info-row">
+    <span class="db-info-key">Last updated</span>
+    <span class="db-info-val">{{ company.updated_at|date:"Y-m-d H:i" }}</span>
+  </div>
+</div>
+
+<script>
+function copyBookingLink(btn) {
+  const path = document.getElementById('booking-url').textContent.trim();
+  const url = window.location.origin + path;
+  navigator.clipboard.writeText(url).then(function() {
+    const span = btn.querySelector('span');
+    span.textContent = 'Copied!';
+    setTimeout(function() { span.textContent = 'Copy link'; }, 2000);
+  });
+}
+function copyStaffLink(btn, path) {
+  const url = window.location.origin + path;
+  navigator.clipboard.writeText(url).then(function() {
+    const span = btn.querySelector('span');
+    span.textContent = 'Copied!';
+    setTimeout(function() { span.textContent = 'Copy link'; }, 2000);
+  });
+}
+</script>
 {% endblock %}

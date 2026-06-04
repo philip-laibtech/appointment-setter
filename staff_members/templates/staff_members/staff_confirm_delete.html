@@ -67,11 +67,11 @@
 {% endblock %}
 
 {% block content %}
-<a href="{% url 'staff_members:list' %}" class="sm-back">
+<a href="{% url 'staff_members:edit' member.pk %}" class="sm-back">
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
     <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
-  Staff Members
+  Edit Staff Member
 </a>
 
 <div class="sm-form-card">
@@ -96,7 +96,7 @@
   <form method="post" novalidate>
     {% csrf_token %}
     <div class="sm-btn-row">
-      <a href="{% url 'staff_members:list' %}" class="sm-cancel">Cancel</a>
+      <a href="{% url 'staff_members:edit' member.pk %}" class="sm-cancel">Cancel</a>
       <button type="submit" class="sm-submit-danger">
         {% if member.appointment_slots.exists %}Deactivate{% else %}Delete{% endif %}
       </button>

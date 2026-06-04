@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% block title %}Pending Bookings{% endblock %}
+
+{% block extra_style %}
+<style>
+  main { max-width: 860px; }
+
+  .pb-page-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0.25rem;
+  }
+  .pb-page-sub {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-bottom: 2rem;
+  }
+
+  .pb-empty {
+    background: #fff;
+    border: 1px solid #e4e4e7;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.9375rem;
+  }
+
+  .pb-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border: 1px solid #e4e4e7;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 0.875rem;
+  }
+  .pb-table thead { background: #f9fafb; }
+  .pb-table th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #6b7280;
+    border-bottom: 1px solid #e4e4e7;
+  }
+  .pb-table td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid #f3f4f6;
+    color: #111;
+    vertical-align: middle;
+  }
+  .pb-table tbody tr:last-child td { border-bottom: none; }
+
+  .pb-actions { display: flex; gap: 0.5rem; align-items: center; }
+
+  .pb-btn-confirm {
+    padding: 0.35rem 0.875rem;
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .pb-btn-confirm:hover { background: #333; }
+
+  .pb-btn-decline {
+    padding: 0.35rem 0.875rem;
+    background: #fff;
+    color: #b91c1c;
+    border: 1px solid #fca5a5;
+    border-radius: 5px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .pb-btn-decline:hover { background: #fef2f2; }
+
+  .pb-badge-pending {
+    display: inline-block;
+    background: #fffbeb;
+    color: #92400e;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1 class="pb-page-title">Pending Bookings</h1>
+<p class="pb-page-sub">Review and confirm or decline customer booking requests.</p>
+
+{% if pending_bookings %}
+  <table class="pb-table">
+    <thead>
+      <tr>
+        <th>Customer</th>
+        <th>Service</th>
+        <th>Staff</th>
+        <th>Date &amp; time</th>
+        <th>Requested</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for booking in pending_bookings %}
+      <tr>
+        <td>
+          {{ booking.customer_first_name }} {{ booking.customer_last_name }}<br>
+          <span style="color:#6b7280;font-size:0.8125rem;">{{ booking.customer_email }}</span>
+        </td>
+        <td>{{ booking.service_offering.name }}</td>
+        <td>{{ booking.staff_member.name }}</td>
+        <td>
+          {{ booking.start_at|date:"j M Y" }}<br>
+          <span style="color:#6b7280;">{{ booking.start_at|date:"H:i" }} – {{ booking.end_at|date:"H:i" }}</span>
+        </td>
+        <td style="color:#6b7280;">{{ booking.created_at|date:"j M Y, H:i" }}</td>
+        <td><span class="pb-badge-pending">Pending</span></td>
+        <td>
+          <div class="pb-actions">
+            <form method="post" action="{% url 'bookings:confirm_booking' booking_id=booking.pk %}">
+              {% csrf_token %}
+              <button type="submit" class="pb-btn-confirm">Confirm</button>
+            </form>
+            <form method="post" action="{% url 'bookings:decline_booking' booking_id=booking.pk %}">
+              {% csrf_token %}
+              <button type="submit" class="pb-btn-decline">Decline</button>
+            </form>
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <div class="pb-empty">No pending booking requests at this time.</div>
+{% endif %}
+{% endblock %}

@@ -22,11 +22,22 @@ class CompanyAccountManager(BaseUserManager):
 
 
 class CompanyAccount(AbstractBaseUser, PermissionsMixin):
+    class BookingConfirmationMode(models.TextChoices):
+        AUTOMATIC = "automatic", "Automatic confirmation"
+        MANUAL = "manual", "Manual confirmation"
+
     email = models.EmailField(unique=True)
     business_name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, blank=True)
     public_page_enabled = models.BooleanField(default=True)
     timezone = models.CharField(max_length=64, default="Europe/Zurich")
+    show_staff_names_publicly = models.BooleanField(default=True)
+    enable_any_employee_option = models.BooleanField(default=True)
+    booking_confirmation_mode = models.CharField(
+        max_length=20,
+        choices=BookingConfirmationMode.choices,
+        default=BookingConfirmationMode.AUTOMATIC,
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

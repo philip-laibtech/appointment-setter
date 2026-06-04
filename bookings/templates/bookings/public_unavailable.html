@@ -23,11 +23,19 @@
     <p style="font-size:0.8125rem;color:#9ca3af;margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.06em;">{{ company.business_name }}</p>
   {% endif %}
   <h1 class="bk-unavailable-title">
-    {% if reason == "disabled" %}Online booking is currently unavailable.
+    {% if reason == "slot_taken" %}This time slot was just booked by someone else.
+    {% elif reason == "disabled" %}Online booking is currently unavailable.
     {% elif reason == "no_staff" %}No appointments are currently available.
     {% else %}This page is unavailable.
     {% endif %}
   </h1>
-  <p class="bk-unavailable-text">Please contact the company directly to arrange an appointment.</p>
+  {% if reason == "slot_taken" %}
+    <p class="bk-unavailable-text">Another customer completed their booking just before you. Please choose a different time.</p>
+    {% if time_select_url %}
+      <a href="{{ time_select_url }}" style="display:inline-block;margin-top:1.25rem;padding:0.6rem 1.25rem;background:#111;color:#fff;border-radius:6px;font-size:0.875rem;font-weight:600;text-decoration:none;">Choose another time</a>
+    {% endif %}
+  {% else %}
+    <p class="bk-unavailable-text">Please contact the company directly to arrange an appointment.</p>
+  {% endif %}
 </div>
 {% endblock %}
