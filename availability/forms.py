@@ -50,7 +50,7 @@ class OpenHoursForm(forms.Form):
         self.company = company
         self.instance_pk = instance_pk
         super().__init__(*args, **kwargs)
-        self.fields["date"].widget.attrs["min"] = timezone.now().date().isoformat()
+        self.fields["date"].widget.attrs["min"] = timezone.localdate().isoformat()
 
         if company is not None:
             qs = _staff_queryset(company)
@@ -154,7 +154,7 @@ class RecurringHoursForm(forms.Form):
     def __init__(self, *args, company=None, **kwargs):
         self.company = company
         super().__init__(*args, **kwargs)
-        today = timezone.now().date()
+        today = timezone.localdate()
         max_date = (today + timedelta(days=_MAX_LOOKAHEAD_DAYS)).isoformat()
         self.fields["date_from"].widget.attrs.update({
             "min": today.isoformat(),
@@ -194,7 +194,7 @@ class RecurringHoursForm(forms.Form):
                     self.add_error("end_time", "Duration must not exceed 8 hours.")
 
         # ── Date validation ────────────────────────────────
-        today = timezone.now().date()
+        today = timezone.localdate()
         max_date = today + timedelta(days=_MAX_LOOKAHEAD_DAYS)
 
         if date_from:

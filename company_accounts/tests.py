@@ -233,20 +233,6 @@ class CompanySettingsTest(TestCase):
         self.account.refresh_from_db()
         self.assertFalse(self.account.public_page_enabled)
 
-    # 8. Company can update timezone
-    def test_can_update_timezone(self):
-        self.client.force_login(self.account)
-        self.client.post(self.settings_url, {
-            "business_name": self.account.business_name,
-            "public_page_enabled": "on",
-            "timezone": "America/New_York",
-            "show_staff_names_publicly": "on",
-            "enable_any_employee_option": "on",
-            "booking_confirmation_mode": "automatic",
-        })
-        self.account.refresh_from_db()
-        self.assertEqual(self.account.timezone, "America/New_York")
-
     # 9. Business name is required
     def test_business_name_required(self):
         self.client.force_login(self.account)
@@ -259,21 +245,6 @@ class CompanySettingsTest(TestCase):
         self.assertFormError(response.context["form"], "business_name", "Business name is required.")
         self.account.refresh_from_db()
         self.assertEqual(self.account.business_name, "Acme AG")
-
-    # 10. Invalid timezone is rejected
-    def test_invalid_timezone_rejected(self):
-        self.client.force_login(self.account)
-        response = self.client.post(self.settings_url, {
-            "business_name": self.account.business_name,
-            "public_page_enabled": "on",
-            "timezone": "Not/A/Real/Timezone",
-        })
-        self.assertEqual(response.status_code, 200)
-        self.assertFormError(
-            response.context["form"],
-            "timezone",
-            "Enter a valid timezone identifier (e.g. Europe/Zurich).",
-        )
 
     # 11. Email cannot be changed through settings POST
     def test_email_cannot_be_changed(self):

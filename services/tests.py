@@ -77,8 +77,7 @@ class AccessControlTests(TestCase):
         self.client.login(username="other3@example.com", password="testpassword123")
         response = self.client.post(url)
         self.assertEqual(response.status_code, 404)
-        service.refresh_from_db()
-        self.assertTrue(service.is_active)
+        self.assertTrue(ServiceOffering.objects.filter(pk=service.pk).exists())
 
 
 # ---------------------------------------------------------------------------
@@ -191,24 +190,17 @@ class ServiceDeleteTests(TestCase):
         self.service = _make_service(self.owner)
         self.delete_url = reverse("services:delete", args=[self.service.pk])
 
-    def test_delete_requires_post(self):
+    def test_delete_get_shows_confirm_page(self):
         self.client.login(username="owner@example.com", password="testpassword123")
         response = self.client.get(self.delete_url)
         self.assertEqual(response.status_code, 200)
-        self.service.refresh_from_db()
-        self.assertTrue(self.service.is_active)
+        self.assertTrue(ServiceOffering.objects.filter(pk=self.service.pk).exists())
 
-    def test_post_sets_is_active_false(self):
+    def test_post_hard_deletes_service(self):
         self.client.login(username="owner@example.com", password="testpassword123")
         response = self.client.post(self.delete_url)
         self.assertRedirects(response, LIST_URL)
-        self.service.refresh_from_db()
-        self.assertFalse(self.service.is_active)
-
-    def test_delete_does_not_hard_delete(self):
-        self.client.login(username="owner@example.com", password="testpassword123")
-        self.client.post(self.delete_url)
-        self.assertTrue(ServiceOffering.objects.filter(pk=self.service.pk).exists())
+        self.assertFalse(ServiceOffering.objects.filter(pk=self.service.pk).exists())
 
 
 # ---------------------------------------------------------------------------
@@ -322,17 +314,14 @@ class StaffAssignmentTests(TestCase):
         )
         self.assertFalse(assignment.is_active)
 
-    def test_deactivate_service_also_deactivates_assignments(self):
+    def test_delete_service_also_deletes_assignments(self):
         service = _make_service(self.company, "Consult")
-        StaffServiceOffering.objects.create(
+        assignment = StaffServiceOffering.objects.create(
             staff_member=self.staff1, service_offering=service, is_active=True
         )
         url = reverse("services:delete", args=[service.pk])
         self.client.post(url)
-        assignment = StaffServiceOffering.objects.get(
-            staff_member=self.staff1, service_offering=service
-        )
-        self.assertFalse(assignment.is_active)
+        self.assertFalse(StaffServiceOffering.objects.filter(pk=assignment.pk).exists())
 
 
 # ---------------------------------------------------------------------------

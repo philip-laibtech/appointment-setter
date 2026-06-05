@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "bookings/public_booking_base.html" %}
 {% block title %}
   {% if booking.status == "confirmed" %}Booking Confirmed
   {% elif booking.status == "pending" %}Booking Request Received
@@ -10,7 +10,6 @@
 
 {% block extra_style %}
 <style>
-  main { max-width: 540px; }
   .bk-confirmed { background: #fff; border: 1px solid #e4e4e7; border-radius: 10px; padding: 2rem; }
   .bk-confirmed-badge {
     display: inline-flex; align-items: center; gap: 0.4rem;

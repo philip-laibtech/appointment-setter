@@ -34,12 +34,14 @@ def _make_staff(company, name="Alice"):
 
 
 def _form_data(start_dt, end_dt, staff_member):
-    """Convert two datetime objects to the form POST dict."""
+    """Convert two datetime objects to the form POST dict (using local timezone for display)."""
+    local_start = timezone.localtime(start_dt)
+    local_end = timezone.localtime(end_dt)
     return {
         "staff_member": staff_member.pk,
-        "date": start_dt.strftime("%Y-%m-%d"),
-        "start_time": start_dt.strftime("%H:%M"),
-        "end_time": end_dt.strftime("%H:%M"),
+        "date": local_start.strftime("%Y-%m-%d"),
+        "start_time": local_start.strftime("%H:%M"),
+        "end_time": local_end.strftime("%H:%M"),
     }
 
 

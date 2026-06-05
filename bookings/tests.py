@@ -91,12 +91,13 @@ def _time_url(company, staff, service, target_date):
 
 
 def _book_url(company, staff, service, start_at):
+    local = timezone.localtime(start_at)
     return reverse("bookings:book", kwargs={
         "company_slug": company.slug,
         "staff_id": staff.pk,
         "service_id": service.pk,
-        "date": start_at.strftime("%Y-%m-%d"),
-        "start_time": start_at.strftime("%H-%M"),
+        "date": local.strftime("%Y-%m-%d"),
+        "start_time": local.strftime("%H-%M"),
     })
 
 
@@ -969,8 +970,9 @@ class AnyBookingFormTests(TestCase):
         # 4-hour window; book at a 15-min boundary safely inside the window
         self.avail = _make_availability(self.company, self.staff, start_offset_hours=2, duration_hours=4)
         self.start_at = _make_start_at(offset_hours=3)
-        self.date_str = self.start_at.strftime("%Y-%m-%d")
-        self.start_time_str = self.start_at.strftime("%H-%M")
+        local = timezone.localtime(self.start_at)
+        self.date_str = local.strftime("%Y-%m-%d")
+        self.start_time_str = local.strftime("%H-%M")
         self.url = _any_book_url(self.company, self.service, self.date_str, self.start_time_str)
 
     def test_get_works_for_valid_service_and_time(self):
@@ -1072,8 +1074,9 @@ class AnyBookingConfirmationTests(TestCase):
         _assign(self.staff, self.service)
         self.avail = _make_availability(self.company, self.staff, start_offset_hours=2, duration_hours=4)
         self.start_at = _make_start_at(offset_hours=3)
-        self.date_str = self.start_at.strftime("%Y-%m-%d")
-        self.start_time_str = self.start_at.strftime("%H-%M")
+        local = timezone.localtime(self.start_at)
+        self.date_str = local.strftime("%Y-%m-%d")
+        self.start_time_str = local.strftime("%H-%M")
 
     def test_successful_booking_redirects_to_confirmation(self):
         url = _any_book_url(self.company, self.service, self.date_str, self.start_time_str)
@@ -1477,9 +1480,10 @@ class ConfirmationModeIntegrityTests(TestCase):
     def test_any_employee_flow_respects_automatic_mode(self):
         """Any Employee booking with automatic mode creates CONFIRMED booking."""
         staff, service, avail, start_at = self._setup_flow(self.company_auto)
+        local = timezone.localtime(start_at)
         url = _any_book_url(
             self.company_auto, service,
-            start_at.strftime("%Y-%m-%d"), start_at.strftime("%H-%M"),
+            local.strftime("%Y-%m-%d"), local.strftime("%H-%M"),
         )
         self.client.post(url, _valid_post_data())
         booking = Booking.objects.get(company=self.company_auto)
@@ -1488,9 +1492,10 @@ class ConfirmationModeIntegrityTests(TestCase):
     def test_any_employee_flow_respects_manual_mode(self):
         """Any Employee booking with manual mode creates PENDING booking."""
         staff, service, avail, start_at = self._setup_flow(self.company_manual)
+        local = timezone.localtime(start_at)
         url = _any_book_url(
             self.company_manual, service,
-            start_at.strftime("%Y-%m-%d"), start_at.strftime("%H-%M"),
+            local.strftime("%Y-%m-%d"), local.strftime("%H-%M"),
         )
         self.client.post(url, _valid_post_data())
         booking = Booking.objects.get(company=self.company_manual)

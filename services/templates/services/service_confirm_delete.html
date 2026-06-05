@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Deactivate Service{% endblock %}
+{% block title %}Delete Service{% endblock %}
 
 {% block extra_style %}
 <style>
@@ -46,6 +46,7 @@
     cursor: pointer;
   }
   .sv-submit-danger:hover { background: #b91c1c; }
+  .sv-submit-danger:disabled { background: #fca5a5; cursor: not-allowed; }
   .sv-cancel {
     flex: 1;
     display: flex;
@@ -72,15 +73,20 @@
 </a>
 
 <div class="sv-form-card">
-  <h1 class="sv-form-title">Deactivate "{{ service.name }}"?</h1>
+  <h1 class="sv-form-title">Delete "{{ service.name }}"?</h1>
   <p class="sv-form-subtitle">
-    This will set the service to inactive and deactivate all staff assignments for it.
-    The service will no longer appear as available. This action can be reversed by editing the service.
+    This will permanently delete the service and all its staff assignments. This action cannot be undone.
   </p>
 
+  {% if has_bookings %}
   <div class="sv-warn">
-    Staff assignments for this service will also be deactivated.
+    This service has existing bookings and cannot be deleted.
   </div>
+  {% else %}
+  <div class="sv-warn">
+    All staff assignments for this service will also be deleted.
+  </div>
+  {% endif %}
 
   <hr class="sv-divider">
 
@@ -88,7 +94,7 @@
     {% csrf_token %}
     <div class="sv-btn-row">
       <a href="{% url 'services:edit' service.pk %}" class="sv-cancel">Cancel</a>
-      <button type="submit" class="sv-submit-danger">Deactivate</button>
+      <button type="submit" class="sv-submit-danger" {% if has_bookings %}disabled{% endif %}>Delete</button>
     </div>
   </form>
 </div>

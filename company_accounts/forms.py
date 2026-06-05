@@ -1,5 +1,3 @@
-import zoneinfo
-
 from django.contrib.auth import password_validation
 from django.contrib.auth.forms import AuthenticationForm
 from django.core.exceptions import ValidationError
@@ -59,7 +57,6 @@ class CompanySettingsForm(forms.ModelForm):
         fields = (
             "business_name",
             "public_page_enabled",
-            "timezone",
             "show_staff_names_publicly",
             "enable_any_employee_option",
             "booking_confirmation_mode",
@@ -74,16 +71,6 @@ class CompanySettingsForm(forms.ModelForm):
         if not name:
             raise ValidationError("Business name is required.")
         return name
-
-    def clean_timezone(self):
-        tz = self.cleaned_data.get("timezone", "").strip()
-        try:
-            zoneinfo.ZoneInfo(tz)
-        except (zoneinfo.ZoneInfoNotFoundError, KeyError):
-            raise ValidationError(
-                "Enter a valid timezone identifier (e.g. Europe/Zurich)."
-            )
-        return tz
 
     def clean_booking_confirmation_mode(self):
         mode = self.cleaned_data.get("booking_confirmation_mode", "")

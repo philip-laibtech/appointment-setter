@@ -2,7 +2,6 @@ from datetime import date as date_type
 from datetime import datetime
 from datetime import time as time_type
 from datetime import timedelta
-from datetime import timezone as dt_tz
 
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
@@ -64,10 +63,10 @@ def _get_active_assignment(staff_member, service_offering):
     )
 
 
-def _day_bounds_utc(target_date):
-    """Return (start, end) UTC-aware datetimes covering the full calendar day."""
-    start = datetime.combine(target_date, time_type.min, tzinfo=dt_tz.utc)
-    end = datetime.combine(target_date, time_type.max, tzinfo=dt_tz.utc)
+def _day_bounds(target_date):
+    """Return (start, end) aware datetimes covering the full calendar day in the local timezone."""
+    start = timezone.make_aware(datetime.combine(target_date, time_type.min))
+    end = timezone.make_aware(datetime.combine(target_date, time_type.max))
     return start, end
 
 
@@ -106,7 +105,7 @@ def _windows_for_date(staff_member, service_duration_minutes, target_date):
     """
     window_duration = timedelta(minutes=service_duration_minutes)
     now = timezone.now()
-    day_start, day_end = _day_bounds_utc(target_date)
+    day_start, day_end = _day_bounds(target_date)
 
     availability_slots = AppointmentSlot.objects.filter(
         staff_member=staff_member,
@@ -180,7 +179,7 @@ def _available_days(staff_member, service_duration_minutes):
                     for occ_start, occ_end in occupied
                 )
                 if not overlaps:
-                    available.add(current.date())
+                    available.add(timezone.localtime(current).date())
             current += _WINDOW_STEP
 
     return sorted(available)
@@ -194,7 +193,7 @@ def _parse_date(date_str):
 
 
 def _parse_start_at(date_str, start_time_str):
-    """Parse URL params into a UTC-aware start datetime. Raises Http404 on bad input."""
+    """Parse URL params into a local-timezone-aware start datetime. Raises Http404 on bad input."""
     booking_date = _parse_date(date_str)
     try:
         parts = start_time_str.split("-")
@@ -204,7 +203,7 @@ def _parse_start_at(date_str, start_time_str):
         booking_time = time_type(hour, minute)
     except (ValueError, IndexError):
         raise Http404
-    return datetime.combine(booking_date, booking_time, tzinfo=dt_tz.utc)
+    return timezone.make_aware(datetime.combine(booking_date, booking_time))
 
 
 # ---------------------------------------------------------------------------
@@ -805,6 +804,38 @@ def pending_bookings_view(request):
         request,
         "bookings/pending_booking_list.html",
         {"pending_bookings": pending},
+    )
+
+
+@login_required
+@require_http_methods(["GET"])
+def all_bookings_view(request):
+    now = timezone.now()
+    company = request.user
+
+    upcoming = (
+        Booking.objects.filter(
+            company=company,
+            start_at__gte=now,
+            status__in=[Booking.Status.CONFIRMED, Booking.Status.PENDING],
+        )
+        .select_related("staff_member", "service_offering")
+        .order_by("start_at")
+    )
+
+    past = (
+        Booking.objects.filter(
+            company=company,
+            start_at__lt=now,
+        )
+        .select_related("staff_member", "service_offering")
+        .order_by("-start_at")[:100]
+    )
+
+    return render(
+        request,
+        "bookings/all_bookings_list.html",
+        {"upcoming": upcoming, "past": past},
     )
 
 

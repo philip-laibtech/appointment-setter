@@ -83,7 +83,7 @@ LOGIN_REDIRECT_URL = "company_accounts:dashboard"
 LOGOUT_REDIRECT_URL = "company_accounts:login"
 
 LANGUAGE_CODE = "en-us"
-TIME_ZONE = "UTC"
+TIME_ZONE = "Europe/Zurich"
 USE_I18N = True
 USE_TZ = True
 

@@ -59,11 +59,13 @@ def slot_create_view(request):
 @require_http_methods(["GET", "POST"])
 def slot_edit_view(request, slot_id):
     slot = get_object_or_404(AppointmentSlot, pk=slot_id, company=request.user)
+    local_start = timezone.localtime(slot.start_at)
+    local_end = timezone.localtime(slot.end_at)
     initial = {
         "staff_member": slot.staff_member_id,
-        "date": slot.start_at.strftime("%Y-%m-%d"),
-        "start_time": slot.start_at.strftime("%H:%M"),
-        "end_time": slot.end_at.strftime("%H:%M"),
+        "date": local_start.strftime("%Y-%m-%d"),
+        "start_time": local_start.strftime("%H:%M"),
+        "end_time": local_end.strftime("%H:%M"),
     }
     form = OpenHoursForm(
         request.POST or None,

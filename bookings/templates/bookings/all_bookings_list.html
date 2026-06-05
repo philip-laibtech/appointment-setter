@@ -1,0 +1,266 @@
+{% extends "base.html" %}
+{% block title %}Bookings{% endblock %}
+{% block page_title %}Bookings{% endblock %}
+
+{% block extra_style %}
+<style>
+  main { max-width: 960px; }
+
+  .bk-header {
+    margin-bottom: 2rem;
+  }
+  .bk-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0.25rem;
+  }
+  .bk-sub {
+    font-size: 0.9rem;
+    color: #6b7280;
+  }
+
+  .bk-section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #9ca3af;
+    margin-bottom: 0.75rem;
+    margin-top: 1.75rem;
+  }
+  .bk-section-label:first-of-type { margin-top: 0; }
+
+  .bk-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border: 1px solid #e4e4e7;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+  }
+  .bk-table thead { background: #f9fafb; }
+  .bk-table th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #6b7280;
+    border-bottom: 1px solid #e4e4e7;
+  }
+  .bk-table td {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid #f3f4f6;
+    color: #111;
+    vertical-align: middle;
+  }
+  .bk-table tbody tr:last-child td { border-bottom: none; }
+  .bk-table tbody tr:hover { background: #fafafa; }
+
+  .bk-empty {
+    background: #fff;
+    border: 1px solid #e4e4e7;
+    border-radius: 10px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 0.875rem;
+  }
+
+  /* Date column */
+  .bk-date-col {
+    flex-shrink: 0;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 46px;
+    background: #f9fafb;
+    border: 1px solid #f3f4f6;
+    border-radius: 6px;
+    padding: 0.25rem;
+    line-height: 1;
+  }
+  .bk-date-day { font-size: 1.0625rem; font-weight: 700; color: #111; }
+  .bk-date-mon { font-size: 0.6rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #9ca3af; margin-top: 0.1rem; }
+
+  /* Status badges */
+  .bk-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+  }
+  .bk-badge-confirmed { background: #f0fdf4; color: #166534; }
+  .bk-badge-pending   { background: #fffbeb; color: #92400e; }
+  .bk-badge-cancelled { background: #f3f4f6; color: #6b7280; }
+  .bk-badge-declined  { background: #fef2f2; color: #b91c1c; }
+
+  /* Action buttons */
+  .bk-actions { display: flex; gap: 0.5rem; align-items: center; }
+  .bk-btn-confirm {
+    padding: 0.3rem 0.75rem;
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .bk-btn-confirm:hover { background: #333; }
+  .bk-btn-decline {
+    padding: 0.3rem 0.75rem;
+    background: #fff;
+    color: #b91c1c;
+    border: 1px solid #fca5a5;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .bk-btn-decline:hover { background: #fef2f2; }
+
+  .bk-meta { font-size: 0.8rem; color: #6b7280; margin-top: 0.1rem; }
+  .bk-name { font-weight: 600; }
+
+  @media (max-width: 700px) {
+    .bk-table th:nth-child(4),
+    .bk-table td:nth-child(4) { display: none; }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="bk-header">
+  <h1 class="bk-title">Bookings</h1>
+  <p class="bk-sub">All upcoming and past appointments for your business.</p>
+</div>
+
+{# ── Upcoming ─────────────────────────────────────────────────── #}
+<p class="bk-section-label">Upcoming</p>
+{% if upcoming %}
+  <table class="bk-table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Customer</th>
+        <th>Service &amp; Staff</th>
+        <th>Time</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for booking in upcoming %}
+      <tr>
+        <td>
+          <div class="bk-date-col">
+            <span class="bk-date-day">{{ booking.start_at|date:"j" }}</span>
+            <span class="bk-date-mon">{{ booking.start_at|date:"M" }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="bk-name">{{ booking.customer_first_name }} {{ booking.customer_last_name }}</div>
+          <div class="bk-meta">{{ booking.customer_email }}</div>
+        </td>
+        <td>
+          <div>{{ booking.service_offering.name }}</div>
+          <div class="bk-meta">{{ booking.staff_member.name }}</div>
+        </td>
+        <td style="white-space:nowrap;">
+          {{ booking.start_at|date:"H:i" }} – {{ booking.end_at|date:"H:i" }}
+        </td>
+        <td>
+          {% if booking.status == "confirmed" %}
+            <span class="bk-badge bk-badge-confirmed">Confirmed</span>
+          {% else %}
+            <span class="bk-badge bk-badge-pending">Pending</span>
+          {% endif %}
+        </td>
+        <td>
+          {% if booking.status == "pending" %}
+            <div class="bk-actions">
+              <form method="post" action="{% url 'bookings:confirm_booking' booking_id=booking.pk %}">
+                {% csrf_token %}
+                <button type="submit" class="bk-btn-confirm">Confirm</button>
+              </form>
+              <form method="post" action="{% url 'bookings:decline_booking' booking_id=booking.pk %}">
+                {% csrf_token %}
+                <button type="submit" class="bk-btn-decline">Decline</button>
+              </form>
+            </div>
+          {% else %}
+            <span style="color:#d1d5db;font-size:0.8rem;">—</span>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <div class="bk-empty">No upcoming bookings.</div>
+{% endif %}
+
+{# ── Past ─────────────────────────────────────────────────────── #}
+<p class="bk-section-label" style="margin-top:2rem;">Past</p>
+{% if past %}
+  <table class="bk-table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Customer</th>
+        <th>Service &amp; Staff</th>
+        <th>Time</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for booking in past %}
+      <tr>
+        <td>
+          <div class="bk-date-col">
+            <span class="bk-date-day">{{ booking.start_at|date:"j" }}</span>
+            <span class="bk-date-mon">{{ booking.start_at|date:"M" }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="bk-name">{{ booking.customer_first_name }} {{ booking.customer_last_name }}</div>
+          <div class="bk-meta">{{ booking.customer_email }}</div>
+        </td>
+        <td>
+          <div>{{ booking.service_offering.name }}</div>
+          <div class="bk-meta">{{ booking.staff_member.name }}</div>
+        </td>
+        <td style="white-space:nowrap;color:#6b7280;">
+          {{ booking.start_at|date:"H:i" }} – {{ booking.end_at|date:"H:i" }}
+        </td>
+        <td>
+          {% if booking.status == "confirmed" %}
+            <span class="bk-badge bk-badge-confirmed">Confirmed</span>
+          {% elif booking.status == "cancelled" %}
+            <span class="bk-badge bk-badge-cancelled">Cancelled</span>
+          {% elif booking.status == "declined" %}
+            <span class="bk-badge bk-badge-declined">Declined</span>
+          {% else %}
+            <span class="bk-badge bk-badge-pending">{{ booking.status|capfirst }}</span>
+          {% endif %}
+        </td>
+        <td></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <div class="bk-empty">No past bookings yet.</div>
+{% endif %}
+{% endblock %}

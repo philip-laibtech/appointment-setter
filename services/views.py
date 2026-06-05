@@ -71,12 +71,17 @@ def service_edit_view(request, service_id):
 def service_delete_view(request, service_id):
     service = get_object_or_404(ServiceOffering, pk=service_id, company=request.user)
     if request.method == "POST":
-        service.is_active = False
-        service.save()
-        StaffServiceOffering.objects.filter(service_offering=service).update(is_active=False)
-        messages.success(request, f'Service "{service.name}" deactivated.')
+        if service.bookings.exists():
+            messages.error(request, f'"{service.name}" has existing bookings and cannot be deleted.')
+            return redirect("services:delete", service_id)
+        name = service.name
+        service.delete()
+        messages.success(request, f'Service "{name}" deleted.')
         return redirect("services:list")
-    return render(request, "services/service_confirm_delete.html", {"service": service})
+    return render(request, "services/service_confirm_delete.html", {
+        "service": service,
+        "has_bookings": service.bookings.exists(),
+    })
 
 
 def _sync_staff_assignments(service, selected_members):

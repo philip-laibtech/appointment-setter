@@ -151,24 +151,6 @@
       {% endif %}
     </div>
 
-    <div class="st-field">
-      <label class="st-label" for="{{ form.timezone.id_for_label }}">Timezone</label>
-      <input
-        class="st-input"
-        type="text"
-        id="{{ form.timezone.id_for_label }}"
-        name="{{ form.timezone.html_name }}"
-        value="{{ form.timezone.value|default:'' }}"
-        maxlength="64"
-        placeholder="e.g. Europe/Zurich"
-      >
-      <p class="st-hint">Use a standard timezone name such as <em>Europe/Zurich</em>, <em>America/New_York</em>, or <em>UTC</em>.</p>
-      {% if form.timezone.errors %}
-        <div class="st-field-errors">
-          {% for error in form.timezone.errors %}{{ error }}{% endfor %}
-        </div>
-      {% endif %}
-    </div>
   </div>
 
   <div class="st-section">

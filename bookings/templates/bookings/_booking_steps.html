@@ -5,12 +5,14 @@
 <style>
   .bk-steps {
     display: flex; align-items: center;
-    margin-bottom: 1.75rem;
-    overflow-x: auto; padding-bottom: 0.25rem;
+    margin-bottom: 2.25rem;
+    padding-bottom: 1.25rem;
   }
   .bk-step {
-    display: flex; flex-direction: column; align-items: center;
-    gap: 0.3rem; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    width: 28px; height: 28px;
   }
   .bk-step-circle {
     width: 28px; height: 28px; border-radius: 50%;
@@ -27,6 +29,9 @@
     background: #f0fdf4; border-color: #86efac; color: #15803d;
   }
   .bk-step-label {
+    position: absolute;
+    top: calc(28px + 0.35rem);
+    left: 50%; transform: translateX(-50%);
     font-size: 0.6875rem; font-weight: 600; color: #9ca3af;
     text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap;
   }
@@ -34,7 +39,7 @@
   .bk-step--done  .bk-step-label { color: #6b7280; }
   .bk-step-line {
     flex: 1; height: 2px; background: #e4e4e7;
-    min-width: 24px; margin-bottom: 1.15rem;
+    min-width: 24px;
   }
 </style>
 
