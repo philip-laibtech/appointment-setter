@@ -2,7 +2,10 @@ from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+from django.urls import reverse
+from django.utils.http import url_has_allowed_host_and_scheme
 from django.views.decorators.http import require_http_methods
+from django_ratelimit.decorators import ratelimit
 
 from .forms import CompanyLoginForm, CompanyRegistrationForm, CompanySettingsForm
 from staff_members.models import StaffMember
@@ -10,6 +13,7 @@ from services.models import ServiceOffering
 
 
 @require_http_methods(["GET", "POST"])
+@ratelimit(key="ip", rate="10/h", block=True)
 def register_view(request):
     if request.user.is_authenticated:
         return redirect("company_accounts:dashboard")
@@ -22,14 +26,24 @@ def register_view(request):
 
 
 @require_http_methods(["GET", "POST"])
+@ratelimit(key="ip", rate="5/m", block=True)
+@ratelimit(key="post:username", rate="5/m", method="POST", block=True)
 def login_view(request):
     if request.user.is_authenticated:
         return redirect("company_accounts:dashboard")
     form = CompanyLoginForm(request, data=request.POST or None)
     if request.method == "POST" and form.is_valid():
         login(request, form.get_user())
+        next_url = request.POST.get("next") or request.GET.get("next")
+        if next_url and url_has_allowed_host_and_scheme(
+            url=next_url,
+            allowed_hosts={request.get_host()},
+            require_https=request.is_secure(),
+        ):
+            return redirect(next_url)
         return redirect("company_accounts:dashboard")
-    return render(request, "company_accounts/login.html", {"form": form})
+    next_url = request.GET.get("next", "")
+    return render(request, "company_accounts/login.html", {"form": form, "next": next_url})
 
 
 @require_http_methods(["POST"])

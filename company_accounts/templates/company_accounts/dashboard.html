@@ -1,4 +1,5 @@
-{% extends "base.html" %}
+{% extends "company_accounts/app_base.html" %}
+{% load static %}
 {% block title %}Dashboard — {{ company.business_name }}{% endblock %}
 
 {% block extra_style %}
@@ -379,7 +380,7 @@
       <div class="db-link-url" id="booking-url">/b/{{ company.slug }}/</div>
       <div class="db-link-hint">Share this with customers so they can book appointments online.</div>
       <div class="db-link-actions">
-        <button class="db-link-copy" onclick="copyBookingLink(this)" type="button">
+        <button class="db-link-copy" type="button" data-copy-booking>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <rect x="9" y="9" width="13" height="13" rx="2"/>
             <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
@@ -413,14 +414,14 @@
               <div class="db-staff-link-url">/b/{{ company.slug }}/staff/{{ member.pk }}/services/</div>
               <div class="db-staff-link-actions">
                 <button class="db-link-copy" type="button"
-                  onclick="copyStaffLink(this, '/b/{{ company.slug }}/staff/{{ member.pk }}/services/')">
+                  data-copy-path="/b/{{ company.slug }}/staff/{{ member.pk }}/services/">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <rect x="9" y="9" width="13" height="13" rx="2"/>
                     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
                   </svg>
                   <span>Copy link</span>
                 </button>
-                <a href="{% url 'bookings:service_select' company_slug=company.slug staff_id=member.pk %}"
+                <a href="{% url 'bookings:service_select' company_slug=company.slug staff_uid=member.public_id %}"
                    class="db-link-open" target="_blank" rel="noopener">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
@@ -526,23 +527,8 @@
   </div>
 </div>
 
-<script>
-function copyBookingLink(btn) {
-  const path = document.getElementById('booking-url').textContent.trim();
-  const url = window.location.origin + path;
-  navigator.clipboard.writeText(url).then(function() {
-    const span = btn.querySelector('span');
-    span.textContent = 'Copied!';
-    setTimeout(function() { span.textContent = 'Copy link'; }, 2000);
-  });
-}
-function copyStaffLink(btn, path) {
-  const url = window.location.origin + path;
-  navigator.clipboard.writeText(url).then(function() {
-    const span = btn.querySelector('span');
-    span.textContent = 'Copied!';
-    setTimeout(function() { span.textContent = 'Copy link'; }, 2000);
-  });
-}
-</script>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{% static 'company_accounts/js/dashboard.js' %}"></script>
 {% endblock %}

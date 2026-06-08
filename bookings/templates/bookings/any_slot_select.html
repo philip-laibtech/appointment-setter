@@ -21,7 +21,7 @@
 {% if days %}
   <div class="bk-day-grid">
     {% for day in days %}
-      <a href="{% url 'bookings:any_time_select' company_slug=company.slug service_id=service.pk date=day|date:'Y-m-d' %}"
+      <a href="{% url 'bookings:any_time_select' company_slug=company.slug service_uid=service.public_id date=day|date:'Y-m-d' %}"
          class="bk-day-btn">
         <div class="bk-day-weekday">{{ day|date:"D" }}</div>
         <div class="bk-day-date">{{ day|date:"j" }}</div>

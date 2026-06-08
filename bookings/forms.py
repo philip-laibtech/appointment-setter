@@ -1,3 +1,5 @@
+from captcha.fields import CaptchaField
+
 from django import forms
 
 
@@ -35,6 +37,9 @@ class BookingForm(forms.Form):
         required=True,
         label="I accept the privacy policy.",
         error_messages={"required": "You must accept the privacy policy to proceed."},
+    )
+    captcha = CaptchaField(
+        error_messages={"invalid": "Incorrect security code. Please try again."},
     )
 
     def clean_website(self):

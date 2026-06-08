@@ -59,11 +59,11 @@ def _make_slot(company, staff_member=None, start_offset=60, end_offset=90,
 class AuthRequiredTests(TestCase):
     def test_list_requires_login(self):
         response = self.client.get(LIST_URL)
-        self.assertRedirects(response, f"/company-accounts/login/?next={LIST_URL}")
+        self.assertRedirects(response, f"/login/?next={LIST_URL}")
 
     def test_create_requires_login(self):
         response = self.client.get(CREATE_URL)
-        self.assertRedirects(response, f"/company-accounts/login/?next={CREATE_URL}")
+        self.assertRedirects(response, f"/login/?next={CREATE_URL}")
 
     def test_delete_requires_login(self):
         company = _make_company("owner@example.com")
@@ -71,7 +71,7 @@ class AuthRequiredTests(TestCase):
         slot = _make_slot(company, staff)
         delete_url = reverse("availability:delete", args=[slot.pk])
         response = self.client.get(delete_url)
-        self.assertRedirects(response, f"/company-accounts/login/?next={delete_url}")
+        self.assertRedirects(response, f"/login/?next={delete_url}")
 
 
 class OpenHoursCreateTests(TestCase):
@@ -248,7 +248,7 @@ class OpenHoursEditTests(TestCase):
 
     def test_edit_requires_login(self):
         response = self.client.get(self.edit_url)
-        self.assertRedirects(response, f"/company-accounts/login/?next={self.edit_url}")
+        self.assertRedirects(response, f"/login/?next={self.edit_url}")
 
     def test_owner_can_edit_own_entry(self):
         self.client.login(username="owner@example.com", password="testpassword123")
@@ -323,7 +323,7 @@ class RecurringCreateTests(TestCase):
     def test_recurring_requires_login(self):
         self.client.logout()
         response = self.client.get(RECURRING_URL)
-        self.assertRedirects(response, f"/company-accounts/login/?next={RECURRING_URL}")
+        self.assertRedirects(response, f"/login/?next={RECURRING_URL}")
 
     def test_creates_correct_number_of_slots(self):
         monday = _next_weekday(0)

@@ -34,25 +34,25 @@ urlpatterns = [
         name="entry",
     ),
     path(
-        "<slug:company_slug>/staff/<int:staff_id>/services/",
+        "<slug:company_slug>/staff/<uuid:staff_uid>/services/",
         views.public_service_select_view,
         name="service_select",
     ),
     # Step 3a: day selection
     path(
-        "<slug:company_slug>/staff/<int:staff_id>/services/<int:service_id>/slots/",
+        "<slug:company_slug>/staff/<uuid:staff_uid>/services/<uuid:service_uid>/slots/",
         views.public_slot_select_view,
         name="slot_select",
     ),
     # Step 3b: time-window selection for a chosen day
     path(
-        "<slug:company_slug>/staff/<int:staff_id>/services/<int:service_id>/slots/<str:date>/",
+        "<slug:company_slug>/staff/<uuid:staff_uid>/services/<uuid:service_uid>/slots/<str:date>/",
         views.public_time_select_view,
         name="time_select",
     ),
     # Step 4: booking form — date=YYYY-MM-DD, start_time=HH-MM
     path(
-        "<slug:company_slug>/staff/<int:staff_id>/services/<int:service_id>/book/<str:date>/<str:start_time>/",
+        "<slug:company_slug>/staff/<uuid:staff_uid>/services/<uuid:service_uid>/book/<str:date>/<str:start_time>/",
         views.public_booking_form_view,
         name="book",
     ),
@@ -64,19 +64,19 @@ urlpatterns = [
     ),
     # Step 2: day selection
     path(
-        "<slug:company_slug>/any/services/<int:service_id>/slots/",
+        "<slug:company_slug>/any/services/<uuid:service_uid>/slots/",
         views.any_slot_select_view,
         name="any_slot_select",
     ),
     # Step 3: time-window selection for a chosen day
     path(
-        "<slug:company_slug>/any/services/<int:service_id>/slots/<str:date>/",
+        "<slug:company_slug>/any/services/<uuid:service_uid>/slots/<str:date>/",
         views.any_time_select_view,
         name="any_time_select",
     ),
     # Step 4: booking form — date=YYYY-MM-DD, start_time=HH-MM
     path(
-        "<slug:company_slug>/any/services/<int:service_id>/book/<str:date>/<str:start_time>/",
+        "<slug:company_slug>/any/services/<uuid:service_uid>/book/<str:date>/<str:start_time>/",
         views.any_booking_form_view,
         name="any_book",
     ),

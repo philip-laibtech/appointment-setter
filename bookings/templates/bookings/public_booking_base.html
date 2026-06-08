@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}Book an Appointment{% endblock %}</title>
-  <style>
+{% extends "base.html" %}
+
+{% block title %}Book an Appointment{% endblock %}
+
+{% block head %}
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
@@ -112,9 +111,10 @@
       .bk-empty { padding: 2rem 1.25rem; }
     }
   </style>
-  {% block extra_style %}{% endblock %}
-</head>
-<body>
+{% block extra_style %}{% endblock %}
+{% endblock %}
+
+{% block body %}
   <main>
     {% if messages %}
       <ul class="messages">
@@ -123,5 +123,4 @@
     {% endif %}
     {% block content %}{% endblock %}
   </main>
-</body>
-</html>
+{% endblock %}

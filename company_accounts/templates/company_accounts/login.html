@@ -1,10 +1,11 @@
-{% extends "base.html" %}
+{% extends "auth_base.html" %}
 {% block title %}Login — Appointment Setter{% endblock %}
 {% block content %}
 <div class="card">
   <h1>Log in</h1>
   <form method="post" novalidate>
     {% csrf_token %}
+    {% if next %}<input type="hidden" name="next" value="{{ next }}">{% endif %}
     {% if form.non_field_errors %}
       <div class="field-errors" style="margin-bottom:1rem">
         {% for error in form.non_field_errors %}{{ error }}{% endfor %}

@@ -6,6 +6,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 from django.views.decorators.http import require_http_methods
 
+from bookings.models import Booking
 from staff_members.models import StaffMember
 
 from .forms import OpenHoursForm, RecurringHoursForm
@@ -93,7 +94,16 @@ def slot_delete_view(request, slot_id):
     if request.method == "POST":
         slot.delete()
         return redirect("availability:list")
-    return render(request, "availability/slot_confirm_delete.html", {"slot": slot})
+    affected_bookings = Booking.objects.filter(
+        company=request.user,
+        start_at__lt=slot.end_at,
+        end_at__gt=slot.start_at,
+        status__in=[Booking.Status.CONFIRMED, Booking.Status.PENDING],
+    ).select_related("staff_member", "service_offering")
+    return render(request, "availability/slot_confirm_delete.html", {
+        "slot": slot,
+        "affected_bookings": affected_bookings,
+    })
 
 
 @login_required

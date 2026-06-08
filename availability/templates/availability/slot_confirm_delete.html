@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "company_accounts/app_base.html" %}
 {% block title %}Delete Open Hours{% endblock %}
 
 {% block extra_style %}
@@ -78,6 +78,38 @@
   }
   .av-warning svg { flex-shrink: 0; margin-top: 0.05rem; }
 
+  /* ── Active bookings alert ───────────────────────────── */
+  .av-bookings-alert {
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
+    border-left: 3px solid #ea580c;
+    border-radius: 6px;
+    padding: 0.875rem 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+    color: #9a3412;
+  }
+  .av-bookings-alert-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .av-bookings-alert-title svg { flex-shrink: 0; }
+  .av-bookings-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .av-bookings-list li {
+    font-size: 0.8125rem;
+    color: #7c2d12;
+  }
+
   /* ── Actions ─────────────────────────────────────────── */
   .av-delete-actions {
     display: flex;
@@ -127,6 +159,25 @@
     <div class="av-preview-date">{{ slot.start_at|date:"D, j N Y" }}</div>
     <div class="av-preview-time">{{ slot.start_at|date:"H:i" }}&thinsp;&ndash;&thinsp;{{ slot.end_at|date:"H:i" }}</div>
   </div>
+
+  {% if affected_bookings %}
+  <div class="av-bookings-alert">
+    <div class="av-bookings-alert-title">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M8 1.5L14.5 13.5H1.5L8 1.5Z" stroke="#ea580c" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M8 6v3.5" stroke="#ea580c" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="8" cy="11.5" r="0.75" fill="#ea580c"/>
+      </svg>
+      {{ affected_bookings|length }} active booking{{ affected_bookings|length|pluralize }} overlap{{ affected_bookings|length|pluralize:"s," }} this slot
+    </div>
+    <p style="margin:0 0 0.25rem;">These bookings will <strong>not</strong> be deleted, but they will lose their slot reference.</p>
+    <ul class="av-bookings-list">
+      {% for booking in affected_bookings %}
+      <li>{{ booking.customer_first_name }} {{ booking.customer_last_name }} &mdash; {{ booking.service_offering }} &mdash; {{ booking.start_at|date:"j N, H:i" }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
 
   <div class="av-warning">
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">

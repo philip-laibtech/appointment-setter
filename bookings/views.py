@@ -10,6 +10,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
 from django.views.decorators.http import require_http_methods
+from django_ratelimit.decorators import ratelimit
 
 from availability.models import AppointmentSlot
 from company_accounts.models import CompanyAccount
@@ -18,9 +19,6 @@ from staff_members.models import StaffMember
 
 from .forms import BookingForm
 from .models import Booking
-
-# TODO: Add rate limiting to booking routes before production.
-# Consider django-ratelimit for IP-based throttling on /b/ endpoints.
 
 
 class _SlotTaken(Exception):
@@ -46,12 +44,12 @@ def _require_public_page(company):
         raise Http404
 
 
-def _get_active_staff(company, staff_id):
-    return get_object_or_404(StaffMember, pk=staff_id, company=company, is_active=True)
+def _get_active_staff(company, staff_uid):
+    return get_object_or_404(StaffMember, public_id=staff_uid, company=company, is_active=True)
 
 
-def _get_active_service(company, service_id):
-    return get_object_or_404(ServiceOffering, pk=service_id, company=company, is_active=True)
+def _get_active_service(company, service_uid):
+    return get_object_or_404(ServiceOffering, public_id=service_uid, company=company, is_active=True)
 
 
 def _get_active_assignment(staff_member, service_offering):
@@ -298,6 +296,7 @@ def _booking_status_and_slot_status(company):
 # ---------------------------------------------------------------------------
 
 @require_http_methods(["GET"])
+@ratelimit(key="ip", rate="20/m", block=True)
 def public_booking_entry_view(request, company_slug):
     company = _get_active_company(company_slug)
     if not company.public_page_enabled:
@@ -320,7 +319,7 @@ def public_booking_entry_view(request, company_slug):
         return redirect(
             "bookings:service_select",
             company_slug=company_slug,
-            staff_id=active_staff[0].pk,
+            staff_uid=active_staff[0].public_id,
         )
 
     return render(
@@ -331,10 +330,11 @@ def public_booking_entry_view(request, company_slug):
 
 
 @require_http_methods(["GET"])
-def public_service_select_view(request, company_slug, staff_id):
+@ratelimit(key="ip", rate="60/h", block=True)
+def public_service_select_view(request, company_slug, staff_uid):
     company = _get_active_company(company_slug)
     _require_public_page(company)
-    staff_member = _get_active_staff(company, staff_id)
+    staff_member = _get_active_staff(company, staff_uid)
 
     services = (
         ServiceOffering.objects.filter(
@@ -355,12 +355,13 @@ def public_service_select_view(request, company_slug, staff_id):
 
 
 @require_http_methods(["GET"])
-def public_slot_select_view(request, company_slug, staff_id, service_id):
+@ratelimit(key="ip", rate="60/h", block=True)
+def public_slot_select_view(request, company_slug, staff_uid, service_uid):
     """Day selection: shows calendar days that have at least one available window."""
     company = _get_active_company(company_slug)
     _require_public_page(company)
-    staff_member = _get_active_staff(company, staff_id)
-    service = _get_active_service(company, service_id)
+    staff_member = _get_active_staff(company, staff_uid)
+    service = _get_active_service(company, service_uid)
     _get_active_assignment(staff_member, service)
 
     days = _available_days(staff_member, service.duration_minutes)
@@ -378,12 +379,13 @@ def public_slot_select_view(request, company_slug, staff_id, service_id):
 
 
 @require_http_methods(["GET"])
-def public_time_select_view(request, company_slug, staff_id, service_id, date):
+@ratelimit(key="ip", rate="60/h", block=True)
+def public_time_select_view(request, company_slug, staff_uid, service_uid, date):
     """Time selection: shows available 15-minute-stepped windows for a chosen day."""
     company = _get_active_company(company_slug)
     _require_public_page(company)
-    staff_member = _get_active_staff(company, staff_id)
-    service = _get_active_service(company, service_id)
+    staff_member = _get_active_staff(company, staff_uid)
+    service = _get_active_service(company, service_uid)
     _get_active_assignment(staff_member, service)
 
     target_date = _parse_date(date)
@@ -403,11 +405,12 @@ def public_time_select_view(request, company_slug, staff_id, service_id, date):
 
 
 @require_http_methods(["GET", "POST"])
-def public_booking_form_view(request, company_slug, staff_id, service_id, date, start_time):
+@ratelimit(key="ip", rate="20/m", block=True)
+def public_booking_form_view(request, company_slug, staff_uid, service_uid, date, start_time):
     company = _get_active_company(company_slug)
     _require_public_page(company)
-    staff_member = _get_active_staff(company, staff_id)
-    service = _get_active_service(company, service_id)
+    staff_member = _get_active_staff(company, staff_uid)
+    service = _get_active_service(company, service_uid)
     _get_active_assignment(staff_member, service)
 
     start_at = _parse_start_at(date, start_time)
@@ -451,14 +454,6 @@ def public_booking_form_view(request, company_slug, staff_id, service_id, date, 
     if request.method == "POST" and form.is_valid():
         try:
             with transaction.atomic():
-                # Lock overlapping active bookings to prevent race conditions.
-                Booking.objects.select_for_update().filter(
-                    staff_member=staff_member,
-                    status__in=_ACTIVE_BOOKING_STATUSES,
-                    start_at__lt=end_at,
-                    end_at__gt=start_at,
-                )
-
                 # Lock the covering slot row.
                 locked_slot = (
                     AppointmentSlot.objects.select_for_update()
@@ -520,8 +515,8 @@ def public_booking_form_view(request, company_slug, staff_id, service_id, date, 
                         "bookings:time_select",
                         kwargs={
                             "company_slug": company_slug,
-                            "staff_id": staff_id,
-                            "service_id": service_id,
+                            "staff_uid": staff_uid,
+                            "service_uid": service_uid,
                             "date": start_at.date().isoformat(),
                         },
                     ),
@@ -567,6 +562,7 @@ def _require_any_employee_enabled(company):
 
 
 @require_http_methods(["GET"])
+@ratelimit(key="ip", rate="60/h", block=True)
 def any_service_select_view(request, company_slug):
     company = _get_active_company(company_slug)
     _require_public_page(company)
@@ -580,12 +576,13 @@ def any_service_select_view(request, company_slug):
 
 
 @require_http_methods(["GET"])
-def any_slot_select_view(request, company_slug, service_id):
+@ratelimit(key="ip", rate="60/h", block=True)
+def any_slot_select_view(request, company_slug, service_uid):
     """Day selection: shows calendar days with at least one available window across all eligible staff."""
     company = _get_active_company(company_slug)
     _require_public_page(company)
     _require_any_employee_enabled(company)
-    service = _get_active_service(company, service_id)
+    service = _get_active_service(company, service_uid)
     days = _available_days_for_any(company, service)
     return render(
         request,
@@ -595,12 +592,13 @@ def any_slot_select_view(request, company_slug, service_id):
 
 
 @require_http_methods(["GET"])
-def any_time_select_view(request, company_slug, service_id, date):
+@ratelimit(key="ip", rate="60/h", block=True)
+def any_time_select_view(request, company_slug, service_uid, date):
     """Time selection: shows available 15-minute-stepped windows for a chosen day across all eligible staff."""
     company = _get_active_company(company_slug)
     _require_public_page(company)
     _require_any_employee_enabled(company)
-    service = _get_active_service(company, service_id)
+    service = _get_active_service(company, service_uid)
     target_date = _parse_date(date)
     windows = _windows_for_date_any(company, service, target_date)
     return render(
@@ -616,11 +614,12 @@ def any_time_select_view(request, company_slug, service_id, date):
 
 
 @require_http_methods(["GET", "POST"])
-def any_booking_form_view(request, company_slug, service_id, date, start_time):
+@ratelimit(key="ip", rate="20/m", block=True)
+def any_booking_form_view(request, company_slug, service_uid, date, start_time):
     company = _get_active_company(company_slug)
     _require_public_page(company)
     _require_any_employee_enabled(company)
-    service = _get_active_service(company, service_id)
+    service = _get_active_service(company, service_uid)
 
     start_at = _parse_start_at(date, start_time)
     end_at = start_at + timedelta(minutes=service.duration_minutes)
@@ -646,12 +645,6 @@ def any_booking_form_view(request, company_slug, service_id, date, start_time):
                 booking_staff = None
                 locked_slot = None
                 for staff in _eligible_staff_for_any(company, service):
-                    Booking.objects.select_for_update().filter(
-                        staff_member=staff,
-                        status__in=_ACTIVE_BOOKING_STATUSES,
-                        start_at__lt=end_at,
-                        end_at__gt=start_at,
-                    )
                     if Booking.objects.filter(
                         staff_member=staff,
                         status__in=_ACTIVE_BOOKING_STATUSES,
@@ -714,7 +707,7 @@ def any_booking_form_view(request, company_slug, service_id, date, start_time):
                         "bookings:any_time_select",
                         kwargs={
                             "company_slug": company_slug,
-                            "service_id": service_id,
+                            "service_uid": service_uid,
                             "date": start_at.date().isoformat(),
                         },
                     ),

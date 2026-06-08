@@ -49,7 +49,7 @@
 <ul class="bk-list" role="list">
   {% for member in staff_members %}
   <li class="bk-item">
-    <a href="{% url 'bookings:service_select' company_slug=company.slug staff_id=member.pk %}">
+    <a href="{% url 'bookings:service_select' company_slug=company.slug staff_uid=member.public_id %}">
       <div class="bk-avatar" aria-hidden="true">{{ member.name|slice:":1"|upper }}</div>
       <div class="bk-staff-info">
         <span class="bk-staff-name">{{ member.name }}</span>

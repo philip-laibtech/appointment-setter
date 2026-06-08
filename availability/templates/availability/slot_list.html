@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "company_accounts/app_base.html" %}
 {% block title %}Open Hours — {{ user.business_name }}{% endblock %}
 
 {% block extra_style %}
@@ -325,11 +325,7 @@
         <span class="av-badge av-badge--{{ slot.status }}">{{ slot.get_status_display }}</span>
 
         <div class="av-actions">
-          <form method="post" action="{% url 'availability:delete' slot.pk %}" style="display:contents;">
-            {% csrf_token %}
-            <button type="submit" class="av-btn av-btn--danger"
-                    onclick="return confirm('Delete this entry?');">Delete</button>
-          </form>
+          <a href="{% url 'availability:delete' slot.pk %}" class="av-btn av-btn--danger">Delete</a>
         </div>
       </li>
     {% endfor %}

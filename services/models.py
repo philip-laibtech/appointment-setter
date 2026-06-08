@@ -1,9 +1,12 @@
+import uuid
+
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import models
 
 
 class ServiceOffering(models.Model):
+    public_id = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
     company = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,

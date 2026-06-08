@@ -31,25 +31,25 @@ def _make_member(company, name="Alice", email="", phone="", is_active=True):
 class AuthRequiredTests(TestCase):
     def test_list_requires_login(self):
         response = self.client.get(LIST_URL)
-        self.assertRedirects(response, f"/company-accounts/login/?next={LIST_URL}")
+        self.assertRedirects(response, f"/login/?next={LIST_URL}")
 
     def test_create_requires_login(self):
         response = self.client.get(CREATE_URL)
-        self.assertRedirects(response, f"/company-accounts/login/?next={CREATE_URL}")
+        self.assertRedirects(response, f"/login/?next={CREATE_URL}")
 
     def test_edit_requires_login(self):
         company = _make_company("owner@example.com")
         member = _make_member(company)
         url = reverse("staff_members:edit", args=[member.pk])
         response = self.client.get(url)
-        self.assertRedirects(response, f"/company-accounts/login/?next={url}")
+        self.assertRedirects(response, f"/login/?next={url}")
 
     def test_delete_requires_login(self):
         company = _make_company("owner2@example.com")
         member = _make_member(company)
         url = reverse("staff_members:delete", args=[member.pk])
         response = self.client.get(url)
-        self.assertRedirects(response, f"/company-accounts/login/?next={url}")
+        self.assertRedirects(response, f"/login/?next={url}")
 
 
 class StaffListTests(TestCase):

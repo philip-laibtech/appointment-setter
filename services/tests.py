@@ -40,25 +40,25 @@ def _make_service(company, name="Consultation", duration=30, is_active=True):
 class AccessControlTests(TestCase):
     def test_list_requires_login(self):
         response = self.client.get(LIST_URL)
-        self.assertRedirects(response, f"/company-accounts/login/?next={LIST_URL}")
+        self.assertRedirects(response, f"/login/?next={LIST_URL}")
 
     def test_create_requires_login(self):
         response = self.client.get(CREATE_URL)
-        self.assertRedirects(response, f"/company-accounts/login/?next={CREATE_URL}")
+        self.assertRedirects(response, f"/login/?next={CREATE_URL}")
 
     def test_edit_requires_login(self):
         company = _make_company("owner@example.com")
         service = _make_service(company)
         url = reverse("services:edit", args=[service.pk])
         response = self.client.get(url)
-        self.assertRedirects(response, f"/company-accounts/login/?next={url}")
+        self.assertRedirects(response, f"/login/?next={url}")
 
     def test_delete_requires_login(self):
         company = _make_company("owner2@example.com")
         service = _make_service(company)
         url = reverse("services:delete", args=[service.pk])
         response = self.client.get(url)
-        self.assertRedirects(response, f"/company-accounts/login/?next={url}")
+        self.assertRedirects(response, f"/login/?next={url}")
 
     def test_cannot_access_another_companys_service_via_edit(self):
         owner = _make_company("owner@example.com")

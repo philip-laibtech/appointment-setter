@@ -1,5 +1,5 @@
 {% extends "company_accounts/app_base.html" %}
-{% block title %}Page Not Found{% endblock %}
+{% block title %}Too Many Requests{% endblock %}
 
 {% block extra_style %}
 <style>
@@ -47,9 +47,9 @@
 
 {% block content %}
 <div class="error-card">
-  <p class="error-code">404</p>
-  <h1 class="error-title">Page not found</h1>
-  <p class="error-text">The page you're looking for doesn't exist or has been moved.</p>
+  <p class="error-code">429</p>
+  <h1 class="error-title">Too many requests</h1>
+  <p class="error-text">You've made too many requests in a short period. Please wait a moment and try again.</p>
   <a href="/" class="error-home">Go to homepage</a>
 </div>
 {% endblock %}

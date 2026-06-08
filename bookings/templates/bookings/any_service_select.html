@@ -19,7 +19,7 @@
   <ul class="bk-list" role="list">
     {% for service in services %}
     <li class="bk-item">
-      <a href="{% url 'bookings:any_slot_select' company_slug=company.slug service_id=service.pk %}">
+      <a href="{% url 'bookings:any_slot_select' company_slug=company.slug service_uid=service.public_id %}">
         <div class="bk-service-info">
           <div class="bk-service-name">{{ service.name }}</div>
           <div class="bk-service-meta">

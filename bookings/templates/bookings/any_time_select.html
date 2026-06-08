@@ -2,7 +2,7 @@
 {% block title %}Choose a Time — {{ company.business_name }}{% endblock %}
 
 {% block content %}
-<a href="{% url 'bookings:any_slot_select' company_slug=company.slug service_id=service.pk %}" class="bk-back">
+<a href="{% url 'bookings:any_slot_select' company_slug=company.slug service_uid=service.public_id %}" class="bk-back">
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
     <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
@@ -21,7 +21,7 @@
 {% if windows %}
   <div class="bk-time-grid">
     {% for window in windows %}
-      <a href="{% url 'bookings:any_book' company_slug=company.slug service_id=service.pk date=window|date:'Y-m-d' start_time=window|date:'H-i' %}"
+      <a href="{% url 'bookings:any_book' company_slug=company.slug service_uid=service.public_id date=window|date:'Y-m-d' start_time=window|date:'H-i' %}"
          class="bk-time-btn">
         {{ window|date:"H:i" }}
       </a>
