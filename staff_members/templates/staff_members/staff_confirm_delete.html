@@ -76,31 +76,35 @@
 
 <div class="sm-form-card">
   <h1 class="sm-form-title">Remove "{{ member.name }}"?</h1>
-  <p class="sm-form-subtitle">
-    {% if member.appointment_slots.exists %}
-      This staff member has existing availability slots. They will be <strong>deactivated</strong>
-      (not permanently deleted) so their slots remain intact.
-    {% else %}
-      This will permanently delete the staff member. This action cannot be undone.
-    {% endif %}
-  </p>
 
-  {% if member.appointment_slots.exists %}
+  {% if is_blocked %}
+  <p class="sm-form-subtitle">This staff member cannot be deleted because they have upcoming activity.</p>
   <div class="sm-warn">
-    Deactivating will hide them from new slot assignments but keep their existing slots.
+    {% if has_future_slots and has_future_bookings %}
+      They have upcoming availability slots and active future bookings.
+    {% elif has_future_slots %}
+      They have upcoming availability slots.
+    {% else %}
+      They have active future bookings.
+    {% endif %}
+    Cancel or remove these before deleting this staff member.
   </div>
-  {% endif %}
-
   <hr class="sm-divider">
+  <div class="sm-btn-row">
+    <a href="{% url 'staff_members:edit' member.pk %}" class="sm-cancel">Go back</a>
+  </div>
 
+  {% else %}
+  <p class="sm-form-subtitle">This will permanently delete the staff member. This action cannot be undone.</p>
+  <hr class="sm-divider">
   <form method="post" novalidate>
     {% csrf_token %}
     <div class="sm-btn-row">
       <a href="{% url 'staff_members:edit' member.pk %}" class="sm-cancel">Cancel</a>
-      <button type="submit" class="sm-submit-danger">
-        {% if member.appointment_slots.exists %}Deactivate{% else %}Delete{% endif %}
-      </button>
+      <button type="submit" class="sm-submit-danger">Delete</button>
     </div>
   </form>
+  {% endif %}
+
 </div>
 {% endblock %}

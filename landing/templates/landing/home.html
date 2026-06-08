@@ -1,17 +1,80 @@
-{% extends "company_accounts/app_base.html" %}
+{% extends "base.html" %}
 {% block title %}Simple appointment booking for your business{% endblock %}
-{% block content %}
-<div class="card" style="text-align:center;padding:3rem 2rem;">
-  <h1 style="font-size:1.75rem;margin-bottom:2rem;">Simple appointment booking for your business</h1>
-  <div style="display:flex;flex-direction:column;gap:0.75rem;max-width:260px;margin:0 auto;">
-    <a href="{% url 'company_accounts:register' %}"
-       style="display:block;padding:0.7rem 1.25rem;background:#111;color:#fff;text-decoration:none;border-radius:4px;font-size:1rem;">
-      Let&#39;s get started
-    </a>
-    <a href="{% url 'company_accounts:login' %}"
-       style="display:block;padding:0.7rem 1.25rem;background:#fff;color:#111;text-decoration:none;border-radius:4px;font-size:1rem;border:1px solid #ccc;">
-      Login
-    </a>
+
+{% block head %}
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sb-border: #e5e7eb;
+    --text-primary: #111827;
+    --text-muted: #6b7280;
+    --bg-body: #f9fafb;
+    --topbar-h: 56px;
+  }
+
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg-body);
+    color: var(--text-primary);
+    min-height: 100vh;
+  }
+
+  nav {
+    background: #fff;
+    border-bottom: 1px solid var(--sb-border);
+    padding: 0 1.75rem;
+    height: var(--topbar-h);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .brand { font-weight: 700; font-size: 0.9375rem; color: #111; text-decoration: none; }
+  .spacer { flex: 1; }
+  nav a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
+  nav a:hover { color: var(--text-primary); }
+
+  main {
+    max-width: 560px;
+    margin: 2.5rem auto;
+    padding: 0 1.25rem;
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--sb-border);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+
+  h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 2rem; }
+</style>
+{% endblock %}
+
+{% block body %}
+<nav>
+  <a class="brand" href="/">Appointment Setter</a>
+  <span class="spacer"></span>
+  <a href="{% url 'company_accounts:login' %}">Login</a>
+  <a href="{% url 'company_accounts:register' %}">Register</a>
+</nav>
+
+<main>
+  <div class="card">
+    <h1>Simple appointment booking for your business</h1>
+    <div style="display:flex;flex-direction:column;gap:0.75rem;max-width:260px;margin:0 auto;">
+      <a href="{% url 'company_accounts:register' %}"
+         style="display:block;padding:0.7rem 1.25rem;background:#111;color:#fff;text-decoration:none;border-radius:4px;font-size:1rem;">
+        Let&#39;s get started
+      </a>
+      <a href="{% url 'company_accounts:login' %}"
+         style="display:block;padding:0.7rem 1.25rem;background:#fff;color:#111;text-decoration:none;border-radius:4px;font-size:1rem;border:1px solid #ccc;">
+        Login
+      </a>
+    </div>
   </div>
-</div>
+</main>
 {% endblock %}
