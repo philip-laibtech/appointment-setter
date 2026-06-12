@@ -17,7 +17,7 @@ urlpatterns = [
         name="all_bookings",
     ),
     path(
-        "manage/bookings/past/",
+        "manage/past/",
         views.past_bookings_view,
         name="past_bookings",
     ),
