@@ -1,0 +1,224 @@
+{% extends "base.html" %}
+{% block title %}Privacy Policy — Appointment Setter{% endblock %}
+
+{% block head %}
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sb-border: #e5e7eb;
+    --text-primary: #111827;
+    --text-muted: #6b7280;
+    --bg-body: #f9fafb;
+    --topbar-h: 56px;
+  }
+
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg-body);
+    color: var(--text-primary);
+    min-height: 100vh;
+  }
+
+  nav {
+    background: #fff;
+    border-bottom: 1px solid var(--sb-border);
+    padding: 0 1.75rem;
+    height: var(--topbar-h);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .brand { font-weight: 700; font-size: 0.9375rem; color: #111; text-decoration: none; }
+  .spacer { flex: 1; }
+  nav a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
+  nav a:hover { color: var(--text-primary); }
+
+  main {
+    max-width: 760px;
+    margin: 2.5rem auto;
+    padding: 0 1.25rem 4rem;
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--sb-border);
+    border-radius: 10px;
+    padding: 2.5rem 3rem;
+  }
+
+  h1 {
+    font-size: 1.625rem;
+    font-weight: 700;
+    margin-bottom: 0.375rem;
+  }
+
+  .meta {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.625rem;
+  }
+
+  p, li {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: #374151;
+  }
+
+  ul {
+    padding-left: 1.25rem;
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--sb-border);
+    margin: 2rem 0;
+  }
+
+  a.back {
+    display: inline-block;
+    margin-bottom: 1.25rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+  a.back:hover { color: var(--text-primary); }
+
+  @media (max-width: 600px) {
+    .card { padding: 1.5rem 1.25rem; }
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+<nav>
+  <a class="brand" href="/">Appointment Setter</a>
+  <span class="spacer"></span>
+  <a href="{% url 'company_accounts:login' %}">Login</a>
+  <a href="{% url 'company_accounts:register' %}">Register</a>
+</nav>
+
+<main>
+  <a class="back" href="/">&larr; Back to home</a>
+
+  <div class="card">
+    <h1>Privacy Policy</h1>
+    <p class="meta">Last updated: <!-- DATE --></p>
+
+    <p>
+      <!-- INTRO: one paragraph explaining who you are and that this policy describes how personal data
+           is collected, used, and protected when people use the platform. -->
+    </p>
+
+    <hr>
+
+    <h2>1. Controller</h2>
+    <p>
+      <!-- NAME, address, and contact details of the data controller (the business operating this
+           platform). Include an email address for privacy inquiries. -->
+    </p>
+
+    <h2>2. Data We Collect</h2>
+    <p>We collect the following categories of personal data:</p>
+    <ul>
+      <li><!-- e.g. Account data: name, email address, password hash --></li>
+      <li><!-- e.g. Booking data: appointment date/time, service, staff member selected --></li>
+      <li><!-- e.g. Contact data provided by clients at booking (name, email, phone) --></li>
+      <li><!-- e.g. Usage data: IP address, browser type, pages visited, timestamps --></li>
+      <li><!-- e.g. Communications: emails sent or received through the platform --></li>
+    </ul>
+
+    <h2>3. Purpose and Legal Basis</h2>
+    <p>
+      <!-- Describe each processing purpose and its legal basis under GDPR Art. 6 (or applicable law):
+           - Service delivery (Art. 6(1)(b) — performance of a contract)
+           - Account management (Art. 6(1)(b))
+           - Legal compliance (Art. 6(1)(c))
+           - Legitimate interests, e.g. security, fraud prevention (Art. 6(1)(f))
+           - Consent, e.g. marketing emails (Art. 6(1)(a)) -->
+    </p>
+
+    <h2>4. How We Use Your Data</h2>
+    <ul>
+      <li><!-- e.g. To create and manage your account --></li>
+      <li><!-- e.g. To confirm, remind, and manage appointments --></li>
+      <li><!-- e.g. To send transactional emails (confirmations, cancellations) --></li>
+      <li><!-- e.g. To improve the platform and fix issues --></li>
+      <li><!-- e.g. To comply with legal obligations --></li>
+    </ul>
+
+    <h2>5. Data Sharing and Third Parties</h2>
+    <p>
+      <!-- List any third-party service providers (e.g. email delivery, hosting, payment processors)
+           and what data they receive. Confirm no sale of personal data to third parties. -->
+    </p>
+
+    <h2>6. International Transfers</h2>
+    <p>
+      <!-- If data is transferred outside the EEA/UK, describe the safeguard (adequacy decision,
+           Standard Contractual Clauses, etc.) or state that all processing stays within the EEA. -->
+    </p>
+
+    <h2>7. Retention</h2>
+    <p>
+      <!-- Describe how long each category of data is kept and why (e.g. booking records kept for
+           X years for accounting purposes; account data deleted 30 days after account closure). -->
+    </p>
+
+    <h2>8. Cookies and Tracking</h2>
+    <p>
+      <!-- Describe any cookies set (session cookie, CSRF token, analytics). Distinguish strictly
+           necessary cookies from optional ones and how users can opt out. -->
+    </p>
+
+    <h2>9. Your Rights</h2>
+    <p>Depending on your location, you may have the right to:</p>
+    <ul>
+      <li><!-- Access the personal data we hold about you --></li>
+      <li><!-- Correct inaccurate or incomplete data --></li>
+      <li><!-- Request deletion of your data ("right to be forgotten") --></li>
+      <li><!-- Restrict or object to certain processing --></li>
+      <li><!-- Data portability (receive your data in a machine-readable format) --></li>
+      <li><!-- Withdraw consent at any time (where processing is based on consent) --></li>
+      <li><!-- Lodge a complaint with your local supervisory authority --></li>
+    </ul>
+    <p>To exercise any of these rights, contact us at: <!-- privacy@example.com --></p>
+
+    <h2>10. Security</h2>
+    <p>
+      <!-- Describe the technical and organisational measures in place (encryption in transit, hashed
+           passwords, access controls, etc.). Note that no method is 100% secure. -->
+    </p>
+
+    <h2>11. Children</h2>
+    <p>
+      <!-- State the minimum age for using the platform (typically 16 for GDPR) and that you do not
+           knowingly collect data from children below that age. -->
+    </p>
+
+    <h2>12. Changes to This Policy</h2>
+    <p>
+      <!-- Explain how you will notify users of material changes (e.g. email notification or
+           prominent notice on the platform) and that continued use constitutes acceptance. -->
+    </p>
+
+    <h2>13. Contact</h2>
+    <p>
+      <!-- Full contact details for privacy-related inquiries: name, postal address, email.
+           If you have a DPO, list their contact details separately. -->
+    </p>
+  </div>
+</main>
+{% endblock %}

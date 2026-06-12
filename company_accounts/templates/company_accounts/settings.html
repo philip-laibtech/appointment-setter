@@ -151,6 +151,98 @@
       {% endif %}
     </div>
 
+    <div class="st-field">
+      <label class="st-label" for="{{ form.street.id_for_label }}">Street</label>
+      <input
+        class="st-input"
+        type="text"
+        id="{{ form.street.id_for_label }}"
+        name="{{ form.street.html_name }}"
+        value="{{ form.street.value|default:'' }}"
+        maxlength="255"
+      >
+      {% if form.street.errors %}
+        <div class="st-field-errors">
+          {% for error in form.street.errors %}{{ error }}{% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+    <div style="display:flex; gap:1rem;">
+      <div class="st-field" style="width:140px; flex-shrink:0;">
+        <label class="st-label" for="{{ form.plz.id_for_label }}">PLZ</label>
+        <input
+          class="st-input"
+          type="text"
+          id="{{ form.plz.id_for_label }}"
+          name="{{ form.plz.html_name }}"
+          value="{{ form.plz.value|default:'' }}"
+          maxlength="20"
+        >
+        {% if form.plz.errors %}
+          <div class="st-field-errors">
+            {% for error in form.plz.errors %}{{ error }}{% endfor %}
+          </div>
+        {% endif %}
+      </div>
+      <div class="st-field" style="flex:1;">
+        <label class="st-label" for="{{ form.location.id_for_label }}">Location</label>
+        <input
+          class="st-input"
+          type="text"
+          id="{{ form.location.id_for_label }}"
+          name="{{ form.location.html_name }}"
+          value="{{ form.location.value|default:'' }}"
+          maxlength="255"
+        >
+        {% if form.location.errors %}
+          <div class="st-field-errors">
+            {% for error in form.location.errors %}{{ error }}{% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+
+  <div class="st-section">
+    <p class="st-section-title">Contact Information</p>
+
+    <div class="st-field">
+      <label class="st-label" for="{{ form.phone.id_for_label }}">Phone</label>
+      <input
+        class="st-input"
+        type="tel"
+        id="{{ form.phone.id_for_label }}"
+        name="{{ form.phone.html_name }}"
+        value="{{ form.phone.value|default:'' }}"
+        maxlength="50"
+      >
+      {% if form.phone.errors %}
+        <div class="st-field-errors">
+          {% for error in form.phone.errors %}{{ error }}{% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="st-field">
+      <label class="st-label" for="{{ form.website.id_for_label }}">Website</label>
+      <input
+        class="st-input"
+        type="url"
+        id="{{ form.website.id_for_label }}"
+        name="{{ form.website.html_name }}"
+        value="{{ form.website.value|default:'' }}"
+        maxlength="255"
+        placeholder="https://"
+      >
+      {% if form.website.errors %}
+        <div class="st-field-errors">
+          {% for error in form.website.errors %}{{ error }}{% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
   </div>
 
   <div class="st-section">

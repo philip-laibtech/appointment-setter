@@ -9,10 +9,12 @@ from .models import CompanyAccount
 class CompanyRegistrationForm(forms.ModelForm):
     password1 = forms.CharField(
         label="Password",
+        max_length=128,
         widget=forms.PasswordInput(attrs={"autocomplete": "new-password"}),
     )
     password2 = forms.CharField(
         label="Confirm password",
+        max_length=128,
         widget=forms.PasswordInput(attrs={"autocomplete": "new-password"}),
     )
 
@@ -56,6 +58,11 @@ class CompanySettingsForm(forms.ModelForm):
         model = CompanyAccount
         fields = (
             "business_name",
+            "street",
+            "plz",
+            "location",
+            "phone",
+            "website",
             "public_page_enabled",
             "show_staff_names_publicly",
             "enable_any_employee_option",

@@ -89,9 +89,9 @@
   </table>
 
   {% if booking.status == "confirmed" %}
-    <p class="bk-note">Please keep this page for your records. A confirmation reference is included in your URL.</p>
+    <p class="bk-note">Your confirmation details have been sent to your email. This page will expire shortly and cannot be revisited.</p>
   {% elif booking.status == "pending" %}
-    <p class="bk-note">Your appointment request has been submitted and is waiting for confirmation from {{ company.business_name }}. You will be notified once it is reviewed.</p>
+    <p class="bk-note">Your appointment request has been submitted and is waiting for confirmation from {{ company.business_name }}. You will be notified by email once it is reviewed. This page will expire shortly.</p>
   {% elif booking.status == "cancelled" %}
     <p class="bk-note">Your booking has been cancelled. The time slot is now available again.</p>
   {% elif booking.status == "declined" %}

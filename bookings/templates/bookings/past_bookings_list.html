@@ -1,6 +1,6 @@
 {% extends "company_accounts/app_base.html" %}
-{% block title %}Bookings{% endblock %}
-{% block page_title %}Bookings{% endblock %}
+{% block title %}Past Bookings{% endblock %}
+{% block page_title %}Past Bookings{% endblock %}
 
 {% block extra_style %}
 <style>
@@ -23,7 +23,7 @@
     font-size: 0.9rem;
     color: #6b7280;
   }
-  .bk-past-link {
+  .bk-back-link {
     display: inline-flex;
     align-items: center;
     gap: 0.3rem;
@@ -38,16 +38,7 @@
     flex-shrink: 0;
     transition: border-color 0.15s, background 0.15s;
   }
-  .bk-past-link:hover { border-color: #9ca3af; background: #f9fafb; color: #111; text-decoration: none; }
-
-  .bk-section-label {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #9ca3af;
-    margin-bottom: 0.75rem;
-  }
+  .bk-back-link:hover { border-color: #9ca3af; background: #f9fafb; color: #111; text-decoration: none; }
 
   .bk-table {
     width: 100%;
@@ -118,32 +109,6 @@
   .bk-badge-cancelled { background: #f3f4f6; color: #6b7280; }
   .bk-badge-declined  { background: #fef2f2; color: #b91c1c; }
 
-  .bk-actions { display: flex; gap: 0.5rem; align-items: center; }
-  .bk-btn-confirm {
-    padding: 0.3rem 0.75rem;
-    background: #111;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-  .bk-btn-confirm:hover { background: #333; }
-  .bk-btn-decline {
-    padding: 0.3rem 0.75rem;
-    background: #fff;
-    color: #b91c1c;
-    border: 1px solid #fca5a5;
-    border-radius: 5px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-  .bk-btn-decline:hover { background: #fef2f2; }
-
   .bk-meta { font-size: 0.8rem; color: #6b7280; margin-top: 0.1rem; }
   .bk-name { font-weight: 600; }
 
@@ -177,19 +142,17 @@
 {% block content %}
 <div class="bk-header">
   <div>
-    <h1 class="bk-title">Bookings</h1>
-    <p class="bk-sub">Upcoming confirmed and pending appointments.</p>
+    <h1 class="bk-title">Past Bookings</h1>
+    <p class="bk-sub">All completed and past appointments.</p>
   </div>
-  <a href="{% url 'bookings:past_bookings' %}" class="bk-past-link">
+  <a href="{% url 'bookings:all_bookings' %}" class="bk-back-link">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M12 8v4l3 3"/>
-      <circle cx="12" cy="12" r="10"/>
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
     </svg>
-    Past Bookings
+    Upcoming Bookings
   </a>
 </div>
 
-<p class="bk-section-label">Upcoming</p>
 {% if page_obj %}
   <table class="bk-table">
     <thead>
@@ -199,7 +162,6 @@
         <th>Service &amp; Staff</th>
         <th>Time</th>
         <th>Status</th>
-        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -219,30 +181,18 @@
           <div>{{ booking.service_offering.name }}</div>
           <div class="bk-meta">{{ booking.staff_member.name }}</div>
         </td>
-        <td style="white-space:nowrap;">
+        <td style="white-space:nowrap;color:#6b7280;">
           {{ booking.start_at|date:"H:i" }} – {{ booking.end_at|date:"H:i" }}
         </td>
         <td>
           {% if booking.status == "confirmed" %}
             <span class="bk-badge bk-badge-confirmed">Confirmed</span>
+          {% elif booking.status == "cancelled" %}
+            <span class="bk-badge bk-badge-cancelled">Cancelled</span>
+          {% elif booking.status == "declined" %}
+            <span class="bk-badge bk-badge-declined">Declined</span>
           {% else %}
-            <span class="bk-badge bk-badge-pending">Pending</span>
-          {% endif %}
-        </td>
-        <td>
-          {% if booking.status == "pending" %}
-            <div class="bk-actions">
-              <form method="post" action="{% url 'bookings:confirm_booking' booking_id=booking.pk %}">
-                {% csrf_token %}
-                <button type="submit" class="bk-btn-confirm">Confirm</button>
-              </form>
-              <form method="post" action="{% url 'bookings:decline_booking' booking_id=booking.pk %}">
-                {% csrf_token %}
-                <button type="submit" class="bk-btn-decline">Decline</button>
-              </form>
-            </div>
-          {% else %}
-            <span style="color:#d1d5db;font-size:0.8rem;">—</span>
+            <span class="bk-badge bk-badge-pending">{{ booking.status|capfirst }}</span>
           {% endif %}
         </td>
       </tr>
@@ -263,6 +213,6 @@
   {% endif %}
 
 {% else %}
-  <div class="bk-empty">No upcoming bookings.</div>
+  <div class="bk-empty">No past bookings yet.</div>
 {% endif %}
 {% endblock %}

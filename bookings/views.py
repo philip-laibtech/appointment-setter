@@ -4,6 +4,7 @@ from datetime import time as time_type
 from datetime import timedelta
 
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from django.db import transaction
 from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
@@ -500,6 +501,8 @@ def public_booking_form_view(request, company_slug, staff_uid, service_uid, date
                     customer_email=form.cleaned_data["customer_email"],
                     customer_phone=form.cleaned_data["customer_phone"],
                     customer_message=form.cleaned_data["customer_message"],
+                    # Set only after form.is_valid() confirms privacy_accepted=True,
+                    # so this timestamp is proof the checkbox was checked.
                     privacy_accepted_at=now_inner,
                     status=booking_status,
                 )
@@ -545,15 +548,22 @@ def public_booking_form_view(request, company_slug, staff_uid, service_uid, date
     )
 
 
+_CONFIRMED_PAGE_TTL = timedelta(minutes=10)
+
+
 @require_http_methods(["GET"])
 def public_booking_confirmed_view(request, company_slug, public_token):
     company = _get_active_company(company_slug)
     booking = get_object_or_404(Booking, public_token=public_token, company=company)
-    return render(
+    if timezone.now() > booking.created_at + _CONFIRMED_PAGE_TTL:
+        raise Http404
+    response = render(
         request,
         "bookings/public_booking_confirmed.html",
         {"company": company, "booking": booking},
     )
+    response.headers["Referrer-Policy"] = "no-referrer"
+    return response
 
 
 def _require_any_employee_enabled(company):
@@ -692,6 +702,8 @@ def any_booking_form_view(request, company_slug, service_uid, date, start_time):
                     customer_email=form.cleaned_data["customer_email"],
                     customer_phone=form.cleaned_data["customer_phone"],
                     customer_message=form.cleaned_data["customer_message"],
+                    # Set only after form.is_valid() confirms privacy_accepted=True,
+                    # so this timestamp is proof the checkbox was checked.
                     privacy_accepted_at=now_inner,
                     status=booking_status,
                 )
@@ -806,7 +818,7 @@ def all_bookings_view(request):
     now = timezone.now()
     company = request.user
 
-    upcoming = (
+    upcoming_qs = (
         Booking.objects.filter(
             company=company,
             start_at__gte=now,
@@ -816,19 +828,35 @@ def all_bookings_view(request):
         .order_by("start_at")
     )
 
-    past = (
-        Booking.objects.filter(
-            company=company,
-            start_at__lt=now,
-        )
-        .select_related("staff_member", "service_offering")
-        .order_by("-start_at")[:100]
-    )
+    paginator = Paginator(upcoming_qs, 25)
+    page_obj = paginator.get_page(request.GET.get("page"))
 
     return render(
         request,
         "bookings/all_bookings_list.html",
-        {"upcoming": upcoming, "past": past},
+        {"page_obj": page_obj},
+    )
+
+
+@login_required
+@require_http_methods(["GET"])
+def past_bookings_view(request):
+    past_qs = (
+        Booking.objects.filter(
+            company=request.user,
+            start_at__lt=timezone.now(),
+        )
+        .select_related("staff_member", "service_offering")
+        .order_by("-start_at")
+    )
+
+    paginator = Paginator(past_qs, 25)
+    page_obj = paginator.get_page(request.GET.get("page"))
+
+    return render(
+        request,
+        "bookings/past_bookings_list.html",
+        {"page_obj": page_obj},
     )
 
 

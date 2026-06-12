@@ -6,7 +6,7 @@ from django import forms
 class BookingForm(forms.Form):
     # Honeypot — must remain empty; bots tend to fill every visible text field.
     # Hidden via CSS in the template. Never shown to real users.
-    website = forms.CharField(required=False, widget=forms.TextInput())
+    website = forms.CharField(required=False, max_length=200, widget=forms.TextInput())
 
     customer_first_name = forms.CharField(
         max_length=100,
@@ -30,6 +30,7 @@ class BookingForm(forms.Form):
     )
     customer_message = forms.CharField(
         required=False,
+        max_length=1000,
         label="Message (optional)",
         widget=forms.Textarea(attrs={"rows": 3}),
     )

@@ -139,7 +139,7 @@
              type="email" id="{{ form.customer_email.id_for_label }}"
              name="customer_email"
              value="{{ form.customer_email.value|default_if_none:'' }}"
-             autocomplete="email" required>
+             maxlength="254" autocomplete="email" required>
       {% for error in form.customer_email.errors %}<p class="bk-field-error">{{ error }}</p>{% endfor %}
     </div>
 
@@ -158,7 +158,7 @@
       <textarea class="bk-textarea{% if form.customer_message.errors %} bk-textarea--error{% endif %}"
                 id="{{ form.customer_message.id_for_label }}"
                 name="customer_message"
-                rows="3">{{ form.customer_message.value|default_if_none:'' }}</textarea>
+                rows="3" maxlength="1000">{{ form.customer_message.value|default_if_none:'' }}</textarea>
       {% for error in form.customer_message.errors %}<p class="bk-field-error">{{ error }}</p>{% endfor %}
     </div>
 

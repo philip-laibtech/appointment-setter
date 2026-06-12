@@ -17,6 +17,11 @@ urlpatterns = [
         name="all_bookings",
     ),
     path(
+        "manage/bookings/past/",
+        views.past_bookings_view,
+        name="past_bookings",
+    ),
+    path(
         "manage/<int:booking_id>/confirm/",
         views.confirm_booking_view,
         name="confirm_booking",

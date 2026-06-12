@@ -303,9 +303,9 @@
 </div>
 {% endif %}
 
-{% if slots %}
+{% if page_obj %}
   <ul class="av-list" role="list">
-    {% for slot in slots %}
+    {% for slot in page_obj %}
       <li class="av-entry av-entry--{{ slot.status }}">
         <a href="{% url 'availability:edit' slot.pk %}"
            class="av-entry-link"
@@ -330,6 +330,21 @@
       </li>
     {% endfor %}
   </ul>
+
+  {% if page_obj.paginator.num_pages > 1 %}
+  <div style="display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-top:1.25rem;font-size:0.875rem;">
+    {% if page_obj.has_previous %}
+      <a href="?{% if selected_staff %}staff={{ selected_staff.pk }}&{% endif %}page={{ page_obj.previous_page_number }}"
+         style="padding:0.3rem 0.75rem;border:1.5px solid #e4e4e7;border-radius:6px;color:#374151;text-decoration:none;font-weight:500;">&#8592; Prev</a>
+    {% endif %}
+    <span style="color:#6b7280;">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+    {% if page_obj.has_next %}
+      <a href="?{% if selected_staff %}staff={{ selected_staff.pk }}&{% endif %}page={{ page_obj.next_page_number }}"
+         style="padding:0.3rem 0.75rem;border:1.5px solid #e4e4e7;border-radius:6px;color:#374151;text-decoration:none;font-weight:500;">Next &#8594;</a>
+    {% endif %}
+  </div>
+  {% endif %}
+
 {% else %}
   <div class="av-empty">
     <div class="av-empty-icon" aria-hidden="true">

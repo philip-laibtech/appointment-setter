@@ -434,6 +434,18 @@
         <span class="nav-link-label">Bookings</span>
       </a>
 
+      <a href="{% url 'bookings:past_bookings' %}"
+         class="nav-link{% if request.resolver_match.namespace == 'bookings' and request.resolver_match.url_name == 'past_bookings' %} is-active{% endif %}"
+         data-tip="Past Bookings">
+        <span class="nav-link-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 9 15"/>
+          </svg>
+        </span>
+        <span class="nav-link-label">Past Bookings</span>
+      </a>
+
       <a href="{% url 'bookings:pending_bookings' %}"
          class="nav-link{% if request.resolver_match.namespace == 'bookings' and request.resolver_match.url_name == 'pending_bookings' %} is-active{% endif %}"
          data-tip="Pending Bookings">
