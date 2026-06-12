@@ -1,0 +1,16 @@
+{% load tz %}Hello {{ booking.company.business_name }},
+
+a new booking request is waiting for confirmation.
+
+Customer: {{ booking.customer_first_name }} {{ booking.customer_last_name }}
+Email: {{ booking.customer_email }}
+Phone: {{ booking.customer_phone|default:"-" }}
+
+Service: {{ booking.service_offering.name }}
+Staff member: {{ booking.staff_member.name }}
+Date/time: {% localtime on %}{{ booking.start_at }} - {{ booking.end_at }}{% endlocaltime %}
+
+Message:
+{{ booking.customer_message|default:"-" }}
+
+Please review this request in your pending bookings.

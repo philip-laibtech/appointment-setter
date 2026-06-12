@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     "staff_members",
     "services",
     "bookings",
+    "notifications",
 ]
 
 MIDDLEWARE = [

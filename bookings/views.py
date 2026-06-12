@@ -15,6 +15,11 @@ from django_ratelimit.decorators import ratelimit
 
 from availability.models import AppointmentSlot
 from company_accounts.models import CompanyAccount
+from notifications.services import (
+    send_booking_confirmed_to_customer,
+    send_booking_created_notifications,
+    send_booking_declined_to_customer,
+)
 from services.models import ServiceOffering, StaffServiceOffering
 from staff_members.models import StaffMember
 
@@ -507,6 +512,10 @@ def public_booking_form_view(request, company_slug, staff_uid, service_uid, date
                     status=booking_status,
                 )
 
+                transaction.on_commit(
+                    lambda booking=booking: send_booking_created_notifications(booking)
+                )
+
         except _SlotTaken:
             return render(
                 request,
@@ -708,6 +717,10 @@ def any_booking_form_view(request, company_slug, service_uid, date, start_time):
                     status=booking_status,
                 )
 
+                transaction.on_commit(
+                    lambda booking=booking: send_booking_created_notifications(booking)
+                )
+
         except _SlotTaken:
             return render(
                 request,
@@ -872,6 +885,9 @@ def confirm_booking_view(request, booking_id):
         )
         booking.status = Booking.Status.CONFIRMED
         booking.save(update_fields=["status", "updated_at"])
+        transaction.on_commit(
+            lambda booking=booking: send_booking_confirmed_to_customer(booking)
+        )
     return redirect("bookings:pending_bookings")
 
 
@@ -887,4 +903,7 @@ def decline_booking_view(request, booking_id):
         )
         booking.status = Booking.Status.DECLINED
         booking.save(update_fields=["status", "updated_at"])
+        transaction.on_commit(
+            lambda booking=booking: send_booking_declined_to_customer(booking)
+        )
     return redirect("bookings:pending_bookings")

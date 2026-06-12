@@ -1,0 +1,10 @@
+{% load tz %}Hello {{ booking.customer_first_name }},
+
+your booking request was declined.
+
+Company: {{ booking.company.business_name }}
+Service: {{ booking.service_offering.name }}
+Staff member: {{ booking.staff_member.name }}
+Date/time: {% localtime on %}{{ booking.start_at }} - {{ booking.end_at }}{% endlocaltime %}
+
+Thank you.
