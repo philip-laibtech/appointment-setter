@@ -1,13 +1,18 @@
+from datetime import timedelta
+from zoneinfo import ZoneInfo
+
 from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from django.utils import timezone
 from django.utils.http import url_has_allowed_host_and_scheme
 from django.views.decorators.http import require_http_methods
 from django_ratelimit.decorators import ratelimit
 
 from .forms import CompanyLoginForm, CompanyRegistrationForm, CompanySettingsForm
+from bookings.models import Booking
 from staff_members.models import StaffMember
 from services.models import ServiceOffering
 
@@ -57,18 +62,28 @@ def dashboard_view(request):
     company = request.user
 
     staff_members = StaffMember.objects.filter(company=company, is_active=True)
-    staff_total = StaffMember.objects.filter(company=company).count()
-    staff_active = staff_members.count()
-    service_total = ServiceOffering.objects.filter(company=company).count()
-    service_active = ServiceOffering.objects.filter(company=company, is_active=True).count()
+
+    tz = ZoneInfo(company.timezone)
+    today_start = timezone.now().astimezone(tz).replace(hour=0, minute=0, second=0, microsecond=0)
+    today_end = today_start + timedelta(days=1)
+
+    todays_bookings_count = Booking.objects.filter(
+        company=company,
+        start_at__gte=today_start,
+        start_at__lt=today_end,
+        status__in=[Booking.Status.CONFIRMED, Booking.Status.PENDING],
+    ).count()
+
+    pending_bookings_count = Booking.objects.filter(
+        company=company,
+        status=Booking.Status.PENDING,
+    ).count()
 
     return render(request, "company_accounts/dashboard.html", {
         "company": company,
         "staff_members": staff_members,
-        "staff_total": staff_total,
-        "staff_active": staff_active,
-        "service_total": service_total,
-        "service_active": service_active,
+        "todays_bookings_count": todays_bookings_count,
+        "pending_bookings_count": pending_bookings_count,
     })
 
 

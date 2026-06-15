@@ -4,7 +4,7 @@
 
 {% block extra_style %}
 <style>
-  main { max-width: 960px; }
+  main { max-width: 1040px; }
 
   .bk-header {
     display: flex;
@@ -44,31 +44,41 @@
     width: 100%;
     border-collapse: collapse;
     background: #fff;
-    border: 1px solid #e4e4e7;
-    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
     overflow: hidden;
     font-size: 0.875rem;
     margin-bottom: 0.5rem;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.03);
   }
   .bk-table thead { background: #f9fafb; }
   .bk-table th {
     text-align: left;
-    padding: 0.75rem 1rem;
-    font-size: 0.75rem;
+    padding: 0.8rem 1.1rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.07em;
     text-transform: uppercase;
     color: #6b7280;
-    border-bottom: 1px solid #e4e4e7;
+    border-bottom: 1px solid #e5e7eb;
   }
   .bk-table td {
-    padding: 0.875rem 1rem;
+    padding: 0;
     border-bottom: 1px solid #f3f4f6;
-    color: #111;
+    color: #111827;
     vertical-align: middle;
   }
   .bk-table tbody tr:last-child td { border-bottom: none; }
-  .bk-table tbody tr:hover { background: #fafafa; }
+  .bk-table tbody tr:hover { background: #fafbfc; }
+  .bk-row-link {
+    display: block;
+    padding: 0.9rem 1.1rem;
+    color: inherit;
+    text-decoration: none;
+  }
+  .bk-cell {
+    padding: 0.9rem 1.1rem;
+  }
 
   .bk-empty {
     background: #fff;
@@ -80,37 +90,56 @@
     font-size: 0.875rem;
   }
 
-  .bk-date-col {
-    flex-shrink: 0;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    width: 46px;
-    background: #f9fafb;
-    border: 1px solid #f3f4f6;
-    border-radius: 6px;
-    padding: 0.25rem;
-    line-height: 1;
-  }
-  .bk-date-day { font-size: 1.0625rem; font-weight: 700; color: #111; }
-  .bk-date-mon { font-size: 0.6rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #9ca3af; margin-top: 0.1rem; }
+  .bk-name { font-weight: 600; color: #111827; }
+
+  .bk-timeslot-date { font-weight: 600; }
+  .bk-timeslot-time { font-size: 0.8rem; color: #6b7280; margin-top: 0.1rem; }
 
   .bk-badge {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
     font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    padding: 0.2rem 0.55rem;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.65rem;
     border-radius: 999px;
   }
-  .bk-badge-confirmed { background: #f0fdf4; color: #166534; }
-  .bk-badge-pending   { background: #fffbeb; color: #92400e; }
+  .bk-badge::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .bk-badge-confirmed { background: #ecfdf5; color: #047857; }
+  .bk-badge-confirmed::before { background: #10b981; }
+  .bk-badge-pending { background: #fffbeb; color: #b45309; }
+  .bk-badge-pending::before { background: #f59e0b; }
   .bk-badge-cancelled { background: #f3f4f6; color: #6b7280; }
-  .bk-badge-declined  { background: #fef2f2; color: #b91c1c; }
+  .bk-badge-cancelled::before { background: #9ca3af; }
+  .bk-badge-declined { background: #fef2f2; color: #b91c1c; }
+  .bk-badge-declined::before { background: #ef4444; }
 
-  .bk-meta { font-size: 0.8rem; color: #6b7280; margin-top: 0.1rem; }
-  .bk-name { font-weight: 600; }
+  .bk-actions { display: flex; gap: 0.5rem; align-items: center; flex-wrap: nowrap; }
+
+  .bk-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+  }
+  .bk-btn svg { width: 14px; height: 14px; flex-shrink: 0; }
 
   .bk-pagination {
     display: flex;
@@ -132,9 +161,9 @@
   .bk-page-btn:hover { border-color: #9ca3af; background: #f9fafb; color: #111; text-decoration: none; }
   .bk-page-info { color: #6b7280; }
 
-  @media (max-width: 700px) {
-    .bk-table th:nth-child(4),
-    .bk-table td:nth-child(4) { display: none; }
+  @media (max-width: 760px) {
+    .bk-table th:nth-child(3),
+    .bk-table td:nth-child(3) { display: none; }
   }
 </style>
 {% endblock %}
@@ -157,43 +186,54 @@
   <table class="bk-table">
     <thead>
       <tr>
-        <th>Date</th>
         <th>Customer</th>
-        <th>Service &amp; Staff</th>
-        <th>Time</th>
+        <th>Service</th>
+        <th>Staff</th>
+        <th>Timeslot</th>
         <th>Status</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
       {% for booking in page_obj %}
+      {% url 'bookings:booking_detail' booking_id=booking.pk as booking_url %}
       <tr>
         <td>
-          <div class="bk-date-col">
-            <span class="bk-date-day">{{ booking.start_at|date:"j" }}</span>
-            <span class="bk-date-mon">{{ booking.start_at|date:"M" }}</span>
-          </div>
+          <a class="bk-row-link" href="{{ booking_url }}?from=past">
+            <div class="bk-name">{{ booking.customer_first_name }} {{ booking.customer_last_name }}</div>
+          </a>
         </td>
         <td>
-          <div class="bk-name">{{ booking.customer_first_name }} {{ booking.customer_last_name }}</div>
-          <div class="bk-meta">{{ booking.customer_email }}</div>
+          <a class="bk-row-link" href="{{ booking_url }}?from=past">
+            {{ booking.service_offering.name }}
+          </a>
         </td>
         <td>
-          <div>{{ booking.service_offering.name }}</div>
-          <div class="bk-meta">{{ booking.staff_member.name }}</div>
+          <a class="bk-row-link" href="{{ booking_url }}?from=past">
+            {{ booking.staff_member.name }}
+          </a>
         </td>
-        <td style="white-space:nowrap;color:#6b7280;">
-          {{ booking.start_at|date:"H:i" }} – {{ booking.end_at|date:"H:i" }}
+        <td style="white-space:nowrap;">
+          <a class="bk-row-link" href="{{ booking_url }}?from=past">
+            <div class="bk-timeslot-date">{{ booking.start_at|date:"D, j M" }}</div>
+            <div class="bk-timeslot-time">{{ booking.start_at|date:"H:i" }} – {{ booking.end_at|date:"H:i" }}</div>
+          </a>
         </td>
         <td>
-          {% if booking.status == "confirmed" %}
-            <span class="bk-badge bk-badge-confirmed">Confirmed</span>
-          {% elif booking.status == "cancelled" %}
-            <span class="bk-badge bk-badge-cancelled">Cancelled</span>
-          {% elif booking.status == "declined" %}
-            <span class="bk-badge bk-badge-declined">Declined</span>
-          {% else %}
-            <span class="bk-badge bk-badge-pending">{{ booking.status|capfirst }}</span>
-          {% endif %}
+          <a class="bk-row-link" href="{{ booking_url }}?from=past">
+            {% if booking.status == "confirmed" %}
+              <span class="bk-badge bk-badge-confirmed">Confirmed</span>
+            {% elif booking.status == "cancelled" %}
+              <span class="bk-badge bk-badge-cancelled">Cancelled</span>
+            {% elif booking.status == "declined" %}
+              <span class="bk-badge bk-badge-declined">Declined</span>
+            {% else %}
+              <span class="bk-badge bk-badge-pending">{{ booking.status|capfirst }}</span>
+            {% endif %}
+          </a>
+        </td>
+        <td class="bk-cell">
+          <span style="color:#d1d5db;font-size:0.8rem;">—</span>
         </td>
       </tr>
       {% endfor %}

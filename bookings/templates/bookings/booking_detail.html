@@ -1,0 +1,246 @@
+{% extends "company_accounts/app_base.html" %}
+{% block title %}Booking Details{% endblock %}
+{% block page_title %}Booking Details{% endblock %}
+
+{% block extra_style %}
+<style>
+  main { max-width: 760px; }
+
+  .bd-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .bd-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0.25rem;
+  }
+  .bd-sub { font-size: 0.9rem; color: #6b7280; }
+  .bd-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.5rem 1rem;
+    border: 1.5px solid #e4e4e7;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .bd-back-link:hover { border-color: #9ca3af; background: #f9fafb; color: #111; text-decoration: none; }
+
+  .bd-section {
+    background: #fff;
+    border: 1px solid #e4e4e7;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .bd-section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #9ca3af;
+    margin-bottom: 0.75rem;
+  }
+
+  .bd-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+  }
+  .bd-badge-confirmed { background: #f0fdf4; color: #166534; }
+  .bd-badge-pending   { background: #fffbeb; color: #92400e; }
+  .bd-badge-cancelled { background: #f3f4f6; color: #6b7280; }
+  .bd-badge-declined  { background: #fef2f2; color: #b91c1c; }
+
+  .bd-actions { display: flex; gap: 0.5rem; align-items: center; margin-top: 1.25rem; }
+  .bd-btn-confirm {
+    padding: 0.45rem 1rem;
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .bd-btn-confirm:hover { background: #333; }
+  .bd-btn-decline {
+    padding: 0.45rem 1rem;
+    background: #fff;
+    color: #b91c1c;
+    border: 1px solid #fca5a5;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .bd-btn-decline:hover { background: #fef2f2; }
+
+  .bd-message {
+    white-space: pre-wrap;
+    font-size: 0.9375rem;
+    color: #111;
+  }
+
+  .bd-warning-box {
+    background: #fef2f2;
+    border: 1px solid #fca5a5;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 1.25rem;
+  }
+  .bd-warning-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #b91c1c;
+    margin-bottom: 0.4rem;
+  }
+  .bd-warning-text {
+    font-size: 0.875rem;
+    color: #7f1d1d;
+    margin-bottom: 1rem;
+  }
+  .bd-btn-delete {
+    padding: 0.45rem 1rem;
+    background: #b91c1c;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .bd-btn-delete:hover { background: #991b1b; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="bd-header">
+  <div>
+    <h1 class="bd-title">Booking Details</h1>
+    <p class="bd-sub">
+      {% if booking.status == "confirmed" %}
+        <span class="bd-badge bd-badge-confirmed">Confirmed</span>
+      {% elif booking.status == "pending" %}
+        <span class="bd-badge bd-badge-pending">Pending</span>
+      {% elif booking.status == "cancelled" %}
+        <span class="bd-badge bd-badge-cancelled">Cancelled</span>
+      {% elif booking.status == "declined" %}
+        <span class="bd-badge bd-badge-declined">Declined</span>
+      {% endif %}
+    </p>
+  </div>
+  <a href="{{ back_url }}" class="bd-back-link">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    {{ back_label }}
+  </a>
+</div>
+
+<div class="bd-section">
+  <p class="bd-section-label">Appointment</p>
+  <table class="info-table">
+    <tr>
+      <th>Date</th>
+      <td>{{ booking.start_at|date:"l, j F Y" }}</td>
+    </tr>
+    <tr>
+      <th>Time</th>
+      <td>{{ booking.start_at|date:"H:i" }} – {{ booking.end_at|date:"H:i" }}</td>
+    </tr>
+    <tr>
+      <th>Service</th>
+      <td>{{ booking.service_offering.name }}</td>
+    </tr>
+    <tr>
+      <th>Staff member</th>
+      <td>{{ booking.staff_member.name }}</td>
+    </tr>
+  </table>
+</div>
+
+<div class="bd-section">
+  <p class="bd-section-label">Customer</p>
+  <table class="info-table">
+    <tr>
+      <th>Name</th>
+      <td>{{ booking.customer_first_name }} {{ booking.customer_last_name }}</td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td>{{ booking.customer_email }}</td>
+    </tr>
+    <tr>
+      <th>Phone</th>
+      <td>{{ booking.customer_phone|default:"—" }}</td>
+    </tr>
+    {% if booking.customer_message %}
+    <tr>
+      <th>Message</th>
+      <td><div class="bd-message">{{ booking.customer_message }}</div></td>
+    </tr>
+    {% endif %}
+  </table>
+</div>
+
+<div class="bd-section">
+  <p class="bd-section-label">Booking record</p>
+  <table class="info-table">
+    <tr>
+      <th>Requested</th>
+      <td>{{ booking.created_at|date:"j M Y, H:i" }}</td>
+    </tr>
+    <tr>
+      <th>Last updated</th>
+      <td>{{ booking.updated_at|date:"j M Y, H:i" }}</td>
+    </tr>
+    <tr>
+      <th>Privacy accepted</th>
+      <td>{{ booking.privacy_accepted_at|date:"j M Y, H:i" }}</td>
+    </tr>
+  </table>
+
+  {% if booking.status == "pending" %}
+  <div class="bd-actions">
+    <form method="post" action="{% url 'bookings:confirm_booking' booking_id=booking.pk %}">
+      {% csrf_token %}
+      <button type="submit" class="bd-btn-confirm">Confirm</button>
+    </form>
+    <form method="post" action="{% url 'bookings:decline_booking' booking_id=booking.pk %}">
+      {% csrf_token %}
+      <button type="submit" class="bd-btn-decline">Decline</button>
+    </form>
+  </div>
+  {% endif %}
+</div>
+
+{% if booking.start_at > now %}
+<div class="bd-warning-box">
+  <p class="bd-warning-title">Delete booking</p>
+  <p class="bd-warning-text">
+    This will permanently delete this booking, free up the time slot again, and notify the
+    customer by email that their appointment has been cancelled. This action cannot be undone.
+  </p>
+  <form method="post" action="{% url 'bookings:delete_booking' booking_id=booking.pk %}" onsubmit="return confirm('Are you sure you want to delete this booking? The customer will be notified by email.');">
+    {% csrf_token %}
+    <button type="submit" class="bd-btn-delete">Delete booking</button>
+  </form>
+</div>
+{% endif %}
+{% endblock %}

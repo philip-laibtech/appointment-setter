@@ -1,0 +1,12 @@
+{% load tz %}Hello {{ booking.customer_first_name }},
+
+your appointment has been cancelled by {{ booking.company.business_name }}.
+
+Company: {{ booking.company.business_name }}
+Service: {{ booking.service_offering.name }}
+Staff member: {{ booking.staff_member.name }}
+Date/time: {% localtime on %}{{ booking.start_at }} - {{ booking.end_at }}{% endlocaltime %}
+
+If you have any questions, please contact {{ booking.company.business_name }} directly.
+
+Thank you.

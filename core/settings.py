@@ -54,6 +54,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "bookings.context_processors.pending_bookings_count",
             ],
         },
     },

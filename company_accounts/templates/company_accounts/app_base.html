@@ -31,7 +31,7 @@
   ══════════════════════════════════════════════════════ */
   .sidebar {
     width: var(--sb-width);
-    min-height: 100vh;
+    height: 100vh;
     background: #fff;
     border-right: 1px solid var(--sb-border);
     display: flex;
@@ -155,6 +155,32 @@
     transition: opacity var(--ease);
   }
   .sidebar.is-collapsed .nav-link-label { opacity: 0; pointer-events: none; }
+
+  /* Pending bookings badge */
+  .nav-badge-dot {
+    position: absolute;
+    top: 1px; right: 1px;
+    width: 8px; height: 8px;
+    background: #2563eb;
+    border-radius: 50%;
+    border: 1.5px solid #fff;
+    box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.25);
+  }
+  .sidebar:not(.is-collapsed) .nav-badge-dot { display: none; }
+
+  .nav-badge-count {
+    background: #eff6ff;
+    color: #2563eb;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    line-height: 1;
+    min-width: 1.25rem;
+    text-align: center;
+    padding: 0.15rem 0.4rem;
+    border-radius: 999px;
+    flex-shrink: 0;
+  }
+  .sidebar.is-collapsed .nav-badge-count { display: none; }
 
   /* Tooltip — only shown when collapsed */
   .nav-link[data-tip]::after,
@@ -434,18 +460,6 @@
         <span class="nav-link-label">Bookings</span>
       </a>
 
-      <a href="{% url 'bookings:past_bookings' %}"
-         class="nav-link{% if request.resolver_match.namespace == 'bookings' and request.resolver_match.url_name == 'past_bookings' %} is-active{% endif %}"
-         data-tip="Past Bookings">
-        <span class="nav-link-icon">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 9 15"/>
-          </svg>
-        </span>
-        <span class="nav-link-label">Past Bookings</span>
-      </a>
-
       <a href="{% url 'bookings:pending_bookings' %}"
          class="nav-link{% if request.resolver_match.namespace == 'bookings' and request.resolver_match.url_name == 'pending_bookings' %} is-active{% endif %}"
          data-tip="Pending Bookings">
@@ -456,8 +470,22 @@
             <line x1="16" y1="13" x2="8" y2="13"/>
             <line x1="16" y1="17" x2="8" y2="17"/>
           </svg>
+          {% if pending_bookings_count %}<span class="nav-badge-dot" aria-hidden="true"></span>{% endif %}
         </span>
         <span class="nav-link-label">Pending Bookings</span>
+        {% if pending_bookings_count %}<span class="nav-badge-count">{{ pending_bookings_count }}</span>{% endif %}
+      </a>
+
+      <a href="{% url 'bookings:past_bookings' %}"
+         class="nav-link{% if request.resolver_match.namespace == 'bookings' and request.resolver_match.url_name == 'past_bookings' %} is-active{% endif %}"
+         data-tip="Past Bookings">
+        <span class="nav-link-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 9 15"/>
+          </svg>
+        </span>
+        <span class="nav-link-label">Past Bookings</span>
       </a>
     </nav>
 

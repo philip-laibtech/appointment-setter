@@ -22,6 +22,11 @@ urlpatterns = [
         name="past_bookings",
     ),
     path(
+        "manage/<int:booking_id>/",
+        views.booking_detail_view,
+        name="booking_detail",
+    ),
+    path(
         "manage/<int:booking_id>/confirm/",
         views.confirm_booking_view,
         name="confirm_booking",
@@ -30,6 +35,11 @@ urlpatterns = [
         "manage/<int:booking_id>/decline/",
         views.decline_booking_view,
         name="decline_booking",
+    ),
+    path(
+        "manage/<int:booking_id>/delete/",
+        views.delete_booking_view,
+        name="delete_booking",
     ),
 
     # ── Public booking flow ──────────────────────────────────────────────────

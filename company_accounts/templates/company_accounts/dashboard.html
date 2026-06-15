@@ -23,11 +23,6 @@
     color: #111;
     line-height: 1.2;
   }
-  .db-welcome-sub {
-    font-size: 0.9rem;
-    color: #6b7280;
-    margin-top: 0.35rem;
-  }
 
   /* Stats row */
   .db-stats {
@@ -61,11 +56,17 @@
     font-size: 0.8rem;
     color: #6b7280;
   }
+  .db-stat-sub a {
+    color: #15803d;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .db-stat-sub a:hover { text-decoration: underline; }
 
   /* Booking links row */
   .db-links-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 1rem;
     margin-bottom: 1.5rem;
     align-items: start;
@@ -191,7 +192,7 @@
   .db-staff-links-scroll::-webkit-scrollbar-thumb { background: #e4e4e7; border-radius: 2px; }
   .db-staff-link-row {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 0.75rem;
     padding: 0.875rem 0;
     border-bottom: 1px solid #f3f4f6;
@@ -211,25 +212,24 @@
     flex-shrink: 0;
     margin-top: 0.1rem;
   }
-  .db-staff-link-info { flex: 1; min-width: 0; }
+  .db-staff-link-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
   .db-staff-link-name {
     font-size: 0.875rem;
     font-weight: 600;
     color: #111;
-    margin-bottom: 0.1rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    min-width: 0;
   }
-  .db-staff-link-url {
-    font-size: 0.75rem;
-    color: #9ca3af;
-    margin-bottom: 0.55rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .db-staff-link-actions { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .db-staff-link-actions { display: flex; gap: 0.4rem; flex-wrap: wrap; flex-shrink: 0; justify-content: flex-end; }
   .db-staff-links-empty {
     padding: 1.5rem 0;
     text-align: center;
@@ -291,33 +291,6 @@
     color: #d1d5db;
   }
 
-  /* Info section */
-  .db-info {
-    background: #fff;
-    border: 1px solid #e4e4e7;
-    border-radius: 10px;
-    padding: 1.5rem;
-    margin-top: 1.5rem;
-  }
-  .db-info-title {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #9ca3af;
-    margin-bottom: 1rem;
-  }
-  .db-info-row {
-    display: flex;
-    gap: 1rem;
-    padding: 0.6rem 0;
-    border-bottom: 1px solid #f3f4f6;
-    font-size: 0.875rem;
-  }
-  .db-info-row:last-child { border-bottom: none; }
-  .db-info-key { color: #6b7280; font-weight: 500; width: 140px; flex-shrink: 0; }
-  .db-info-val { color: #111; flex: 1; word-break: break-all; }
-
   @media (max-width: 700px) {
     .db-stats { grid-template-columns: 1fr 1fr; }
     .db-stats .db-stat:last-child { grid-column: span 2; }
@@ -325,6 +298,8 @@
     .db-links-row { grid-template-columns: 1fr; }
     .db-link-card { flex-direction: column; }
     .db-staff-links-scroll { max-height: 180px; }
+    .db-staff-link-info { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    .db-staff-link-actions { justify-content: flex-start; }
   }
 </style>
 {% endblock %}
@@ -334,19 +309,18 @@
 <div class="db-welcome">
   <p class="db-welcome-eyebrow">Dashboard</p>
   <h1 class="db-welcome-title">{{ company.business_name }}</h1>
-  <p class="db-welcome-sub">{{ company.email }}</p>
 </div>
 
 <div class="db-stats">
   <div class="db-stat">
-    <div class="db-stat-label">Staff Members</div>
-    <div class="db-stat-value">{{ staff_active }}</div>
-    <div class="db-stat-sub">{{ staff_total }} total</div>
+    <div class="db-stat-label">Pending Bookings</div>
+    <div class="db-stat-value">{{ pending_bookings_count }}</div>
+    <div class="db-stat-sub"><a href="{% url 'bookings:pending_bookings' %}">View pending bookings →</a></div>
   </div>
   <div class="db-stat">
-    <div class="db-stat-label">Services</div>
-    <div class="db-stat-value">{{ service_active }}</div>
-    <div class="db-stat-sub">{{ service_total }} total</div>
+    <div class="db-stat-label">Today's Bookings</div>
+    <div class="db-stat-value">{{ todays_bookings_count }}</div>
+    <div class="db-stat-sub"><a href="{% url 'bookings:all_bookings' %}">View bookings →</a></div>
   </div>
   <div class="db-stat">
     <div class="db-stat-label">Public Page</div>
@@ -399,6 +373,7 @@
     </div>
   </div>
 
+  {% if staff_members|length > 1 %}
   <div class="db-staff-links-card">
     <div class="db-staff-links-header">
       <span class="db-staff-links-title">Staff Links</span>
@@ -411,10 +386,9 @@
             <div class="db-staff-avatar" aria-hidden="true">{{ member.name|slice:":1"|upper }}</div>
             <div class="db-staff-link-info">
               <div class="db-staff-link-name">{{ member.name }}</div>
-              <div class="db-staff-link-url">/b/{{ company.slug }}/staff/{{ member.pk }}/services/</div>
               <div class="db-staff-link-actions">
                 <button class="db-link-copy" type="button"
-                  data-copy-path="/b/{{ company.slug }}/staff/{{ member.pk }}/services/">
+                  data-copy-path="{% url 'bookings:service_select' company_slug=company.slug staff_uid=member.public_id %}">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <rect x="9" y="9" width="13" height="13" rx="2"/>
                     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
@@ -439,6 +413,7 @@
       {% endif %}
     </div>
   </div>
+  {% endif %}
 
 </div>
 
@@ -505,26 +480,6 @@
       <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
   </a>
-</div>
-
-<div class="db-info">
-  <div class="db-info-title">Account Details</div>
-  <div class="db-info-row">
-    <span class="db-info-key">Slug</span>
-    <span class="db-info-val">{{ company.slug }}</span>
-  </div>
-  <div class="db-info-row">
-    <span class="db-info-key">Timezone</span>
-    <span class="db-info-val">{{ company.timezone }}</span>
-  </div>
-  <div class="db-info-row">
-    <span class="db-info-key">Created</span>
-    <span class="db-info-val">{{ company.created_at|date:"Y-m-d" }}</span>
-  </div>
-  <div class="db-info-row">
-    <span class="db-info-key">Last updated</span>
-    <span class="db-info-val">{{ company.updated_at|date:"Y-m-d H:i" }}</span>
-  </div>
 </div>
 
 {% endblock %}

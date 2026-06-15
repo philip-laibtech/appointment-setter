@@ -16,6 +16,7 @@ from django_ratelimit.decorators import ratelimit
 from availability.models import AppointmentSlot
 from company_accounts.models import CompanyAccount
 from notifications.services import (
+    send_booking_cancelled_to_customer,
     send_booking_confirmed_to_customer,
     send_booking_created_notifications,
     send_booking_declined_to_customer,
@@ -809,6 +810,35 @@ def public_booking_cancel_view(request, company_slug, public_token):
 
 @login_required
 @require_http_methods(["GET"])
+def booking_detail_view(request, booking_id):
+    booking = get_object_or_404(
+        Booking.objects.select_related(
+            "staff_member", "service_offering", "appointment_slot"
+        ),
+        pk=booking_id,
+        company=request.user,
+    )
+    back_urls = {
+        "past": ("bookings:past_bookings", "Back to Past Bookings"),
+        "pending": ("bookings:pending_bookings", "Back to Pending Bookings"),
+    }
+    back_url_name, back_label = back_urls.get(
+        request.GET.get("from"), ("bookings:all_bookings", "Back to Bookings")
+    )
+    return render(
+        request,
+        "bookings/booking_detail.html",
+        {
+            "booking": booking,
+            "back_url": reverse(back_url_name),
+            "back_label": back_label,
+            "now": timezone.now(),
+        },
+    )
+
+
+@login_required
+@require_http_methods(["GET"])
 def pending_bookings_view(request):
     pending = (
         Booking.objects.filter(
@@ -835,7 +865,7 @@ def all_bookings_view(request):
         Booking.objects.filter(
             company=company,
             start_at__gte=now,
-            status__in=[Booking.Status.CONFIRMED, Booking.Status.PENDING],
+            status=Booking.Status.CONFIRMED,
         )
         .select_related("staff_member", "service_offering")
         .order_by("start_at")
@@ -889,6 +919,24 @@ def confirm_booking_view(request, booking_id):
             lambda booking=booking: send_booking_confirmed_to_customer(booking)
         )
     return redirect("bookings:pending_bookings")
+
+
+@login_required
+@require_http_methods(["POST"])
+def delete_booking_view(request, booking_id):
+    with transaction.atomic():
+        booking = get_object_or_404(
+            Booking.objects.select_for_update(),
+            pk=booking_id,
+            company=request.user,
+        )
+        if booking.start_at <= timezone.now():
+            raise Http404
+        booking.delete()
+        transaction.on_commit(
+            lambda booking=booking: send_booking_cancelled_to_customer(booking)
+        )
+    return redirect("bookings:all_bookings")
 
 
 @login_required

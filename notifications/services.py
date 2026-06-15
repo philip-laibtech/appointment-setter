@@ -59,6 +59,14 @@ def send_booking_declined_to_customer(booking):
     )
 
 
+def send_booking_cancelled_to_customer(booking):
+    _send_template_email(
+        "customer_booking_cancelled",
+        booking.customer_email,
+        {"booking": booking},
+    )
+
+
 def send_new_booking_to_company(booking):
     _send_template_email(
         "company_new_booking",
