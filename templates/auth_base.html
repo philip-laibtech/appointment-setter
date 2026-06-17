@@ -47,6 +47,7 @@
 {% endblock %}
 
 {% block body %}
+{% load i18n %}
 <main>
   {% if messages %}
     <ul class="messages">
@@ -54,5 +55,10 @@
     </ul>
   {% endif %}
   {% block content %}{% endblock %}
+  <p style="text-align:center;margin-top:1.5rem;font-size:0.8125rem;color:#9ca3af;display:flex;justify-content:center;gap:1rem;">
+    <a href="{% url 'landing:privacy_policy' %}" style="color:#9ca3af;" target="_blank" rel="noopener noreferrer">{% translate "Privacy Policy" %}</a>
+    <a href="{% url 'landing:terms_of_service' %}" style="color:#9ca3af;" target="_blank" rel="noopener noreferrer">{% translate "Terms of Service" %}</a>
+    <a href="{% url 'landing:legal_notice' %}" style="color:#9ca3af;" target="_blank" rel="noopener noreferrer">{% translate "Legal Notice" %}</a>
+  </p>
 </main>
 {% endblock %}
