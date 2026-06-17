@@ -51,6 +51,8 @@ class Booking(models.Model):
     customer_phone = models.CharField(max_length=30, blank=True, default="")
     customer_message = models.TextField(blank=True, default="")
     privacy_accepted_at = models.DateTimeField()
+    privacy_policy_version = models.CharField(max_length=20, default="")
+    anonymized_at = models.DateTimeField(null=True, blank=True, default=None)
     status = models.CharField(
         max_length=20,
         choices=Status.choices,

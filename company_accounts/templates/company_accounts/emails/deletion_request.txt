@@ -1,0 +1,31 @@
+Account Deletion Request
+========================
+
+A company account has submitted a deletion request and is waiting for phone verification.
+
+Business name : {{ company.business_name }}
+Account email : {{ company.email }}
+Phone         : {{ company.phone }}
+Reference     : {{ token }}
+Requested at  : {{ requested_at }}
+
+─────────────────────────────────────────────
+NEXT STEPS
+─────────────────────────────────────────────
+
+1. Call {{ company.phone }} to confirm the account holder's identity.
+2. Once verified, run the following command on the server:
+
+   python manage.py delete_company \
+       --email "{{ company.email }}" \
+       --confirmed-by "YOUR_NAME"
+
+   Use --dry-run first to preview what will be deleted:
+
+   python manage.py delete_company \
+       --email "{{ company.email }}" \
+       --confirmed-by "YOUR_NAME" \
+       --dry-run
+
+DO NOT run the command without completing the phone verification call.
+─────────────────────────────────────────────

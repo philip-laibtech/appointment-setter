@@ -124,4 +124,7 @@
     {% endif %}
     {% block content %}{% endblock %}
   </main>
+  <footer style="text-align:center;padding:1.5rem 1rem 2.5rem;font-size:0.8125rem;color:#9ca3af;">
+    <a href="{% url 'landing:privacy_policy' %}" style="color:#9ca3af;text-decoration:none;" target="_blank" rel="noopener noreferrer">{% translate "Privacy Policy" %}</a>
+  </footer>
 {% endblock %}

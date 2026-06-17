@@ -41,6 +41,7 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "company_accounts.middleware.TosGateMiddleware",
     "company_accounts.middleware.CompanyLanguageMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
@@ -119,6 +120,7 @@ EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS", "true").lower() == "true"
 EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "")
 DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", "noreply@example.com")
+SUPPORT_EMAIL = os.environ.get("SUPPORT_EMAIL", "")
 
 # Security headers — enforced in production (DEBUG=False)
 SECURE_BROWSER_XSS_FILTER = True
@@ -135,6 +137,17 @@ if not DEBUG:
 
 # Content Security Policy (django-csp 4.0)
 # Inline styles are permitted across all templates; no inline scripts remain.
+# Bump this string whenever the privacy policy text changes materially.
+# The current value is stamped on every new Booking at creation time (GDPR audit trail).
+PRIVACY_POLICY_VERSION = "1.0"
+
+# Bump this string whenever the Terms of Service change materially.
+# The current value is stamped on every new CompanyAccount at registration.
+CURRENT_TOS_VERSION = "1.0"
+
+# Days after a booking's end_at before customer PII fields are anonymised.
+CUSTOMER_DATA_RETENTION_DAYS = 30
+
 CONTENT_SECURITY_POLICY = {
     "DIRECTIVES": {
         "default-src": ["'self'"],

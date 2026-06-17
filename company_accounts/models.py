@@ -1,3 +1,6 @@
+import hashlib
+import secrets
+
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.db import models
 from django.utils.text import slugify
@@ -57,6 +60,8 @@ class CompanyAccount(AbstractBaseUser, PermissionsMixin):
         verbose_name=_("Interface language"),
         help_text=_("Language used for your dashboard, public booking page, and notification emails."),
     )
+    tos_accepted_at = models.DateTimeField(null=True, blank=True, default=None)
+    tos_version = models.CharField(max_length=20, default="")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -88,3 +93,46 @@ class CompanyAccount(AbstractBaseUser, PermissionsMixin):
             slug = f"{base}-{counter}"
             counter += 1
         return slug
+
+
+class DeletionRequest(models.Model):
+    company = models.OneToOneField(
+        CompanyAccount,
+        on_delete=models.CASCADE,
+        related_name="deletion_request",
+    )
+    token = models.CharField(max_length=64, unique=True, editable=False)
+    requested_at = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        if not self.token:
+            self.token = secrets.token_urlsafe(32)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"DeletionRequest({self.company_id}) @ {self.requested_at}"
+
+
+class AccountDeletionLog(models.Model):
+    """Audit record that survives account deletion.
+
+    GDPR note: no FK to CompanyAccount. Stores a SHA-256 hash of the
+    normalised email (non-reversible — verifiable but not PII) and the
+    business name (organisational data, not personal data for legal entities;
+    may be personal data for sole traders — acceptable under legitimate
+    interest for demonstrating compliance with erasure requests).
+    Retain this log for the period defined in your privacy policy, then purge.
+    """
+    company_email_hash = models.CharField(max_length=64, db_index=True)
+    business_name = models.CharField(max_length=255)
+    deletion_token = models.CharField(max_length=64)
+    requested_at = models.DateTimeField()
+    executed_at = models.DateTimeField(auto_now_add=True)
+    confirmed_by = models.CharField(max_length=255, blank=True, default="")
+
+    @staticmethod
+    def hash_email(email: str) -> str:
+        return hashlib.sha256(email.strip().lower().encode()).hexdigest()
+
+    def __str__(self):
+        return f"AccountDeletionLog({self.business_name}) executed {self.executed_at:%Y-%m-%d}"

@@ -11,6 +11,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext as _
+from django.conf import settings as django_settings
 from django.views.decorators.http import require_http_methods
 from django_ratelimit.decorators import ratelimit
 
@@ -514,6 +515,7 @@ def public_booking_form_view(request, company_slug, staff_uid, service_uid, date
                     # Set only after form.is_valid() confirms privacy_accepted=True,
                     # so this timestamp is proof the checkbox was checked.
                     privacy_accepted_at=now_inner,
+                    privacy_policy_version=django_settings.PRIVACY_POLICY_VERSION,
                     status=booking_status,
                 )
 
@@ -558,6 +560,7 @@ def public_booking_form_view(request, company_slug, staff_uid, service_uid, date
             "start_at": start_at,
             "end_at": end_at,
             "form": form,
+            "privacy_url": reverse("landing:privacy_policy"),
         },
     )
 
@@ -719,6 +722,7 @@ def any_booking_form_view(request, company_slug, service_uid, date, start_time):
                     # Set only after form.is_valid() confirms privacy_accepted=True,
                     # so this timestamp is proof the checkbox was checked.
                     privacy_accepted_at=now_inner,
+                    privacy_policy_version=django_settings.PRIVACY_POLICY_VERSION,
                     status=booking_status,
                 )
 

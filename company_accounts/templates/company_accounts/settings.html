@@ -120,6 +120,40 @@
     cursor: pointer;
   }
   .st-save-btn:hover { background: #333; }
+
+  .st-danger-zone {
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+  }
+  .st-danger-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #ef4444;
+    margin-bottom: 0.75rem;
+  }
+  .st-danger-desc {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 1.25rem;
+    line-height: 1.5;
+  }
+  .st-danger-btn {
+    padding: 0.6rem 1.25rem;
+    background: #fff;
+    color: #b91c1c;
+    border: 1px solid #fca5a5;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .st-danger-btn:hover { background: #fef2f2; border-color: #ef4444; }
 </style>
 {% endblock %}
 
@@ -219,6 +253,7 @@
         value="{{ form.phone.value|default:'' }}"
         maxlength="50"
       >
+      <p class="st-hint">{% translate "Required to verify your identity if you request account deletion." %}</p>
       {% if form.phone.errors %}
         <div class="st-field-errors">
           {% for error in form.phone.errors %}{{ error }}{% endfor %}
@@ -360,6 +395,14 @@
   <button type="submit" class="st-save-btn">{% translate "Save settings" %}</button>
 
 </form>
+
+<div class="st-danger-zone">
+  <p class="st-danger-title">{% translate "Danger Zone" %}</p>
+  <p class="st-danger-desc">
+    {% translate "Requesting deletion will permanently remove your account, all staff members, services, availability, and booking records. A support agent will call you to verify your identity before anything is deleted." %}
+  </p>
+  <a href="{% url 'company_accounts:request_account_deletion' %}" class="st-danger-btn">{% translate "Request Account Deletion" %}</a>
+</div>
 
 <div class="st-readonly" style="margin-top:1.5rem;">
   <p class="st-readonly-title">{% translate "Account Information" %}</p>

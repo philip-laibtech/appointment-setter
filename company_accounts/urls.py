@@ -14,6 +14,9 @@ urlpatterns = [
     path("register/", views.register_view, name="register"),
     path("login/", views.login_view, name="login"),
     path("logout/", views.logout_view, name="logout"),
+    path("tos-reaccept/", views.tos_reaccept_view, name="tos_reaccept"),
+    path("delete-account/", views.request_account_deletion_view, name="request_account_deletion"),
+    path("delete-account/confirm/", views.submit_account_deletion_view, name="submit_account_deletion"),
     path("dashboard/", views.dashboard_view, name="dashboard"),
     path("settings/", views.settings_view, name="settings"),
 

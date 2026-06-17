@@ -1,0 +1,181 @@
+{% extends "company_accounts/app_base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Request Account Deletion" %} — {{ company.business_name }}{% endblock %}
+
+{% block extra_style %}
+<style>
+  main { max-width: 580px; }
+
+  .del-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0.25rem;
+  }
+  .del-sub {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-bottom: 2rem;
+  }
+
+  .del-card {
+    background: #fff;
+    border: 1px solid #e4e4e7;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .del-card-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #9ca3af;
+    margin-bottom: 1rem;
+  }
+
+  .del-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .del-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    color: #374151;
+  }
+  .del-list li::before {
+    content: "✕";
+    color: #ef4444;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .del-phone-box {
+    background: #f9fafb;
+    border: 1px solid #e4e4e7;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    font-size: 0.9rem;
+    color: #374151;
+    line-height: 1.6;
+  }
+  .del-phone-number {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: #111;
+    margin-top: 0.25rem;
+  }
+  .del-phone-missing {
+    color: #b91c1c;
+    font-weight: 600;
+  }
+
+  .del-confirm-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+  }
+  .del-confirm-row input[type=checkbox] {
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+    accent-color: #b91c1c;
+  }
+  .del-confirm-row label {
+    font-size: 0.875rem;
+    color: #374151;
+    cursor: pointer;
+    line-height: 1.5;
+  }
+
+  .del-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .del-submit-btn {
+    padding: 0.65rem 1.5rem;
+    background: #b91c1c;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .del-submit-btn:hover { background: #991b1b; }
+  .del-submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .del-cancel-link {
+    font-size: 0.875rem;
+    color: #6b7280;
+    text-decoration: none;
+  }
+  .del-cancel-link:hover { color: #111; }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1 class="del-title">{% translate "Request Account Deletion" %}</h1>
+<p class="del-sub">{% translate "Read carefully before continuing. This action cannot be undone." %}</p>
+
+<div class="del-card">
+  <p class="del-card-title">{% translate "What will be permanently deleted" %}</p>
+  <ul class="del-list">
+    <li>{% translate "Your company account and login credentials" %}</li>
+    <li>{% translate "All staff members and their profiles" %}</li>
+    <li>{% translate "All services and service configurations" %}</li>
+    <li>{% translate "All availability slots and recurring schedules" %}</li>
+    <li>{% translate "All booking records and customer data" %}</li>
+  </ul>
+</div>
+
+<div class="del-card">
+  <p class="del-card-title">{% translate "Verification by phone" %}</p>
+  <div class="del-phone-box">
+    <p>{% translate "A support agent will call you to verify your identity before anything is deleted." %}</p>
+    {% if company.phone %}
+      <p style="margin-top:0.5rem;">{% translate "We will call:" %}</p>
+      <p class="del-phone-number">{{ company.phone }}</p>
+      <p style="margin-top:0.5rem; font-size:0.8125rem; color:#9ca3af;">
+        {% translate "If this number is wrong, update it in" %}
+        <a href="{% url 'company_accounts:settings' %}" style="color:#2563eb;">{% translate "Settings" %}</a>
+        {% translate "before sending this request." %}
+      </p>
+    {% else %}
+      <p class="del-phone-missing" style="margin-top:0.5rem;">
+        {% translate "No phone number on file." %}
+      </p>
+      <p style="margin-top:0.25rem; font-size:0.8125rem; color:#9ca3af;">
+        {% translate "You must add a phone number in" %}
+        <a href="{% url 'company_accounts:settings' %}" style="color:#2563eb;">{% translate "Settings" %}</a>
+        {% translate "before requesting deletion." %}
+      </p>
+    {% endif %}
+  </div>
+</div>
+
+{% if company.phone %}
+<form method="post" action="{% url 'company_accounts:submit_account_deletion' %}">
+  {% csrf_token %}
+  <div class="del-confirm-row">
+    <input type="checkbox" id="confirmed" name="confirmed" required
+           onchange="document.getElementById('del-submit').disabled = !this.checked;">
+    <label for="confirmed">
+      {% translate "I understand that this will permanently delete my account and all associated data, and that this action cannot be undone." %}
+    </label>
+  </div>
+  <div class="del-actions">
+    <button type="submit" class="del-submit-btn" id="del-submit" disabled>
+      {% translate "Send deletion request" %}
+    </button>
+    <a href="{% url 'company_accounts:settings' %}" class="del-cancel-link">{% translate "Cancel" %}</a>
+  </div>
+</form>
+{% else %}
+<div class="del-actions">
+  <a href="{% url 'company_accounts:settings' %}" class="del-cancel-link">
+    &larr; {% translate "Back to Settings" %}
+  </a>
+</div>
+{% endif %}
+
+{% endblock %}

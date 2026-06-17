@@ -116,109 +116,124 @@
 
   <div class="card">
     <h1>{% translate "Privacy Policy" %}</h1>
-    <p class="meta">{% translate "Last updated:" %} <!-- DATE --></p>
+    <p class="meta">{% translate "Last updated:" %} June 17, 2026</p>
 
     <p>
-      <!-- INTRO: one paragraph explaining who you are and that this policy describes how personal data
-           is collected, used, and protected when people use the platform. -->
+      Appointment Setter is an online platform that enables businesses to manage and accept
+      appointments from their customers. This policy explains what personal data we collect,
+      why we collect it, and how we protect it. It applies to business accounts that use our
+      platform and to customers who book appointments through it.
     </p>
 
     <hr>
 
     <h2>1. Controller</h2>
     <p>
-      <!-- NAME, address, and contact details of the data controller (the business operating this
-           platform). Include an email address for privacy inquiries. -->
+      The data controller responsible for this platform is:<br><br>
+      <strong>[OPERATOR_NAME]</strong><br>
+      [OPERATOR_ADDRESS]<br>
+      [OPERATOR_CITY, COUNTRY]<br>
+      Privacy contact: <a href="mailto:[PRIVACY_EMAIL]">[PRIVACY_EMAIL]</a>
     </p>
 
     <h2>2. Data We Collect</h2>
     <p>We collect the following categories of personal data:</p>
     <ul>
-      <li><!-- e.g. Account data: name, email address, password hash --></li>
-      <li><!-- e.g. Booking data: appointment date/time, service, staff member selected --></li>
-      <li><!-- e.g. Contact data provided by clients at booking (name, email, phone) --></li>
-      <li><!-- e.g. Usage data: IP address, browser type, pages visited, timestamps --></li>
-      <li><!-- e.g. Communications: emails sent or received through the platform --></li>
+      <li><strong>Business account data:</strong> business name, email address, postal address, phone number, and website URL provided at registration or in account settings.</li>
+      <li><strong>Customer booking data:</strong> first name, last name, email address, phone number, and any optional message provided when booking an appointment.</li>
+      <li><strong>Appointment details:</strong> date, time, service type, and assigned staff member for each booking.</li>
+      <li><strong>Technical data:</strong> IP address, browser type, and request timestamps recorded in server access logs.</li>
+      <li><strong>Session data:</strong> a session identifier stored in a strictly necessary cookie to keep you logged in.</li>
     </ul>
 
     <h2>3. Purpose and Legal Basis</h2>
+    <p>We process personal data for the following purposes:</p>
+    <ul>
+      <li><strong>Providing the booking service</strong> — to create, confirm, and manage appointments between businesses and their customers. Legal basis: performance of a contract (GDPR Art. 6(1)(b)).</li>
+      <li><strong>Sending transactional notifications</strong> — confirmation, cancellation, and reminder emails sent to customers and businesses. Legal basis: performance of a contract (GDPR Art. 6(1)(b)).</li>
+      <li><strong>Account management</strong> — to operate business accounts, authenticate users, and provide access to the dashboard. Legal basis: performance of a contract (GDPR Art. 6(1)(b)).</li>
+      <li><strong>Security and fraud prevention</strong> — to detect and prevent abuse, rate-limit requests, and maintain the integrity of the platform. Legal basis: legitimate interests (GDPR Art. 6(1)(f)).</li>
+    </ul>
+    <p style="margin-top:0.75rem;">We do not process personal data for advertising, profiling, or any purpose beyond operating the appointment management service.</p>
+
+    <h2>4. Data Sharing and Third Parties</h2>
     <p>
-      <!-- Describe each processing purpose and its legal basis under GDPR Art. 6 (or applicable law):
-           - Service delivery (Art. 6(1)(b) — performance of a contract)
-           - Account management (Art. 6(1)(b))
-           - Legal compliance (Art. 6(1)(c))
-           - Legitimate interests, e.g. security, fraud prevention (Art. 6(1)(f))
-           - Consent, e.g. marketing emails (Art. 6(1)(a)) -->
+      We share personal data only with the following categories of service providers, solely to the extent
+      necessary to operate the platform:
+    </p>
+    <ul>
+      <li><strong>Email delivery provider:</strong> used to send booking confirmation and notification emails. Your name and email address are transmitted to deliver these messages.</li>
+      <li><strong>Hosting provider:</strong> the servers on which this platform runs. All data stored on the platform resides on these servers.</li>
+    </ul>
+    <p style="margin-top:0.75rem;">We do not sell personal data to any third party. We do not share data with advertising networks or analytics providers.</p>
+
+    <h2>5. International Transfers</h2>
+    <p>
+      Where personal data is transferred to service providers outside the European Economic Area, we ensure
+      an appropriate level of protection is in place through Standard Contractual Clauses or an applicable
+      adequacy decision. Contact us at the address above for details of the specific safeguards applied.
     </p>
 
-    <h2>4. How We Use Your Data</h2>
+    <h2>6. Retention</h2>
     <ul>
-      <li><!-- e.g. To create and manage your account --></li>
-      <li><!-- e.g. To confirm, remind, and manage appointments --></li>
-      <li><!-- e.g. To send transactional emails (confirmations, cancellations) --></li>
-      <li><!-- e.g. To improve the platform and fix issues --></li>
-      <li><!-- e.g. To comply with legal obligations --></li>
+      <li><strong>Customer booking PII</strong> (name, email, phone, message): automatically anonymised 30 days after the appointment takes place. The booking record itself (date, time, service) is retained for business accounting purposes.</li>
+      <li><strong>Business account data:</strong> retained for as long as the account is active. Deleted within 7 days of a verified account deletion request.</li>
+      <li><strong>Server access logs</strong> (IP address, user-agent, timestamps): retained for 30 days, then deleted automatically.</li>
     </ul>
 
-    <h2>5. Data Sharing and Third Parties</h2>
-    <p>
-      <!-- List any third-party service providers (e.g. email delivery, hosting, payment processors)
-           and what data they receive. Confirm no sale of personal data to third parties. -->
-    </p>
+    <h2>7. Cookies</h2>
+    <p>We use the following cookies:</p>
+    <ul>
+      <li><strong>Session cookie (<code>sessionid</code>):</strong> strictly necessary. Keeps business users logged in to the dashboard. Expires at the end of the browser session or after 2 weeks, whichever comes first.</li>
+      <li><strong>CSRF cookie (<code>csrftoken</code>):</strong> strictly necessary. Protects forms against cross-site request forgery attacks. Not used for tracking.</li>
+    </ul>
+    <p style="margin-top:0.75rem;">We do not use analytics, advertising, or any non-essential cookies.</p>
 
-    <h2>6. International Transfers</h2>
-    <p>
-      <!-- If data is transferred outside the EEA/UK, describe the safeguard (adequacy decision,
-           Standard Contractual Clauses, etc.) or state that all processing stays within the EEA. -->
-    </p>
-
-    <h2>7. Retention</h2>
-    <p>
-      <!-- Describe how long each category of data is kept and why (e.g. booking records kept for
-           X years for accounting purposes; account data deleted 30 days after account closure). -->
-    </p>
-
-    <h2>8. Cookies and Tracking</h2>
-    <p>
-      <!-- Describe any cookies set (session cookie, CSRF token, analytics). Distinguish strictly
-           necessary cookies from optional ones and how users can opt out. -->
-    </p>
-
-    <h2>9. Your Rights</h2>
+    <h2>8. Your Rights</h2>
     <p>Depending on your location, you may have the right to:</p>
     <ul>
-      <li><!-- Access the personal data we hold about you --></li>
-      <li><!-- Correct inaccurate or incomplete data --></li>
-      <li><!-- Request deletion of your data ("right to be forgotten") --></li>
-      <li><!-- Restrict or object to certain processing --></li>
-      <li><!-- Data portability (receive your data in a machine-readable format) --></li>
-      <li><!-- Withdraw consent at any time (where processing is based on consent) --></li>
-      <li><!-- Lodge a complaint with your local supervisory authority --></li>
+      <li>Access the personal data we hold about you (Art. 15 GDPR)</li>
+      <li>Correct inaccurate or incomplete data (Art. 16 GDPR)</li>
+      <li>Request deletion of your data (Art. 17 GDPR)</li>
+      <li>Restrict or object to certain processing (Art. 18 / 21 GDPR)</li>
+      <li>Receive your data in a portable format (Art. 20 GDPR)</li>
+      <li>Withdraw consent at any time, where processing is based on consent</li>
+      <li>Lodge a complaint with your local supervisory authority</li>
     </ul>
-    <p>To exercise any of these rights, contact us at: <!-- privacy@example.com --></p>
-
-    <h2>10. Security</h2>
-    <p>
-      <!-- Describe the technical and organisational measures in place (encryption in transit, hashed
-           passwords, access controls, etc.). Note that no method is 100% secure. -->
+    <p style="margin-top:0.75rem;">
+      To exercise any of these rights, contact us at
+      <a href="mailto:[PRIVACY_EMAIL]">[PRIVACY_EMAIL]</a>.
+      We will respond within 30 days.
     </p>
 
-    <h2>11. Children</h2>
+    <h2>9. Security</h2>
     <p>
-      <!-- State the minimum age for using the platform (typically 16 for GDPR) and that you do not
-           knowingly collect data from children below that age. -->
+      We protect personal data using industry-standard measures: all connections are encrypted in transit
+      via HTTPS, passwords are stored as one-way hashes and never in plain text, and access to production
+      systems is restricted to authorised personnel. No method of transmission or storage is 100% secure;
+      we cannot guarantee absolute security but we take reasonable precautions to minimise risk.
     </p>
 
-    <h2>12. Changes to This Policy</h2>
+    <h2>10. Children</h2>
     <p>
-      <!-- Explain how you will notify users of material changes (e.g. email notification or
-           prominent notice on the platform) and that continued use constitutes acceptance. -->
+      This platform is not directed at children under the age of 16. We do not knowingly collect personal
+      data from anyone under 16. If you believe we have inadvertently collected data from a child, please
+      contact us and we will delete it promptly.
     </p>
 
-    <h2>13. Contact</h2>
+    <h2>11. Changes to This Policy</h2>
     <p>
-      <!-- Full contact details for privacy-related inquiries: name, postal address, email.
-           If you have a DPO, list their contact details separately. -->
+      We may update this policy from time to time. Material changes will be communicated to registered
+      business accounts via email and will be clearly noted at the top of this page with an updated date.
+      Continued use of the platform after changes take effect constitutes acceptance of the revised policy.
+    </p>
+
+    <h2>12. Contact</h2>
+    <p>
+      For any privacy-related questions, requests, or complaints:<br><br>
+      <strong>[OPERATOR_NAME]</strong><br>
+      [OPERATOR_ADDRESS]<br>
+      <a href="mailto:[PRIVACY_EMAIL]">[PRIVACY_EMAIL]</a>
     </p>
   </div>
 </main>

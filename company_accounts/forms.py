@@ -1,7 +1,9 @@
+from django.conf import settings
 from django.contrib.auth import password_validation
 from django.contrib.auth.forms import AuthenticationForm
 from django.core.exceptions import ValidationError
 from django import forms
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 from .models import CompanyAccount
@@ -18,17 +20,28 @@ class CompanyRegistrationForm(forms.ModelForm):
         max_length=128,
         widget=forms.PasswordInput(attrs={"autocomplete": "new-password"}),
     )
+    tos_accepted = forms.BooleanField(
+        required=True,
+        error_messages={"required": _("You must accept the Terms of Service to register.")},
+    )
 
     class Meta:
         model = CompanyAccount
-        fields = ("business_name", "email")
+        fields = ("business_name", "email", "phone")
         labels = {
             "business_name": _("Business name"),
             "email": _("Email"),
+            "phone": _("Phone"),
         }
         widgets = {
             "email": forms.EmailInput(attrs={"autocomplete": "email"}),
+            "phone": forms.TextInput(attrs={"autocomplete": "tel"}),
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["phone"].required = True
+        self.fields["phone"].error_messages["required"] = _("A phone number is required so we can verify your identity if you request account deletion.")
 
     def clean_email(self):
         email = self.cleaned_data.get("email", "")
@@ -53,6 +66,8 @@ class CompanyRegistrationForm(forms.ModelForm):
     def save(self, commit=True):
         user = super().save(commit=False)
         user.set_password(self.cleaned_data["password1"])
+        user.tos_accepted_at = timezone.now()
+        user.tos_version = settings.CURRENT_TOS_VERSION
         if commit:
             user.save()
         return user

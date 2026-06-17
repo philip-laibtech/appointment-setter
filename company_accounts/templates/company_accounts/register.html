@@ -1,22 +1,53 @@
 {% extends "auth_base.html" %}
 {% load i18n %}
 {% block title %}{% translate "Register" %} — Appointment Setter{% endblock %}
+{% block extra_style %}
+<style>
+  .tos-row { display: flex; align-items: flex-start; gap: 0.6rem; margin-top: 0.25rem; }
+  .tos-row input[type=checkbox] { margin-top: 0.2rem; flex-shrink: 0; width: 1rem; height: 1rem; cursor: pointer; accent-color: #111827; }
+  .tos-row label { font-size: 0.875rem; font-weight: 400; color: #374151; cursor: pointer; line-height: 1.5; }
+  .tos-row label a { color: #111827; }
+  .tos-row label a:hover { text-decoration: underline; }
+</style>
+{% endblock %}
 {% block content %}
 <div class="card">
   <h1>{% translate "Create a company account" %}</h1>
   <form method="post" novalidate>
     {% csrf_token %}
     {% for field in form %}
-      <div class="form-group">
-        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-        {{ field }}
-        {% if field.errors %}
-          <div class="field-errors">
-            {% for error in field.errors %}{{ error }}{% endfor %}
-          </div>
-        {% endif %}
-      </div>
+      {% if field.name != 'tos_accepted' %}
+        <div class="form-group">
+          <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+          {{ field }}
+          {% if field.errors %}
+            <div class="field-errors">
+              {% for error in field.errors %}{{ error }}{% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
     {% endfor %}
+    <div class="form-group">
+      <div class="tos-row">
+        <input type="checkbox"
+               id="{{ form.tos_accepted.id_for_label }}"
+               name="tos_accepted"
+               {% if form.tos_accepted.value %}checked{% endif %}
+               required>
+        <label for="{{ form.tos_accepted.id_for_label }}">
+          {% blocktranslate with tos_url=tos_url privacy_url=privacy_url %}
+            I accept the <a href="{{ tos_url }}" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+            and the <a href="{{ privacy_url }}" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
+          {% endblocktranslate %}
+        </label>
+      </div>
+      {% if form.tos_accepted.errors %}
+        <div class="field-errors">
+          {% for error in form.tos_accepted.errors %}{{ error }}{% endfor %}
+        </div>
+      {% endif %}
+    </div>
     <button type="submit">{% translate "Register" %}</button>
   </form>
   <a class="link-muted" href="{% url 'company_accounts:login' %}">{% translate "Already have an account? Log in" %}</a>

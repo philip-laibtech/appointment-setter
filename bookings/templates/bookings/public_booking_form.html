@@ -173,8 +173,7 @@
                {% if form.privacy_accepted.value %}checked{% endif %}
                required>
         <label class="bk-checkbox-label" for="{{ form.privacy_accepted.id_for_label }}">
-          {# TODO: Replace # with a real /privacy-policy/ URL before going to production. #}
-          {% blocktranslate %}I accept the <a href="#" style="color:#111;">privacy policy</a>.{% endblocktranslate %}
+          {% blocktranslate with url=privacy_url %}I accept the <a href="{{ url }}" target="_blank" rel="noopener noreferrer" style="color:#111;">privacy policy</a>.{% endblocktranslate %}
         </label>
       </div>
       {% for error in form.privacy_accepted.errors %}<p class="bk-field-error">{{ error }}</p>{% endfor %}

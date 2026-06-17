@@ -1,0 +1,50 @@
+{% extends "auth_base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Updated Terms of Service" %} — Appointment Setter{% endblock %}
+{% block extra_style %}
+<style>
+  .card { max-width: 460px; }
+  .notice {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    color: #92400e;
+    margin-bottom: 1.25rem;
+    line-height: 1.5;
+  }
+  .tos-row { display: flex; align-items: flex-start; gap: 0.6rem; margin-top: 0.25rem; }
+  .tos-row input[type=checkbox] { margin-top: 0.2rem; flex-shrink: 0; width: 1rem; height: 1rem; cursor: pointer; accent-color: #111827; }
+  .tos-row label { font-size: 0.875rem; font-weight: 400; color: #374151; cursor: pointer; line-height: 1.5; }
+  .tos-row label a { color: #111827; }
+  .tos-row label a:hover { text-decoration: underline; }
+</style>
+{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>{% translate "Updated Terms of Service" %}</h1>
+
+  <div class="notice">
+    {% translate "Our Terms of Service have been updated. Please review and accept them to continue using Appointment Setter." %}
+  </div>
+
+  <form method="post" novalidate>
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}">
+
+    <div class="form-group">
+      <div class="tos-row">
+        <input type="checkbox" id="tos_accepted" name="tos_accepted" required>
+        <label for="tos_accepted">
+          {% blocktranslate with tos_url=tos_url %}
+            I have read and accept the updated <a href="{{ tos_url }}" target="_blank" rel="noopener noreferrer">Terms of Service</a>.
+          {% endblocktranslate %}
+        </label>
+      </div>
+    </div>
+
+    <button type="submit">{% translate "Accept and continue" %}</button>
+  </form>
+</div>
+{% endblock %}

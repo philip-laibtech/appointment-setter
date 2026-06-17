@@ -13,3 +13,7 @@ class HomeView(TemplateView):
 
 class PrivacyPolicyView(TemplateView):
     template_name = "landing/privacy_policy.html"
+
+
+class TermsOfServiceView(TemplateView):
+    template_name = "landing/terms_of_service.html"
