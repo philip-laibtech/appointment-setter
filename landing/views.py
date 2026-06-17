@@ -17,3 +17,7 @@ class PrivacyPolicyView(TemplateView):
 
 class TermsOfServiceView(TemplateView):
     template_name = "landing/terms_of_service.html"
+
+
+class LegalNoticeView(TemplateView):
+    template_name = "landing/legal_notice.html"
