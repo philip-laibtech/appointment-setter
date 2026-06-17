@@ -1,5 +1,6 @@
 {% extends "company_accounts/app_base.html" %}
-{% block title %}{{ title|default:"Add Open Hours" }}{% endblock %}
+{% load i18n %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block extra_style %}
 <style>
@@ -152,16 +153,16 @@
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
     <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
-  Open Hours
+  {% translate "Open Hours" %}
 </a>
 
 <div class="av-form-card">
-  <h1 class="av-form-title">{{ title|default:"Add Open Hours" }}</h1>
+  <h1 class="av-form-title">{{ title }}</h1>
   <p class="av-form-subtitle">
-    {% if title == "Edit Open Hours" %}
-      Update the date and times for this block.
+    {% if is_edit %}
+      {% translate "Update the date and times for this block." %}
     {% else %}
-      Choose a staff member, date, and the time range.
+      {% translate "Choose a staff member, date, and the time range." %}
     {% endif %}
   </p>
 
@@ -180,7 +181,7 @@
               id="{{ form.staff_member.id_for_label }}"
               name="staff_member"
               required>
-        <option value="">— Select staff member —</option>
+        <option value="">{% translate "— Select staff member —" %}</option>
         {% for value, label in form.staff_member.field.choices %}
           {% if value %}
             <option value="{{ value }}"
@@ -240,8 +241,8 @@
 
     <hr class="av-divider">
 
-    <button type="submit" class="av-submit">{{ submit_label|default:"Save" }}</button>
-    <a href="{% url 'availability:list' %}" class="av-cancel">Cancel</a>
+    <button type="submit" class="av-submit">{{ submit_label }}</button>
+    <a href="{% url 'availability:list' %}" class="av-cancel">{% translate "Cancel" %}</a>
   </form>
 </div>
 {% endblock %}

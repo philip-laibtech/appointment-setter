@@ -1,0 +1,1220 @@
+
+msgid ""
+msgstr ""
+"Project-Id-Version: Appointment Setter VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-06-15 21:16+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: de\n"
+"Language-Team: de <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#, python-format
+msgid "\"%(name)s\" has existing bookings and cannot be deleted."
+msgstr "„%(name)s“ hat bestehende Buchungen und kann nicht gelöscht werden."
+
+msgid "(inactive)"
+msgstr "(inaktiv)"
+
+msgid "Account Information"
+msgstr "Kontoinformationen"
+
+msgid "Account email"
+msgstr "E-Mail-Adresse des Kontos"
+
+msgid "Actions"
+msgstr "Aktionen"
+
+msgid "Active"
+msgstr "Aktiv"
+
+msgid "Add Open Hours"
+msgstr "Öffnungszeiten hinzufügen"
+
+msgid "Add Service"
+msgstr "Dienstleistung hinzufügen"
+
+msgid "Add Staff Member"
+msgstr "Mitarbeiter hinzufügen"
+
+msgid "Add a block to let customers know when you're available."
+msgstr "Fügen Sie einen Block hinzu, damit Kunden wissen, wann Sie verfügbar sind."
+
+msgid "Add a person who can be assigned to availability slots."
+msgstr "Fügen Sie eine Person hinzu, die Verfügbarkeitszeiten zugewiesen werden kann."
+
+msgid "Add and manage people assignable to bookings."
+msgstr "Personen hinzufügen und verwalten, die Buchungen zugewiesen werden können."
+
+msgid "Add first service"
+msgstr "Erste Dienstleistung hinzufügen"
+
+msgid "Add first staff member"
+msgstr "Ersten Mitarbeiter hinzufügen"
+
+msgid "Add once"
+msgstr "Einmalig hinzufügen"
+
+msgid "Add open hours"
+msgstr "Öffnungszeiten hinzufügen"
+
+msgid "Add service"
+msgstr "Dienstleistung hinzufügen"
+
+msgid "Add staff member"
+msgstr "Mitarbeiter hinzufügen"
+
+msgid "Add your first block"
+msgstr "Fügen Sie Ihren ersten Block hinzu"
+
+msgid "Add your first service offering to assign it to staff members."
+msgstr "Fügen Sie Ihre erste Dienstleistung hinzu, um sie Mitarbeitern zuzuweisen."
+
+msgid "Add your first staff member to assign them to availability slots."
+msgstr "Fügen Sie Ihren ersten Mitarbeiter hinzu, um ihm Verfügbarkeitszeiten zuzuweisen."
+
+msgid "All"
+msgstr "Alle"
+
+msgid "All completed and past appointments."
+msgstr "Alle abgeschlossenen und vergangenen Termine."
+
+msgid "All slots on this day are taken. Please choose a different day."
+msgstr "Alle Zeiten an diesem Tag sind belegt. Bitte wählen Sie einen anderen Tag."
+
+msgid "All staff assignments for this service will also be deleted."
+msgstr "Alle Mitarbeiterzuweisungen für diese Dienstleistung werden ebenfalls gelöscht."
+
+msgid "Already have an account? Log in"
+msgstr "Sie haben bereits ein Konto? Anmelden"
+
+msgid "An unexpected error occurred on our end. Please try again in a moment."
+msgstr "Auf unserer Seite ist ein unerwarteter Fehler aufgetreten. Bitte versuchen Sie es gleich erneut."
+
+msgid "Another customer completed their booking just before you. Please choose a different time."
+msgstr "Ein anderer Kunde hat seine Buchung kurz vor Ihnen abgeschlossen. Bitte wählen Sie eine andere Zeit."
+
+msgid "Any Employee"
+msgstr "Beliebiger Mitarbeiter"
+
+msgid "Appointment"
+msgstr "Termin"
+
+msgid "Are you sure you want to cancel?"
+msgstr "Möchten Sie wirklich stornieren?"
+
+msgid "Are you sure you want to delete this booking? The customer will be notified by email."
+msgstr "Möchten Sie diese Buchung wirklich löschen? Der Kunde wird per E-Mail benachrichtigt."
+
+msgid "Assign to staff members"
+msgstr "Mitarbeitern zuweisen"
+
+msgid "Automatic:"
+msgstr "Automatisch:"
+
+msgid "Automatically create open hours for a recurring weekday schedule."
+msgstr "Erstellen Sie automatisch Öffnungszeiten für einen wiederkehrenden Wochentagsplan."
+
+msgid "Available"
+msgstr "Verfügbar"
+
+msgid "Awaiting confirmation"
+msgstr "Bestätigung ausstehend"
+
+msgid "Back"
+msgstr "Zurück"
+
+msgid "Back to Bookings"
+msgstr "Zurück zu Buchungen"
+
+msgid "Back to Past Bookings"
+msgstr "Zurück zu vergangenen Buchungen"
+
+msgid "Back to Pending Bookings"
+msgstr "Zurück zu ausstehenden Buchungen"
+
+msgid "Back to booking"
+msgstr "Zurück zur Buchung"
+
+msgid "Back to home"
+msgstr "Zurück zur Startseite"
+
+msgid "Back to login"
+msgstr "Zurück zur Anmeldung"
+
+msgid "Between 5 and 480 minutes."
+msgstr "Zwischen 5 und 480 Minuten."
+
+msgid "Blocked"
+msgstr "Gesperrt"
+
+msgid "Book an Appointment"
+msgstr "Termin buchen"
+
+msgid "Book an appointment"
+msgstr "Termin buchen"
+
+msgid "Booked"
+msgstr "Gebucht"
+
+msgid "Booking"
+msgstr "Buchung"
+
+msgid "Booking Cancelled"
+msgstr "Buchung storniert"
+
+msgid "Booking Confirmation"
+msgstr "Buchungsbestätigung"
+
+msgid "Booking Confirmed"
+msgstr "Buchung bestätigt"
+
+msgid "Booking Declined"
+msgstr "Buchung abgelehnt"
+
+msgid "Booking Details"
+msgstr "Buchungsdetails"
+
+msgid "Booking Link"
+msgstr "Buchungslink"
+
+msgid "Booking Request Received"
+msgstr "Buchungsanfrage erhalten"
+
+msgid "Booking Unavailable"
+msgstr "Buchung nicht verfügbar"
+
+msgid "Booking record"
+msgstr "Buchungsdatensatz"
+
+msgid "Booking request received."
+msgstr "Buchungsanfrage erhalten."
+
+msgid "Booking steps"
+msgstr "Buchungsschritte"
+
+msgid "Booking type"
+msgstr "Buchungsart"
+
+msgid "Bookings"
+msgstr "Buchungen"
+
+msgid "Business Details"
+msgstr "Unternehmensdetails"
+
+msgid "Business name"
+msgstr "Firmenname"
+
+msgid "Business name is required."
+msgstr "Firmenname ist erforderlich."
+
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgid "Cancel Booking"
+msgstr "Buchung stornieren"
+
+msgid "Cancel booking"
+msgstr "Buchung stornieren"
+
+msgid "Cancel or decline these bookings before deleting this slot."
+msgstr "Stornieren oder lehnen Sie diese Buchungen ab, bevor Sie diesen Termin löschen."
+
+msgid "Cancel or remove these before deleting this staff member."
+msgstr "Stornieren oder entfernen Sie diese, bevor Sie diesen Mitarbeiter löschen."
+
+msgid "Cancel this booking"
+msgstr "Diese Buchung stornieren"
+
+msgid "Cancel, keep it"
+msgstr "Abbrechen, behalten"
+
+msgid "Cancelled"
+msgstr "Storniert"
+
+#, python-format
+msgid "Cannot delete \"%(name)s\": they have upcoming slots or active bookings."
+msgstr "„%(name)s“ kann nicht gelöscht werden: hat anstehende Zeiten oder aktive Buchungen."
+
+msgid "Cannot delete: this slot has confirmed future bookings."
+msgstr "Löschen nicht möglich: Dieser Termin hat bestätigte zukünftige Buchungen."
+
+msgid "Check Your Email"
+msgstr "E-Mail überprüfen"
+
+msgid "Check your inbox"
+msgstr "Überprüfen Sie Ihren Posteingang"
+
+msgid "Choose a Day"
+msgstr "Tag auswählen"
+
+msgid "Choose a Service"
+msgstr "Dienstleistung auswählen"
+
+msgid "Choose a Time"
+msgstr "Zeit auswählen"
+
+msgid "Choose a day"
+msgstr "Tag auswählen"
+
+msgid "Choose a service to book."
+msgstr "Wählen Sie eine zu buchende Dienstleistung."
+
+msgid "Choose a staff member, date, and the time range."
+msgstr "Wählen Sie Mitarbeiter, Datum und Zeitbereich."
+
+msgid "Choose another time"
+msgstr "Andere Zeit wählen"
+
+msgid "Choose who you would like to book with."
+msgstr "Wählen Sie aus, mit wem Sie buchen möchten."
+
+msgid "Click the link below to set a new password. This link is valid for 24 hours."
+msgstr "Klicken Sie auf den folgenden Link, um ein neues Passwort festzulegen. Dieser Link ist 24 Stunden gültig."
+
+msgid "Company"
+msgstr "Unternehmen"
+
+msgid "Company Settings"
+msgstr "Unternehmenseinstellungen"
+
+msgid "Company:"
+msgstr "Unternehmen:"
+
+msgid "Complete Your Booking"
+msgstr "Buchung abschliessen"
+
+msgid "Complete your booking"
+msgstr "Buchung abschliessen"
+
+msgid "Configure what offerings customers can book."
+msgstr "Konfigurieren Sie, welche Angebote Kunden buchen können."
+
+msgid "Confirm"
+msgstr "Bestätigen"
+
+msgid "Confirm booking"
+msgstr "Buchung bestätigen"
+
+msgid "Confirm password"
+msgstr "Passwort bestätigen"
+
+msgid "Confirmation mode"
+msgstr "Bestätigungsmodus"
+
+msgid "Confirmed"
+msgstr "Bestätigt"
+
+msgid "Contact Information"
+msgstr "Kontaktinformationen"
+
+msgid "Copied!"
+msgstr "Kopiert!"
+
+msgid "Copy link"
+msgstr "Link kopieren"
+
+msgid "Create a company account"
+msgstr "Unternehmenskonto erstellen"
+
+msgid "Create schedule"
+msgstr "Plan erstellen"
+
+msgid "Customer"
+msgstr "Kunde"
+
+msgid "Customer:"
+msgstr "Kunde:"
+
+msgid "Danger Zone"
+msgstr "Gefahrenzone"
+
+msgid "Dashboard"
+msgstr "Übersicht"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Date/time:"
+msgstr "Datum/Uhrzeit:"
+
+msgid "Deactivate staff member"
+msgstr "Mitarbeiter deaktivieren"
+
+msgid "Decline"
+msgstr "Ablehnen"
+
+msgid "Declined"
+msgstr "Abgelehnt"
+
+msgid "Define a new service offering for your company."
+msgstr "Definieren Sie eine neue Dienstleistung für Ihr Unternehmen."
+
+msgid "Define when staff are available for appointments."
+msgstr "Legen Sie fest, wann Mitarbeiter für Termine verfügbar sind."
+
+msgid "Delete"
+msgstr "Löschen"
+
+#, python-format
+msgid "Delete \"%(name)s\"?"
+msgstr "„%(name)s“ löschen?"
+
+msgid "Delete Open Hours"
+msgstr "Öffnungszeiten löschen"
+
+msgid "Delete Service"
+msgstr "Dienstleistung löschen"
+
+msgid "Delete booking"
+msgstr "Buchung löschen"
+
+msgid "Delete service"
+msgstr "Dienstleistung löschen"
+
+msgid "Delete staff member"
+msgstr "Mitarbeiter löschen"
+
+msgid "Delete this entry?"
+msgstr "Diesen Eintrag löschen?"
+
+msgid "Description"
+msgstr "Beschreibung"
+
+msgid "Deutsch"
+msgstr "Deutsch"
+
+msgid "Duration"
+msgstr "Dauer"
+
+msgid "Duration (minutes)"
+msgstr "Dauer (Minuten)"
+
+msgid "Duration must be at least 5 minutes."
+msgstr "Die Dauer muss mindestens 5 Minuten betragen."
+
+msgid "Duration must not exceed 480 minutes (8 hours)."
+msgstr "Die Dauer darf 480 Minuten (8 Stunden) nicht überschreiten."
+
+msgid "Duration must not exceed 8 hours."
+msgstr "Die Dauer darf 8 Stunden nicht überschreiten."
+
+msgid "Edit Open Hours"
+msgstr "Öffnungszeiten bearbeiten"
+
+msgid "Edit Service"
+msgstr "Dienstleistung bearbeiten"
+
+msgid "Edit Staff Member"
+msgstr "Mitarbeiter bearbeiten"
+
+msgid "Email"
+msgstr "E-Mail"
+
+msgid "Email address"
+msgstr "E-Mail-Adresse"
+
+msgid "Email:"
+msgstr "E-Mail:"
+
+msgid "Employee pre-selected"
+msgstr "Mitarbeiter vorausgewählt"
+
+msgid "Enable \"Any Employee\" option"
+msgstr "Option „Beliebiger Mitarbeiter“ aktivieren"
+
+msgid "End date must be within one year from today."
+msgstr "Das Enddatum muss innerhalb eines Jahres ab heute liegen."
+
+msgid "End date must not be before start date."
+msgstr "Das Enddatum darf nicht vor dem Startdatum liegen."
+
+msgid "End time must be after start time."
+msgstr "Die Endzeit muss nach der Startzeit liegen."
+
+msgid "English"
+msgstr "Englisch"
+
+msgid "Enter the email address you registered with. If an account exists, you will receive a link to set a new password."
+msgstr "Geben Sie die E-Mail-Adresse ein, mit der Sie sich registriert haben. Falls ein Konto existiert, erhalten Sie einen Link zum Festlegen eines neuen Passworts."
+
+msgid "Fastest available appointment with any suitable staff member."
+msgstr "Schnellster verfügbarer Termin mit einem geeigneten Mitarbeiter."
+
+msgid "First name"
+msgstr "Vorname"
+
+msgid "Forgot your password?"
+msgstr "Passwort vergessen?"
+
+msgid "Français"
+msgstr "Français"
+
+msgid "French"
+msgstr "Französisch"
+
+msgid "Fri"
+msgstr "Fr"
+
+msgid "From"
+msgstr "Von"
+
+msgid "German"
+msgstr "Deutsch"
+
+msgid "Go back"
+msgstr "Zurück"
+
+msgid "Go to homepage"
+msgstr "Zur Startseite"
+
+#, python-format
+msgid "Hello %(business_name)s,"
+msgstr "Hallo %(business_name)s,"
+
+#, python-format
+msgid "Hello %(first_name)s,"
+msgstr "Hallo %(first_name)s,"
+
+msgid "I accept the <a href=\"#\" style=\"color:#111;\">privacy policy</a>."
+msgstr "Ich akzeptiere die <a href=\"#\" style=\"color:#111;\">Datenschutzerklärung</a>."
+
+msgid "I accept the privacy policy."
+msgstr "Ich akzeptiere die Datenschutzerklärung."
+
+msgid "If an account with that email exists, we've sent a password reset link. It will expire in 24 hours."
+msgstr "Falls ein Konto mit dieser E-Mail-Adresse existiert, haben wir einen Link zum Zurücksetzen des Passworts gesendet. Dieser läuft in 24 Stunden ab."
+
+msgid "If you did not request a password reset, you can ignore this email. Your password will not be changed."
+msgstr "Wenn Sie kein Zurücksetzen des Passworts angefordert haben, können Sie diese E-Mail ignorieren. Ihr Passwort wird nicht geändert."
+
+#, python-format
+msgid "If you have any questions, please contact %(business_name)s directly."
+msgstr "Bei Fragen wenden Sie sich bitte direkt an %(business_name)s."
+
+msgid "Inactive"
+msgstr "Inaktiv"
+
+msgid "Incorrect security code. Please try again."
+msgstr "Falscher Sicherheitscode. Bitte versuchen Sie es erneut."
+
+msgid "Interface language"
+msgstr "Oberflächensprache"
+
+msgid "Invalid form submission."
+msgstr "Ungültige Formularübermittlung."
+
+msgid "Invalid staff member selection."
+msgstr "Ungültige Mitarbeiterauswahl."
+
+msgid "Invalid staff member."
+msgstr "Ungültiger Mitarbeiter."
+
+msgid "Italian"
+msgstr "Italienisch"
+
+msgid "Italiano"
+msgstr "Italiano"
+
+msgid "Keep booking"
+msgstr "Buchung behalten"
+
+msgid "Language"
+msgstr "Sprache"
+
+msgid "Language used for your dashboard, public booking page, and notification emails."
+msgstr "Sprache für Ihre Übersicht, die öffentliche Buchungsseite und Benachrichtigungs-E-Mails."
+
+msgid "Last name"
+msgstr "Nachname"
+
+msgid "Last updated"
+msgstr "Zuletzt aktualisiert"
+
+msgid "Last updated:"
+msgstr "Zuletzt aktualisiert:"
+
+msgid "Let's get started"
+msgstr "Los geht's"
+
+msgid "Link expired or invalid"
+msgstr "Link abgelaufen oder ungültig"
+
+msgid "Location"
+msgstr "Standort"
+
+msgid "Log in"
+msgstr "Anmelden"
+
+msgid "Login"
+msgstr "Anmelden"
+
+msgid "Logout"
+msgstr "Abmelden"
+
+msgid "Main navigation"
+msgstr "Hauptnavigation"
+
+msgid "Manage"
+msgstr "Verwalten"
+
+msgid "Manage your business profile and public booking page."
+msgstr "Verwalten Sie Ihr Unternehmensprofil und Ihre öffentliche Buchungsseite."
+
+msgid "Manual:"
+msgstr "Manuell:"
+
+msgid "Message"
+msgstr "Nachricht"
+
+msgid "Message (optional)"
+msgstr "Nachricht (optional)"
+
+msgid "Message:"
+msgstr "Nachricht:"
+
+msgid "Mon"
+msgstr "Mo"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "New booking confirmed"
+msgstr "Neue Buchung bestätigt"
+
+msgid "New booking request"
+msgstr "Neue Buchungsanfrage"
+
+msgid "Next"
+msgstr "Weiter"
+
+msgid "No account yet? Register"
+msgstr "Noch kein Konto? Registrieren"
+
+msgid "No active staff members found. Add staff members first."
+msgstr "Keine aktiven Mitarbeiter gefunden. Fügen Sie zuerst Mitarbeiter hinzu."
+
+msgid "No active staff members yet."
+msgstr "Noch keine aktiven Mitarbeiter."
+
+msgid "No appointments are currently available."
+msgstr "Derzeit sind keine Termine verfügbar."
+
+msgid "No available days"
+msgstr "Keine verfügbaren Tage"
+
+msgid "No matching dates found in the selected range."
+msgstr "Im ausgewählten Zeitraum wurden keine passenden Termine gefunden."
+
+msgid "No past bookings yet."
+msgstr "Noch keine vergangenen Buchungen."
+
+msgid "No pending booking requests at this time."
+msgstr "Derzeit keine ausstehenden Buchungsanfragen."
+
+msgid "No services available"
+msgstr "Keine Dienstleistungen verfügbar"
+
+msgid "No services yet"
+msgstr "Noch keine Dienstleistungen"
+
+msgid "No staff members yet"
+msgstr "Noch keine Mitarbeiter"
+
+msgid "No times available"
+msgstr "Keine Zeiten verfügbar"
+
+msgid "No upcoming bookings."
+msgstr "Keine anstehenden Buchungen."
+
+msgid "No upcoming open hours"
+msgstr "Keine anstehenden Öffnungszeiten"
+
+#, python-format
+msgid "No upcoming open hours for %(name)s"
+msgstr "Keine anstehenden Öffnungszeiten für %(name)s"
+
+msgid "None assigned"
+msgstr "Keine zugewiesen"
+
+msgid "One block is created per matching weekday. Blocks that overlap existing open hours for the selected staff member, or fall in the past, are skipped automatically. Maximum range: one year ahead."
+msgstr ""
+"Pro übereinstimmendem Wochentag wird ein Block erstellt. Blöcke, die sich mit bestehenden Öffnungszeiten des ausgewählten Mitarbeiters überschneiden oder in der Vergangenheit liegen, werden "
+"automatisch übersprungen. Maximaler Zeitraum: ein Jahr im Voraus."
+
+msgid "Online booking is currently unavailable."
+msgstr "Die Online-Buchung ist derzeit nicht verfügbar."
+
+msgid "Only active staff members can be assigned."
+msgstr "Nur aktive Mitarbeiter können zugewiesen werden."
+
+msgid "Open Hours"
+msgstr "Öffnungszeiten"
+
+msgid "Open hours block deleted."
+msgstr "Öffnungszeitenblock gelöscht."
+
+msgid "Open menu"
+msgstr "Menü öffnen"
+
+msgid "Open page"
+msgstr "Seite öffnen"
+
+msgid "Or choose a specific staff member"
+msgstr "Oder einen bestimmten Mitarbeiter auswählen"
+
+msgid "PLZ"
+msgstr "PLZ"
+
+msgid "Page Not Found"
+msgstr "Seite nicht gefunden"
+
+msgid "Page disabled"
+msgstr "Seite deaktiviert"
+
+msgid "Page not found"
+msgstr "Seite nicht gefunden"
+
+#, python-format
+msgid "Page %(current)s of %(total)s"
+msgstr "Seite %(current)s von %(total)s"
+
+msgid "Password"
+msgstr "Passwort"
+
+msgid "Password Updated"
+msgstr "Passwort aktualisiert"
+
+msgid "Password updated"
+msgstr "Passwort aktualisiert"
+
+msgid "Passwords do not match."
+msgstr "Die Passwörter stimmen nicht überein."
+
+msgid "Past Bookings"
+msgstr "Vergangene Buchungen"
+
+msgid "Pending"
+msgstr "Ausstehend"
+
+msgid "Pending Bookings"
+msgstr "Ausstehende Buchungen"
+
+msgid "Pending Confirmation"
+msgstr "Bestätigung ausstehend"
+
+msgid "People who can be assigned to availability slots."
+msgstr "Personen, die Verfügbarkeitszeiten zugewiesen werden können."
+
+msgid "Permanently delete this service and all its staff assignments. This cannot be undone. Services with existing bookings cannot be deleted."
+msgstr "Diese Dienstleistung und alle ihre Mitarbeiterzuweisungen dauerhaft löschen. Dies kann nicht rückgängig gemacht werden. Dienstleistungen mit bestehenden Buchungen können nicht gelöscht werden."
+
+msgid "Permanently delete this staff member. This action cannot be undone."
+msgstr "Diesen Mitarbeiter dauerhaft löschen. Diese Aktion kann nicht rückgängig gemacht werden."
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Phone number (optional)"
+msgstr "Telefonnummer (optional)"
+
+msgid "Phone:"
+msgstr "Telefon:"
+
+msgid "Please contact the company directly to arrange an appointment."
+msgstr "Bitte wenden Sie sich direkt an das Unternehmen, um einen Termin zu vereinbaren."
+
+msgid "Please review this request in your pending bookings."
+msgstr "Bitte überprüfen Sie diese Anfrage in Ihren ausstehenden Buchungen."
+
+msgid "Prev"
+msgstr "Zurück"
+
+msgid "Privacy Policy"
+msgstr "Datenschutzerklärung"
+
+msgid "Privacy accepted"
+msgstr "Datenschutz akzeptiert"
+
+msgid "Public Booking Page"
+msgstr "Öffentliche Buchungsseite"
+
+msgid "Public Page"
+msgstr "Öffentliche Seite"
+
+msgid "Public booking link"
+msgstr "Öffentlicher Buchungslink"
+
+msgid "Public booking page enabled"
+msgstr "Öffentliche Buchungsseite aktiviert"
+
+msgid "Register"
+msgstr "Registrieren"
+
+#, python-format
+msgid "Remove \"%(name)s\"?"
+msgstr "„%(name)s“ entfernen?"
+
+msgid "Remove Staff Member"
+msgstr "Mitarbeiter entfernen"
+
+msgid "Repeat on"
+msgstr "Wiederholen am"
+
+msgid "Request a new link"
+msgstr "Neuen Link anfordern"
+
+msgid "Requested"
+msgstr "Angefragt"
+
+msgid "Reset Password"
+msgstr "Passwort zurücksetzen"
+
+msgid "Reset your password"
+msgstr "Passwort zurücksetzen"
+
+#, python-format
+msgid "Reset your password — %(domain)s"
+msgstr "Passwort zurücksetzen — %(domain)s"
+
+msgid "Review and confirm or decline customer booking requests."
+msgstr "Überprüfen und bestätigen oder lehnen Sie Buchungsanfragen von Kunden ab."
+
+msgid "Sat"
+msgstr "Sa"
+
+msgid "Save changes"
+msgstr "Änderungen speichern"
+
+msgid "Save settings"
+msgstr "Einstellungen speichern"
+
+msgid "Security check"
+msgstr "Sicherheitsprüfung"
+
+msgid "Select a valid confirmation mode."
+msgstr "Wählen Sie einen gültigen Bestätigungsmodus."
+
+msgid "Select a valid language."
+msgstr "Wählen Sie eine gültige Sprache."
+
+msgid "Select at least one day of the week."
+msgstr "Wählen Sie mindestens einen Wochentag aus."
+
+msgid "Send reset link"
+msgstr "Link zum Zurücksetzen senden"
+
+msgid "Server Error"
+msgstr "Serverfehler"
+
+msgid "Service"
+msgstr "Dienstleistung"
+
+#, python-format
+msgid "Service \"%(name)s\" created."
+msgstr "Dienstleistung „%(name)s“ erstellt."
+
+#, python-format
+msgid "Service \"%(name)s\" deleted."
+msgstr "Dienstleistung „%(name)s“ gelöscht."
+
+#, python-format
+msgid "Service \"%(name)s\" updated."
+msgstr "Dienstleistung „%(name)s“ aktualisiert."
+
+msgid "Service does not belong to this company."
+msgstr "Die Dienstleistung gehört nicht zu diesem Unternehmen."
+
+msgid "Service:"
+msgstr "Dienstleistung:"
+
+msgid "Services"
+msgstr "Dienstleistungen"
+
+msgid "Services your company offers to customers."
+msgstr "Dienstleistungen, die Ihr Unternehmen Kunden anbietet."
+
+msgid "Set New Password"
+msgstr "Neues Passwort festlegen"
+
+msgid "Set Recurring Hours"
+msgstr "Wiederkehrende Zeiten festlegen"
+
+msgid "Set a new password"
+msgstr "Neues Passwort festlegen"
+
+msgid "Set new password"
+msgstr "Neues Passwort festlegen"
+
+msgid "Set recurring"
+msgstr "Wiederkehrend festlegen"
+
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "Settings saved."
+msgstr "Einstellungen gespeichert."
+
+msgid "Share this with customers so they can book appointments online."
+msgstr "Teilen Sie dies mit Kunden, damit sie online Termine buchen können."
+
+msgid "Show staff names publicly"
+msgstr "Mitarbeiternamen öffentlich anzeigen"
+
+msgid "Simple appointment booking for your business"
+msgstr "Einfache Terminbuchung für Ihr Unternehmen"
+
+msgid "Slot does not belong to this staff member."
+msgstr "Der Termin gehört nicht zu diesem Mitarbeiter."
+
+msgid "Slug"
+msgstr "Slug"
+
+msgid "Something went wrong"
+msgstr "Etwas ist schiefgelaufen"
+
+msgid "Staff"
+msgstr "Personal"
+
+msgid "Staff Links"
+msgstr "Mitarbeiterlinks"
+
+msgid "Staff Members"
+msgstr "Mitarbeiter"
+
+msgid "Staff member"
+msgstr "Mitarbeiter"
+
+#, python-format
+msgid "Staff member \"%(name)s\" added."
+msgstr "Mitarbeiter „%(name)s“ hinzugefügt."
+
+#, python-format
+msgid "Staff member \"%(name)s\" deleted."
+msgstr "Mitarbeiter „%(name)s“ gelöscht."
+
+#, python-format
+msgid "Staff member \"%(name)s\" updated."
+msgstr "Mitarbeiter „%(name)s“ aktualisiert."
+
+msgid "Staff member does not belong to this company."
+msgstr "Der Mitarbeiter gehört nicht zu diesem Unternehmen."
+
+msgid "Staff member:"
+msgstr "Mitarbeiter:"
+
+msgid "Staff:"
+msgstr "Personal:"
+
+msgid "Start date must be today or in the future."
+msgstr "Das Startdatum muss heute oder in der Zukunft liegen."
+
+msgid "Start date must be within one year from today."
+msgstr "Das Startdatum muss innerhalb eines Jahres ab heute liegen."
+
+msgid "Start time must be in the future."
+msgstr "Die Startzeit muss in der Zukunft liegen."
+
+msgid "Starting from"
+msgstr "Ab"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Street"
+msgstr "Strasse"
+
+msgid "Sun"
+msgstr "So"
+
+msgid "Thank you."
+msgstr "Vielen Dank."
+
+msgid "The page you're looking for doesn't exist or has been moved."
+msgstr "Die gesuchte Seite existiert nicht oder wurde verschoben."
+
+msgid "There are currently no open appointment slots. Please check back later."
+msgstr "Derzeit sind keine freien Termine verfügbar. Bitte schauen Sie später wieder vorbei."
+
+msgid "There are currently no services available for this staff member."
+msgstr "Für diesen Mitarbeiter sind derzeit keine Dienstleistungen verfügbar."
+
+msgid "There are currently no services available."
+msgstr "Derzeit sind keine Dienstleistungen verfügbar."
+
+msgid "These hours overlap with an existing slot for this staff member. Please choose a different time."
+msgstr "Diese Zeiten überschneiden sich mit einem bestehenden Termin für diesen Mitarbeiter. Bitte wählen Sie eine andere Zeit."
+
+msgid "They have active future bookings."
+msgstr "Sie haben aktive zukünftige Buchungen."
+
+msgid "They have upcoming availability slots and active future bookings."
+msgstr "Sie haben anstehende Verfügbarkeitszeiten und aktive zukünftige Buchungen."
+
+msgid "They have upcoming availability slots."
+msgstr "Sie haben anstehende Verfügbarkeitszeiten."
+
+msgid "This action cannot be undone."
+msgstr "Diese Aktion kann nicht rückgängig gemacht werden."
+
+msgid "This action cannot be undone. Your time slot will be released and may be booked by someone else."
+msgstr "Diese Aktion kann nicht rückgängig gemacht werden. Ihr Termin wird freigegeben und kann von jemand anderem gebucht werden."
+
+msgid "This booking has been cancelled."
+msgstr "Diese Buchung wurde storniert."
+
+msgid "This booking request was declined."
+msgstr "Diese Buchungsanfrage wurde abgelehnt."
+
+msgid "This page is unavailable."
+msgstr "Diese Seite ist nicht verfügbar."
+
+msgid "This password reset link has already been used or has expired. Please request a new one."
+msgstr "Dieser Link zum Zurücksetzen des Passworts wurde bereits verwendet oder ist abgelaufen. Bitte fordern Sie einen neuen an."
+
+msgid "This service has existing bookings and cannot be deleted."
+msgstr "Diese Dienstleistung hat bestehende Buchungen und kann nicht gelöscht werden."
+
+msgid "This staff member cannot be deleted because they have upcoming activity."
+msgstr "Dieser Mitarbeiter kann nicht gelöscht werden, da anstehende Aktivitäten vorliegen."
+
+msgid "This staff member has existing availability slots. Deleting will <strong>deactivate</strong> them instead of permanently removing them."
+msgstr "Dieser Mitarbeiter hat bestehende Verfügbarkeitszeiten. Beim Löschen wird er <strong>deaktiviert</strong> statt dauerhaft entfernt."
+
+msgid "This time slot was just booked by someone else."
+msgstr "Dieser Termin wurde gerade von jemand anderem gebucht."
+
+msgid "This will permanently delete the service and all its staff assignments. This action cannot be undone."
+msgstr "Dadurch werden die Dienstleistung und alle ihre Mitarbeiterzuweisungen dauerhaft gelöscht. Diese Aktion kann nicht rückgängig gemacht werden."
+
+msgid "This will permanently delete the staff member. This action cannot be undone."
+msgstr "Dadurch wird der Mitarbeiter dauerhaft gelöscht. Diese Aktion kann nicht rückgängig gemacht werden."
+
+msgid "This will permanently delete this booking, free up the time slot again, and notify the customer by email that their appointment has been cancelled. This action cannot be undone."
+msgstr ""
+"Dadurch wird diese Buchung dauerhaft gelöscht, der Termin wieder freigegeben und der Kunde per E-Mail darüber informiert, dass sein Termin storniert wurde. Diese Aktion kann nicht rückgängig "
+"gemacht werden."
+
+msgid "Thu"
+msgstr "Do"
+
+msgid "Time"
+msgstr "Uhrzeit"
+
+msgid "Timeslot"
+msgstr "Zeitfenster"
+
+#, python-format
+msgid "Timezone: %(tz)s"
+msgstr "Zeitzone: %(tz)s"
+
+msgid "To"
+msgstr "Bis"
+
+msgid "Today's Bookings"
+msgstr "Heutige Buchungen"
+
+msgid "Toggle sidebar"
+msgstr "Seitenleiste umschalten"
+
+msgid "Too Many Requests"
+msgstr "Zu viele Anfragen"
+
+msgid "Too many requests"
+msgstr "Zu viele Anfragen"
+
+msgid "Try another staff member or add a new block."
+msgstr "Versuchen Sie einen anderen Mitarbeiter oder fügen Sie einen neuen Block hinzu."
+
+msgid "Tue"
+msgstr "Di"
+
+msgid "Until"
+msgstr "Bis"
+
+msgid "Upcoming"
+msgstr "Anstehend"
+
+msgid "Upcoming Bookings"
+msgstr "Anstehende Buchungen"
+
+msgid "Upcoming confirmed appointments."
+msgstr "Anstehende bestätigte Termine."
+
+msgid "Update business name, timezone, and booking page options."
+msgstr "Aktualisieren Sie Firmenname, Zeitzone und Buchungsseiten-Optionen."
+
+msgid "Update the date and times for this block."
+msgstr "Aktualisieren Sie Datum und Zeiten für diesen Block."
+
+msgid "Update the service details and staff assignments."
+msgstr "Aktualisieren Sie die Dienstleistungsdetails und Mitarbeiterzuweisungen."
+
+msgid "Update the staff member's details."
+msgstr "Aktualisieren Sie die Details des Mitarbeiters."
+
+msgid "View bookings →"
+msgstr "Buchungen ansehen →"
+
+msgid "View pending bookings →"
+msgstr "Ausstehende Buchungen ansehen →"
+
+msgid "View upcoming and past appointments."
+msgstr "Anstehende und vergangene Termine ansehen."
+
+msgid "Website"
+msgstr "Website"
+
+msgid "Wed"
+msgstr "Mi"
+
+msgid "When disabled, customers cannot access your booking page."
+msgstr "Wenn deaktiviert, können Kunden nicht auf Ihre Buchungsseite zugreifen."
+
+msgid "When disabled, staff member names are hidden on public booking pages."
+msgstr "Wenn deaktiviert, werden Mitarbeiternamen auf öffentlichen Buchungsseiten ausgeblendet."
+
+msgid "When enabled and you have multiple staff members, customers can book the first available appointment with any staff member."
+msgstr "Wenn aktiviert und Sie mehrere Mitarbeiter haben, können Kunden den ersten verfügbaren Termin mit einem beliebigen Mitarbeiter buchen."
+
+msgid "With"
+msgstr "Mit"
+
+msgid "With:"
+msgstr "Mit:"
+
+msgid "Yes, cancel booking"
+msgstr "Ja, Buchung stornieren"
+
+msgid "Yes, delete this block"
+msgstr "Ja, diesen Block löschen"
+
+msgid "You are about to remove the following open hours block."
+msgstr "Sie sind dabei, den folgenden Öffnungszeitenblock zu entfernen."
+
+msgid "You must accept the privacy policy to proceed."
+msgstr "Sie müssen die Datenschutzerklärung akzeptieren, um fortzufahren."
+
+#, python-format
+msgid "You're receiving this email because a password reset was requested for your account at %(domain)s."
+msgstr "Sie erhalten diese E-Mail, weil für Ihr Konto bei %(domain)s ein Zurücksetzen des Passworts angefordert wurde."
+
+msgid "You've made too many requests in a short period. Please wait a moment and try again."
+msgstr "Sie haben in kurzer Zeit zu viele Anfragen gestellt. Bitte warten Sie einen Moment und versuchen Sie es erneut."
+
+msgid "Your Details"
+msgstr "Ihre Angaben"
+
+msgid "Your appointment has been cancelled"
+msgstr "Ihr Termin wurde storniert"
+
+msgid "Your appointment is not confirmed yet. The company will review your request."
+msgstr "Ihr Termin ist noch nicht bestätigt. Das Unternehmen wird Ihre Anfrage prüfen."
+
+#, python-format
+msgid "Your appointment request could not be confirmed. Please contact %(business_name)s or try a different time."
+msgstr "Ihre Terminanfrage konnte nicht bestätigt werden. Bitte kontaktieren Sie %(business_name)s oder versuchen Sie eine andere Zeit."
+
+#, python-format
+msgid "Your appointment request has been submitted and is waiting for confirmation from %(business_name)s. You will be notified by email once it is reviewed. This page will expire shortly."
+msgstr "Ihre Terminanfrage wurde übermittelt und wartet auf die Bestätigung von %(business_name)s. Sie werden per E-Mail benachrichtigt, sobald sie geprüft wurde. Diese Seite läuft in Kürze ab."
+
+msgid "Your booking has been cancelled. The time slot is now available again."
+msgstr "Ihre Buchung wurde storniert. Der Termin ist nun wieder verfügbar."
+
+msgid "Your booking is confirmed"
+msgstr "Ihre Buchung ist bestätigt"
+
+msgid "Your booking is confirmed."
+msgstr "Ihre Buchung ist bestätigt."
+
+msgid "Your booking request was declined"
+msgstr "Ihre Buchungsanfrage wurde abgelehnt"
+
+msgid "Your booking request was received"
+msgstr "Ihre Buchungsanfrage wurde erhalten"
+
+msgid "Your confirmation details have been sent to your email. This page will expire shortly and cannot be revisited."
+msgstr "Ihre Bestätigungsdetails wurden an Ihre E-Mail-Adresse gesendet. Diese Seite läuft in Kürze ab und kann nicht erneut aufgerufen werden."
+
+msgid "Your data will be used solely to manage this appointment."
+msgstr "Ihre Daten werden ausschliesslich zur Verwaltung dieses Termins verwendet."
+
+msgid "Your details"
+msgstr "Ihre Angaben"
+
+msgid "Your password has been changed. You can now log in with your new password."
+msgstr "Ihr Passwort wurde geändert. Sie können sich jetzt mit Ihrem neuen Passwort anmelden."
+
+#, python-format
+msgid "Your upcoming availability for %(business_name)s"
+msgstr "Ihre anstehende Verfügbarkeit für %(business_name)s"
+
+msgid "a new booking has been confirmed."
+msgstr "eine neue Buchung wurde bestätigt."
+
+msgid "a new booking request is waiting for confirmation."
+msgstr "eine neue Buchungsanfrage wartet auf Bestätigung."
+
+msgid "booking requests must be reviewed and approved before they are confirmed."
+msgstr "Buchungsanfragen müssen überprüft und genehmigt werden, bevor sie bestätigt werden."
+
+msgid "bookings are confirmed immediately when a customer submits the form."
+msgstr "Buchungen werden sofort bestätigt, wenn ein Kunde das Formular absendet."
+
+msgid "optional"
+msgstr "optional"
+
+msgid "we received your booking request."
+msgstr "wir haben Ihre Buchungsanfrage erhalten."
+
+#, python-format
+msgid "your appointment has been cancelled by %(business_name)s."
+msgstr "Ihr Termin wurde von %(business_name)s storniert."
+
+msgid "your appointment has been confirmed."
+msgstr "Ihr Termin wurde bestätigt."
+
+msgid "your booking request was declined."
+msgstr "Ihre Buchungsanfrage wurde abgelehnt."
+
+#, python-format
+msgid "%(minutes)s min"
+msgstr "%(minutes)s Min."
+
+#, python-format
+msgid "%(name)s (%(minutes)s min)"
+msgstr "%(name)s (%(minutes)s Min.)"
+
+msgid "— Select staff member —"
+msgstr "— Mitarbeiter auswählen —"
+
+#, python-format
+msgid "%(count)d skipped due to overlap or past date."
+msgid_plural "%(count)d skipped due to overlap or past date."
+msgstr[0] "%(count)d übersprungen wegen Überschneidung oder vergangenem Datum."
+msgstr[1] "%(count)d übersprungen wegen Überschneidung oder vergangenem Datum."
+
+#, python-format
+msgid "Cannot delete &mdash; %(counter)s active future booking"
+msgid_plural "Cannot delete &mdash; %(counter)s active future bookings"
+msgstr[0] "Löschen nicht möglich &mdash; %(counter)s aktive zukünftige Buchung"
+msgstr[1] "Löschen nicht möglich &mdash; %(counter)s aktive zukünftige Buchungen"
+
+#, python-format
+msgid "Created %(count)d open hours block."
+msgid_plural "Created %(count)d open hours blocks."
+msgstr[0] "%(count)d Öffnungszeitenblock erstellt."
+msgstr[1] "%(count)d Öffnungszeitenblöcke erstellt."
+
+#, python-format
+msgid "No blocks were created — %(count)d skipped (already past or overlapping)."
+msgid_plural "No blocks were created — %(count)d skipped (already past or overlapping)."
+msgstr[0] "Es wurden keine Blöcke erstellt — %(count)d übersprungen (bereits vergangen oder überschneidend)."
+msgstr[1] "Es wurden keine Blöcke erstellt — %(count)d übersprungen (bereits vergangen oder überschneidend)."
+

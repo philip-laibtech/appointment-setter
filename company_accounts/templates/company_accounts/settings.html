@@ -1,5 +1,6 @@
 {% extends "company_accounts/app_base.html" %}
-{% block title %}Company Settings — {{ company.business_name }}{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Company Settings" %} — {{ company.business_name }}{% endblock %}
 
 {% block extra_style %}
 <style>
@@ -124,17 +125,17 @@
 
 {% block content %}
 
-<h1 class="st-page-title">Company Settings</h1>
-<p class="st-page-sub">Manage your business profile and public booking page.</p>
+<h1 class="st-page-title">{% translate "Company Settings" %}</h1>
+<p class="st-page-sub">{% translate "Manage your business profile and public booking page." %}</p>
 
 <form method="post" novalidate>
   {% csrf_token %}
 
   <div class="st-section">
-    <p class="st-section-title">Business Details</p>
+    <p class="st-section-title">{% translate "Business Details" %}</p>
 
     <div class="st-field">
-      <label class="st-label" for="{{ form.business_name.id_for_label }}">Business name</label>
+      <label class="st-label" for="{{ form.business_name.id_for_label }}">{% translate "Business name" %}</label>
       <input
         class="st-input"
         type="text"
@@ -152,7 +153,7 @@
     </div>
 
     <div class="st-field">
-      <label class="st-label" for="{{ form.street.id_for_label }}">Street</label>
+      <label class="st-label" for="{{ form.street.id_for_label }}">{% translate "Street" %}</label>
       <input
         class="st-input"
         type="text"
@@ -170,7 +171,7 @@
 
     <div style="display:flex; gap:1rem;">
       <div class="st-field" style="width:140px; flex-shrink:0;">
-        <label class="st-label" for="{{ form.plz.id_for_label }}">PLZ</label>
+        <label class="st-label" for="{{ form.plz.id_for_label }}">{% translate "PLZ" %}</label>
         <input
           class="st-input"
           type="text"
@@ -186,7 +187,7 @@
         {% endif %}
       </div>
       <div class="st-field" style="flex:1;">
-        <label class="st-label" for="{{ form.location.id_for_label }}">Location</label>
+        <label class="st-label" for="{{ form.location.id_for_label }}">{% translate "Location" %}</label>
         <input
           class="st-input"
           type="text"
@@ -206,10 +207,10 @@
   </div>
 
   <div class="st-section">
-    <p class="st-section-title">Contact Information</p>
+    <p class="st-section-title">{% translate "Contact Information" %}</p>
 
     <div class="st-field">
-      <label class="st-label" for="{{ form.phone.id_for_label }}">Phone</label>
+      <label class="st-label" for="{{ form.phone.id_for_label }}">{% translate "Phone" %}</label>
       <input
         class="st-input"
         type="tel"
@@ -226,7 +227,7 @@
     </div>
 
     <div class="st-field">
-      <label class="st-label" for="{{ form.website.id_for_label }}">Website</label>
+      <label class="st-label" for="{{ form.website.id_for_label }}">{% translate "Website" %}</label>
       <input
         class="st-input"
         type="url"
@@ -246,7 +247,7 @@
   </div>
 
   <div class="st-section">
-    <p class="st-section-title">Public Booking Page</p>
+    <p class="st-section-title">{% translate "Public Booking Page" %}</p>
 
     <div class="st-checkbox-row">
       <input
@@ -256,8 +257,8 @@
         {% if form.public_page_enabled.value %}checked{% endif %}
       >
       <div>
-        <label class="st-checkbox-label" for="{{ form.public_page_enabled.id_for_label }}">Public booking page enabled</label>
-        <p class="st-checkbox-hint">When disabled, customers cannot access your booking page.</p>
+        <label class="st-checkbox-label" for="{{ form.public_page_enabled.id_for_label }}">{% translate "Public booking page enabled" %}</label>
+        <p class="st-checkbox-hint">{% translate "When disabled, customers cannot access your booking page." %}</p>
         {% if form.public_page_enabled.errors %}
           <div class="st-field-errors">
             {% for error in form.public_page_enabled.errors %}{{ error }}{% endfor %}
@@ -274,8 +275,8 @@
         {% if form.show_staff_names_publicly.value %}checked{% endif %}
       >
       <div>
-        <label class="st-checkbox-label" for="{{ form.show_staff_names_publicly.id_for_label }}">Show staff names publicly</label>
-        <p class="st-checkbox-hint">When disabled, staff member names are hidden on public booking pages.</p>
+        <label class="st-checkbox-label" for="{{ form.show_staff_names_publicly.id_for_label }}">{% translate "Show staff names publicly" %}</label>
+        <p class="st-checkbox-hint">{% translate "When disabled, staff member names are hidden on public booking pages." %}</p>
         {% if form.show_staff_names_publicly.errors %}
           <div class="st-field-errors">
             {% for error in form.show_staff_names_publicly.errors %}{{ error }}{% endfor %}
@@ -292,8 +293,8 @@
         {% if form.enable_any_employee_option.value %}checked{% endif %}
       >
       <div>
-        <label class="st-checkbox-label" for="{{ form.enable_any_employee_option.id_for_label }}">Enable "Any Employee" option</label>
-        <p class="st-checkbox-hint">When enabled and you have multiple staff members, customers can book the first available appointment with any staff member.</p>
+        <label class="st-checkbox-label" for="{{ form.enable_any_employee_option.id_for_label }}">{% translate 'Enable "Any Employee" option' %}</label>
+        <p class="st-checkbox-hint">{% translate "When enabled and you have multiple staff members, customers can book the first available appointment with any staff member." %}</p>
         {% if form.enable_any_employee_option.errors %}
           <div class="st-field-errors">
             {% for error in form.enable_any_employee_option.errors %}{{ error }}{% endfor %}
@@ -304,9 +305,9 @@
   </div>
 
   <div class="st-section">
-    <p class="st-section-title">Booking Confirmation</p>
+    <p class="st-section-title">{% translate "Booking Confirmation" %}</p>
     <div class="st-field">
-      <label class="st-label" for="{{ form.booking_confirmation_mode.id_for_label }}">Confirmation mode</label>
+      <label class="st-label" for="{{ form.booking_confirmation_mode.id_for_label }}">{% translate "Confirmation mode" %}</label>
       <select
         class="st-input"
         id="{{ form.booking_confirmation_mode.id_for_label }}"
@@ -317,12 +318,34 @@
         {% endfor %}
       </select>
       <p class="st-hint">
-        <strong>Automatic:</strong> bookings are confirmed immediately when a customer submits the form.<br>
-        <strong>Manual:</strong> booking requests must be reviewed and approved before they are confirmed.
+        <strong>{% translate "Automatic:" %}</strong> {% translate "bookings are confirmed immediately when a customer submits the form." %}<br>
+        <strong>{% translate "Manual:" %}</strong> {% translate "booking requests must be reviewed and approved before they are confirmed." %}
       </p>
       {% if form.booking_confirmation_mode.errors %}
         <div class="st-field-errors">
           {% for error in form.booking_confirmation_mode.errors %}{{ error }}{% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="st-section">
+    <p class="st-section-title">{% translate "Language" %}</p>
+    <div class="st-field">
+      <label class="st-label" for="{{ form.language.id_for_label }}">{% translate "Interface language" %}</label>
+      <select
+        class="st-input"
+        id="{{ form.language.id_for_label }}"
+        name="{{ form.language.html_name }}"
+      >
+        {% for value, label in form.language.field.choices %}
+          <option value="{{ value }}"{% if form.language.value == value %} selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+      <p class="st-hint">{% translate "Language used for your dashboard, public booking page, and notification emails." %}</p>
+      {% if form.language.errors %}
+        <div class="st-field-errors">
+          {% for error in form.language.errors %}{{ error }}{% endfor %}
         </div>
       {% endif %}
     </div>
@@ -334,22 +357,22 @@
     </div>
   {% endif %}
 
-  <button type="submit" class="st-save-btn">Save settings</button>
+  <button type="submit" class="st-save-btn">{% translate "Save settings" %}</button>
 
 </form>
 
 <div class="st-readonly" style="margin-top:1.5rem;">
-  <p class="st-readonly-title">Account Information</p>
+  <p class="st-readonly-title">{% translate "Account Information" %}</p>
   <div class="st-readonly-row">
-    <span class="st-readonly-key">Account email</span>
+    <span class="st-readonly-key">{% translate "Account email" %}</span>
     <span class="st-readonly-val">{{ company.email }}</span>
   </div>
   <div class="st-readonly-row">
-    <span class="st-readonly-key">Slug</span>
+    <span class="st-readonly-key">{% translate "Slug" %}</span>
     <span class="st-readonly-val">{{ company.slug }}</span>
   </div>
   <div class="st-readonly-row">
-    <span class="st-readonly-key">Public booking link</span>
+    <span class="st-readonly-key">{% translate "Public booking link" %}</span>
     <span class="st-readonly-val">
       <a href="{% url 'bookings:entry' company_slug=company.slug %}" class="st-readonly-link" target="_blank" rel="noopener">/b/{{ company.slug }}/</a>
     </span>

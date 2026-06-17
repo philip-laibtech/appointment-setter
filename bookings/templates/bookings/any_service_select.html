@@ -1,19 +1,20 @@
 {% extends "bookings/public_booking_base.html" %}
-{% block title %}Choose a Service — {{ company.business_name }}{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Choose a Service" %} — {{ company.business_name }}{% endblock %}
 
 {% block content %}
 <a href="{% url 'bookings:entry' company_slug=company.slug %}" class="bk-back">
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
     <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
-  Back
+  {% translate "Back" %}
 </a>
 
 {% include "bookings/_booking_steps.html" with current_step=1 %}
 
 <p class="bk-company-label">{{ company.business_name }}</p>
-<h1 class="bk-staff-header">Any Employee</h1>
-<p class="bk-page-subtitle">Choose a service to book.</p>
+<h1 class="bk-staff-header">{% translate "Any Employee" %}</h1>
+<p class="bk-page-subtitle">{% translate "Choose a service to book." %}</p>
 
 {% if services %}
   <ul class="bk-list" role="list">
@@ -23,7 +24,7 @@
         <div class="bk-service-info">
           <div class="bk-service-name">{{ service.name }}</div>
           <div class="bk-service-meta">
-            {{ service.duration_minutes }} min
+            {% blocktranslate with minutes=service.duration_minutes %}{{ minutes }} min{% endblocktranslate %}
             {% if service.description %} &middot; {{ service.description|truncatechars:60 }}{% endif %}
           </div>
         </div>
@@ -36,8 +37,8 @@
   </ul>
 {% else %}
   <div class="bk-empty">
-    <p class="bk-empty-title">No services available</p>
-    <p class="bk-empty-text">There are currently no services available.</p>
+    <p class="bk-empty-title">{% translate "No services available" %}</p>
+    <p class="bk-empty-text">{% translate "There are currently no services available." %}</p>
   </div>
 {% endif %}
 {% endblock %}

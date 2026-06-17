@@ -2,6 +2,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Prefetch
 from django.shortcuts import get_object_or_404, redirect, render
+from django.utils.translation import gettext as _
 from django.views.decorators.http import require_http_methods
 
 from .forms import ServiceOfferingEditForm, ServiceOfferingForm
@@ -33,9 +34,14 @@ def service_create_view(request):
         service.company = request.user
         service.save()
         _sync_staff_assignments(service, form.cleaned_data["assigned_staff_members"])
-        messages.success(request, f'Service "{service.name}" created.')
+        messages.success(request, _('Service "%(name)s" created.') % {"name": service.name})
         return redirect("services:list")
-    return render(request, "services/service_form.html", {"form": form})
+    return render(request, "services/service_form.html", {
+        "form": form,
+        "is_edit": False,
+        "title": _("Add Service"),
+        "submit_label": _("Add service"),
+    })
 
 
 @login_required
@@ -56,13 +62,14 @@ def service_edit_view(request, service_id):
     if request.method == "POST" and form.is_valid():
         service = form.save()
         _sync_staff_assignments(service, form.cleaned_data["assigned_staff_members"])
-        messages.success(request, f'Service "{service.name}" updated.')
+        messages.success(request, _('Service "%(name)s" updated.') % {"name": service.name})
         return redirect("services:list")
     return render(request, "services/service_form.html", {
         "form": form,
         "service": service,
-        "title": "Edit Service",
-        "submit_label": "Save changes",
+        "is_edit": True,
+        "title": _("Edit Service"),
+        "submit_label": _("Save changes"),
     })
 
 
@@ -72,11 +79,14 @@ def service_delete_view(request, service_id):
     service = get_object_or_404(ServiceOffering, pk=service_id, company=request.user)
     if request.method == "POST":
         if service.bookings.exists():
-            messages.error(request, f'"{service.name}" has existing bookings and cannot be deleted.')
+            messages.error(
+                request,
+                _('"%(name)s" has existing bookings and cannot be deleted.') % {"name": service.name},
+            )
             return redirect("services:delete", service_id)
         name = service.name
         service.delete()
-        messages.success(request, f'Service "{name}" deleted.')
+        messages.success(request, _('Service "%(name)s" deleted.') % {"name": name})
         return redirect("services:list")
     return render(request, "services/service_confirm_delete.html", {
         "service": service,

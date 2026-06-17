@@ -1,1 +1,1 @@
-New booking confirmed
+{% load i18n %}{% translate "New booking confirmed" %}

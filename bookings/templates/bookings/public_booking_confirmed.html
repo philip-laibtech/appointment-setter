@@ -1,10 +1,11 @@
 {% extends "bookings/public_booking_base.html" %}
+{% load i18n %}
 {% block title %}
-  {% if booking.status == "confirmed" %}Booking Confirmed
-  {% elif booking.status == "pending" %}Booking Request Received
-  {% elif booking.status == "cancelled" %}Booking Cancelled
-  {% elif booking.status == "declined" %}Booking Declined
-  {% else %}Booking — {{ company.business_name }}
+  {% if booking.status == "confirmed" %}{% translate "Booking Confirmed" %}
+  {% elif booking.status == "pending" %}{% translate "Booking Request Received" %}
+  {% elif booking.status == "cancelled" %}{% translate "Booking Cancelled" %}
+  {% elif booking.status == "declined" %}{% translate "Booking Declined" %}
+  {% else %}{% translate "Booking" %} — {{ company.business_name }}
   {% endif %} — {{ company.business_name }}
 {% endblock %}
 
@@ -43,9 +44,9 @@
       <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
         <path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      Confirmed
+      {% translate "Confirmed" %}
     </div>
-    <h1 class="bk-confirmed-title">Your booking is confirmed.</h1>
+    <h1 class="bk-confirmed-title">{% translate "Your booking is confirmed." %}</h1>
 
   {% elif booking.status == "pending" %}
     <div class="bk-confirmed-badge bk-confirmed-badge--pending">
@@ -53,9 +54,9 @@
         <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.5"/>
         <path d="M6 3.5v3l1.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      Awaiting confirmation
+      {% translate "Awaiting confirmation" %}
     </div>
-    <h1 class="bk-confirmed-title">Booking request received.</h1>
+    <h1 class="bk-confirmed-title">{% translate "Booking request received." %}</h1>
 
   {% elif booking.status == "cancelled" %}
     <div class="bk-confirmed-badge bk-confirmed-badge--cancelled">
@@ -63,9 +64,9 @@
         <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.5"/>
         <path d="M4 4l4 4M8 4l-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
-      Cancelled
+      {% translate "Cancelled" %}
     </div>
-    <h1 class="bk-confirmed-title">This booking has been cancelled.</h1>
+    <h1 class="bk-confirmed-title">{% translate "This booking has been cancelled." %}</h1>
 
   {% elif booking.status == "declined" %}
     <div class="bk-confirmed-badge bk-confirmed-badge--declined">
@@ -73,38 +74,38 @@
         <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.5"/>
         <path d="M4 4l4 4M8 4l-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
-      Declined
+      {% translate "Declined" %}
     </div>
-    <h1 class="bk-confirmed-title">This booking request was declined.</h1>
+    <h1 class="bk-confirmed-title">{% translate "This booking request was declined." %}</h1>
 
   {% endif %}
 
   <table class="bk-detail-table">
-    <tr><th>Company</th><td>{{ company.business_name }}</td></tr>
-    <tr><th>Staff member</th><td>{{ booking.staff_member.name }}</td></tr>
-    <tr><th>Service</th><td>{{ booking.service_offering.name }}</td></tr>
-    <tr><th>Duration</th><td>{{ booking.service_offering.duration_minutes }} min</td></tr>
-    <tr><th>Date</th><td>{{ booking.start_at|date:"l, j F Y" }}</td></tr>
-    <tr><th>Time</th><td>{{ booking.start_at|date:"H:i" }} – {{ booking.end_at|date:"H:i" }}</td></tr>
+    <tr><th>{% translate "Company" %}</th><td>{{ company.business_name }}</td></tr>
+    <tr><th>{% translate "Staff member" %}</th><td>{{ booking.staff_member.name }}</td></tr>
+    <tr><th>{% translate "Service" %}</th><td>{{ booking.service_offering.name }}</td></tr>
+    <tr><th>{% translate "Duration" %}</th><td>{% blocktranslate with minutes=booking.service_offering.duration_minutes %}{{ minutes }} min{% endblocktranslate %}</td></tr>
+    <tr><th>{% translate "Date" %}</th><td>{{ booking.start_at|date:"l, j F Y" }}</td></tr>
+    <tr><th>{% translate "Time" %}</th><td>{{ booking.start_at|date:"H:i" }} – {{ booking.end_at|date:"H:i" }}</td></tr>
   </table>
 
   {% if booking.status == "confirmed" %}
-    <p class="bk-note">Your confirmation details have been sent to your email. This page will expire shortly and cannot be revisited.</p>
+    <p class="bk-note">{% translate "Your confirmation details have been sent to your email. This page will expire shortly and cannot be revisited." %}</p>
   {% elif booking.status == "pending" %}
-    <p class="bk-note">Your appointment request has been submitted and is waiting for confirmation from {{ company.business_name }}. You will be notified by email once it is reviewed. This page will expire shortly.</p>
+    <p class="bk-note">{% blocktranslate with business_name=company.business_name %}Your appointment request has been submitted and is waiting for confirmation from {{ business_name }}. You will be notified by email once it is reviewed. This page will expire shortly.{% endblocktranslate %}</p>
   {% elif booking.status == "cancelled" %}
-    <p class="bk-note">Your booking has been cancelled. The time slot is now available again.</p>
+    <p class="bk-note">{% translate "Your booking has been cancelled. The time slot is now available again." %}</p>
   {% elif booking.status == "declined" %}
-    <p class="bk-note">Your appointment request could not be confirmed. Please contact {{ company.business_name }} or try a different time.</p>
+    <p class="bk-note">{% blocktranslate with business_name=company.business_name %}Your appointment request could not be confirmed. Please contact {{ business_name }} or try a different time.{% endblocktranslate %}</p>
   {% endif %}
 
   <div class="bk-actions">
     <a href="{% url 'bookings:entry' company_slug=company.slug %}" class="bk-back-link">
-      &larr; Back to booking
+      &larr; {% translate "Back to booking" %}
     </a>
     {% if booking.status == "confirmed" %}
       <a href="{% url 'bookings:cancel' company_slug=company.slug public_token=booking.public_token %}" class="bk-cancel-link">
-        Cancel this booking
+        {% translate "Cancel this booking" %}
       </a>
     {% endif %}
   </div>

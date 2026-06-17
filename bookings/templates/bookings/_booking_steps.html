@@ -1,3 +1,4 @@
+{% load i18n %}
 {% comment %}
   Include with: {% include "bookings/_booking_steps.html" with current_step=N %}
   Steps: 1=Service  2=Date  3=Time  4=Your Details
@@ -43,13 +44,13 @@
   }
 </style>
 
-<nav class="bk-steps" aria-label="Booking steps">
+<nav class="bk-steps" aria-label="{% translate 'Booking steps' %}">
 
   <span class="bk-step {% if current_step == 1 %}bk-step--active{% elif current_step > 1 %}bk-step--done{% endif %}">
     <span class="bk-step-circle">
       {% if current_step > 1 %}<svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>{% else %}1{% endif %}
     </span>
-    <span class="bk-step-label">Service</span>
+    <span class="bk-step-label">{% translate "Service" %}</span>
   </span>
 
   <span class="bk-step-line" aria-hidden="true"></span>
@@ -58,7 +59,7 @@
     <span class="bk-step-circle">
       {% if current_step > 2 %}<svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>{% else %}2{% endif %}
     </span>
-    <span class="bk-step-label">Date</span>
+    <span class="bk-step-label">{% translate "Date" %}</span>
   </span>
 
   <span class="bk-step-line" aria-hidden="true"></span>
@@ -67,14 +68,14 @@
     <span class="bk-step-circle">
       {% if current_step > 3 %}<svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>{% else %}3{% endif %}
     </span>
-    <span class="bk-step-label">Time</span>
+    <span class="bk-step-label">{% translate "Time" %}</span>
   </span>
 
   <span class="bk-step-line" aria-hidden="true"></span>
 
   <span class="bk-step {% if current_step == 4 %}bk-step--active{% elif current_step > 4 %}bk-step--done{% endif %}">
     <span class="bk-step-circle">4</span>
-    <span class="bk-step-label">Your Details</span>
+    <span class="bk-step-label">{% translate "Your Details" %}</span>
   </span>
 
 </nav>

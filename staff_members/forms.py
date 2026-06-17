@@ -1,4 +1,5 @@
 from django import forms
+from django.utils.translation import gettext_lazy as _
 
 from .models import StaffMember
 
@@ -7,6 +8,11 @@ class StaffMemberForm(forms.ModelForm):
     class Meta:
         model = StaffMember
         fields = ["name", "email", "phone"]
+        labels = {
+            "name": _("Name"),
+            "email": _("Email"),
+            "phone": _("Phone"),
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -27,3 +33,7 @@ class StaffMemberForm(forms.ModelForm):
 class StaffMemberEditForm(StaffMemberForm):
     class Meta(StaffMemberForm.Meta):
         fields = ["name", "email", "phone", "is_active"]
+        labels = {
+            **StaffMemberForm.Meta.labels,
+            "is_active": _("Active"),
+        }

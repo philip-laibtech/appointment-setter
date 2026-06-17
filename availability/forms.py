@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 
 from django import forms
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 
 from staff_members.models import StaffMember
 
@@ -27,21 +28,21 @@ def _staff_queryset(company):
 class OpenHoursForm(forms.Form):
     staff_member = forms.ModelChoiceField(
         queryset=StaffMember.objects.none(),
-        label="Staff member",
-        empty_label="— Select staff member —",
+        label=_("Staff member"),
+        empty_label=_("— Select staff member —"),
     )
     date = forms.DateField(
-        label="Date",
+        label=_("Date"),
         widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         input_formats=["%Y-%m-%d"],
     )
     start_time = forms.TimeField(
-        label="From",
+        label=_("From"),
         widget=forms.TimeInput(attrs={"type": "time"}),
         input_formats=["%H:%M", "%H:%M:%S"],
     )
     end_time = forms.TimeField(
-        label="To",
+        label=_("To"),
         widget=forms.TimeInput(attrs={"type": "time"}),
         input_formats=["%H:%M", "%H:%M:%S"],
     )
@@ -69,7 +70,7 @@ class OpenHoursForm(forms.Form):
             return cleaned_data
 
         if self.company is not None and staff_member.company != self.company:
-            self.add_error("staff_member", "Invalid staff member.")
+            self.add_error("staff_member", _("Invalid staff member."))
             return cleaned_data
 
         start_at = timezone.make_aware(datetime.combine(date, start_time))
@@ -77,19 +78,19 @@ class OpenHoursForm(forms.Form):
         now = timezone.now()
 
         if start_at <= now:
-            self.add_error("start_time", "Start time must be in the future.")
+            self.add_error("start_time", _("Start time must be in the future."))
             return cleaned_data
 
         if end_at <= start_at:
-            self.add_error("end_time", "End time must be after start time.")
+            self.add_error("end_time", _("End time must be after start time."))
             return cleaned_data
 
         duration = end_at - start_at
         if duration < _MIN_DURATION:
-            self.add_error("end_time", "Duration must be at least 5 minutes.")
+            self.add_error("end_time", _("Duration must be at least 5 minutes."))
             return cleaned_data
         if duration > _MAX_DURATION:
-            self.add_error("end_time", "Duration must not exceed 8 hours.")
+            self.add_error("end_time", _("Duration must not exceed 8 hours."))
             return cleaned_data
 
         overlap_qs = AppointmentSlot.objects.filter(
@@ -102,8 +103,7 @@ class OpenHoursForm(forms.Form):
             overlap_qs = overlap_qs.exclude(pk=self.instance_pk)
         if overlap_qs.exists():
             raise forms.ValidationError(
-                "These hours overlap with an existing slot for this staff member. "
-                "Please choose a different time."
+                _("These hours overlap with an existing slot for this staff member. Please choose a different time.")
             )
 
         cleaned_data["start_at"] = start_at
@@ -113,41 +113,41 @@ class OpenHoursForm(forms.Form):
 
 class RecurringHoursForm(forms.Form):
     WEEKDAYS = [
-        ("0", "Mon"),
-        ("1", "Tue"),
-        ("2", "Wed"),
-        ("3", "Thu"),
-        ("4", "Fri"),
-        ("5", "Sat"),
-        ("6", "Sun"),
+        ("0", _("Mon")),
+        ("1", _("Tue")),
+        ("2", _("Wed")),
+        ("3", _("Thu")),
+        ("4", _("Fri")),
+        ("5", _("Sat")),
+        ("6", _("Sun")),
     ]
 
     staff_member = forms.ModelChoiceField(
         queryset=StaffMember.objects.none(),
-        label="Staff member",
-        empty_label="— Select staff member —",
+        label=_("Staff member"),
+        empty_label=_("— Select staff member —"),
     )
     weekdays = forms.MultipleChoiceField(
         choices=WEEKDAYS,
-        label="Repeat on",
-        error_messages={"required": "Select at least one day of the week."},
+        label=_("Repeat on"),
+        error_messages={"required": _("Select at least one day of the week.")},
     )
     start_time = forms.TimeField(
-        label="From",
+        label=_("From"),
         widget=forms.TimeInput(attrs={"type": "time"}),
         input_formats=["%H:%M", "%H:%M:%S"],
     )
     end_time = forms.TimeField(
-        label="To",
+        label=_("To"),
         widget=forms.TimeInput(attrs={"type": "time"}),
         input_formats=["%H:%M", "%H:%M:%S"],
     )
     date_from = forms.DateField(
-        label="Starting from",
+        label=_("Starting from"),
         widget=forms.DateInput(attrs={"type": "date"}),
     )
     date_until = forms.DateField(
-        label="Until",
+        label=_("Until"),
         widget=forms.DateInput(attrs={"type": "date"}),
     )
 
@@ -180,18 +180,18 @@ class RecurringHoursForm(forms.Form):
         date_until = cleaned_data.get("date_until")
 
         if staff_member and self.company is not None and staff_member.company != self.company:
-            self.add_error("staff_member", "Invalid staff member.")
+            self.add_error("staff_member", _("Invalid staff member."))
 
         # ── Time validation ────────────────────────────────
         if start_time and end_time:
             if end_time <= start_time:
-                self.add_error("end_time", "End time must be after start time.")
+                self.add_error("end_time", _("End time must be after start time."))
             else:
                 duration = _time_duration(start_time, end_time)
                 if duration < _MIN_DURATION:
-                    self.add_error("end_time", "Duration must be at least 5 minutes.")
+                    self.add_error("end_time", _("Duration must be at least 5 minutes."))
                 elif duration > _MAX_DURATION:
-                    self.add_error("end_time", "Duration must not exceed 8 hours.")
+                    self.add_error("end_time", _("Duration must not exceed 8 hours."))
 
         # ── Date validation ────────────────────────────────
         today = timezone.localdate()
@@ -199,16 +199,16 @@ class RecurringHoursForm(forms.Form):
 
         if date_from:
             if date_from < today:
-                self.add_error("date_from", "Start date must be today or in the future.")
+                self.add_error("date_from", _("Start date must be today or in the future."))
             elif date_from > max_date:
-                self.add_error("date_from", "Start date must be within one year from today.")
+                self.add_error("date_from", _("Start date must be within one year from today."))
 
         if date_until:
             if date_until > max_date:
-                self.add_error("date_until", "End date must be within one year from today.")
+                self.add_error("date_until", _("End date must be within one year from today."))
 
         if date_from and date_until and not self.errors.get("date_from") and not self.errors.get("date_until"):
             if date_until < date_from:
-                self.add_error("date_until", "End date must not be before start date.")
+                self.add_error("date_until", _("End date must not be before start date."))
 
         return cleaned_data

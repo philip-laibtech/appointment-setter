@@ -2,6 +2,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
+from django.utils.translation import gettext as _
 from django.views.decorators.http import require_http_methods
 
 from bookings.models import Booking
@@ -25,9 +26,14 @@ def staff_create_view(request):
         member = form.save(commit=False)
         member.company = request.user
         member.save()
-        messages.success(request, f"Staff member \"{member.name}\" added.")
+        messages.success(request, _('Staff member "%(name)s" added.') % {"name": member.name})
         return redirect("staff_members:list")
-    return render(request, "staff_members/staff_form.html", {"form": form})
+    return render(request, "staff_members/staff_form.html", {
+        "form": form,
+        "is_edit": False,
+        "title": _("Add Staff Member"),
+        "submit_label": _("Add staff member"),
+    })
 
 
 @login_required
@@ -37,13 +43,14 @@ def staff_edit_view(request, member_id):
     form = StaffMemberEditForm(request.POST or None, instance=member)
     if request.method == "POST" and form.is_valid():
         form.save()
-        messages.success(request, f"Staff member \"{member.name}\" updated.")
+        messages.success(request, _('Staff member "%(name)s" updated.') % {"name": member.name})
         return redirect("staff_members:list")
     return render(request, "staff_members/staff_form.html", {
         "form": form,
         "member": member,
-        "title": "Edit Staff Member",
-        "submit_label": "Save changes",
+        "is_edit": True,
+        "title": _("Edit Staff Member"),
+        "submit_label": _("Save changes"),
     })
 
 
@@ -63,11 +70,11 @@ def staff_delete_view(request, member_id):
         if is_blocked:
             messages.error(
                 request,
-                f"Cannot delete \"{member.name}\": they have upcoming slots or active bookings.",
+                _('Cannot delete "%(name)s": they have upcoming slots or active bookings.') % {"name": member.name},
             )
             return redirect(request.path)
         member.delete()
-        messages.success(request, f"Staff member \"{member.name}\" deleted.")
+        messages.success(request, _('Staff member "%(name)s" deleted.') % {"name": member.name})
         return redirect("staff_members:list")
 
     return render(request, "staff_members/staff_confirm_delete.html", {

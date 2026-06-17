@@ -1,0 +1,242 @@
+{
+  "Staff member \"%(name)s\" deleted.": {
+    "de": "Mitarbeiter „%(name)s“ gelöscht.",
+    "fr": "Employé « %(name)s » supprimé.",
+    "it": "Membro del personale «%(name)s» eliminato."
+  },
+  "Staff member \"%(name)s\" updated.": {
+    "de": "Mitarbeiter „%(name)s“ aktualisiert.",
+    "fr": "Employé « %(name)s » mis à jour.",
+    "it": "Membro del personale «%(name)s» aggiornato."
+  },
+  "Staff member does not belong to this company.": {
+    "de": "Der Mitarbeiter gehört nicht zu diesem Unternehmen.",
+    "fr": "L'employé n'appartient pas à cette entreprise.",
+    "it": "Il membro del personale non appartiene a questa azienda."
+  },
+  "Staff member:": {
+    "de": "Mitarbeiter:",
+    "fr": "Employé :",
+    "it": "Membro del personale:"
+  },
+  "Staff:": {
+    "de": "Personal:",
+    "fr": "Personnel :",
+    "it": "Personale:"
+  },
+  "Start date must be today or in the future.": {
+    "de": "Das Startdatum muss heute oder in der Zukunft liegen.",
+    "fr": "La date de début doit être aujourd'hui ou dans le futur.",
+    "it": "La data di inizio deve essere oggi o nel futuro."
+  },
+  "Start date must be within one year from today.": {
+    "de": "Das Startdatum muss innerhalb eines Jahres ab heute liegen.",
+    "fr": "La date de début doit être dans un délai d'un an à partir d'aujourd'hui.",
+    "it": "La data di inizio deve rientrare in un anno da oggi."
+  },
+  "Start time must be in the future.": {
+    "de": "Die Startzeit muss in der Zukunft liegen.",
+    "fr": "L'heure de début doit être dans le futur.",
+    "it": "L'ora di inizio deve essere nel futuro."
+  },
+  "Starting from": {
+    "de": "Ab",
+    "fr": "À partir de",
+    "it": "A partire da"
+  },
+  "Status": {
+    "de": "Status",
+    "fr": "Statut",
+    "it": "Stato"
+  },
+  "Street": {
+    "de": "Strasse",
+    "fr": "Rue",
+    "it": "Via"
+  },
+  "Sun": {
+    "de": "So",
+    "fr": "Dim",
+    "it": "Dom"
+  },
+  "Thank you.": {
+    "de": "Vielen Dank.",
+    "fr": "Merci.",
+    "it": "Grazie."
+  },
+  "The page you're looking for doesn't exist or has been moved.": {
+    "de": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    "fr": "La page que vous recherchez n'existe pas ou a été déplacée.",
+    "it": "La pagina che stai cercando non esiste o è stata spostata."
+  },
+  "There are currently no open appointment slots. Please check back later.": {
+    "de": "Derzeit sind keine freien Termine verfügbar. Bitte schauen Sie später wieder vorbei.",
+    "fr": "Aucun créneau de rendez-vous n'est actuellement disponible. Veuillez revenir plus tard.",
+    "it": "Al momento non ci sono orari di appuntamento disponibili. Riprova più tardi."
+  },
+  "There are currently no services available for this staff member.": {
+    "de": "Für diesen Mitarbeiter sind derzeit keine Dienstleistungen verfügbar.",
+    "fr": "Aucun service n'est actuellement disponible pour cet employé.",
+    "it": "Al momento non ci sono servizi disponibili per questo membro del personale."
+  },
+  "There are currently no services available.": {
+    "de": "Derzeit sind keine Dienstleistungen verfügbar.",
+    "fr": "Aucun service n'est actuellement disponible.",
+    "it": "Al momento non ci sono servizi disponibili."
+  },
+  "These hours overlap with an existing slot for this staff member. Please choose a different time.": {
+    "de": "Diese Zeiten überschneiden sich mit einem bestehenden Termin für diesen Mitarbeiter. Bitte wählen Sie eine andere Zeit.",
+    "fr": "Ces horaires se chevauchent avec un créneau existant pour cet employé. Veuillez choisir un autre horaire.",
+    "it": "Questi orari si sovrappongono a un orario esistente per questo membro del personale. Scegli un altro orario."
+  },
+  "They have active future bookings.": {
+    "de": "Sie haben aktive zukünftige Buchungen.",
+    "fr": "Il a des réservations futures actives.",
+    "it": "Ha prenotazioni future attive."
+  },
+  "They have upcoming availability slots and active future bookings.": {
+    "de": "Sie haben anstehende Verfügbarkeitszeiten und aktive zukünftige Buchungen.",
+    "fr": "Il a des créneaux de disponibilité à venir et des réservations futures actives.",
+    "it": "Ha fasce di disponibilita in arrivo e prenotazioni future attive."
+  },
+  "They have upcoming availability slots.": {
+    "de": "Sie haben anstehende Verfügbarkeitszeiten.",
+    "fr": "Il a des créneaux de disponibilité à venir.",
+    "it": "Ha fasce di disponibilita in arrivo."
+  },
+  "This action cannot be undone.": {
+    "de": "Diese Aktion kann nicht rückgängig gemacht werden.",
+    "fr": "Cette action est irréversible.",
+    "it": "Questa azione non può essere annullata."
+  },
+  "This action cannot be undone. Your time slot will be released and may be booked by someone else.": {
+    "de": "Diese Aktion kann nicht rückgängig gemacht werden. Ihr Termin wird freigegeben und kann von jemand anderem gebucht werden.",
+    "fr": "Cette action est irréversible. Votre créneau sera libéré et pourra être réservé par quelqu'un d'autre.",
+    "it": "Questa azione non può essere annullata. Il tuo orario verrà liberato e potrà essere prenotato da qualcun altro."
+  },
+  "This booking has been cancelled.": {
+    "de": "Diese Buchung wurde storniert.",
+    "fr": "Cette réservation a été annulée.",
+    "it": "Questa prenotazione è stata annullata."
+  },
+  "This booking request was declined.": {
+    "de": "Diese Buchungsanfrage wurde abgelehnt.",
+    "fr": "Cette demande de réservation a été refusée.",
+    "it": "Questa richiesta di prenotazione è stata rifiutata."
+  },
+  "This page is unavailable.": {
+    "de": "Diese Seite ist nicht verfügbar.",
+    "fr": "Cette page est indisponible.",
+    "it": "Questa pagina non è disponibile."
+  },
+  "This password reset link has already been used or has expired. Please request a new one.": {
+    "de": "Dieser Link zum Zurücksetzen des Passworts wurde bereits verwendet oder ist abgelaufen. Bitte fordern Sie einen neuen an.",
+    "fr": "Ce lien de réinitialisation du mot de passe a déjà été utilisé ou a expiré. Veuillez en demander un nouveau.",
+    "it": "Questo link per la reimpostazione della password è già stato utilizzato o è scaduto. Richiedine uno nuovo."
+  },
+  "This service has existing bookings and cannot be deleted.": {
+    "de": "Diese Dienstleistung hat bestehende Buchungen und kann nicht gelöscht werden.",
+    "fr": "Ce service a des réservations existantes et ne peut pas être supprimé.",
+    "it": "Questo servizio ha prenotazioni esistenti e non può essere eliminato."
+  },
+  "This staff member cannot be deleted because they have upcoming activity.": {
+    "de": "Dieser Mitarbeiter kann nicht gelöscht werden, da anstehende Aktivitäten vorliegen.",
+    "fr": "Cet employé ne peut pas être supprimé car il a des activités à venir.",
+    "it": "Questo membro del personale non può essere eliminato perché ha attività in arrivo."
+  },
+  "This staff member has existing availability slots. Deleting will <strong>deactivate</strong> them instead of permanently removing them.": {
+    "de": "Dieser Mitarbeiter hat bestehende Verfügbarkeitszeiten. Beim Löschen wird er <strong>deaktiviert</strong> statt dauerhaft entfernt.",
+    "fr": "Cet employé a des créneaux de disponibilité existants. La suppression le <strong>désactivera</strong> au lieu de le retirer définitivement.",
+    "it": "Questo membro del personale ha fasce di disponibilita esistenti. L'eliminazione lo <strong>disattiverà</strong> invece di rimuoverlo definitivamente."
+  },
+  "This time slot was just booked by someone else.": {
+    "de": "Dieser Termin wurde gerade von jemand anderem gebucht.",
+    "fr": "Ce créneau vient d'être réservé par quelqu'un d'autre.",
+    "it": "Questo orario è stato appena prenotato da qualcun altro."
+  },
+  "This will permanently delete the service and all its staff assignments. This action cannot be undone.": {
+    "de": "Dadurch werden die Dienstleistung und alle ihre Mitarbeiterzuweisungen dauerhaft gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.",
+    "fr": "Cela supprimera définitivement le service et toutes ses assignations d'employés. Cette action est irréversible.",
+    "it": "Questo eliminerà definitivamente il servizio e tutte le sue assegnazioni del personale. Questa azione non può essere annullata."
+  },
+  "This will permanently delete the staff member. This action cannot be undone.": {
+    "de": "Dadurch wird der Mitarbeiter dauerhaft gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.",
+    "fr": "Cela supprimera définitivement l'employé. Cette action est irréversible.",
+    "it": "Questo eliminerà definitivamente il membro del personale. Questa azione non può essere annullata."
+  },
+  "This will permanently delete this booking, free up the time slot again, and notify the customer by email that their appointment has been cancelled. This action cannot be undone.": {
+    "de": "Dadurch wird diese Buchung dauerhaft gelöscht, der Termin wieder freigegeben und der Kunde per E-Mail darüber informiert, dass sein Termin storniert wurde. Diese Aktion kann nicht rückgängig gemacht werden.",
+    "fr": "Cela supprimera définitivement cette réservation, libérera le créneau horaire et informera le client par e-mail que son rendez-vous a été annulé. Cette action est irréversible.",
+    "it": "Questo eliminerà definitivamente questa prenotazione, libererà nuovamente l'orario e notificherà al cliente via e-mail che il suo appuntamento è stato annullato. Questa azione non può essere annullata."
+  },
+  "Thu": {
+    "de": "Do",
+    "fr": "Jeu",
+    "it": "Gio"
+  },
+  "Time": {
+    "de": "Uhrzeit",
+    "fr": "Heure",
+    "it": "Ora"
+  },
+  "Timeslot": {
+    "de": "Zeitfenster",
+    "fr": "Créneau horaire",
+    "it": "Fascia orario"
+  },
+  "Timezone: %(tz)s": {
+    "de": "Zeitzone: %(tz)s",
+    "fr": "Fuseau horaire : %(tz)s",
+    "it": "Fuso orario: %(tz)s"
+  },
+  "To": {
+    "de": "Bis",
+    "fr": "À",
+    "it": "A"
+  },
+  "Today's Bookings": {
+    "de": "Heutige Buchungen",
+    "fr": "Réservations d'aujourd'hui",
+    "it": "Prenotazioni di oggi"
+  },
+  "Toggle sidebar": {
+    "de": "Seitenleiste umschalten",
+    "fr": "Basculer la barre latérale",
+    "it": "Attiva/disattiva barra laterale"
+  },
+  "Too Many Requests": {
+    "de": "Zu viele Anfragen",
+    "fr": "Trop de requêtes",
+    "it": "Troppe richieste"
+  },
+  "Too many requests": {
+    "de": "Zu viele Anfragen",
+    "fr": "Trop de requêtes",
+    "it": "Troppe richieste"
+  },
+  "Try another staff member or add a new block.": {
+    "de": "Versuchen Sie einen anderen Mitarbeiter oder fügen Sie einen neuen Block hinzu.",
+    "fr": "Essayez un autre employé ou ajoutez un nouveau créneau.",
+    "it": "Provare un altro membro del personale o aggiungere un nuovo blocco."
+  },
+  "Tue": {
+    "de": "Di",
+    "fr": "Mar",
+    "it": "Mar"
+  },
+  "Until": {
+    "de": "Bis",
+    "fr": "Jusqu'au",
+    "it": "Fino a"
+  },
+  "Upcoming": {
+    "de": "Anstehend",
+    "fr": "À venir",
+    "it": "In arrivo"
+  },
+  "Upcoming Bookings": {
+    "de": "Anstehende Buchungen",
+    "fr": "Réservations à venir",
+    "it": "Prenotazioni in arrivo"
+  }
+}

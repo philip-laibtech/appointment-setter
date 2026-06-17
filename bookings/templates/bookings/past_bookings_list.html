@@ -1,6 +1,7 @@
 {% extends "company_accounts/app_base.html" %}
-{% block title %}Past Bookings{% endblock %}
-{% block page_title %}Past Bookings{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Past Bookings" %}{% endblock %}
+{% block page_title %}{% translate "Past Bookings" %}{% endblock %}
 
 {% block extra_style %}
 <style>
@@ -171,14 +172,14 @@
 {% block content %}
 <div class="bk-header">
   <div>
-    <h1 class="bk-title">Past Bookings</h1>
-    <p class="bk-sub">All completed and past appointments.</p>
+    <h1 class="bk-title">{% translate "Past Bookings" %}</h1>
+    <p class="bk-sub">{% translate "All completed and past appointments." %}</p>
   </div>
   <a href="{% url 'bookings:all_bookings' %}" class="bk-back-link">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M19 12H5M12 19l-7-7 7-7"/>
     </svg>
-    Upcoming Bookings
+    {% translate "Upcoming Bookings" %}
   </a>
 </div>
 
@@ -186,12 +187,12 @@
   <table class="bk-table">
     <thead>
       <tr>
-        <th>Customer</th>
-        <th>Service</th>
-        <th>Staff</th>
-        <th>Timeslot</th>
-        <th>Status</th>
-        <th>Actions</th>
+        <th>{% translate "Customer" %}</th>
+        <th>{% translate "Service" %}</th>
+        <th>{% translate "Staff" %}</th>
+        <th>{% translate "Timeslot" %}</th>
+        <th>{% translate "Status" %}</th>
+        <th>{% translate "Actions" %}</th>
       </tr>
     </thead>
     <tbody>
@@ -222,13 +223,13 @@
         <td>
           <a class="bk-row-link" href="{{ booking_url }}?from=past">
             {% if booking.status == "confirmed" %}
-              <span class="bk-badge bk-badge-confirmed">Confirmed</span>
+              <span class="bk-badge bk-badge-confirmed">{% translate "Confirmed" %}</span>
             {% elif booking.status == "cancelled" %}
-              <span class="bk-badge bk-badge-cancelled">Cancelled</span>
+              <span class="bk-badge bk-badge-cancelled">{% translate "Cancelled" %}</span>
             {% elif booking.status == "declined" %}
-              <span class="bk-badge bk-badge-declined">Declined</span>
+              <span class="bk-badge bk-badge-declined">{% translate "Declined" %}</span>
             {% else %}
-              <span class="bk-badge bk-badge-pending">{{ booking.status|capfirst }}</span>
+              <span class="bk-badge bk-badge-pending">{{ booking.get_status_display }}</span>
             {% endif %}
           </a>
         </td>
@@ -243,16 +244,16 @@
   {% if page_obj.paginator.num_pages > 1 %}
   <div class="bk-pagination">
     {% if page_obj.has_previous %}
-      <a href="?page={{ page_obj.previous_page_number }}" class="bk-page-btn">&#8592; Prev</a>
+      <a href="?page={{ page_obj.previous_page_number }}" class="bk-page-btn">&#8592; {% translate "Prev" %}</a>
     {% endif %}
-    <span class="bk-page-info">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+    <span class="bk-page-info">{% blocktranslate with current=page_obj.number total=page_obj.paginator.num_pages %}Page {{ current }} of {{ total }}{% endblocktranslate %}</span>
     {% if page_obj.has_next %}
-      <a href="?page={{ page_obj.next_page_number }}" class="bk-page-btn">Next &#8594;</a>
+      <a href="?page={{ page_obj.next_page_number }}" class="bk-page-btn">{% translate "Next" %} &#8594;</a>
     {% endif %}
   </div>
   {% endif %}
 
 {% else %}
-  <div class="bk-empty">No past bookings yet.</div>
+  <div class="bk-empty">{% translate "No past bookings yet." %}</div>
 {% endif %}
 {% endblock %}

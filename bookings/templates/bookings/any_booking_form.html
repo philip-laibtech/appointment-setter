@@ -1,5 +1,6 @@
 {% extends "bookings/public_booking_base.html" %}
-{% block title %}Complete Your Booking — {{ company.business_name }}{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Complete Your Booking" %} — {{ company.business_name }}{% endblock %}
 
 {% block extra_style %}
 <style>
@@ -71,34 +72,34 @@
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
     <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
-  Back
+  {% translate "Back" %}
 </a>
 
 {% include "bookings/_booking_steps.html" with current_step=4 %}
 
 <p class="bk-company-label">{{ company.business_name }}</p>
-<h1 class="bk-page-title">Complete your booking</h1>
+<h1 class="bk-page-title">{% translate "Complete your booking" %}</h1>
 
 <div class="bk-summary">
   <table>
-    <tr><th>Booking type</th><td>Any Employee</td></tr>
-    <tr><th>With</th><td>{{ staff_member.name }}</td></tr>
-    <tr><th>Service</th><td>{{ service.name }}</td></tr>
-    <tr><th>Duration</th><td>{{ service.duration_minutes }} min</td></tr>
-    <tr><th>Date</th><td>{{ start_at|date:"l, j F Y" }}</td></tr>
-    <tr><th>Time</th><td>{{ start_at|date:"H:i" }} – {{ end_at|date:"H:i" }}</td></tr>
+    <tr><th>{% translate "Booking type" %}</th><td>{% translate "Any Employee" %}</td></tr>
+    <tr><th>{% translate "With" %}</th><td>{{ staff_member.name }}</td></tr>
+    <tr><th>{% translate "Service" %}</th><td>{{ service.name }}</td></tr>
+    <tr><th>{% translate "Duration" %}</th><td>{% blocktranslate with minutes=service.duration_minutes %}{{ minutes }} min{% endblocktranslate %}</td></tr>
+    <tr><th>{% translate "Date" %}</th><td>{{ start_at|date:"l, j F Y" }}</td></tr>
+    <tr><th>{% translate "Time" %}</th><td>{{ start_at|date:"H:i" }} – {{ end_at|date:"H:i" }}</td></tr>
   </table>
 </div>
 
 <div class="bk-form-card">
-  <h2 class="bk-form-title">Your details</h2>
+  <h2 class="bk-form-title">{% translate "Your details" %}</h2>
 
   <form method="post" novalidate>
     {% csrf_token %}
 
     {# Honeypot — hidden from users, must remain empty #}
     <div style="display:none" aria-hidden="true">
-      <label for="{{ form.website.id_for_label }}">Website</label>
+      <label for="{{ form.website.id_for_label }}">{% translate "Website" %}</label>
       <input type="text"
              id="{{ form.website.id_for_label }}"
              name="website"
@@ -115,7 +116,7 @@
 
     <div class="bk-row">
       <div class="bk-field">
-        <label class="bk-label" for="{{ form.customer_first_name.id_for_label }}">First name *</label>
+        <label class="bk-label" for="{{ form.customer_first_name.id_for_label }}">{% translate "First name" %} *</label>
         <input class="bk-input{% if form.customer_first_name.errors %} bk-input--error{% endif %}"
                type="text" id="{{ form.customer_first_name.id_for_label }}"
                name="customer_first_name"
@@ -124,7 +125,7 @@
         {% for error in form.customer_first_name.errors %}<p class="bk-field-error">{{ error }}</p>{% endfor %}
       </div>
       <div class="bk-field">
-        <label class="bk-label" for="{{ form.customer_last_name.id_for_label }}">Last name *</label>
+        <label class="bk-label" for="{{ form.customer_last_name.id_for_label }}">{% translate "Last name" %} *</label>
         <input class="bk-input{% if form.customer_last_name.errors %} bk-input--error{% endif %}"
                type="text" id="{{ form.customer_last_name.id_for_label }}"
                name="customer_last_name"
@@ -135,7 +136,7 @@
     </div>
 
     <div class="bk-field">
-      <label class="bk-label" for="{{ form.customer_email.id_for_label }}">Email address *</label>
+      <label class="bk-label" for="{{ form.customer_email.id_for_label }}">{% translate "Email address" %} *</label>
       <input class="bk-input{% if form.customer_email.errors %} bk-input--error{% endif %}"
              type="email" id="{{ form.customer_email.id_for_label }}"
              name="customer_email"
@@ -145,7 +146,7 @@
     </div>
 
     <div class="bk-field">
-      <label class="bk-label" for="{{ form.customer_phone.id_for_label }}">Phone <span style="font-weight:400;text-transform:none;">(optional)</span></label>
+      <label class="bk-label" for="{{ form.customer_phone.id_for_label }}">{% translate "Phone" %} <span style="font-weight:400;text-transform:none;">({% translate "optional" %})</span></label>
       <input class="bk-input{% if form.customer_phone.errors %} bk-input--error{% endif %}"
              type="tel" id="{{ form.customer_phone.id_for_label }}"
              name="customer_phone"
@@ -155,7 +156,7 @@
     </div>
 
     <div class="bk-field">
-      <label class="bk-label" for="{{ form.customer_message.id_for_label }}">Message <span style="font-weight:400;text-transform:none;">(optional)</span></label>
+      <label class="bk-label" for="{{ form.customer_message.id_for_label }}">{% translate "Message" %} <span style="font-weight:400;text-transform:none;">({% translate "optional" %})</span></label>
       <textarea class="bk-textarea{% if form.customer_message.errors %} bk-textarea--error{% endif %}"
                 id="{{ form.customer_message.id_for_label }}"
                 name="customer_message"
@@ -174,23 +175,23 @@
                required>
         <label class="bk-checkbox-label" for="{{ form.privacy_accepted.id_for_label }}">
           {# TODO: Replace # with a real /privacy-policy/ URL before going to production. #}
-          I accept the <a href="#" style="color:#111;">privacy policy</a>.
+          {% blocktranslate %}I accept the <a href="#" style="color:#111;">privacy policy</a>.{% endblocktranslate %}
         </label>
       </div>
       {% for error in form.privacy_accepted.errors %}<p class="bk-field-error">{{ error }}</p>{% endfor %}
-      <p class="bk-privacy-note">Your data will be used solely to manage this appointment.</p>
+      <p class="bk-privacy-note">{% translate "Your data will be used solely to manage this appointment." %}</p>
     </div>
 
     <div class="bk-field">
-      <label class="bk-label" for="{{ form.captcha.auto_id }}">Security check *</label>
+      <label class="bk-label" for="{{ form.captcha.auto_id }}">{% translate "Security check" %} *</label>
       <div class="bk-captcha">{{ form.captcha }}</div>
       {% for error in form.captcha.errors %}<p class="bk-field-error">{{ error }}</p>{% endfor %}
     </div>
 
     <hr class="bk-divider">
 
-    <button type="submit" class="bk-submit">Confirm booking</button>
-    <a href="{% url 'bookings:any_time_select' company_slug=company.slug service_uid=service.public_id date=target_date|date:'Y-m-d' %}" class="bk-cancel">Cancel</a>
+    <button type="submit" class="bk-submit">{% translate "Confirm booking" %}</button>
+    <a href="{% url 'bookings:any_time_select' company_slug=company.slug service_uid=service.public_id date=target_date|date:'Y-m-d' %}" class="bk-cancel">{% translate "Cancel" %}</a>
   </form>
 </div>
 {% endblock %}

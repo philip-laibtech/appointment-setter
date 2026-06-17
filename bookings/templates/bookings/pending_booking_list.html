@@ -1,6 +1,7 @@
 {% extends "company_accounts/app_base.html" %}
-{% block title %}Pending Bookings{% endblock %}
-{% block page_title %}Pending Bookings{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Pending Bookings" %}{% endblock %}
+{% block page_title %}{% translate "Pending Bookings" %}{% endblock %}
 
 {% block extra_style %}
 <style>
@@ -127,19 +128,19 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="pb-page-title">Pending Bookings</h1>
-<p class="pb-page-sub">Review and confirm or decline customer booking requests.</p>
+<h1 class="pb-page-title">{% translate "Pending Bookings" %}</h1>
+<p class="pb-page-sub">{% translate "Review and confirm or decline customer booking requests." %}</p>
 
 {% if pending_bookings %}
   <table class="pb-table">
     <thead>
       <tr>
-        <th>Customer</th>
-        <th>Service</th>
-        <th>Staff</th>
-        <th>Timeslot</th>
-        <th>Status</th>
-        <th>Actions</th>
+        <th>{% translate "Customer" %}</th>
+        <th>{% translate "Service" %}</th>
+        <th>{% translate "Staff" %}</th>
+        <th>{% translate "Timeslot" %}</th>
+        <th>{% translate "Status" %}</th>
+        <th>{% translate "Actions" %}</th>
       </tr>
     </thead>
     <tbody>
@@ -169,7 +170,7 @@
         </td>
         <td>
           <a class="pb-row-link" href="{{ booking_url }}?from=pending">
-            <span class="pb-badge-pending">Pending</span>
+            <span class="pb-badge-pending">{% translate "Pending" %}</span>
           </a>
         </td>
         <td class="pb-cell">
@@ -178,14 +179,14 @@
               {% csrf_token %}
               <button type="submit" class="pb-btn pb-btn-confirm">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                Confirm
+                {% translate "Confirm" %}
               </button>
             </form>
             <form method="post" action="{% url 'bookings:decline_booking' booking_id=booking.pk %}">
               {% csrf_token %}
               <button type="submit" class="pb-btn pb-btn-decline">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                Decline
+                {% translate "Decline" %}
               </button>
             </form>
           </div>
@@ -195,6 +196,6 @@
     </tbody>
   </table>
 {% else %}
-  <div class="pb-empty">No pending booking requests at this time.</div>
+  <div class="pb-empty">{% translate "No pending booking requests at this time." %}</div>
 {% endif %}
 {% endblock %}

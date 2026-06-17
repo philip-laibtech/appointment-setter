@@ -1,5 +1,6 @@
 {% extends "company_accounts/app_base.html" %}
-{% block title %}Remove Staff Member{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Remove Staff Member" %}{% endblock %}
 
 {% block extra_style %}
 <style>
@@ -71,37 +72,37 @@
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
     <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
-  Edit Staff Member
+  {% translate "Edit Staff Member" %}
 </a>
 
 <div class="sm-form-card">
-  <h1 class="sm-form-title">Remove "{{ member.name }}"?</h1>
+  <h1 class="sm-form-title">{% blocktranslate with name=member.name %}Remove "{{ name }}"?{% endblocktranslate %}</h1>
 
   {% if is_blocked %}
-  <p class="sm-form-subtitle">This staff member cannot be deleted because they have upcoming activity.</p>
+  <p class="sm-form-subtitle">{% translate "This staff member cannot be deleted because they have upcoming activity." %}</p>
   <div class="sm-warn">
     {% if has_future_slots and has_future_bookings %}
-      They have upcoming availability slots and active future bookings.
+      {% translate "They have upcoming availability slots and active future bookings." %}
     {% elif has_future_slots %}
-      They have upcoming availability slots.
+      {% translate "They have upcoming availability slots." %}
     {% else %}
-      They have active future bookings.
+      {% translate "They have active future bookings." %}
     {% endif %}
-    Cancel or remove these before deleting this staff member.
+    {% translate "Cancel or remove these before deleting this staff member." %}
   </div>
   <hr class="sm-divider">
   <div class="sm-btn-row">
-    <a href="{% url 'staff_members:edit' member.pk %}" class="sm-cancel">Go back</a>
+    <a href="{% url 'staff_members:edit' member.pk %}" class="sm-cancel">{% translate "Go back" %}</a>
   </div>
 
   {% else %}
-  <p class="sm-form-subtitle">This will permanently delete the staff member. This action cannot be undone.</p>
+  <p class="sm-form-subtitle">{% translate "This will permanently delete the staff member. This action cannot be undone." %}</p>
   <hr class="sm-divider">
   <form method="post" novalidate>
     {% csrf_token %}
     <div class="sm-btn-row">
-      <a href="{% url 'staff_members:edit' member.pk %}" class="sm-cancel">Cancel</a>
-      <button type="submit" class="sm-submit-danger">Delete</button>
+      <a href="{% url 'staff_members:edit' member.pk %}" class="sm-cancel">{% translate "Cancel" %}</a>
+      <button type="submit" class="sm-submit-danger">{% translate "Delete" %}</button>
     </div>
   </form>
   {% endif %}

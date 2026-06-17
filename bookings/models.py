@@ -3,6 +3,7 @@ import secrets
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 
 def _generate_public_token():
@@ -11,10 +12,10 @@ def _generate_public_token():
 
 class Booking(models.Model):
     class Status(models.TextChoices):
-        PENDING = "pending", "Pending"
-        CONFIRMED = "confirmed", "Confirmed"
-        CANCELLED = "cancelled", "Cancelled"
-        DECLINED = "declined", "Declined"
+        PENDING = "pending", _("Pending")
+        CONFIRMED = "confirmed", _("Confirmed")
+        CANCELLED = "cancelled", _("Cancelled")
+        DECLINED = "declined", _("Declined")
 
     company = models.ForeignKey(
         settings.AUTH_USER_MODEL,
@@ -79,15 +80,15 @@ class Booking(models.Model):
         errors = {}
         if self.staff_member_id and self.company_id:
             if self.staff_member.company_id != self.company_id:
-                errors["staff_member"] = "Staff member does not belong to this company."
+                errors["staff_member"] = _("Staff member does not belong to this company.")
         if self.service_offering_id and self.company_id:
             if self.service_offering.company_id != self.company_id:
-                errors["service_offering"] = "Service does not belong to this company."
+                errors["service_offering"] = _("Service does not belong to this company.")
         if self.appointment_slot_id and self.staff_member_id:
             if self.appointment_slot.staff_member_id != self.staff_member_id:
-                errors["appointment_slot"] = "Slot does not belong to this staff member."
+                errors["appointment_slot"] = _("Slot does not belong to this staff member.")
         if self.start_at and self.end_at and self.start_at >= self.end_at:
-            errors["end_at"] = "End time must be after start time."
+            errors["end_at"] = _("End time must be after start time.")
         if errors:
             raise ValidationError(errors)
 

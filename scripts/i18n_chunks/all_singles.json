@@ -1,0 +1,1922 @@
+{
+  "\"%(name)s\" has existing bookings and cannot be deleted.": {
+    "de": "„%(name)s“ hat bestehende Buchungen und kann nicht gelöscht werden.",
+    "fr": "« %(name)s » a des réservations existantes et ne peut pas être supprimé.",
+    "it": "«%(name)s» ha prenotazioni esistenti e non puo essere eliminato."
+  },
+  "(inactive)": {
+    "de": "(inaktiv)",
+    "fr": "(inactif)",
+    "it": "(inattivo)"
+  },
+  "Account Information": {
+    "de": "Kontoinformationen",
+    "fr": "Informations sur le compte",
+    "it": "Informazioni account"
+  },
+  "Account email": {
+    "de": "E-Mail-Adresse des Kontos",
+    "fr": "E-mail du compte",
+    "it": "E-mail dell'account"
+  },
+  "Actions": {
+    "de": "Aktionen",
+    "fr": "Actions",
+    "it": "Azioni"
+  },
+  "Active": {
+    "de": "Aktiv",
+    "fr": "Actif",
+    "it": "Attivo"
+  },
+  "Add Open Hours": {
+    "de": "Öffnungszeiten hinzufügen",
+    "fr": "Ajouter des horaires",
+    "it": "Aggiungi orari di apertura"
+  },
+  "Add Service": {
+    "de": "Dienstleistung hinzufügen",
+    "fr": "Ajouter un service",
+    "it": "Aggiungi servizio"
+  },
+  "Add Staff Member": {
+    "de": "Mitarbeiter hinzufügen",
+    "fr": "Ajouter un employé",
+    "it": "Aggiungi membro del personale"
+  },
+  "Add a block to let customers know when you're available.": {
+    "de": "Fügen Sie einen Block hinzu, damit Kunden wissen, wann Sie verfügbar sind.",
+    "fr": "Ajoutez un créneau pour indiquer aux clients vos disponibilités.",
+    "it": "Aggiungi un blocco per far sapere ai clienti quando sei disponibile."
+  },
+  "Add a person who can be assigned to availability slots.": {
+    "de": "Fügen Sie eine Person hinzu, die Verfügbarkeitszeiten zugewiesen werden kann.",
+    "fr": "Ajoutez une personne pouvant être assignée à des créneaux de disponibilité.",
+    "it": "Aggiungi una persona che possa essere assegnata a fasce di disponibilita."
+  },
+  "Add and manage people assignable to bookings.": {
+    "de": "Personen hinzufügen und verwalten, die Buchungen zugewiesen werden können.",
+    "fr": "Ajoutez et gérez les personnes pouvant être assignées aux réservations.",
+    "it": "Aggiungi e gestisci le persone assegnabili alle prenotazioni."
+  },
+  "Add first service": {
+    "de": "Erste Dienstleistung hinzufügen",
+    "fr": "Ajouter le premier service",
+    "it": "Aggiungi il primo servizio"
+  },
+  "Add first staff member": {
+    "de": "Ersten Mitarbeiter hinzufügen",
+    "fr": "Ajouter le premier employé",
+    "it": "Aggiungi il primo membro del personale"
+  },
+  "Add once": {
+    "de": "Einmalig hinzufügen",
+    "fr": "Ajouter une fois",
+    "it": "Aggiungi una sola volta"
+  },
+  "Add open hours": {
+    "de": "Öffnungszeiten hinzufügen",
+    "fr": "Ajouter des horaires",
+    "it": "Aggiungi orari di apertura"
+  },
+  "Add service": {
+    "de": "Dienstleistung hinzufügen",
+    "fr": "Ajouter un service",
+    "it": "Aggiungi servizio"
+  },
+  "Add staff member": {
+    "de": "Mitarbeiter hinzufügen",
+    "fr": "Ajouter un employé",
+    "it": "Aggiungi membro del personale"
+  },
+  "Add your first block": {
+    "de": "Fügen Sie Ihren ersten Block hinzu",
+    "fr": "Ajoutez votre premier créneau",
+    "it": "Aggiungi il tuo primo blocco"
+  },
+  "Add your first service offering to assign it to staff members.": {
+    "de": "Fügen Sie Ihre erste Dienstleistung hinzu, um sie Mitarbeitern zuzuweisen.",
+    "fr": "Ajoutez votre premier service pour l'assigner à des employés.",
+    "it": "Aggiungi il tuo primo servizio per assegnarlo ai membri del personale."
+  },
+  "Add your first staff member to assign them to availability slots.": {
+    "de": "Fügen Sie Ihren ersten Mitarbeiter hinzu, um ihm Verfügbarkeitszeiten zuzuweisen.",
+    "fr": "Ajoutez votre premier employé pour l'assigner à des créneaux de disponibilité.",
+    "it": "Aggiungi il tuo primo membro del personale per assegnarlo a fasce di disponibilita."
+  },
+  "All": {
+    "de": "Alle",
+    "fr": "Tous",
+    "it": "Tutti"
+  },
+  "All completed and past appointments.": {
+    "de": "Alle abgeschlossenen und vergangenen Termine.",
+    "fr": "Tous les rendez-vous terminés et passés.",
+    "it": "Tutti gli appuntamenti completati e passati."
+  },
+  "All slots on this day are taken. Please choose a different day.": {
+    "de": "Alle Zeiten an diesem Tag sind belegt. Bitte wählen Sie einen anderen Tag.",
+    "fr": "Tous les créneaux de ce jour sont pris. Veuillez choisir un autre jour.",
+    "it": "Tutti gli orari di questo giorno sono occupati. Scegli un altro giorno."
+  },
+  "All staff assignments for this service will also be deleted.": {
+    "de": "Alle Mitarbeiterzuweisungen für diese Dienstleistung werden ebenfalls gelöscht.",
+    "fr": "Toutes les assignations d'employés pour ce service seront également supprimées.",
+    "it": "Anche tutte le assegnazioni del personale per questo servizio verranno eliminate."
+  },
+  "Already have an account? Log in": {
+    "de": "Sie haben bereits ein Konto? Anmelden",
+    "fr": "Vous avez déjà un compte ? Connexion",
+    "it": "Hai già un account? Accedi"
+  },
+  "An unexpected error occurred on our end. Please try again in a moment.": {
+    "de": "Auf unserer Seite ist ein unerwarteter Fehler aufgetreten. Bitte versuchen Sie es gleich erneut.",
+    "fr": "Une erreur inattendue est survenue de notre côté. Veuillez réessayer dans un instant.",
+    "it": "Si è verificato un errore imprevisto da parte nostra. Riprova tra un momento."
+  },
+  "Another customer completed their booking just before you. Please choose a different time.": {
+    "de": "Ein anderer Kunde hat seine Buchung kurz vor Ihnen abgeschlossen. Bitte wählen Sie eine andere Zeit.",
+    "fr": "Un autre client a terminé sa réservation juste avant vous. Veuillez choisir un autre créneau.",
+    "it": "Un altro cliente ha completato la prenotazione poco prima di te. Scegli un altro orario."
+  },
+  "Any Employee": {
+    "de": "Beliebiger Mitarbeiter",
+    "fr": "N'importe quel employé",
+    "it": "Qualsiasi membro del personale"
+  },
+  "Appointment": {
+    "de": "Termin",
+    "fr": "Rendez-vous",
+    "it": "Appuntamento"
+  },
+  "Are you sure you want to cancel?": {
+    "de": "Möchten Sie wirklich stornieren?",
+    "fr": "Êtes-vous sûr de vouloir annuler ?",
+    "it": "Sei sicuro di voler annullare?"
+  },
+  "Are you sure you want to delete this booking? The customer will be notified by email.": {
+    "de": "Möchten Sie diese Buchung wirklich löschen? Der Kunde wird per E-Mail benachrichtigt.",
+    "fr": "Êtes-vous sûr de vouloir supprimer cette réservation ? Le client sera notifié par e-mail.",
+    "it": "Sei sicuro di voler eliminare questa prenotazione? Il cliente verrà avvisato via e-mail."
+  },
+  "Assign to staff members": {
+    "de": "Mitarbeitern zuweisen",
+    "fr": "Assigner à des employés",
+    "it": "Assegna ai membri del personale"
+  },
+  "Automatic:": {
+    "de": "Automatisch:",
+    "fr": "Automatique :",
+    "it": "Automatico:"
+  },
+  "Automatically create open hours for a recurring weekday schedule.": {
+    "de": "Erstellen Sie automatisch Öffnungszeiten für einen wiederkehrenden Wochentagsplan.",
+    "fr": "Créez automatiquement des horaires pour un planning hebdomadaire récurrent.",
+    "it": "Crea automaticamente orari di apertura per una pianificazione settimanale ricorrente."
+  },
+  "Available": {
+    "de": "Verfügbar",
+    "fr": "Disponible",
+    "it": "Disponibile"
+  },
+  "Awaiting confirmation": {
+    "de": "Bestätigung ausstehend",
+    "fr": "En attente de confirmation",
+    "it": "In attesa di conferma"
+  },
+  "Back": {
+    "de": "Zurück",
+    "fr": "Retour",
+    "it": "Indietro"
+  },
+  "Back to Bookings": {
+    "de": "Zurück zu Buchungen",
+    "fr": "Retour aux réservations",
+    "it": "Torna alle prenotazioni"
+  },
+  "Back to Past Bookings": {
+    "de": "Zurück zu vergangenen Buchungen",
+    "fr": "Retour aux réservations passées",
+    "it": "Torna alle prenotazioni passate"
+  },
+  "Back to Pending Bookings": {
+    "de": "Zurück zu ausstehenden Buchungen",
+    "fr": "Retour aux réservations en attente",
+    "it": "Torna alle prenotazioni in attesa"
+  },
+  "Back to booking": {
+    "de": "Zurück zur Buchung",
+    "fr": "Retour à la réservation",
+    "it": "Torna alla prenotazione"
+  },
+  "Back to home": {
+    "de": "Zurück zur Startseite",
+    "fr": "Retour à l'accueil",
+    "it": "Torna alla home"
+  },
+  "Back to login": {
+    "de": "Zurück zur Anmeldung",
+    "fr": "Retour à la connexion",
+    "it": "Torna all'accesso"
+  },
+  "Between 5 and 480 minutes.": {
+    "de": "Zwischen 5 und 480 Minuten.",
+    "fr": "Entre 5 et 480 minutes.",
+    "it": "Tra 5 e 480 minuti."
+  },
+  "Blocked": {
+    "de": "Gesperrt",
+    "fr": "Bloqué",
+    "it": "Bloccato"
+  },
+  "Book an Appointment": {
+    "de": "Termin buchen",
+    "fr": "Prendre un rendez-vous",
+    "it": "Prenota un appuntamento"
+  },
+  "Book an appointment": {
+    "de": "Termin buchen",
+    "fr": "Prendre un rendez-vous",
+    "it": "Prenota un appuntamento"
+  },
+  "Booked": {
+    "de": "Gebucht",
+    "fr": "Réservé",
+    "it": "Prenotato"
+  },
+  "Booking": {
+    "de": "Buchung",
+    "fr": "Réservation",
+    "it": "Prenotazione"
+  },
+  "Booking Cancelled": {
+    "de": "Buchung storniert",
+    "fr": "Réservation annulée",
+    "it": "Prenotazione annullata"
+  },
+  "Booking Confirmation": {
+    "de": "Buchungsbestätigung",
+    "fr": "Confirmation de réservation",
+    "it": "Conferma di prenotazione"
+  },
+  "Booking Confirmed": {
+    "de": "Buchung bestätigt",
+    "fr": "Réservation confirmée",
+    "it": "Prenotazione confermata"
+  },
+  "Booking Declined": {
+    "de": "Buchung abgelehnt",
+    "fr": "Réservation refusée",
+    "it": "Prenotazione rifiutata"
+  },
+  "Booking Details": {
+    "de": "Buchungsdetails",
+    "fr": "Détails de la réservation",
+    "it": "Dettagli prenotazione"
+  },
+  "Booking Link": {
+    "de": "Buchungslink",
+    "fr": "Lien de réservation",
+    "it": "Link di prenotazione"
+  },
+  "Booking Request Received": {
+    "de": "Buchungsanfrage erhalten",
+    "fr": "Demande de réservation reçue",
+    "it": "Richiesta di prenotazione ricevuta"
+  },
+  "Booking Unavailable": {
+    "de": "Buchung nicht verfügbar",
+    "fr": "Réservation indisponible",
+    "it": "Prenotazione non disponibile"
+  },
+  "Booking record": {
+    "de": "Buchungsdatensatz",
+    "fr": "Enregistrement de la réservation",
+    "it": "Registro della prenotazione"
+  },
+  "Booking request received.": {
+    "de": "Buchungsanfrage erhalten.",
+    "fr": "Demande de réservation reçue.",
+    "it": "Richiesta di prenotazione ricevuta."
+  },
+  "Booking steps": {
+    "de": "Buchungsschritte",
+    "fr": "Étapes de réservation",
+    "it": "Passaggi di prenotazione"
+  },
+  "Booking type": {
+    "de": "Buchungsart",
+    "fr": "Type de réservation",
+    "it": "Tipo di prenotazione"
+  },
+  "Bookings": {
+    "de": "Buchungen",
+    "fr": "Réservations",
+    "it": "Prenotazioni"
+  },
+  "Business Details": {
+    "de": "Unternehmensdetails",
+    "fr": "Détails de l'entreprise",
+    "it": "Dettagli azienda"
+  },
+  "Business name": {
+    "de": "Firmenname",
+    "fr": "Nom de l'entreprise",
+    "it": "Nome dell'azienda"
+  },
+  "Business name is required.": {
+    "de": "Firmenname ist erforderlich.",
+    "fr": "Le nom de l'entreprise est requis.",
+    "it": "Il nome dell'azienda è obbligatorio."
+  },
+  "Cancel": {
+    "de": "Abbrechen",
+    "fr": "Annuler",
+    "it": "Annulla"
+  },
+  "Cancel Booking": {
+    "de": "Buchung stornieren",
+    "fr": "Annuler la réservation",
+    "it": "Annulla prenotazione"
+  },
+  "Cancel booking": {
+    "de": "Buchung stornieren",
+    "fr": "Annuler la réservation",
+    "it": "Annulla prenotazione"
+  },
+  "Cancel or decline these bookings before deleting this slot.": {
+    "de": "Stornieren oder lehnen Sie diese Buchungen ab, bevor Sie diesen Termin löschen.",
+    "fr": "Annulez ou refusez ces réservations avant de supprimer ce créneau.",
+    "it": "Annulla o rifiuta queste prenotazioni prima di eliminare questo orario."
+  },
+  "Cancel or remove these before deleting this staff member.": {
+    "de": "Stornieren oder entfernen Sie diese, bevor Sie diesen Mitarbeiter löschen.",
+    "fr": "Annulez ou supprimez ceux-ci avant de supprimer cet employé.",
+    "it": "Annulla o rimuovi questi elementi prima di eliminare questo membro del personale."
+  },
+  "Cancel this booking": {
+    "de": "Diese Buchung stornieren",
+    "fr": "Annuler cette réservation",
+    "it": "Annulla questa prenotazione"
+  },
+  "Cancel, keep it": {
+    "de": "Abbrechen, behalten",
+    "fr": "Annuler, conserver",
+    "it": "Annulla, mantieni"
+  },
+  "Cancelled": {
+    "de": "Storniert",
+    "fr": "Annulé",
+    "it": "Annullato"
+  },
+  "Cannot delete \"%(name)s\": they have upcoming slots or active bookings.": {
+    "de": "„%(name)s“ kann nicht gelöscht werden: hat anstehende Zeiten oder aktive Buchungen.",
+    "fr": "Impossible de supprimer « %(name)s » : il a des créneaux à venir ou des réservations actives.",
+    "it": "Impossibile eliminare «%(name)s»: ha orari futuri o prenotazioni attive."
+  },
+  "Cannot delete: this slot has confirmed future bookings.": {
+    "de": "Löschen nicht möglich: Dieser Termin hat bestätigte zukünftige Buchungen.",
+    "fr": "Impossible de supprimer : ce créneau a des réservations futures confirmées.",
+    "it": "Impossibile eliminare: questo orario ha prenotazioni future confermate."
+  },
+  "Check Your Email": {
+    "de": "E-Mail überprüfen",
+    "fr": "Vérifiez votre e-mail",
+    "it": "Controlla la tua e-mail"
+  },
+  "Check your inbox": {
+    "de": "Überprüfen Sie Ihren Posteingang",
+    "fr": "Vérifiez votre boîte de réception",
+    "it": "Controlla la tua casella di posta"
+  },
+  "Choose a Day": {
+    "de": "Tag auswählen",
+    "fr": "Choisir un jour",
+    "it": "Scegli un giorno"
+  },
+  "Choose a Service": {
+    "de": "Dienstleistung auswählen",
+    "fr": "Choisir un service",
+    "it": "Scegli un servizio"
+  },
+  "Choose a Time": {
+    "de": "Zeit auswählen",
+    "fr": "Choisir une heure",
+    "it": "Scegli un orario"
+  },
+  "Choose a day": {
+    "de": "Tag auswählen",
+    "fr": "Choisir un jour",
+    "it": "Scegli un giorno"
+  },
+  "Choose a service to book.": {
+    "de": "Wählen Sie eine zu buchende Dienstleistung.",
+    "fr": "Choisissez un service à réserver.",
+    "it": "Scegli un servizio da prenotare."
+  },
+  "Choose a staff member, date, and the time range.": {
+    "de": "Wählen Sie Mitarbeiter, Datum und Zeitbereich.",
+    "fr": "Choisissez un employé, une date et la plage horaire.",
+    "it": "Scegli un membro del personale, una data e l'intervallo di orario."
+  },
+  "Choose another time": {
+    "de": "Andere Zeit wählen",
+    "fr": "Choisir un autre horaire",
+    "it": "Scegli un altro orario"
+  },
+  "Choose who you would like to book with.": {
+    "de": "Wählen Sie aus, mit wem Sie buchen möchten.",
+    "fr": "Choisissez avec qui vous souhaitez réserver.",
+    "it": "Scegli con chi desideri prenotare."
+  },
+  "Click the link below to set a new password. This link is valid for 24 hours.": {
+    "de": "Klicken Sie auf den folgenden Link, um ein neues Passwort festzulegen. Dieser Link ist 24 Stunden gültig.",
+    "fr": "Cliquez sur le lien ci-dessous pour définir un nouveau mot de passe. Ce lien est valable 24 heures.",
+    "it": "Fai clic sul link sottostante per impostare una nuova password. Questo link è valido per 24 ore."
+  },
+  "Company": {
+    "de": "Unternehmen",
+    "fr": "Entreprise",
+    "it": "Azienda"
+  },
+  "Company Settings": {
+    "de": "Unternehmenseinstellungen",
+    "fr": "Paramètres de l'entreprise",
+    "it": "Impostazioni azienda"
+  },
+  "Company:": {
+    "de": "Unternehmen:",
+    "fr": "Entreprise :",
+    "it": "Azienda:"
+  },
+  "Complete Your Booking": {
+    "de": "Buchung abschliessen",
+    "fr": "Finaliser votre réservation",
+    "it": "Completa la prenotazione"
+  },
+  "Complete your booking": {
+    "de": "Buchung abschliessen",
+    "fr": "Finaliser votre réservation",
+    "it": "Completa la prenotazione"
+  },
+  "Configure what offerings customers can book.": {
+    "de": "Konfigurieren Sie, welche Angebote Kunden buchen können.",
+    "fr": "Configurez les prestations que les clients peuvent réserver.",
+    "it": "Configura le offerte che i clienti possono prenotare."
+  },
+  "Confirm": {
+    "de": "Bestätigen",
+    "fr": "Confirmer",
+    "it": "Confermare"
+  },
+  "Confirm booking": {
+    "de": "Buchung bestätigen",
+    "fr": "Confirmer la réservation",
+    "it": "Confermare la prenotazione"
+  },
+  "Confirm password": {
+    "de": "Passwort bestätigen",
+    "fr": "Confirmer le mot de passe",
+    "it": "Confermare la password"
+  },
+  "Confirmation mode": {
+    "de": "Bestätigungsmodus",
+    "fr": "Mode de confirmation",
+    "it": "Modalità di conferma"
+  },
+  "Confirmed": {
+    "de": "Bestätigt",
+    "fr": "Confirmé",
+    "it": "Confermato"
+  },
+  "Contact Information": {
+    "de": "Kontaktinformationen",
+    "fr": "Coordonnées",
+    "it": "Informazioni di contatto"
+  },
+  "Copied!": {
+    "de": "Kopiert!",
+    "fr": "Copié !",
+    "it": "Copiato!"
+  },
+  "Copy link": {
+    "de": "Link kopieren",
+    "fr": "Copier le lien",
+    "it": "Copia link"
+  },
+  "Create a company account": {
+    "de": "Unternehmenskonto erstellen",
+    "fr": "Créer un compte entreprise",
+    "it": "Crea un account aziendale"
+  },
+  "Create schedule": {
+    "de": "Plan erstellen",
+    "fr": "Créer le planning",
+    "it": "Crea pianificazione"
+  },
+  "Customer": {
+    "de": "Kunde",
+    "fr": "Client",
+    "it": "Cliente"
+  },
+  "Customer:": {
+    "de": "Kunde:",
+    "fr": "Client :",
+    "it": "Cliente:"
+  },
+  "Danger Zone": {
+    "de": "Gefahrenzone",
+    "fr": "Zone de danger",
+    "it": "Zona pericolosa"
+  },
+  "Dashboard": {
+    "de": "Übersicht",
+    "fr": "Tableau de bord",
+    "it": "Pannello di controllo"
+  },
+  "Date": {
+    "de": "Datum",
+    "fr": "Date",
+    "it": "Data"
+  },
+  "Date/time:": {
+    "de": "Datum/Uhrzeit:",
+    "fr": "Date/heure :",
+    "it": "Data/ora:"
+  },
+  "Deactivate staff member": {
+    "de": "Mitarbeiter deaktivieren",
+    "fr": "Désactiver l'employé",
+    "it": "Disattiva membro del personale"
+  },
+  "Decline": {
+    "de": "Ablehnen",
+    "fr": "Refuser",
+    "it": "Rifiuta"
+  },
+  "Declined": {
+    "de": "Abgelehnt",
+    "fr": "Refusé",
+    "it": "Rifiutato"
+  },
+  "Define a new service offering for your company.": {
+    "de": "Definieren Sie eine neue Dienstleistung für Ihr Unternehmen.",
+    "fr": "Définissez un nouveau service pour votre entreprise.",
+    "it": "Definisci un nuovo servizio per la tua azienda."
+  },
+  "Define when staff are available for appointments.": {
+    "de": "Legen Sie fest, wann Mitarbeiter für Termine verfügbar sind.",
+    "fr": "Définissez quand les employés sont disponibles pour des rendez-vous.",
+    "it": "Definisci quando il personale è disponibile per gli appuntamenti."
+  },
+  "Delete": {
+    "de": "Löschen",
+    "fr": "Supprimer",
+    "it": "Elimina"
+  },
+  "Delete \"{{ name }}\"?": {
+    "de": "„{{ name }}“ löschen?",
+    "fr": "Supprimer « {{ name }} » ?",
+    "it": "Eliminare «{{ name }}»?"
+  },
+  "Delete Open Hours": {
+    "de": "Öffnungszeiten löschen",
+    "fr": "Supprimer les horaires",
+    "it": "Elimina orari di apertura"
+  },
+  "Delete Service": {
+    "de": "Dienstleistung löschen",
+    "fr": "Supprimer le service",
+    "it": "Elimina servizio"
+  },
+  "Delete booking": {
+    "de": "Buchung löschen",
+    "fr": "Supprimer la réservation",
+    "it": "Elimina prenotazione"
+  },
+  "Delete service": {
+    "de": "Dienstleistung löschen",
+    "fr": "Supprimer le service",
+    "it": "Elimina servizio"
+  },
+  "Delete staff member": {
+    "de": "Mitarbeiter löschen",
+    "fr": "Supprimer l'employé",
+    "it": "Elimina membro del personale"
+  },
+  "Delete this entry?": {
+    "de": "Diesen Eintrag löschen?",
+    "fr": "Supprimer cette entrée ?",
+    "it": "Eliminare questa voce?"
+  },
+  "Description": {
+    "de": "Beschreibung",
+    "fr": "Description",
+    "it": "Descrizione"
+  },
+  "Deutsch": {
+    "de": "Deutsch",
+    "fr": "Deutsch",
+    "it": "Deutsch"
+  },
+  "Duration": {
+    "de": "Dauer",
+    "fr": "Durée",
+    "it": "Durata"
+  },
+  "Duration (minutes)": {
+    "de": "Dauer (Minuten)",
+    "fr": "Durée (minutes)",
+    "it": "Durata (minuti)"
+  },
+  "Duration must be at least 5 minutes.": {
+    "de": "Die Dauer muss mindestens 5 Minuten betragen.",
+    "fr": "La durée doit être d'au moins 5 minutes.",
+    "it": "La durata deve essere di almeno 5 minuti."
+  },
+  "Duration must not exceed 480 minutes (8 hours).": {
+    "de": "Die Dauer darf 480 Minuten (8 Stunden) nicht überschreiten.",
+    "fr": "La durée ne doit pas dépasser 480 minutes (8 heures).",
+    "it": "La durata non deve superare i 480 minuti (8 ore)."
+  },
+  "Duration must not exceed 8 hours.": {
+    "de": "Die Dauer darf 8 Stunden nicht überschreiten.",
+    "fr": "La durée ne doit pas dépasser 8 heures.",
+    "it": "La durata non deve superare le 8 ore."
+  },
+  "Edit Open Hours": {
+    "de": "Öffnungszeiten bearbeiten",
+    "fr": "Modifier les horaires",
+    "it": "Modifica orari di apertura"
+  },
+  "Edit Service": {
+    "de": "Dienstleistung bearbeiten",
+    "fr": "Modifier le service",
+    "it": "Modifica servizio"
+  },
+  "Edit Staff Member": {
+    "de": "Mitarbeiter bearbeiten",
+    "fr": "Modifier l'employé",
+    "it": "Modifica membro del personale"
+  },
+  "Email": {
+    "de": "E-Mail",
+    "fr": "E-mail",
+    "it": "E-mail"
+  },
+  "Email address": {
+    "de": "E-Mail-Adresse",
+    "fr": "Adresse e-mail",
+    "it": "Indirizzo e-mail"
+  },
+  "Email:": {
+    "de": "E-Mail:",
+    "fr": "E-mail :",
+    "it": "E-mail:"
+  },
+  "Employee pre-selected": {
+    "de": "Mitarbeiter vorausgewählt",
+    "fr": "Employé présélectionné",
+    "it": "Membro del personale preselezionato"
+  },
+  "Enable \"Any Employee\" option": {
+    "de": "Option „Beliebiger Mitarbeiter“ aktivieren",
+    "fr": "Activer l'option « N'importe quel employé »",
+    "it": "Attiva l'opzione «Qualsiasi membro del personale»"
+  },
+  "End date must be within one year from today.": {
+    "de": "Das Enddatum muss innerhalb eines Jahres ab heute liegen.",
+    "fr": "La date de fin doit être dans un délai d'un an à partir d'aujourd'hui.",
+    "it": "La data di fine deve rientrare in un anno da oggi."
+  },
+  "End date must not be before start date.": {
+    "de": "Das Enddatum darf nicht vor dem Startdatum liegen.",
+    "fr": "La date de fin ne doit pas être antérieure à la date de début.",
+    "it": "La data di fine non deve essere precedente alla data di inizio."
+  },
+  "End time must be after start time.": {
+    "de": "Die Endzeit muss nach der Startzeit liegen.",
+    "fr": "L'heure de fin doit être après l'heure de début.",
+    "it": "L'ora di fine deve essere successiva all'ora di inizio."
+  },
+  "English": {
+    "de": "Englisch",
+    "fr": "Anglais",
+    "it": "Inglese"
+  },
+  "Enter the email address you registered with. If an account exists, you will receive a link to set a new password.": {
+    "de": "Geben Sie die E-Mail-Adresse ein, mit der Sie sich registriert haben. Falls ein Konto existiert, erhalten Sie einen Link zum Festlegen eines neuen Passworts.",
+    "fr": "Saisissez l'adresse e-mail avec laquelle vous vous êtes inscrit. Si un compte existe, vous recevrez un lien pour définir un nouveau mot de passe.",
+    "it": "Inserisci l'indirizzo e-mail con cui ti sei registrato. Se esiste un account, riceverai un link per impostare una nuova password."
+  },
+  "Fastest available appointment with any suitable staff member.": {
+    "de": "Schnellster verfügbarer Termin mit einem geeigneten Mitarbeiter.",
+    "fr": "Rendez-vous disponible le plus rapide avec tout employé approprié.",
+    "it": "Appuntamento disponibile più rapido con qualsiasi membro del personale idoneo."
+  },
+  "First name": {
+    "de": "Vorname",
+    "fr": "Prénom",
+    "it": "Nome"
+  },
+  "Forgot your password?": {
+    "de": "Passwort vergessen?",
+    "fr": "Mot de passe oublié ?",
+    "it": "Hai dimenticato la password?"
+  },
+  "Français": {
+    "de": "Français",
+    "fr": "Français",
+    "it": "Français"
+  },
+  "French": {
+    "de": "Französisch",
+    "fr": "Français",
+    "it": "Francese"
+  },
+  "Fri": {
+    "de": "Fr",
+    "fr": "Ven",
+    "it": "Ven"
+  },
+  "From": {
+    "de": "Von",
+    "fr": "De",
+    "it": "Da"
+  },
+  "German": {
+    "de": "Deutsch",
+    "fr": "Allemand",
+    "it": "Tedesco"
+  },
+  "Go back": {
+    "de": "Zurück",
+    "fr": "Retour",
+    "it": "Torna indietro"
+  },
+  "Go to homepage": {
+    "de": "Zur Startseite",
+    "fr": "Aller à l'accueil",
+    "it": "Vai alla home"
+  },
+  "Hello {{ business_name }},": {
+    "de": "Hallo {{ business_name }},",
+    "fr": "Bonjour {{ business_name }},",
+    "it": "Ciao {{ business_name }},"
+  },
+  "Hello {{ first_name }},": {
+    "de": "Hallo {{ first_name }},",
+    "fr": "Bonjour {{ first_name }},",
+    "it": "Ciao {{ first_name }},"
+  },
+  "I accept the <a href=\"#\" style=\"color:#111;\">privacy policy</a>.": {
+    "de": "Ich akzeptiere die <a href=\"#\" style=\"color:#111;\">Datenschutzerklärung</a>.",
+    "fr": "J'accepte la <a href=\"#\" style=\"color:#111;\">politique de confidentialité</a>.",
+    "it": "Accetto la <a href=\"#\" style=\"color:#111;\">politica sulla privacy</a>."
+  },
+  "I accept the privacy policy.": {
+    "de": "Ich akzeptiere die Datenschutzerklärung.",
+    "fr": "J'accepte la politique de confidentialité.",
+    "it": "Accetto la politica sulla privacy."
+  },
+  "If an account with that email exists, we've sent a password reset link. It will expire in 24 hours.": {
+    "de": "Falls ein Konto mit dieser E-Mail-Adresse existiert, haben wir einen Link zum Zurücksetzen des Passworts gesendet. Dieser läuft in 24 Stunden ab.",
+    "fr": "Si un compte avec cet e-mail existe, nous avons envoyé un lien de réinitialisation du mot de passe. Il expirera dans 24 heures.",
+    "it": "Se esiste un account con questa e-mail, abbiamo inviato un link per reimpostare la password. Scadrà entro 24 ore."
+  },
+  "If you did not request a password reset, you can ignore this email. Your password will not be changed.": {
+    "de": "Wenn Sie kein Zurücksetzen des Passworts angefordert haben, können Sie diese E-Mail ignorieren. Ihr Passwort wird nicht geändert.",
+    "fr": "Si vous n'avez pas demandé de réinitialisation du mot de passe, vous pouvez ignorer cet e-mail. Votre mot de passe ne sera pas modifié.",
+    "it": "Se non hai richiesto la reimpostazione della password, puoi ignorare questa e-mail. La tua password non verrà modificata."
+  },
+  "If you have any questions, please contact {{ business_name }} directly.": {
+    "de": "Bei Fragen wenden Sie sich bitte direkt an {{ business_name }}.",
+    "fr": "Pour toute question, veuillez contacter directement {{ business_name }}.",
+    "it": "Per qualsiasi domanda, contatta direttamente {{ business_name }}."
+  },
+  "Inactive": {
+    "de": "Inaktiv",
+    "fr": "Inactif",
+    "it": "Inattivo"
+  },
+  "Incorrect security code. Please try again.": {
+    "de": "Falscher Sicherheitscode. Bitte versuchen Sie es erneut.",
+    "fr": "Code de sécurité incorrect. Veuillez réessayer.",
+    "it": "Codice di sicurezza errato. Riprova."
+  },
+  "Interface language": {
+    "de": "Oberflächensprache",
+    "fr": "Langue de l'interface",
+    "it": "Lingua dell'interfaccia"
+  },
+  "Invalid form submission.": {
+    "de": "Ungültige Formularübermittlung.",
+    "fr": "Soumission de formulaire invalide.",
+    "it": "Invio del modulo non valido."
+  },
+  "Invalid staff member selection.": {
+    "de": "Ungültige Mitarbeiterauswahl.",
+    "fr": "Sélection d'employé invalide.",
+    "it": "Selezione del membro del personale non valida."
+  },
+  "Invalid staff member.": {
+    "de": "Ungültiger Mitarbeiter.",
+    "fr": "Employé invalide.",
+    "it": "Membro del personale non valido."
+  },
+  "Italian": {
+    "de": "Italienisch",
+    "fr": "Italien",
+    "it": "Italiano"
+  },
+  "Italiano": {
+    "de": "Italiano",
+    "fr": "Italiano",
+    "it": "Italiano"
+  },
+  "Keep booking": {
+    "de": "Buchung behalten",
+    "fr": "Conserver la réservation",
+    "it": "Mantieni la prenotazione"
+  },
+  "Language": {
+    "de": "Sprache",
+    "fr": "Langue",
+    "it": "Lingua"
+  },
+  "Language used for your dashboard, public booking page, and notification emails.": {
+    "de": "Sprache für Ihre Übersicht, die öffentliche Buchungsseite und Benachrichtigungs-E-Mails.",
+    "fr": "Langue utilisée pour votre tableau de bord, la page de réservation publique et les e-mails de notification.",
+    "it": "Lingua utilizzata per il pannello di controllo, la pagina di prenotazione pubblica e le e-mail di notifica."
+  },
+  "Last name": {
+    "de": "Nachname",
+    "fr": "Nom",
+    "it": "Cognome"
+  },
+  "Last updated": {
+    "de": "Zuletzt aktualisiert",
+    "fr": "Dernière mise à jour",
+    "it": "Ultimo aggiornamento"
+  },
+  "Last updated:": {
+    "de": "Zuletzt aktualisiert:",
+    "fr": "Dernière mise à jour :",
+    "it": "Ultimo aggiornamento:"
+  },
+  "Let's get started": {
+    "de": "Los geht's",
+    "fr": "Commençons",
+    "it": "Iniziamo"
+  },
+  "Link expired or invalid": {
+    "de": "Link abgelaufen oder ungültig",
+    "fr": "Lien expiré ou invalide",
+    "it": "Link scaduto o non valido"
+  },
+  "Location": {
+    "de": "Standort",
+    "fr": "Emplacement",
+    "it": "Posizione"
+  },
+  "Log in": {
+    "de": "Anmelden",
+    "fr": "Connexion",
+    "it": "Accedi"
+  },
+  "Login": {
+    "de": "Anmelden",
+    "fr": "Connexion",
+    "it": "Accesso"
+  },
+  "Logout": {
+    "de": "Abmelden",
+    "fr": "Déconnexion",
+    "it": "Esci"
+  },
+  "Main navigation": {
+    "de": "Hauptnavigation",
+    "fr": "Navigation principale",
+    "it": "Navigazione principale"
+  },
+  "Manage": {
+    "de": "Verwalten",
+    "fr": "Gérer",
+    "it": "Gestisci"
+  },
+  "Manage your business profile and public booking page.": {
+    "de": "Verwalten Sie Ihr Unternehmensprofil und Ihre öffentliche Buchungsseite.",
+    "fr": "Gérez votre profil d'entreprise et votre page de réservation publique.",
+    "it": "Gestisci il profilo aziendale e la pagina di prenotazione pubblica."
+  },
+  "Manual:": {
+    "de": "Manuell:",
+    "fr": "Manuel :",
+    "it": "Manuale:"
+  },
+  "Message": {
+    "de": "Nachricht",
+    "fr": "Message",
+    "it": "Messaggio"
+  },
+  "Message (optional)": {
+    "de": "Nachricht (optional)",
+    "fr": "Message (facultatif)",
+    "it": "Messaggio (opzionale)"
+  },
+  "Message:": {
+    "de": "Nachricht:",
+    "fr": "Message :",
+    "it": "Messaggio:"
+  },
+  "Mon": {
+    "de": "Mo",
+    "fr": "Lun",
+    "it": "Lun"
+  },
+  "Name": {
+    "de": "Name",
+    "fr": "Nom",
+    "it": "Nome"
+  },
+  "New booking confirmed": {
+    "de": "Neue Buchung bestätigt",
+    "fr": "Nouvelle réservation confirmée",
+    "it": "Nuova prenotazione confermata"
+  },
+  "New booking request": {
+    "de": "Neue Buchungsanfrage",
+    "fr": "Nouvelle demande de réservation",
+    "it": "Nuova richiesta di prenotazione"
+  },
+  "Next": {
+    "de": "Weiter",
+    "fr": "Suivant",
+    "it": "Successivo"
+  },
+  "No account yet? Register": {
+    "de": "Noch kein Konto? Registrieren",
+    "fr": "Pas encore de compte ? S'inscrire",
+    "it": "Non hai ancora un account? Registrati"
+  },
+  "No active staff members found. Add staff members first.": {
+    "de": "Keine aktiven Mitarbeiter gefunden. Fügen Sie zuerst Mitarbeiter hinzu.",
+    "fr": "Aucun employé actif trouvé. Ajoutez d'abord des employés.",
+    "it": "Nessun membro del personale attivo trovato. Aggiungi prima dei membri del personale."
+  },
+  "No active staff members yet.": {
+    "de": "Noch keine aktiven Mitarbeiter.",
+    "fr": "Aucun employé actif pour le moment.",
+    "it": "Nessun membro del personale attivo al momento."
+  },
+  "No appointments are currently available.": {
+    "de": "Derzeit sind keine Termine verfügbar.",
+    "fr": "Aucun rendez-vous n'est actuellement disponible.",
+    "it": "Al momento non sono disponibili appuntamenti."
+  },
+  "No available days": {
+    "de": "Keine verfügbaren Tage",
+    "fr": "Aucun jour disponible",
+    "it": "Nessun giorno disponibile"
+  },
+  "No matching dates found in the selected range.": {
+    "de": "Im ausgewählten Zeitraum wurden keine passenden Termine gefunden.",
+    "fr": "Aucune date correspondante trouvée dans la plage sélectionnée.",
+    "it": "Nessuna data corrispondente trovata nell'intervallo selezionato."
+  },
+  "No past bookings yet.": {
+    "de": "Noch keine vergangenen Buchungen.",
+    "fr": "Aucune réservation passée pour le moment.",
+    "it": "Nessuna prenotazione passata al momento."
+  },
+  "No pending booking requests at this time.": {
+    "de": "Derzeit keine ausstehenden Buchungsanfragen.",
+    "fr": "Aucune demande de réservation en attente pour le moment.",
+    "it": "Al momento nessuna richiesta di prenotazione in attesa."
+  },
+  "No services available": {
+    "de": "Keine Dienstleistungen verfügbar",
+    "fr": "Aucun service disponible",
+    "it": "Nessun servizio disponibile"
+  },
+  "No services yet": {
+    "de": "Noch keine Dienstleistungen",
+    "fr": "Aucun service pour le moment",
+    "it": "Nessun servizio al momento"
+  },
+  "No staff members yet": {
+    "de": "Noch keine Mitarbeiter",
+    "fr": "Aucun employé pour le moment",
+    "it": "Nessun membro del personale al momento"
+  },
+  "No times available": {
+    "de": "Keine Zeiten verfügbar",
+    "fr": "Aucun horaire disponible",
+    "it": "Nessun orario disponibile"
+  },
+  "No upcoming bookings.": {
+    "de": "Keine anstehenden Buchungen.",
+    "fr": "Aucune réservation à venir.",
+    "it": "Nessuna prenotazione in arrivo."
+  },
+  "No upcoming open hours": {
+    "de": "Keine anstehenden Öffnungszeiten",
+    "fr": "Aucun horaire à venir",
+    "it": "Nessun orario di apertura in arrivo"
+  },
+  "No upcoming open hours for {{ name }}": {
+    "de": "Keine anstehenden Öffnungszeiten für {{ name }}",
+    "fr": "Aucun horaire à venir pour {{ name }}",
+    "it": "Nessun orario di apertura in arrivo per {{ name }}"
+  },
+  "None assigned": {
+    "de": "Keine zugewiesen",
+    "fr": "Aucun assigné",
+    "it": "Nessuno assegnato"
+  },
+  "One block is created per matching weekday. Blocks that overlap existing open hours for the selected staff member, or fall in the past, are skipped automatically. Maximum range: one year ahead.": {
+    "de": "Pro übereinstimmendem Wochentag wird ein Block erstellt. Blöcke, die sich mit bestehenden Öffnungszeiten des ausgewählten Mitarbeiters überschneiden oder in der Vergangenheit liegen, werden automatisch übersprungen. Maximaler Zeitraum: ein Jahr im Voraus.",
+    "fr": "Un créneau est créé pour chaque jour de la semaine correspondant. Les créneaux qui se chevauchent avec des horaires existants de l'employé sélectionné, ou qui sont dans le passé, sont automatiquement ignorés. Plage maximale : un an à l'avance.",
+    "it": "Viene creato un blocco per ogni giorno della settimana corrispondente. I blocchi che si sovrappongono agli orari esistenti del membro del personale selezionato, o che sono nel passato, vengono saltati automaticamente. Intervallo massimo: un anno in anticipo."
+  },
+  "Online booking is currently unavailable.": {
+    "de": "Die Online-Buchung ist derzeit nicht verfügbar.",
+    "fr": "La réservation en ligne est actuellement indisponible.",
+    "it": "La prenotazione online non è al momento disponibile."
+  },
+  "Only active staff members can be assigned.": {
+    "de": "Nur aktive Mitarbeiter können zugewiesen werden.",
+    "fr": "Seuls les employés actifs peuvent être assignés.",
+    "it": "Solo i membri del personale attivi possono essere assegnati."
+  },
+  "Open Hours": {
+    "de": "Öffnungszeiten",
+    "fr": "Horaires d'ouverture",
+    "it": "Orari di apertura"
+  },
+  "Open hours block deleted.": {
+    "de": "Öffnungszeitenblock gelöscht.",
+    "fr": "Créneau d'horaires supprimé.",
+    "it": "Blocco di orari eliminato."
+  },
+  "Open menu": {
+    "de": "Menü öffnen",
+    "fr": "Ouvrir le menu",
+    "it": "Apri menu"
+  },
+  "Open page": {
+    "de": "Seite öffnen",
+    "fr": "Ouvrir la page",
+    "it": "Apri pagina"
+  },
+  "Or choose a specific staff member": {
+    "de": "Oder einen bestimmten Mitarbeiter auswählen",
+    "fr": "Ou choisissez un employé spécifique",
+    "it": "Oppure scegli un membro del personale specifico"
+  },
+  "PLZ": {
+    "de": "PLZ",
+    "fr": "Code postal",
+    "it": "CAP"
+  },
+  "Page Not Found": {
+    "de": "Seite nicht gefunden",
+    "fr": "Page non trouvée",
+    "it": "Pagina non trovata"
+  },
+  "Page disabled": {
+    "de": "Seite deaktiviert",
+    "fr": "Page désactivée",
+    "it": "Pagina disattivata"
+  },
+  "Page not found": {
+    "de": "Seite nicht gefunden",
+    "fr": "Page non trouvée",
+    "it": "Pagina non trovata"
+  },
+  "Page {{ current }} of {{ total }}": {
+    "de": "Seite {{ current }} von {{ total }}",
+    "fr": "Page {{ current }} sur {{ total }}",
+    "it": "Pagina {{ current }} di {{ total }}"
+  },
+  "Password": {
+    "de": "Passwort",
+    "fr": "Mot de passe",
+    "it": "Password"
+  },
+  "Password Updated": {
+    "de": "Passwort aktualisiert",
+    "fr": "Mot de passe mis à jour",
+    "it": "Password aggiornata"
+  },
+  "Password updated": {
+    "de": "Passwort aktualisiert",
+    "fr": "Mot de passe mis à jour",
+    "it": "Password aggiornata"
+  },
+  "Passwords do not match.": {
+    "de": "Die Passwörter stimmen nicht überein.",
+    "fr": "Les mots de passe ne correspondent pas.",
+    "it": "Le password non corrispondono."
+  },
+  "Past Bookings": {
+    "de": "Vergangene Buchungen",
+    "fr": "Réservations passées",
+    "it": "Prenotazioni passate"
+  },
+  "Pending": {
+    "de": "Ausstehend",
+    "fr": "En attente",
+    "it": "In attesa"
+  },
+  "Pending Bookings": {
+    "de": "Ausstehende Buchungen",
+    "fr": "Réservations en attente",
+    "it": "Prenotazioni in attesa"
+  },
+  "Pending Confirmation": {
+    "de": "Bestätigung ausstehend",
+    "fr": "Confirmation en attente",
+    "it": "Conferma in attesa"
+  },
+  "People who can be assigned to availability slots.": {
+    "de": "Personen, die Verfügbarkeitszeiten zugewiesen werden können.",
+    "fr": "Personnes pouvant être assignées à des créneaux de disponibilité.",
+    "it": "Persone che possono essere assegnate a fasce di disponibilita."
+  },
+  "Permanently delete this service and all its staff assignments. This cannot be undone. Services with existing bookings cannot be deleted.": {
+    "de": "Diese Dienstleistung und alle ihre Mitarbeiterzuweisungen dauerhaft löschen. Dies kann nicht rückgängig gemacht werden. Dienstleistungen mit bestehenden Buchungen können nicht gelöscht werden.",
+    "fr": "Supprimer définitivement ce service et toutes ses assignations d'employés. Cette action est irréversible. Les services avec des réservations existantes ne peuvent pas être supprimés.",
+    "it": "Elimina definitivamente questo servizio e tutte le sue assegnazioni del personale. Questa azione non può essere annullata. I servizi con prenotazioni esistenti non possono essere eliminati."
+  },
+  "Permanently delete this staff member. This action cannot be undone.": {
+    "de": "Diesen Mitarbeiter dauerhaft löschen. Diese Aktion kann nicht rückgängig gemacht werden.",
+    "fr": "Supprimer définitivement cet employé. Cette action est irréversible.",
+    "it": "Elimina definitivamente questo membro del personale. Questa azione non può essere annullata."
+  },
+  "Phone": {
+    "de": "Telefon",
+    "fr": "Téléphone",
+    "it": "Telefono"
+  },
+  "Phone number (optional)": {
+    "de": "Telefonnummer (optional)",
+    "fr": "Numéro de téléphone (facultatif)",
+    "it": "Numero di telefono (opzionale)"
+  },
+  "Phone:": {
+    "de": "Telefon:",
+    "fr": "Téléphone :",
+    "it": "Telefono:"
+  },
+  "Please contact the company directly to arrange an appointment.": {
+    "de": "Bitte wenden Sie sich direkt an das Unternehmen, um einen Termin zu vereinbaren.",
+    "fr": "Veuillez contacter directement l'entreprise pour organiser un rendez-vous.",
+    "it": "Contatta direttamente l'azienda per organizzare un appuntamento."
+  },
+  "Please review this request in your pending bookings.": {
+    "de": "Bitte überprüfen Sie diese Anfrage in Ihren ausstehenden Buchungen.",
+    "fr": "Veuillez examiner cette demande dans vos réservations en attente.",
+    "it": "Controlla questa richiesta nelle tue prenotazioni in attesa."
+  },
+  "Prev": {
+    "de": "Zurück",
+    "fr": "Précédent",
+    "it": "Precedente"
+  },
+  "Privacy Policy": {
+    "de": "Datenschutzerklärung",
+    "fr": "Politique de confidentialité",
+    "it": "Politica sulla privacy"
+  },
+  "Privacy accepted": {
+    "de": "Datenschutz akzeptiert",
+    "fr": "Confidentialité acceptée",
+    "it": "Privacy accettata"
+  },
+  "Public Booking Page": {
+    "de": "Öffentliche Buchungsseite",
+    "fr": "Page de réservation publique",
+    "it": "Pagina di prenotazione pubblica"
+  },
+  "Public Page": {
+    "de": "Öffentliche Seite",
+    "fr": "Page publique",
+    "it": "Pagina pubblica"
+  },
+  "Public booking link": {
+    "de": "Öffentlicher Buchungslink",
+    "fr": "Lien de réservation public",
+    "it": "Link di prenotazione pubblico"
+  },
+  "Public booking page enabled": {
+    "de": "Öffentliche Buchungsseite aktiviert",
+    "fr": "Page de réservation publique activée",
+    "it": "Pagina di prenotazione pubblica attivata"
+  },
+  "Register": {
+    "de": "Registrieren",
+    "fr": "S'inscrire",
+    "it": "Registrati"
+  },
+  "Remove \"{{ name }}\"?": {
+    "de": "„{{ name }}“ entfernen?",
+    "fr": "Supprimer « {{ name }} » ?",
+    "it": "Rimuovere «{{ name }}»?"
+  },
+  "Remove Staff Member": {
+    "de": "Mitarbeiter entfernen",
+    "fr": "Supprimer l'employé",
+    "it": "Rimuovi membro del personale"
+  },
+  "Repeat on": {
+    "de": "Wiederholen am",
+    "fr": "Répéter le",
+    "it": "Ripeti il"
+  },
+  "Request a new link": {
+    "de": "Neuen Link anfordern",
+    "fr": "Demander un nouveau lien",
+    "it": "Richiedi un nuovo link"
+  },
+  "Requested": {
+    "de": "Angefragt",
+    "fr": "Demandé",
+    "it": "Richiesto"
+  },
+  "Reset Password": {
+    "de": "Passwort zurücksetzen",
+    "fr": "Réinitialiser le mot de passe",
+    "it": "Reimposta password"
+  },
+  "Reset your password": {
+    "de": "Passwort zurücksetzen",
+    "fr": "Réinitialiser votre mot de passe",
+    "it": "Reimposta la tua password"
+  },
+  "Reset your password — {{ domain }}": {
+    "de": "Passwort zurücksetzen — {{ domain }}",
+    "fr": "Réinitialiser votre mot de passe — {{ domain }}",
+    "it": "Reimposta la tua password — {{ domain }}"
+  },
+  "Review and confirm or decline customer booking requests.": {
+    "de": "Überprüfen und bestätigen oder lehnen Sie Buchungsanfragen von Kunden ab.",
+    "fr": "Examinez et confirmez ou refusez les demandes de réservation des clients.",
+    "it": "Esamina e conferma o rifiuta le richieste di prenotazione dei clienti."
+  },
+  "Sat": {
+    "de": "Sa",
+    "fr": "Sam",
+    "it": "Sab"
+  },
+  "Save changes": {
+    "de": "Änderungen speichern",
+    "fr": "Enregistrer les modifications",
+    "it": "Salva modifiche"
+  },
+  "Save settings": {
+    "de": "Einstellungen speichern",
+    "fr": "Enregistrer les paramètres",
+    "it": "Salva impostazioni"
+  },
+  "Security check": {
+    "de": "Sicherheitsprüfung",
+    "fr": "Vérification de sécurité",
+    "it": "Controllo di sicurezza"
+  },
+  "Select a valid confirmation mode.": {
+    "de": "Wählen Sie einen gültigen Bestätigungsmodus.",
+    "fr": "Sélectionnez un mode de confirmation valide.",
+    "it": "Seleziona una modalità di conferma valida."
+  },
+  "Select a valid language.": {
+    "de": "Wählen Sie eine gültige Sprache.",
+    "fr": "Sélectionnez une langue valide.",
+    "it": "Seleziona una lingua valida."
+  },
+  "Select at least one day of the week.": {
+    "de": "Wählen Sie mindestens einen Wochentag aus.",
+    "fr": "Sélectionnez au moins un jour de la semaine.",
+    "it": "Seleziona almeno un giorno della settimana."
+  },
+  "Send reset link": {
+    "de": "Link zum Zurücksetzen senden",
+    "fr": "Envoyer le lien de réinitialisation",
+    "it": "Invia link di reimpostazione"
+  },
+  "Server Error": {
+    "de": "Serverfehler",
+    "fr": "Erreur serveur",
+    "it": "Errore del server"
+  },
+  "Service": {
+    "de": "Dienstleistung",
+    "fr": "Service",
+    "it": "Servizio"
+  },
+  "Service \"%(name)s\" created.": {
+    "de": "Dienstleistung „%(name)s“ erstellt.",
+    "fr": "Service « %(name)s » créé.",
+    "it": "Servizio «%(name)s» creato."
+  },
+  "Service \"%(name)s\" deleted.": {
+    "de": "Dienstleistung „%(name)s“ gelöscht.",
+    "fr": "Service « %(name)s » supprimé.",
+    "it": "Servizio «%(name)s» eliminato."
+  },
+  "Service \"%(name)s\" updated.": {
+    "de": "Dienstleistung „%(name)s“ aktualisiert.",
+    "fr": "Service « %(name)s » mis à jour.",
+    "it": "Servizio «%(name)s» aggiornato."
+  },
+  "Service does not belong to this company.": {
+    "de": "Die Dienstleistung gehört nicht zu diesem Unternehmen.",
+    "fr": "Le service n'appartient pas à cette entreprise.",
+    "it": "Il servizio non appartiene a questa azienda."
+  },
+  "Service:": {
+    "de": "Dienstleistung:",
+    "fr": "Service :",
+    "it": "Servizio:"
+  },
+  "Services": {
+    "de": "Dienstleistungen",
+    "fr": "Services",
+    "it": "Servizi"
+  },
+  "Services your company offers to customers.": {
+    "de": "Dienstleistungen, die Ihr Unternehmen Kunden anbietet.",
+    "fr": "Services que votre entreprise propose aux clients.",
+    "it": "Servizi che la tua azienda offre ai clienti."
+  },
+  "Set New Password": {
+    "de": "Neues Passwort festlegen",
+    "fr": "Définir un nouveau mot de passe",
+    "it": "Imposta nuova password"
+  },
+  "Set Recurring Hours": {
+    "de": "Wiederkehrende Zeiten festlegen",
+    "fr": "Définir des horaires récurrents",
+    "it": "Imposta orari ricorrenti"
+  },
+  "Set a new password": {
+    "de": "Neues Passwort festlegen",
+    "fr": "Définir un nouveau mot de passe",
+    "it": "Imposta una nuova password"
+  },
+  "Set new password": {
+    "de": "Neues Passwort festlegen",
+    "fr": "Définir un nouveau mot de passe",
+    "it": "Imposta nuova password"
+  },
+  "Set recurring": {
+    "de": "Wiederkehrend festlegen",
+    "fr": "Définir récurrent",
+    "it": "Imposta ricorrente"
+  },
+  "Settings": {
+    "de": "Einstellungen",
+    "fr": "Paramètres",
+    "it": "Impostazioni"
+  },
+  "Settings saved.": {
+    "de": "Einstellungen gespeichert.",
+    "fr": "Paramètres enregistrés.",
+    "it": "Impostazioni salvate."
+  },
+  "Share this with customers so they can book appointments online.": {
+    "de": "Teilen Sie dies mit Kunden, damit sie online Termine buchen können.",
+    "fr": "Partagez ceci avec vos clients afin qu'ils puissent réserver des rendez-vous en ligne.",
+    "it": "Condividi questo con i clienti in modo che possano prenotare appuntamenti online."
+  },
+  "Show staff names publicly": {
+    "de": "Mitarbeiternamen öffentlich anzeigen",
+    "fr": "Afficher les noms des employés publiquement",
+    "it": "Mostra pubblicamente i nomi del personale"
+  },
+  "Simple appointment booking for your business": {
+    "de": "Einfache Terminbuchung für Ihr Unternehmen",
+    "fr": "Réservation de rendez-vous simple pour votre entreprise",
+    "it": "Prenotazione di appuntamenti semplice per la tua azienda"
+  },
+  "Slot does not belong to this staff member.": {
+    "de": "Der Termin gehört nicht zu diesem Mitarbeiter.",
+    "fr": "Le créneau n'appartient pas à cet employé.",
+    "it": "L'orario non appartiene a questo membro del personale."
+  },
+  "Slug": {
+    "de": "Slug",
+    "fr": "Slug",
+    "it": "Slug"
+  },
+  "Something went wrong": {
+    "de": "Etwas ist schiefgelaufen",
+    "fr": "Une erreur s'est produite",
+    "it": "Qualcosa è andato storto"
+  },
+  "Staff": {
+    "de": "Personal",
+    "fr": "Personnel",
+    "it": "Personale"
+  },
+  "Staff Links": {
+    "de": "Mitarbeiterlinks",
+    "fr": "Liens des employés",
+    "it": "Link del personale"
+  },
+  "Staff Members": {
+    "de": "Mitarbeiter",
+    "fr": "Employés",
+    "it": "Membri del personale"
+  },
+  "Staff member": {
+    "de": "Mitarbeiter",
+    "fr": "Employé",
+    "it": "Membro del personale"
+  },
+  "Staff member \"%(name)s\" added.": {
+    "de": "Mitarbeiter „%(name)s“ hinzugefügt.",
+    "fr": "Employé « %(name)s » ajouté.",
+    "it": "Membro del personale «%(name)s» aggiunto."
+  },
+  "Staff member \"%(name)s\" deleted.": {
+    "de": "Mitarbeiter „%(name)s“ gelöscht.",
+    "fr": "Employé « %(name)s » supprimé.",
+    "it": "Membro del personale «%(name)s» eliminato."
+  },
+  "Staff member \"%(name)s\" updated.": {
+    "de": "Mitarbeiter „%(name)s“ aktualisiert.",
+    "fr": "Employé « %(name)s » mis à jour.",
+    "it": "Membro del personale «%(name)s» aggiornato."
+  },
+  "Staff member does not belong to this company.": {
+    "de": "Der Mitarbeiter gehört nicht zu diesem Unternehmen.",
+    "fr": "L'employé n'appartient pas à cette entreprise.",
+    "it": "Il membro del personale non appartiene a questa azienda."
+  },
+  "Staff member:": {
+    "de": "Mitarbeiter:",
+    "fr": "Employé :",
+    "it": "Membro del personale:"
+  },
+  "Staff:": {
+    "de": "Personal:",
+    "fr": "Personnel :",
+    "it": "Personale:"
+  },
+  "Start date must be today or in the future.": {
+    "de": "Das Startdatum muss heute oder in der Zukunft liegen.",
+    "fr": "La date de début doit être aujourd'hui ou dans le futur.",
+    "it": "La data di inizio deve essere oggi o nel futuro."
+  },
+  "Start date must be within one year from today.": {
+    "de": "Das Startdatum muss innerhalb eines Jahres ab heute liegen.",
+    "fr": "La date de début doit être dans un délai d'un an à partir d'aujourd'hui.",
+    "it": "La data di inizio deve rientrare in un anno da oggi."
+  },
+  "Start time must be in the future.": {
+    "de": "Die Startzeit muss in der Zukunft liegen.",
+    "fr": "L'heure de début doit être dans le futur.",
+    "it": "L'ora di inizio deve essere nel futuro."
+  },
+  "Starting from": {
+    "de": "Ab",
+    "fr": "À partir de",
+    "it": "A partire da"
+  },
+  "Status": {
+    "de": "Status",
+    "fr": "Statut",
+    "it": "Stato"
+  },
+  "Street": {
+    "de": "Strasse",
+    "fr": "Rue",
+    "it": "Via"
+  },
+  "Sun": {
+    "de": "So",
+    "fr": "Dim",
+    "it": "Dom"
+  },
+  "Thank you.": {
+    "de": "Vielen Dank.",
+    "fr": "Merci.",
+    "it": "Grazie."
+  },
+  "The page you're looking for doesn't exist or has been moved.": {
+    "de": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    "fr": "La page que vous recherchez n'existe pas ou a été déplacée.",
+    "it": "La pagina che stai cercando non esiste o è stata spostata."
+  },
+  "There are currently no open appointment slots. Please check back later.": {
+    "de": "Derzeit sind keine freien Termine verfügbar. Bitte schauen Sie später wieder vorbei.",
+    "fr": "Aucun créneau de rendez-vous n'est actuellement disponible. Veuillez revenir plus tard.",
+    "it": "Al momento non ci sono orari di appuntamento disponibili. Riprova più tardi."
+  },
+  "There are currently no services available for this staff member.": {
+    "de": "Für diesen Mitarbeiter sind derzeit keine Dienstleistungen verfügbar.",
+    "fr": "Aucun service n'est actuellement disponible pour cet employé.",
+    "it": "Al momento non ci sono servizi disponibili per questo membro del personale."
+  },
+  "There are currently no services available.": {
+    "de": "Derzeit sind keine Dienstleistungen verfügbar.",
+    "fr": "Aucun service n'est actuellement disponible.",
+    "it": "Al momento non ci sono servizi disponibili."
+  },
+  "These hours overlap with an existing slot for this staff member. Please choose a different time.": {
+    "de": "Diese Zeiten überschneiden sich mit einem bestehenden Termin für diesen Mitarbeiter. Bitte wählen Sie eine andere Zeit.",
+    "fr": "Ces horaires se chevauchent avec un créneau existant pour cet employé. Veuillez choisir un autre horaire.",
+    "it": "Questi orari si sovrappongono a un orario esistente per questo membro del personale. Scegli un altro orario."
+  },
+  "They have active future bookings.": {
+    "de": "Sie haben aktive zukünftige Buchungen.",
+    "fr": "Il a des réservations futures actives.",
+    "it": "Ha prenotazioni future attive."
+  },
+  "They have upcoming availability slots and active future bookings.": {
+    "de": "Sie haben anstehende Verfügbarkeitszeiten und aktive zukünftige Buchungen.",
+    "fr": "Il a des créneaux de disponibilité à venir et des réservations futures actives.",
+    "it": "Ha fasce di disponibilita in arrivo e prenotazioni future attive."
+  },
+  "They have upcoming availability slots.": {
+    "de": "Sie haben anstehende Verfügbarkeitszeiten.",
+    "fr": "Il a des créneaux de disponibilité à venir.",
+    "it": "Ha fasce di disponibilita in arrivo."
+  },
+  "This action cannot be undone.": {
+    "de": "Diese Aktion kann nicht rückgängig gemacht werden.",
+    "fr": "Cette action est irréversible.",
+    "it": "Questa azione non può essere annullata."
+  },
+  "This action cannot be undone. Your time slot will be released and may be booked by someone else.": {
+    "de": "Diese Aktion kann nicht rückgängig gemacht werden. Ihr Termin wird freigegeben und kann von jemand anderem gebucht werden.",
+    "fr": "Cette action est irréversible. Votre créneau sera libéré et pourra être réservé par quelqu'un d'autre.",
+    "it": "Questa azione non può essere annullata. Il tuo orario verrà liberato e potrà essere prenotato da qualcun altro."
+  },
+  "This booking has been cancelled.": {
+    "de": "Diese Buchung wurde storniert.",
+    "fr": "Cette réservation a été annulée.",
+    "it": "Questa prenotazione è stata annullata."
+  },
+  "This booking request was declined.": {
+    "de": "Diese Buchungsanfrage wurde abgelehnt.",
+    "fr": "Cette demande de réservation a été refusée.",
+    "it": "Questa richiesta di prenotazione è stata rifiutata."
+  },
+  "This page is unavailable.": {
+    "de": "Diese Seite ist nicht verfügbar.",
+    "fr": "Cette page est indisponible.",
+    "it": "Questa pagina non è disponibile."
+  },
+  "This password reset link has already been used or has expired. Please request a new one.": {
+    "de": "Dieser Link zum Zurücksetzen des Passworts wurde bereits verwendet oder ist abgelaufen. Bitte fordern Sie einen neuen an.",
+    "fr": "Ce lien de réinitialisation du mot de passe a déjà été utilisé ou a expiré. Veuillez en demander un nouveau.",
+    "it": "Questo link per la reimpostazione della password è già stato utilizzato o è scaduto. Richiedine uno nuovo."
+  },
+  "This service has existing bookings and cannot be deleted.": {
+    "de": "Diese Dienstleistung hat bestehende Buchungen und kann nicht gelöscht werden.",
+    "fr": "Ce service a des réservations existantes et ne peut pas être supprimé.",
+    "it": "Questo servizio ha prenotazioni esistenti e non può essere eliminato."
+  },
+  "This staff member cannot be deleted because they have upcoming activity.": {
+    "de": "Dieser Mitarbeiter kann nicht gelöscht werden, da anstehende Aktivitäten vorliegen.",
+    "fr": "Cet employé ne peut pas être supprimé car il a des activités à venir.",
+    "it": "Questo membro del personale non può essere eliminato perché ha attività in arrivo."
+  },
+  "This staff member has existing availability slots. Deleting will <strong>deactivate</strong> them instead of permanently removing them.": {
+    "de": "Dieser Mitarbeiter hat bestehende Verfügbarkeitszeiten. Beim Löschen wird er <strong>deaktiviert</strong> statt dauerhaft entfernt.",
+    "fr": "Cet employé a des créneaux de disponibilité existants. La suppression le <strong>désactivera</strong> au lieu de le retirer définitivement.",
+    "it": "Questo membro del personale ha fasce di disponibilita esistenti. L'eliminazione lo <strong>disattiverà</strong> invece di rimuoverlo definitivamente."
+  },
+  "This time slot was just booked by someone else.": {
+    "de": "Dieser Termin wurde gerade von jemand anderem gebucht.",
+    "fr": "Ce créneau vient d'être réservé par quelqu'un d'autre.",
+    "it": "Questo orario è stato appena prenotato da qualcun altro."
+  },
+  "This will permanently delete the service and all its staff assignments. This action cannot be undone.": {
+    "de": "Dadurch werden die Dienstleistung und alle ihre Mitarbeiterzuweisungen dauerhaft gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.",
+    "fr": "Cela supprimera définitivement le service et toutes ses assignations d'employés. Cette action est irréversible.",
+    "it": "Questo eliminerà definitivamente il servizio e tutte le sue assegnazioni del personale. Questa azione non può essere annullata."
+  },
+  "This will permanently delete the staff member. This action cannot be undone.": {
+    "de": "Dadurch wird der Mitarbeiter dauerhaft gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.",
+    "fr": "Cela supprimera définitivement l'employé. Cette action est irréversible.",
+    "it": "Questo eliminerà definitivamente il membro del personale. Questa azione non può essere annullata."
+  },
+  "This will permanently delete this booking, free up the time slot again, and notify the customer by email that their appointment has been cancelled. This action cannot be undone.": {
+    "de": "Dadurch wird diese Buchung dauerhaft gelöscht, der Termin wieder freigegeben und der Kunde per E-Mail darüber informiert, dass sein Termin storniert wurde. Diese Aktion kann nicht rückgängig gemacht werden.",
+    "fr": "Cela supprimera définitivement cette réservation, libérera le créneau horaire et informera le client par e-mail que son rendez-vous a été annulé. Cette action est irréversible.",
+    "it": "Questo eliminerà definitivamente questa prenotazione, libererà nuovamente l'orario e notificherà al cliente via e-mail che il suo appuntamento è stato annullato. Questa azione non può essere annullata."
+  },
+  "Thu": {
+    "de": "Do",
+    "fr": "Jeu",
+    "it": "Gio"
+  },
+  "Time": {
+    "de": "Uhrzeit",
+    "fr": "Heure",
+    "it": "Ora"
+  },
+  "Timeslot": {
+    "de": "Zeitfenster",
+    "fr": "Créneau horaire",
+    "it": "Fascia orario"
+  },
+  "Timezone: {{ tz }}": {
+    "de": "Zeitzone: {{ tz }}",
+    "fr": "Fuseau horaire : {{ tz }}",
+    "it": "Fuso orario: {{ tz }}"
+  },
+  "To": {
+    "de": "Bis",
+    "fr": "À",
+    "it": "A"
+  },
+  "Today's Bookings": {
+    "de": "Heutige Buchungen",
+    "fr": "Réservations d'aujourd'hui",
+    "it": "Prenotazioni di oggi"
+  },
+  "Toggle sidebar": {
+    "de": "Seitenleiste umschalten",
+    "fr": "Basculer la barre latérale",
+    "it": "Attiva/disattiva barra laterale"
+  },
+  "Too Many Requests": {
+    "de": "Zu viele Anfragen",
+    "fr": "Trop de requêtes",
+    "it": "Troppe richieste"
+  },
+  "Too many requests": {
+    "de": "Zu viele Anfragen",
+    "fr": "Trop de requêtes",
+    "it": "Troppe richieste"
+  },
+  "Try another staff member or add a new block.": {
+    "de": "Versuchen Sie einen anderen Mitarbeiter oder fügen Sie einen neuen Block hinzu.",
+    "fr": "Essayez un autre employé ou ajoutez un nouveau créneau.",
+    "it": "Provare un altro membro del personale o aggiungere un nuovo blocco."
+  },
+  "Tue": {
+    "de": "Di",
+    "fr": "Mar",
+    "it": "Mar"
+  },
+  "Until": {
+    "de": "Bis",
+    "fr": "Jusqu'au",
+    "it": "Fino a"
+  },
+  "Upcoming": {
+    "de": "Anstehend",
+    "fr": "À venir",
+    "it": "In arrivo"
+  },
+  "Upcoming Bookings": {
+    "de": "Anstehende Buchungen",
+    "fr": "Réservations à venir",
+    "it": "Prenotazioni in arrivo"
+  },
+  "Upcoming confirmed appointments.": {
+    "de": "Anstehende bestätigte Termine.",
+    "fr": "Rendez-vous confirmés à venir.",
+    "it": "Appuntamenti confermati in arrivo."
+  },
+  "Update business name, timezone, and booking page options.": {
+    "de": "Aktualisieren Sie Firmenname, Zeitzone und Buchungsseiten-Optionen.",
+    "fr": "Mettez à jour le nom de l'entreprise, le fuseau horaire et les options de la page de réservation.",
+    "it": "Aggiorna nome dell'azienda, fuso orario e opzioni della pagina di prenotazione."
+  },
+  "Update the date and times for this block.": {
+    "de": "Aktualisieren Sie Datum und Zeiten für diesen Block.",
+    "fr": "Mettez à jour la date et les heures de ce créneau.",
+    "it": "Aggiorna la data e gli orari di questo blocco."
+  },
+  "Update the service details and staff assignments.": {
+    "de": "Aktualisieren Sie die Dienstleistungsdetails und Mitarbeiterzuweisungen.",
+    "fr": "Mettez à jour les détails du service et les assignations d'employés.",
+    "it": "Aggiorna i dettagli del servizio e le assegnazioni del personale."
+  },
+  "Update the staff member's details.": {
+    "de": "Aktualisieren Sie die Details des Mitarbeiters.",
+    "fr": "Mettez à jour les détails de l'employé.",
+    "it": "Aggiorna i dettagli del membro del personale."
+  },
+  "View bookings →": {
+    "de": "Buchungen ansehen →",
+    "fr": "Voir les réservations →",
+    "it": "Visualizza prenotazioni →"
+  },
+  "View pending bookings →": {
+    "de": "Ausstehende Buchungen ansehen →",
+    "fr": "Voir les réservations en attente →",
+    "it": "Visualizza prenotazioni in attesa →"
+  },
+  "View upcoming and past appointments.": {
+    "de": "Anstehende und vergangene Termine ansehen.",
+    "fr": "Voir les rendez-vous à venir et passés.",
+    "it": "Visualizza gli appuntamenti in arrivo e passati."
+  },
+  "Website": {
+    "de": "Website",
+    "fr": "Site web",
+    "it": "Sito web"
+  },
+  "Wed": {
+    "de": "Mi",
+    "fr": "Mer",
+    "it": "Mer"
+  },
+  "When disabled, customers cannot access your booking page.": {
+    "de": "Wenn deaktiviert, können Kunden nicht auf Ihre Buchungsseite zugreifen.",
+    "fr": "Si désactivé, les clients ne peuvent pas accéder à votre page de réservation.",
+    "it": "Se disattivata, i clienti non possono accedere alla pagina di prenotazione."
+  },
+  "When disabled, staff member names are hidden on public booking pages.": {
+    "de": "Wenn deaktiviert, werden Mitarbeiternamen auf öffentlichen Buchungsseiten ausgeblendet.",
+    "fr": "Si désactivé, les noms des employés sont masqués sur les pages de réservation publiques.",
+    "it": "Se disattivata, i nomi del personale vengono nascosti nelle pagine di prenotazione pubbliche."
+  },
+  "When enabled and you have multiple staff members, customers can book the first available appointment with any staff member.": {
+    "de": "Wenn aktiviert und Sie mehrere Mitarbeiter haben, können Kunden den ersten verfügbaren Termin mit einem beliebigen Mitarbeiter buchen.",
+    "fr": "Si activé et que vous avez plusieurs employés, les clients peuvent réserver le premier rendez-vous disponible avec n'importe quel employé.",
+    "it": "Se attivata e disponi di più membri del personale, i clienti possono prenotare il primo appuntamento disponibile con qualsiasi membro del personale."
+  },
+  "With": {
+    "de": "Mit",
+    "fr": "Avec",
+    "it": "Con"
+  },
+  "With:": {
+    "de": "Mit:",
+    "fr": "Avec :",
+    "it": "Con:"
+  },
+  "Yes, cancel booking": {
+    "de": "Ja, Buchung stornieren",
+    "fr": "Oui, annuler la réservation",
+    "it": "Sì, annulla prenotazione"
+  },
+  "Yes, delete this block": {
+    "de": "Ja, diesen Block löschen",
+    "fr": "Oui, supprimer ce créneau",
+    "it": "Sì, elimina questo blocco"
+  },
+  "You are about to remove the following open hours block.": {
+    "de": "Sie sind dabei, den folgenden Öffnungszeitenblock zu entfernen.",
+    "fr": "Vous êtes sur le point de supprimer le créneau d'horaires suivant.",
+    "it": "Stai per rimuovere il seguente blocco di orari di apertura."
+  },
+  "You must accept the privacy policy to proceed.": {
+    "de": "Sie müssen die Datenschutzerklärung akzeptieren, um fortzufahren.",
+    "fr": "Vous devez accepter la politique de confidentialité pour continuer.",
+    "it": "Devi accettare la politica sulla privacy per procedere."
+  },
+  "You're receiving this email because a password reset was requested for your account at {{ domain }}.": {
+    "de": "Sie erhalten diese E-Mail, weil für Ihr Konto bei {{ domain }} ein Zurücksetzen des Passworts angefordert wurde.",
+    "fr": "Vous recevez cet e-mail car une réinitialisation de mot de passe a été demandée pour votre compte sur {{ domain }}.",
+    "it": "Ricevi questa e-mail perché è stata richiesta la reimpostazione della password per il tuo account su {{ domain }}."
+  },
+  "You've made too many requests in a short period. Please wait a moment and try again.": {
+    "de": "Sie haben in kurzer Zeit zu viele Anfragen gestellt. Bitte warten Sie einen Moment und versuchen Sie es erneut.",
+    "fr": "Vous avez effectué trop de requêtes en peu de temps. Veuillez attendre un moment et réessayer.",
+    "it": "Hai effettuato troppe richieste in un breve periodo. Attendi un momento e riprova."
+  },
+  "Your Details": {
+    "de": "Ihre Angaben",
+    "fr": "Vos coordonnées",
+    "it": "I tuoi dati"
+  },
+  "Your appointment has been cancelled": {
+    "de": "Ihr Termin wurde storniert",
+    "fr": "Votre rendez-vous a été annulé",
+    "it": "Il tuo appuntamento è stato annullato"
+  },
+  "Your appointment is not confirmed yet. The company will review your request.": {
+    "de": "Ihr Termin ist noch nicht bestätigt. Das Unternehmen wird Ihre Anfrage prüfen.",
+    "fr": "Votre rendez-vous n'est pas encore confirmé. L'entreprise examinera votre demande.",
+    "it": "Il tuo appuntamento non è ancora confermato. L'azienda esaminerà la tua richiesta."
+  },
+  "Your appointment request could not be confirmed. Please contact {{ business_name }} or try a different time.": {
+    "de": "Ihre Terminanfrage konnte nicht bestätigt werden. Bitte kontaktieren Sie {{ business_name }} oder versuchen Sie eine andere Zeit.",
+    "fr": "Votre demande de rendez-vous n'a pas pu être confirmée. Veuillez contacter {{ business_name }} ou essayer un autre horaire.",
+    "it": "La tua richiesta di appuntamento non può essere confermata. Contatta {{ business_name }} o provare un altro orario."
+  },
+  "Your appointment request has been submitted and is waiting for confirmation from {{ business_name }}. You will be notified by email once it is reviewed. This page will expire shortly.": {
+    "de": "Ihre Terminanfrage wurde übermittelt und wartet auf die Bestätigung von {{ business_name }}. Sie werden per E-Mail benachrichtigt, sobald sie geprüft wurde. Diese Seite läuft in Kürze ab.",
+    "fr": "Votre demande de rendez-vous a été soumise et est en attente de confirmation de {{ business_name }}. Vous serez informé par e-mail une fois examinée. Cette page expirera bientôt.",
+    "it": "La tua richiesta di appuntamento è stata inviata ed è in attesa di conferma da {{ business_name }}. Riceverai una notifica via e-mail una volta esaminata. Questa pagina scadrà a breve."
+  },
+  "Your booking has been cancelled. The time slot is now available again.": {
+    "de": "Ihre Buchung wurde storniert. Der Termin ist nun wieder verfügbar.",
+    "fr": "Votre réservation a été annulée. Le créneau est désormais à nouveau disponible.",
+    "it": "La tua prenotazione è stata annullata. L'orario è di nuovo disponibile."
+  },
+  "Your booking is confirmed": {
+    "de": "Ihre Buchung ist bestätigt",
+    "fr": "Votre réservation est confirmée",
+    "it": "La tua prenotazione è confermata"
+  },
+  "Your booking is confirmed.": {
+    "de": "Ihre Buchung ist bestätigt.",
+    "fr": "Votre réservation est confirmée.",
+    "it": "La tua prenotazione è confermata."
+  },
+  "Your booking request was declined": {
+    "de": "Ihre Buchungsanfrage wurde abgelehnt",
+    "fr": "Votre demande de réservation a été refusée",
+    "it": "La tua richiesta di prenotazione è stata rifiutata"
+  },
+  "Your booking request was received": {
+    "de": "Ihre Buchungsanfrage wurde erhalten",
+    "fr": "Votre demande de réservation a été reçue",
+    "it": "La tua richiesta di prenotazione è stata ricevuta"
+  },
+  "Your confirmation details have been sent to your email. This page will expire shortly and cannot be revisited.": {
+    "de": "Ihre Bestätigungsdetails wurden an Ihre E-Mail-Adresse gesendet. Diese Seite läuft in Kürze ab und kann nicht erneut aufgerufen werden.",
+    "fr": "Les détails de votre confirmation ont été envoyés à votre e-mail. Cette page expirera bientôt et ne pourra plus être consultée.",
+    "it": "I dettagli della conferma sono stati inviati alla tua e-mail. Questa pagina scadrà a breve e non potrà essere rivisitata."
+  },
+  "Your data will be used solely to manage this appointment.": {
+    "de": "Ihre Daten werden ausschliesslich zur Verwaltung dieses Termins verwendet.",
+    "fr": "Vos données seront utilisées uniquement pour gérer ce rendez-vous.",
+    "it": "I tuoi dati saranno utilizzati esclusivamente per gestire questo appuntamento."
+  },
+  "Your details": {
+    "de": "Ihre Angaben",
+    "fr": "Vos coordonnées",
+    "it": "I tuoi dati"
+  },
+  "Your password has been changed. You can now log in with your new password.": {
+    "de": "Ihr Passwort wurde geändert. Sie können sich jetzt mit Ihrem neuen Passwort anmelden.",
+    "fr": "Votre mot de passe a été modifié. Vous pouvez maintenant vous connecter avec votre nouveau mot de passe.",
+    "it": "La tua password è stata modificata. Ora puoi accedere con la tua nuova password."
+  },
+  "Your upcoming availability for {{ business_name }}": {
+    "de": "Ihre anstehende Verfügbarkeit für {{ business_name }}",
+    "fr": "Vos disponibilités à venir pour {{ business_name }}",
+    "it": "La tua disponibilita in arrivo per {{ business_name }}"
+  },
+  "a new booking has been confirmed.": {
+    "de": "eine neue Buchung wurde bestätigt.",
+    "fr": "une nouvelle réservation a été confirmée.",
+    "it": "una nuova prenotazione è stata confermata."
+  },
+  "a new booking request is waiting for confirmation.": {
+    "de": "eine neue Buchungsanfrage wartet auf Bestätigung.",
+    "fr": "une nouvelle demande de réservation attend confirmation.",
+    "it": "una nuova richiesta di prenotazione è in attesa di conferma."
+  },
+  "booking requests must be reviewed and approved before they are confirmed.": {
+    "de": "Buchungsanfragen müssen überprüft und genehmigt werden, bevor sie bestätigt werden.",
+    "fr": "les demandes de réservation doivent être examinées et approuvées avant d'être confirmées.",
+    "it": "le richieste di prenotazione devono essere esaminate e approvate prima di essere confermate."
+  },
+  "bookings are confirmed immediately when a customer submits the form.": {
+    "de": "Buchungen werden sofort bestätigt, wenn ein Kunde das Formular absendet.",
+    "fr": "les réservations sont confirmées immédiatement lorsqu'un client soumet le formulaire.",
+    "it": "le prenotazioni vengono confermate immediatamente quando un cliente invia il modulo."
+  },
+  "optional": {
+    "de": "optional",
+    "fr": "facultatif",
+    "it": "opzionale"
+  },
+  "we received your booking request.": {
+    "de": "wir haben Ihre Buchungsanfrage erhalten.",
+    "fr": "nous avons reçu votre demande de réservation.",
+    "it": "abbiamo ricevuto la tua richiesta di prenotazione."
+  },
+  "your appointment has been cancelled by {{ business_name }}.": {
+    "de": "Ihr Termin wurde von {{ business_name }} storniert.",
+    "fr": "votre rendez-vous a été annulé par {{ business_name }}.",
+    "it": "il tuo appuntamento è stato annullato da {{ business_name }}."
+  },
+  "your appointment has been confirmed.": {
+    "de": "Ihr Termin wurde bestätigt.",
+    "fr": "votre rendez-vous a été confirmé.",
+    "it": "il tuo appuntamento è stato confermato."
+  },
+  "your booking request was declined.": {
+    "de": "Ihre Buchungsanfrage wurde abgelehnt.",
+    "fr": "votre demande de réservation a été refusée.",
+    "it": "la tua richiesta di prenotazione è stata rifiutata."
+  },
+  "{{ minutes }} min": {
+    "de": "{{ minutes }} Min.",
+    "fr": "{{ minutes }} min",
+    "it": "{{ minutes }} min"
+  },
+  "{{ name }} ({{ minutes }} min)": {
+    "de": "{{ name }} ({{ minutes }} Min.)",
+    "fr": "{{ name }} ({{ minutes }} min)",
+    "it": "{{ name }} ({{ minutes }} min)"
+  },
+  "— Select staff member —": {
+    "de": "— Mitarbeiter auswählen —",
+    "fr": "— Choisir un employé —",
+    "it": "— Seleziona membro del personale —"
+  }
+}

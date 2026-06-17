@@ -1,5 +1,6 @@
 {% extends "company_accounts/app_base.html" %}
-{% block title %}{{ title|default:"Add Service" }}{% endblock %}
+{% load i18n %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block extra_style %}
 <style>
@@ -149,14 +150,14 @@
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
     <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
-  Services
+  {% translate "Services" %}
 </a>
 
 <div class="sv-form-card">
-  <h1 class="sv-form-title">{{ title|default:"Add Service" }}</h1>
+  <h1 class="sv-form-title">{{ title }}</h1>
   <p class="sv-form-subtitle">
-    {% if title == "Edit Service" %}Update the service details and staff assignments.
-    {% else %}Define a new service offering for your company.{% endif %}
+    {% if is_edit %}{% translate "Update the service details and staff assignments." %}
+    {% else %}{% translate "Define a new service offering for your company." %}{% endif %}
   </p>
 
   <form method="post" novalidate>
@@ -169,7 +170,7 @@
     {% endif %}
 
     <div class="sv-field">
-      <label class="sv-label" for="{{ form.name.id_for_label }}">Name *</label>
+      <label class="sv-label" for="{{ form.name.id_for_label }}">{% translate "Name" %} *</label>
       <input class="sv-input{% if form.name.errors %} sv-input--error{% endif %}"
              type="text"
              id="{{ form.name.id_for_label }}"
@@ -184,7 +185,7 @@
     </div>
 
     <div class="sv-field">
-      <label class="sv-label" for="{{ form.description.id_for_label }}">Description</label>
+      <label class="sv-label" for="{{ form.description.id_for_label }}">{% translate "Description" %}</label>
       <textarea class="sv-textarea{% if form.description.errors %} sv-textarea--error{% endif %}"
                 id="{{ form.description.id_for_label }}"
                 name="description"
@@ -195,7 +196,7 @@
     </div>
 
     <div class="sv-field">
-      <label class="sv-label" for="{{ form.duration_minutes.id_for_label }}">Duration (minutes) *</label>
+      <label class="sv-label" for="{{ form.duration_minutes.id_for_label }}">{% translate "Duration (minutes)" %} *</label>
       <input class="sv-input{% if form.duration_minutes.errors %} sv-input--error{% endif %}"
              type="number"
              id="{{ form.duration_minutes.id_for_label }}"
@@ -204,7 +205,7 @@
              min="5"
              max="480"
              required>
-      <p class="sv-field-hint">Between 5 and 480 minutes.</p>
+      <p class="sv-field-hint">{% translate "Between 5 and 480 minutes." %}</p>
       {% for error in form.duration_minutes.errors %}
         <p class="sv-field-error">{{ error }}</p>
       {% endfor %}
@@ -217,13 +218,13 @@
                id="{{ form.is_active.id_for_label }}"
                name="is_active"
                {% if form.is_active.value %}checked{% endif %}>
-        <label class="sv-checkbox-label" for="{{ form.is_active.id_for_label }}">Active</label>
+        <label class="sv-checkbox-label" for="{{ form.is_active.id_for_label }}">{% translate "Active" %}</label>
       </div>
     </div>
     {% endif %}
 
     <div class="sv-field">
-      <span class="sv-label">Assign to staff members</span>
+      <span class="sv-label">{% translate "Assign to staff members" %}</span>
       {% if form.assigned_staff_members.field.queryset.exists %}
         <ul class="sv-staff-list">
           {% for choice in form.assigned_staff_members %}
@@ -238,7 +239,7 @@
           {% endfor %}
         </ul>
       {% else %}
-        <p class="sv-staff-none">No active staff members found. Add staff members first.</p>
+        <p class="sv-staff-none">{% translate "No active staff members found. Add staff members first." %}</p>
       {% endif %}
       {% for error in form.assigned_staff_members.errors %}
         <p class="sv-field-error">{{ error }}</p>
@@ -247,21 +248,21 @@
 
     <hr class="sv-divider">
 
-    <button type="submit" class="sv-submit">{{ submit_label|default:"Add service" }}</button>
-    <a href="{% url 'services:list' %}" class="sv-cancel">Cancel</a>
+    <button type="submit" class="sv-submit">{{ submit_label }}</button>
+    <a href="{% url 'services:list' %}" class="sv-cancel">{% translate "Cancel" %}</a>
   </form>
 
   {% if service %}
   <div class="sv-danger-zone">
-    <div class="sv-danger-title">Danger Zone</div>
+    <div class="sv-danger-title">{% translate "Danger Zone" %}</div>
     <p class="sv-danger-desc">
-      Permanently delete this service and all its staff assignments. This cannot be undone. Services with existing bookings cannot be deleted.
+      {% translate "Permanently delete this service and all its staff assignments. This cannot be undone. Services with existing bookings cannot be deleted." %}
     </p>
     <a href="{% url 'services:delete' service.pk %}" class="sv-danger-btn">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/>
       </svg>
-      Delete service
+      {% translate "Delete service" %}
     </a>
   </div>
   {% endif %}

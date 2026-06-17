@@ -1,5 +1,6 @@
 {% extends "bookings/public_booking_base.html" %}
-{% block title %}Cancel Booking — {{ company.business_name }}{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Cancel Booking" %} — {{ company.business_name }}{% endblock %}
 
 {% block extra_style %}
 <style>
@@ -41,27 +42,27 @@
       <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.5"/>
       <path d="M4 4l4 4M8 4l-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
     </svg>
-    Cancel booking
+    {% translate "Cancel booking" %}
   </div>
 
-  <h1 class="bk-cancel-title">Are you sure you want to cancel?</h1>
-  <p class="bk-cancel-lead">This action cannot be undone. Your time slot will be released and may be booked by someone else.</p>
+  <h1 class="bk-cancel-title">{% translate "Are you sure you want to cancel?" %}</h1>
+  <p class="bk-cancel-lead">{% translate "This action cannot be undone. Your time slot will be released and may be booked by someone else." %}</p>
 
   <table class="bk-detail-table">
-    <tr><th>Company</th><td>{{ company.business_name }}</td></tr>
-    <tr><th>With</th><td>{{ booking.staff_member.name }}</td></tr>
-    <tr><th>Service</th><td>{{ booking.service_offering.name }}</td></tr>
-    <tr><th>Date</th><td>{{ booking.start_at|date:"l, j F Y" }}</td></tr>
-    <tr><th>Time</th><td>{{ booking.start_at|date:"H:i" }} – {{ booking.end_at|date:"H:i" }}</td></tr>
+    <tr><th>{% translate "Company" %}</th><td>{{ company.business_name }}</td></tr>
+    <tr><th>{% translate "With" %}</th><td>{{ booking.staff_member.name }}</td></tr>
+    <tr><th>{% translate "Service" %}</th><td>{{ booking.service_offering.name }}</td></tr>
+    <tr><th>{% translate "Date" %}</th><td>{{ booking.start_at|date:"l, j F Y" }}</td></tr>
+    <tr><th>{% translate "Time" %}</th><td>{{ booking.start_at|date:"H:i" }} – {{ booking.end_at|date:"H:i" }}</td></tr>
   </table>
 
   <div class="bk-btn-row">
     <form method="post" style="flex:1;display:contents;">
       {% csrf_token %}
-      <button type="submit" class="bk-confirm-cancel">Yes, cancel booking</button>
+      <button type="submit" class="bk-confirm-cancel">{% translate "Yes, cancel booking" %}</button>
     </form>
     <a href="{% url 'bookings:confirmed' company_slug=company.slug public_token=booking.public_token %}" class="bk-keep">
-      Keep booking
+      {% translate "Keep booking" %}
     </a>
   </div>
 </div>

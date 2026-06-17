@@ -1,0 +1,242 @@
+{
+  "Upcoming confirmed appointments.": {
+    "de": "Anstehende bestätigte Termine.",
+    "fr": "Rendez-vous confirmés à venir.",
+    "it": "Appuntamenti confermati in arrivo."
+  },
+  "Update business name, timezone, and booking page options.": {
+    "de": "Aktualisieren Sie Firmenname, Zeitzone und Buchungsseiten-Optionen.",
+    "fr": "Mettez à jour le nom de l'entreprise, le fuseau horaire et les options de la page de réservation.",
+    "it": "Aggiorna nome dell'azienda, fuso orario e opzioni della pagina di prenotazione."
+  },
+  "Update the date and times for this block.": {
+    "de": "Aktualisieren Sie Datum und Zeiten für diesen Block.",
+    "fr": "Mettez à jour la date et les heures de ce créneau.",
+    "it": "Aggiorna la data e gli orari di questo blocco."
+  },
+  "Update the service details and staff assignments.": {
+    "de": "Aktualisieren Sie die Dienstleistungsdetails und Mitarbeiterzuweisungen.",
+    "fr": "Mettez à jour les détails du service et les assignations d'employés.",
+    "it": "Aggiorna i dettagli del servizio e le assegnazioni del personale."
+  },
+  "Update the staff member's details.": {
+    "de": "Aktualisieren Sie die Details des Mitarbeiters.",
+    "fr": "Mettez à jour les détails de l'employé.",
+    "it": "Aggiorna i dettagli del membro del personale."
+  },
+  "View bookings →": {
+    "de": "Buchungen ansehen →",
+    "fr": "Voir les réservations →",
+    "it": "Visualizza prenotazioni →"
+  },
+  "View pending bookings →": {
+    "de": "Ausstehende Buchungen ansehen →",
+    "fr": "Voir les réservations en attente →",
+    "it": "Visualizza prenotazioni in attesa →"
+  },
+  "View upcoming and past appointments.": {
+    "de": "Anstehende und vergangene Termine ansehen.",
+    "fr": "Voir les rendez-vous à venir et passés.",
+    "it": "Visualizza gli appuntamenti in arrivo e passati."
+  },
+  "Website": {
+    "de": "Website",
+    "fr": "Site web",
+    "it": "Sito web"
+  },
+  "Wed": {
+    "de": "Mi",
+    "fr": "Mer",
+    "it": "Mer"
+  },
+  "When disabled, customers cannot access your booking page.": {
+    "de": "Wenn deaktiviert, können Kunden nicht auf Ihre Buchungsseite zugreifen.",
+    "fr": "Si désactivé, les clients ne peuvent pas accéder à votre page de réservation.",
+    "it": "Se disattivata, i clienti non possono accedere alla pagina di prenotazione."
+  },
+  "When disabled, staff member names are hidden on public booking pages.": {
+    "de": "Wenn deaktiviert, werden Mitarbeiternamen auf öffentlichen Buchungsseiten ausgeblendet.",
+    "fr": "Si désactivé, les noms des employés sont masqués sur les pages de réservation publiques.",
+    "it": "Se disattivata, i nomi del personale vengono nascosti nelle pagine di prenotazione pubbliche."
+  },
+  "When enabled and you have multiple staff members, customers can book the first available appointment with any staff member.": {
+    "de": "Wenn aktiviert und Sie mehrere Mitarbeiter haben, können Kunden den ersten verfügbaren Termin mit einem beliebigen Mitarbeiter buchen.",
+    "fr": "Si activé et que vous avez plusieurs employés, les clients peuvent réserver le premier rendez-vous disponible avec n'importe quel employé.",
+    "it": "Se attivata e disponi di più membri del personale, i clienti possono prenotare il primo appuntamento disponibile con qualsiasi membro del personale."
+  },
+  "With": {
+    "de": "Mit",
+    "fr": "Avec",
+    "it": "Con"
+  },
+  "With:": {
+    "de": "Mit:",
+    "fr": "Avec :",
+    "it": "Con:"
+  },
+  "Yes, cancel booking": {
+    "de": "Ja, Buchung stornieren",
+    "fr": "Oui, annuler la réservation",
+    "it": "Sì, annulla prenotazione"
+  },
+  "Yes, delete this block": {
+    "de": "Ja, diesen Block löschen",
+    "fr": "Oui, supprimer ce créneau",
+    "it": "Sì, elimina questo blocco"
+  },
+  "You are about to remove the following open hours block.": {
+    "de": "Sie sind dabei, den folgenden Öffnungszeitenblock zu entfernen.",
+    "fr": "Vous êtes sur le point de supprimer le créneau d'horaires suivant.",
+    "it": "Stai per rimuovere il seguente blocco di orari di apertura."
+  },
+  "You must accept the privacy policy to proceed.": {
+    "de": "Sie müssen die Datenschutzerklärung akzeptieren, um fortzufahren.",
+    "fr": "Vous devez accepter la politique de confidentialité pour continuer.",
+    "it": "Devi accettare la politica sulla privacy per procedere."
+  },
+  "You're receiving this email because a password reset was requested for your account at %(domain)s.": {
+    "de": "Sie erhalten diese E-Mail, weil für Ihr Konto bei %(domain)s ein Zurücksetzen des Passworts angefordert wurde.",
+    "fr": "Vous recevez cet e-mail car une réinitialisation de mot de passe a été demandée pour votre compte sur %(domain)s.",
+    "it": "Ricevi questa e-mail perché è stata richiesta la reimpostazione della password per il tuo account su %(domain)s."
+  },
+  "You've made too many requests in a short period. Please wait a moment and try again.": {
+    "de": "Sie haben in kurzer Zeit zu viele Anfragen gestellt. Bitte warten Sie einen Moment und versuchen Sie es erneut.",
+    "fr": "Vous avez effectué trop de requêtes en peu de temps. Veuillez attendre un moment et réessayer.",
+    "it": "Hai effettuato troppe richieste in un breve periodo. Attendi un momento e riprova."
+  },
+  "Your Details": {
+    "de": "Ihre Angaben",
+    "fr": "Vos coordonnées",
+    "it": "I tuoi dati"
+  },
+  "Your appointment has been cancelled": {
+    "de": "Ihr Termin wurde storniert",
+    "fr": "Votre rendez-vous a été annulé",
+    "it": "Il tuo appuntamento è stato annullato"
+  },
+  "Your appointment is not confirmed yet. The company will review your request.": {
+    "de": "Ihr Termin ist noch nicht bestätigt. Das Unternehmen wird Ihre Anfrage prüfen.",
+    "fr": "Votre rendez-vous n'est pas encore confirmé. L'entreprise examinera votre demande.",
+    "it": "Il tuo appuntamento non è ancora confermato. L'azienda esaminerà la tua richiesta."
+  },
+  "Your appointment request could not be confirmed. Please contact %(business_name)s or try a different time.": {
+    "de": "Ihre Terminanfrage konnte nicht bestätigt werden. Bitte kontaktieren Sie %(business_name)s oder versuchen Sie eine andere Zeit.",
+    "fr": "Votre demande de rendez-vous n'a pas pu être confirmée. Veuillez contacter %(business_name)s ou essayer un autre horaire.",
+    "it": "La tua richiesta di appuntamento non può essere confermata. Contatta %(business_name)s o provare un altro orario."
+  },
+  "Your appointment request has been submitted and is waiting for confirmation from %(business_name)s. You will be notified by email once it is reviewed. This page will expire shortly.": {
+    "de": "Ihre Terminanfrage wurde übermittelt und wartet auf die Bestätigung von %(business_name)s. Sie werden per E-Mail benachrichtigt, sobald sie geprüft wurde. Diese Seite läuft in Kürze ab.",
+    "fr": "Votre demande de rendez-vous a été soumise et est en attente de confirmation de %(business_name)s. Vous serez informé par e-mail une fois examinée. Cette page expirera bientôt.",
+    "it": "La tua richiesta di appuntamento è stata inviata ed è in attesa di conferma da %(business_name)s. Riceverai una notifica via e-mail una volta esaminata. Questa pagina scadrà a breve."
+  },
+  "Your booking has been cancelled. The time slot is now available again.": {
+    "de": "Ihre Buchung wurde storniert. Der Termin ist nun wieder verfügbar.",
+    "fr": "Votre réservation a été annulée. Le créneau est désormais à nouveau disponible.",
+    "it": "La tua prenotazione è stata annullata. L'orario è di nuovo disponibile."
+  },
+  "Your booking is confirmed": {
+    "de": "Ihre Buchung ist bestätigt",
+    "fr": "Votre réservation est confirmée",
+    "it": "La tua prenotazione è confermata"
+  },
+  "Your booking is confirmed.": {
+    "de": "Ihre Buchung ist bestätigt.",
+    "fr": "Votre réservation est confirmée.",
+    "it": "La tua prenotazione è confermata."
+  },
+  "Your booking request was declined": {
+    "de": "Ihre Buchungsanfrage wurde abgelehnt",
+    "fr": "Votre demande de réservation a été refusée",
+    "it": "La tua richiesta di prenotazione è stata rifiutata"
+  },
+  "Your booking request was received": {
+    "de": "Ihre Buchungsanfrage wurde erhalten",
+    "fr": "Votre demande de réservation a été reçue",
+    "it": "La tua richiesta di prenotazione è stata ricevuta"
+  },
+  "Your confirmation details have been sent to your email. This page will expire shortly and cannot be revisited.": {
+    "de": "Ihre Bestätigungsdetails wurden an Ihre E-Mail-Adresse gesendet. Diese Seite läuft in Kürze ab und kann nicht erneut aufgerufen werden.",
+    "fr": "Les détails de votre confirmation ont été envoyés à votre e-mail. Cette page expirera bientôt et ne pourra plus être consultée.",
+    "it": "I dettagli della conferma sono stati inviati alla tua e-mail. Questa pagina scadrà a breve e non potrà essere rivisitata."
+  },
+  "Your data will be used solely to manage this appointment.": {
+    "de": "Ihre Daten werden ausschliesslich zur Verwaltung dieses Termins verwendet.",
+    "fr": "Vos données seront utilisées uniquement pour gérer ce rendez-vous.",
+    "it": "I tuoi dati saranno utilizzati esclusivamente per gestire questo appuntamento."
+  },
+  "Your details": {
+    "de": "Ihre Angaben",
+    "fr": "Vos coordonnées",
+    "it": "I tuoi dati"
+  },
+  "Your password has been changed. You can now log in with your new password.": {
+    "de": "Ihr Passwort wurde geändert. Sie können sich jetzt mit Ihrem neuen Passwort anmelden.",
+    "fr": "Votre mot de passe a été modifié. Vous pouvez maintenant vous connecter avec votre nouveau mot de passe.",
+    "it": "La tua password è stata modificata. Ora puoi accedere con la tua nuova password."
+  },
+  "Your upcoming availability for %(business_name)s": {
+    "de": "Ihre anstehende Verfügbarkeit für %(business_name)s",
+    "fr": "Vos disponibilités à venir pour %(business_name)s",
+    "it": "La tua disponibilita in arrivo per %(business_name)s"
+  },
+  "a new booking has been confirmed.": {
+    "de": "eine neue Buchung wurde bestätigt.",
+    "fr": "une nouvelle réservation a été confirmée.",
+    "it": "una nuova prenotazione è stata confermata."
+  },
+  "a new booking request is waiting for confirmation.": {
+    "de": "eine neue Buchungsanfrage wartet auf Bestätigung.",
+    "fr": "une nouvelle demande de réservation attend confirmation.",
+    "it": "una nuova richiesta di prenotazione è in attesa di conferma."
+  },
+  "booking requests must be reviewed and approved before they are confirmed.": {
+    "de": "Buchungsanfragen müssen überprüft und genehmigt werden, bevor sie bestätigt werden.",
+    "fr": "les demandes de réservation doivent être examinées et approuvées avant d'être confirmées.",
+    "it": "le richieste di prenotazione devono essere esaminate e approvate prima di essere confermate."
+  },
+  "bookings are confirmed immediately when a customer submits the form.": {
+    "de": "Buchungen werden sofort bestätigt, wenn ein Kunde das Formular absendet.",
+    "fr": "les réservations sont confirmées immédiatement lorsqu'un client soumet le formulaire.",
+    "it": "le prenotazioni vengono confermate immediatamente quando un cliente invia il modulo."
+  },
+  "optional": {
+    "de": "optional",
+    "fr": "facultatif",
+    "it": "opzionale"
+  },
+  "we received your booking request.": {
+    "de": "wir haben Ihre Buchungsanfrage erhalten.",
+    "fr": "nous avons reçu votre demande de réservation.",
+    "it": "abbiamo ricevuto la tua richiesta di prenotazione."
+  },
+  "your appointment has been cancelled by %(business_name)s.": {
+    "de": "Ihr Termin wurde von %(business_name)s storniert.",
+    "fr": "votre rendez-vous a été annulé par %(business_name)s.",
+    "it": "il tuo appuntamento è stato annullato da %(business_name)s."
+  },
+  "your appointment has been confirmed.": {
+    "de": "Ihr Termin wurde bestätigt.",
+    "fr": "votre rendez-vous a été confirmé.",
+    "it": "il tuo appuntamento è stato confermato."
+  },
+  "your booking request was declined.": {
+    "de": "Ihre Buchungsanfrage wurde abgelehnt.",
+    "fr": "votre demande de réservation a été refusée.",
+    "it": "la tua richiesta di prenotazione è stata rifiutata."
+  },
+  "%(minutes)s min": {
+    "de": "%(minutes)s Min.",
+    "fr": "%(minutes)s min",
+    "it": "%(minutes)s min"
+  },
+  "%(name)s (%(minutes)s min)": {
+    "de": "%(name)s (%(minutes)s Min.)",
+    "fr": "%(name)s (%(minutes)s min)",
+    "it": "%(name)s (%(minutes)s min)"
+  },
+  "— Select staff member —": {
+    "de": "— Mitarbeiter auswählen —",
+    "fr": "— Choisir un employé —",
+    "it": "— Seleziona membro del personale —"
+  }
+}

@@ -1,0 +1,242 @@
+{
+  "Confirmation mode": {
+    "de": "Bestätigungsmodus",
+    "fr": "Mode de confirmation",
+    "it": "Modalità di conferma"
+  },
+  "Confirmed": {
+    "de": "Bestätigt",
+    "fr": "Confirmé",
+    "it": "Confermato"
+  },
+  "Contact Information": {
+    "de": "Kontaktinformationen",
+    "fr": "Coordonnées",
+    "it": "Informazioni di contatto"
+  },
+  "Copied!": {
+    "de": "Kopiert!",
+    "fr": "Copié !",
+    "it": "Copiato!"
+  },
+  "Copy link": {
+    "de": "Link kopieren",
+    "fr": "Copier le lien",
+    "it": "Copia link"
+  },
+  "Create a company account": {
+    "de": "Unternehmenskonto erstellen",
+    "fr": "Créer un compte entreprise",
+    "it": "Crea un account aziendale"
+  },
+  "Create schedule": {
+    "de": "Plan erstellen",
+    "fr": "Créer le planning",
+    "it": "Crea pianificazione"
+  },
+  "Customer": {
+    "de": "Kunde",
+    "fr": "Client",
+    "it": "Cliente"
+  },
+  "Customer:": {
+    "de": "Kunde:",
+    "fr": "Client :",
+    "it": "Cliente:"
+  },
+  "Danger Zone": {
+    "de": "Gefahrenzone",
+    "fr": "Zone de danger",
+    "it": "Zona pericolosa"
+  },
+  "Dashboard": {
+    "de": "Übersicht",
+    "fr": "Tableau de bord",
+    "it": "Pannello di controllo"
+  },
+  "Date": {
+    "de": "Datum",
+    "fr": "Date",
+    "it": "Data"
+  },
+  "Date/time:": {
+    "de": "Datum/Uhrzeit:",
+    "fr": "Date/heure :",
+    "it": "Data/ora:"
+  },
+  "Deactivate staff member": {
+    "de": "Mitarbeiter deaktivieren",
+    "fr": "Désactiver l'employé",
+    "it": "Disattiva membro del personale"
+  },
+  "Decline": {
+    "de": "Ablehnen",
+    "fr": "Refuser",
+    "it": "Rifiuta"
+  },
+  "Declined": {
+    "de": "Abgelehnt",
+    "fr": "Refusé",
+    "it": "Rifiutato"
+  },
+  "Define a new service offering for your company.": {
+    "de": "Definieren Sie eine neue Dienstleistung für Ihr Unternehmen.",
+    "fr": "Définissez un nouveau service pour votre entreprise.",
+    "it": "Definisci un nuovo servizio per la tua azienda."
+  },
+  "Define when staff are available for appointments.": {
+    "de": "Legen Sie fest, wann Mitarbeiter für Termine verfügbar sind.",
+    "fr": "Définissez quand les employés sont disponibles pour des rendez-vous.",
+    "it": "Definisci quando il personale è disponibile per gli appuntamenti."
+  },
+  "Delete": {
+    "de": "Löschen",
+    "fr": "Supprimer",
+    "it": "Elimina"
+  },
+  "Delete \"%(name)s\"?": {
+    "de": "„%(name)s“ löschen?",
+    "fr": "Supprimer « %(name)s » ?",
+    "it": "Eliminare «%(name)s»?"
+  },
+  "Delete Open Hours": {
+    "de": "Öffnungszeiten löschen",
+    "fr": "Supprimer les horaires",
+    "it": "Elimina orari di apertura"
+  },
+  "Delete Service": {
+    "de": "Dienstleistung löschen",
+    "fr": "Supprimer le service",
+    "it": "Elimina servizio"
+  },
+  "Delete booking": {
+    "de": "Buchung löschen",
+    "fr": "Supprimer la réservation",
+    "it": "Elimina prenotazione"
+  },
+  "Delete service": {
+    "de": "Dienstleistung löschen",
+    "fr": "Supprimer le service",
+    "it": "Elimina servizio"
+  },
+  "Delete staff member": {
+    "de": "Mitarbeiter löschen",
+    "fr": "Supprimer l'employé",
+    "it": "Elimina membro del personale"
+  },
+  "Delete this entry?": {
+    "de": "Diesen Eintrag löschen?",
+    "fr": "Supprimer cette entrée ?",
+    "it": "Eliminare questa voce?"
+  },
+  "Description": {
+    "de": "Beschreibung",
+    "fr": "Description",
+    "it": "Descrizione"
+  },
+  "Deutsch": {
+    "de": "Deutsch",
+    "fr": "Deutsch",
+    "it": "Deutsch"
+  },
+  "Duration": {
+    "de": "Dauer",
+    "fr": "Durée",
+    "it": "Durata"
+  },
+  "Duration (minutes)": {
+    "de": "Dauer (Minuten)",
+    "fr": "Durée (minutes)",
+    "it": "Durata (minuti)"
+  },
+  "Duration must be at least 5 minutes.": {
+    "de": "Die Dauer muss mindestens 5 Minuten betragen.",
+    "fr": "La durée doit être d'au moins 5 minutes.",
+    "it": "La durata deve essere di almeno 5 minuti."
+  },
+  "Duration must not exceed 480 minutes (8 hours).": {
+    "de": "Die Dauer darf 480 Minuten (8 Stunden) nicht überschreiten.",
+    "fr": "La durée ne doit pas dépasser 480 minutes (8 heures).",
+    "it": "La durata non deve superare i 480 minuti (8 ore)."
+  },
+  "Duration must not exceed 8 hours.": {
+    "de": "Die Dauer darf 8 Stunden nicht überschreiten.",
+    "fr": "La durée ne doit pas dépasser 8 heures.",
+    "it": "La durata non deve superare le 8 ore."
+  },
+  "Edit Open Hours": {
+    "de": "Öffnungszeiten bearbeiten",
+    "fr": "Modifier les horaires",
+    "it": "Modifica orari di apertura"
+  },
+  "Edit Service": {
+    "de": "Dienstleistung bearbeiten",
+    "fr": "Modifier le service",
+    "it": "Modifica servizio"
+  },
+  "Edit Staff Member": {
+    "de": "Mitarbeiter bearbeiten",
+    "fr": "Modifier l'employé",
+    "it": "Modifica membro del personale"
+  },
+  "Email": {
+    "de": "E-Mail",
+    "fr": "E-mail",
+    "it": "E-mail"
+  },
+  "Email address": {
+    "de": "E-Mail-Adresse",
+    "fr": "Adresse e-mail",
+    "it": "Indirizzo e-mail"
+  },
+  "Email:": {
+    "de": "E-Mail:",
+    "fr": "E-mail :",
+    "it": "E-mail:"
+  },
+  "Employee pre-selected": {
+    "de": "Mitarbeiter vorausgewählt",
+    "fr": "Employé présélectionné",
+    "it": "Membro del personale preselezionato"
+  },
+  "Enable \"Any Employee\" option": {
+    "de": "Option „Beliebiger Mitarbeiter“ aktivieren",
+    "fr": "Activer l'option « N'importe quel employé »",
+    "it": "Attiva l'opzione «Qualsiasi membro del personale»"
+  },
+  "End date must be within one year from today.": {
+    "de": "Das Enddatum muss innerhalb eines Jahres ab heute liegen.",
+    "fr": "La date de fin doit être dans un délai d'un an à partir d'aujourd'hui.",
+    "it": "La data di fine deve rientrare in un anno da oggi."
+  },
+  "End date must not be before start date.": {
+    "de": "Das Enddatum darf nicht vor dem Startdatum liegen.",
+    "fr": "La date de fin ne doit pas être antérieure à la date de début.",
+    "it": "La data di fine non deve essere precedente alla data di inizio."
+  },
+  "End time must be after start time.": {
+    "de": "Die Endzeit muss nach der Startzeit liegen.",
+    "fr": "L'heure de fin doit être après l'heure de début.",
+    "it": "L'ora di fine deve essere successiva all'ora di inizio."
+  },
+  "English": {
+    "de": "Englisch",
+    "fr": "Anglais",
+    "it": "Inglese"
+  },
+  "Enter the email address you registered with. If an account exists, you will receive a link to set a new password.": {
+    "de": "Geben Sie die E-Mail-Adresse ein, mit der Sie sich registriert haben. Falls ein Konto existiert, erhalten Sie einen Link zum Festlegen eines neuen Passworts.",
+    "fr": "Saisissez l'adresse e-mail avec laquelle vous vous êtes inscrit. Si un compte existe, vous recevrez un lien pour définir un nouveau mot de passe.",
+    "it": "Inserisci l'indirizzo e-mail con cui ti sei registrato. Se esiste un account, riceverai un link per impostare una nuova password."
+  },
+  "Fastest available appointment with any suitable staff member.": {
+    "de": "Schnellster verfügbarer Termin mit einem geeigneten Mitarbeiter.",
+    "fr": "Rendez-vous disponible le plus rapide avec tout employé approprié.",
+    "it": "Appuntamento disponibile più rapido con qualsiasi membro del personale idoneo."
+  },
+  "First name": {
+    "de": "Vorname",
+    "fr": "Prénom",
+    "it": "Nome"
+  }
+}

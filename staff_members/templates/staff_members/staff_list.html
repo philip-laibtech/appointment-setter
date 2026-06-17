@@ -1,5 +1,6 @@
 {% extends "company_accounts/app_base.html" %}
-{% block title %}Staff Members — {{ user.business_name }}{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Staff Members" %} — {{ user.business_name }}{% endblock %}
 
 {% block extra_style %}
 <style>
@@ -131,14 +132,14 @@
 {% block content %}
 <div class="sm-header">
   <div>
-    <h1 class="sm-page-title">Staff Members</h1>
-    <p class="sm-page-subtitle">People who can be assigned to availability slots.</p>
+    <h1 class="sm-page-title">{% translate "Staff Members" %}</h1>
+    <p class="sm-page-subtitle">{% translate "People who can be assigned to availability slots." %}</p>
   </div>
   <a href="{% url 'staff_members:create' %}" class="sm-add-btn">
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
       <path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
     </svg>
-    Add staff member
+    {% translate "Add staff member" %}
   </a>
 </div>
 
@@ -158,7 +159,7 @@
           </div>
         </div>
         <span class="sm-badge sm-badge--{% if member.is_active %}active{% else %}inactive{% endif %}">
-          {% if member.is_active %}Active{% else %}Inactive{% endif %}
+          {% if member.is_active %}{% translate "Active" %}{% else %}{% translate "Inactive" %}{% endif %}
         </span>
         <svg class="sm-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
           <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
@@ -174,13 +175,13 @@
         <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
       </svg>
     </div>
-    <p class="sm-empty-title">No staff members yet</p>
-    <p class="sm-empty-text">Add your first staff member to assign them to availability slots.</p>
+    <p class="sm-empty-title">{% translate "No staff members yet" %}</p>
+    <p class="sm-empty-text">{% translate "Add your first staff member to assign them to availability slots." %}</p>
     <a href="{% url 'staff_members:create' %}" class="sm-empty-cta">
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
         <path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
-      Add first staff member
+      {% translate "Add first staff member" %}
     </a>
   </div>
 {% endif %}

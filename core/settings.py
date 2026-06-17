@@ -1,6 +1,8 @@
 import os
 from pathlib import Path
 
+from django.utils.translation import gettext_lazy as _
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get(
@@ -35,9 +37,11 @@ MIDDLEWARE = [
     "csp.middleware.CSPMiddleware",
     "core.middleware.PermissionsPolicyMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "company_accounts.middleware.CompanyLanguageMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
@@ -88,7 +92,14 @@ LOGIN_URL = "company_accounts:login"
 LOGIN_REDIRECT_URL = "company_accounts:dashboard"
 LOGOUT_REDIRECT_URL = "company_accounts:login"
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "de"
+LANGUAGES = [
+    ("de", _("German")),
+    ("fr", _("French")),
+    ("it", _("Italian")),
+    ("en", _("English")),
+]
+LOCALE_PATHS = [BASE_DIR / "locale"]
 TIME_ZONE = "Europe/Zurich"
 USE_I18N = True
 USE_TZ = True

@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-{% block title %}Privacy Policy — Appointment Setter{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Privacy Policy" %} — Appointment Setter{% endblock %}
 
 {% block head %}
 <style>
@@ -106,16 +107,16 @@
 <nav>
   <a class="brand" href="/">Appointment Setter</a>
   <span class="spacer"></span>
-  <a href="{% url 'company_accounts:login' %}">Login</a>
-  <a href="{% url 'company_accounts:register' %}">Register</a>
+  <a href="{% url 'company_accounts:login' %}">{% translate "Login" %}</a>
+  <a href="{% url 'company_accounts:register' %}">{% translate "Register" %}</a>
 </nav>
 
 <main>
-  <a class="back" href="/">&larr; Back to home</a>
+  <a class="back" href="/">&larr; {% translate "Back to home" %}</a>
 
   <div class="card">
-    <h1>Privacy Policy</h1>
-    <p class="meta">Last updated: <!-- DATE --></p>
+    <h1>{% translate "Privacy Policy" %}</h1>
+    <p class="meta">{% translate "Last updated:" %} <!-- DATE --></p>
 
     <p>
       <!-- INTRO: one paragraph explaining who you are and that this policy describes how personal data

@@ -1,0 +1,242 @@
+{
+  "Public Page": {
+    "de": "Öffentliche Seite",
+    "fr": "Page publique",
+    "it": "Pagina pubblica"
+  },
+  "Public booking link": {
+    "de": "Öffentlicher Buchungslink",
+    "fr": "Lien de réservation public",
+    "it": "Link di prenotazione pubblico"
+  },
+  "Public booking page enabled": {
+    "de": "Öffentliche Buchungsseite aktiviert",
+    "fr": "Page de réservation publique activée",
+    "it": "Pagina di prenotazione pubblica attivata"
+  },
+  "Register": {
+    "de": "Registrieren",
+    "fr": "S'inscrire",
+    "it": "Registrati"
+  },
+  "Remove \"%(name)s\"?": {
+    "de": "„%(name)s“ entfernen?",
+    "fr": "Supprimer « %(name)s » ?",
+    "it": "Rimuovere «%(name)s»?"
+  },
+  "Remove Staff Member": {
+    "de": "Mitarbeiter entfernen",
+    "fr": "Supprimer l'employé",
+    "it": "Rimuovi membro del personale"
+  },
+  "Repeat on": {
+    "de": "Wiederholen am",
+    "fr": "Répéter le",
+    "it": "Ripeti il"
+  },
+  "Request a new link": {
+    "de": "Neuen Link anfordern",
+    "fr": "Demander un nouveau lien",
+    "it": "Richiedi un nuovo link"
+  },
+  "Requested": {
+    "de": "Angefragt",
+    "fr": "Demandé",
+    "it": "Richiesto"
+  },
+  "Reset Password": {
+    "de": "Passwort zurücksetzen",
+    "fr": "Réinitialiser le mot de passe",
+    "it": "Reimposta password"
+  },
+  "Reset your password": {
+    "de": "Passwort zurücksetzen",
+    "fr": "Réinitialiser votre mot de passe",
+    "it": "Reimposta la tua password"
+  },
+  "Reset your password — %(domain)s": {
+    "de": "Passwort zurücksetzen — %(domain)s",
+    "fr": "Réinitialiser votre mot de passe — %(domain)s",
+    "it": "Reimposta la tua password — %(domain)s"
+  },
+  "Review and confirm or decline customer booking requests.": {
+    "de": "Überprüfen und bestätigen oder lehnen Sie Buchungsanfragen von Kunden ab.",
+    "fr": "Examinez et confirmez ou refusez les demandes de réservation des clients.",
+    "it": "Esamina e conferma o rifiuta le richieste di prenotazione dei clienti."
+  },
+  "Sat": {
+    "de": "Sa",
+    "fr": "Sam",
+    "it": "Sab"
+  },
+  "Save changes": {
+    "de": "Änderungen speichern",
+    "fr": "Enregistrer les modifications",
+    "it": "Salva modifiche"
+  },
+  "Save settings": {
+    "de": "Einstellungen speichern",
+    "fr": "Enregistrer les paramètres",
+    "it": "Salva impostazioni"
+  },
+  "Security check": {
+    "de": "Sicherheitsprüfung",
+    "fr": "Vérification de sécurité",
+    "it": "Controllo di sicurezza"
+  },
+  "Select a valid confirmation mode.": {
+    "de": "Wählen Sie einen gültigen Bestätigungsmodus.",
+    "fr": "Sélectionnez un mode de confirmation valide.",
+    "it": "Seleziona una modalità di conferma valida."
+  },
+  "Select a valid language.": {
+    "de": "Wählen Sie eine gültige Sprache.",
+    "fr": "Sélectionnez une langue valide.",
+    "it": "Seleziona una lingua valida."
+  },
+  "Select at least one day of the week.": {
+    "de": "Wählen Sie mindestens einen Wochentag aus.",
+    "fr": "Sélectionnez au moins un jour de la semaine.",
+    "it": "Seleziona almeno un giorno della settimana."
+  },
+  "Send reset link": {
+    "de": "Link zum Zurücksetzen senden",
+    "fr": "Envoyer le lien de réinitialisation",
+    "it": "Invia link di reimpostazione"
+  },
+  "Server Error": {
+    "de": "Serverfehler",
+    "fr": "Erreur serveur",
+    "it": "Errore del server"
+  },
+  "Service": {
+    "de": "Dienstleistung",
+    "fr": "Service",
+    "it": "Servizio"
+  },
+  "Service \"%(name)s\" created.": {
+    "de": "Dienstleistung „%(name)s“ erstellt.",
+    "fr": "Service « %(name)s » créé.",
+    "it": "Servizio «%(name)s» creato."
+  },
+  "Service \"%(name)s\" deleted.": {
+    "de": "Dienstleistung „%(name)s“ gelöscht.",
+    "fr": "Service « %(name)s » supprimé.",
+    "it": "Servizio «%(name)s» eliminato."
+  },
+  "Service \"%(name)s\" updated.": {
+    "de": "Dienstleistung „%(name)s“ aktualisiert.",
+    "fr": "Service « %(name)s » mis à jour.",
+    "it": "Servizio «%(name)s» aggiornato."
+  },
+  "Service does not belong to this company.": {
+    "de": "Die Dienstleistung gehört nicht zu diesem Unternehmen.",
+    "fr": "Le service n'appartient pas à cette entreprise.",
+    "it": "Il servizio non appartiene a questa azienda."
+  },
+  "Service:": {
+    "de": "Dienstleistung:",
+    "fr": "Service :",
+    "it": "Servizio:"
+  },
+  "Services": {
+    "de": "Dienstleistungen",
+    "fr": "Services",
+    "it": "Servizi"
+  },
+  "Services your company offers to customers.": {
+    "de": "Dienstleistungen, die Ihr Unternehmen Kunden anbietet.",
+    "fr": "Services que votre entreprise propose aux clients.",
+    "it": "Servizi che la tua azienda offre ai clienti."
+  },
+  "Set New Password": {
+    "de": "Neues Passwort festlegen",
+    "fr": "Définir un nouveau mot de passe",
+    "it": "Imposta nuova password"
+  },
+  "Set Recurring Hours": {
+    "de": "Wiederkehrende Zeiten festlegen",
+    "fr": "Définir des horaires récurrents",
+    "it": "Imposta orari ricorrenti"
+  },
+  "Set a new password": {
+    "de": "Neues Passwort festlegen",
+    "fr": "Définir un nouveau mot de passe",
+    "it": "Imposta una nuova password"
+  },
+  "Set new password": {
+    "de": "Neues Passwort festlegen",
+    "fr": "Définir un nouveau mot de passe",
+    "it": "Imposta nuova password"
+  },
+  "Set recurring": {
+    "de": "Wiederkehrend festlegen",
+    "fr": "Définir récurrent",
+    "it": "Imposta ricorrente"
+  },
+  "Settings": {
+    "de": "Einstellungen",
+    "fr": "Paramètres",
+    "it": "Impostazioni"
+  },
+  "Settings saved.": {
+    "de": "Einstellungen gespeichert.",
+    "fr": "Paramètres enregistrés.",
+    "it": "Impostazioni salvate."
+  },
+  "Share this with customers so they can book appointments online.": {
+    "de": "Teilen Sie dies mit Kunden, damit sie online Termine buchen können.",
+    "fr": "Partagez ceci avec vos clients afin qu'ils puissent réserver des rendez-vous en ligne.",
+    "it": "Condividi questo con i clienti in modo che possano prenotare appuntamenti online."
+  },
+  "Show staff names publicly": {
+    "de": "Mitarbeiternamen öffentlich anzeigen",
+    "fr": "Afficher les noms des employés publiquement",
+    "it": "Mostra pubblicamente i nomi del personale"
+  },
+  "Simple appointment booking for your business": {
+    "de": "Einfache Terminbuchung für Ihr Unternehmen",
+    "fr": "Réservation de rendez-vous simple pour votre entreprise",
+    "it": "Prenotazione di appuntamenti semplice per la tua azienda"
+  },
+  "Slot does not belong to this staff member.": {
+    "de": "Der Termin gehört nicht zu diesem Mitarbeiter.",
+    "fr": "Le créneau n'appartient pas à cet employé.",
+    "it": "L'orario non appartiene a questo membro del personale."
+  },
+  "Slug": {
+    "de": "Slug",
+    "fr": "Slug",
+    "it": "Slug"
+  },
+  "Something went wrong": {
+    "de": "Etwas ist schiefgelaufen",
+    "fr": "Une erreur s'est produite",
+    "it": "Qualcosa è andato storto"
+  },
+  "Staff": {
+    "de": "Personal",
+    "fr": "Personnel",
+    "it": "Personale"
+  },
+  "Staff Links": {
+    "de": "Mitarbeiterlinks",
+    "fr": "Liens des employés",
+    "it": "Link del personale"
+  },
+  "Staff Members": {
+    "de": "Mitarbeiter",
+    "fr": "Employés",
+    "it": "Membri del personale"
+  },
+  "Staff member": {
+    "de": "Mitarbeiter",
+    "fr": "Employé",
+    "it": "Membro del personale"
+  },
+  "Staff member \"%(name)s\" added.": {
+    "de": "Mitarbeiter „%(name)s“ hinzugefügt.",
+    "fr": "Employé « %(name)s » ajouté.",
+    "it": "Membro del personale «%(name)s» aggiunto."
+  }
+}

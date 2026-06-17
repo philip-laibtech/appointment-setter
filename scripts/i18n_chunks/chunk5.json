@@ -1,0 +1,242 @@
+{
+  "No active staff members found. Add staff members first.": {
+    "de": "Keine aktiven Mitarbeiter gefunden. Fügen Sie zuerst Mitarbeiter hinzu.",
+    "fr": "Aucun employé actif trouvé. Ajoutez d'abord des employés.",
+    "it": "Nessun membro del personale attivo trovato. Aggiungi prima dei membri del personale."
+  },
+  "No active staff members yet.": {
+    "de": "Noch keine aktiven Mitarbeiter.",
+    "fr": "Aucun employé actif pour le moment.",
+    "it": "Nessun membro del personale attivo al momento."
+  },
+  "No appointments are currently available.": {
+    "de": "Derzeit sind keine Termine verfügbar.",
+    "fr": "Aucun rendez-vous n'est actuellement disponible.",
+    "it": "Al momento non sono disponibili appuntamenti."
+  },
+  "No available days": {
+    "de": "Keine verfügbaren Tage",
+    "fr": "Aucun jour disponible",
+    "it": "Nessun giorno disponibile"
+  },
+  "No matching dates found in the selected range.": {
+    "de": "Im ausgewählten Zeitraum wurden keine passenden Termine gefunden.",
+    "fr": "Aucune date correspondante trouvée dans la plage sélectionnée.",
+    "it": "Nessuna data corrispondente trovata nell'intervallo selezionato."
+  },
+  "No past bookings yet.": {
+    "de": "Noch keine vergangenen Buchungen.",
+    "fr": "Aucune réservation passée pour le moment.",
+    "it": "Nessuna prenotazione passata al momento."
+  },
+  "No pending booking requests at this time.": {
+    "de": "Derzeit keine ausstehenden Buchungsanfragen.",
+    "fr": "Aucune demande de réservation en attente pour le moment.",
+    "it": "Al momento nessuna richiesta di prenotazione in attesa."
+  },
+  "No services available": {
+    "de": "Keine Dienstleistungen verfügbar",
+    "fr": "Aucun service disponible",
+    "it": "Nessun servizio disponibile"
+  },
+  "No services yet": {
+    "de": "Noch keine Dienstleistungen",
+    "fr": "Aucun service pour le moment",
+    "it": "Nessun servizio al momento"
+  },
+  "No staff members yet": {
+    "de": "Noch keine Mitarbeiter",
+    "fr": "Aucun employé pour le moment",
+    "it": "Nessun membro del personale al momento"
+  },
+  "No times available": {
+    "de": "Keine Zeiten verfügbar",
+    "fr": "Aucun horaire disponible",
+    "it": "Nessun orario disponibile"
+  },
+  "No upcoming bookings.": {
+    "de": "Keine anstehenden Buchungen.",
+    "fr": "Aucune réservation à venir.",
+    "it": "Nessuna prenotazione in arrivo."
+  },
+  "No upcoming open hours": {
+    "de": "Keine anstehenden Öffnungszeiten",
+    "fr": "Aucun horaire à venir",
+    "it": "Nessun orario di apertura in arrivo"
+  },
+  "No upcoming open hours for %(name)s": {
+    "de": "Keine anstehenden Öffnungszeiten für %(name)s",
+    "fr": "Aucun horaire à venir pour %(name)s",
+    "it": "Nessun orario di apertura in arrivo per %(name)s"
+  },
+  "None assigned": {
+    "de": "Keine zugewiesen",
+    "fr": "Aucun assigné",
+    "it": "Nessuno assegnato"
+  },
+  "One block is created per matching weekday. Blocks that overlap existing open hours for the selected staff member, or fall in the past, are skipped automatically. Maximum range: one year ahead.": {
+    "de": "Pro übereinstimmendem Wochentag wird ein Block erstellt. Blöcke, die sich mit bestehenden Öffnungszeiten des ausgewählten Mitarbeiters überschneiden oder in der Vergangenheit liegen, werden automatisch übersprungen. Maximaler Zeitraum: ein Jahr im Voraus.",
+    "fr": "Un créneau est créé pour chaque jour de la semaine correspondant. Les créneaux qui se chevauchent avec des horaires existants de l'employé sélectionné, ou qui sont dans le passé, sont automatiquement ignorés. Plage maximale : un an à l'avance.",
+    "it": "Viene creato un blocco per ogni giorno della settimana corrispondente. I blocchi che si sovrappongono agli orari esistenti del membro del personale selezionato, o che sono nel passato, vengono saltati automaticamente. Intervallo massimo: un anno in anticipo."
+  },
+  "Online booking is currently unavailable.": {
+    "de": "Die Online-Buchung ist derzeit nicht verfügbar.",
+    "fr": "La réservation en ligne est actuellement indisponible.",
+    "it": "La prenotazione online non è al momento disponibile."
+  },
+  "Only active staff members can be assigned.": {
+    "de": "Nur aktive Mitarbeiter können zugewiesen werden.",
+    "fr": "Seuls les employés actifs peuvent être assignés.",
+    "it": "Solo i membri del personale attivi possono essere assegnati."
+  },
+  "Open Hours": {
+    "de": "Öffnungszeiten",
+    "fr": "Horaires d'ouverture",
+    "it": "Orari di apertura"
+  },
+  "Open hours block deleted.": {
+    "de": "Öffnungszeitenblock gelöscht.",
+    "fr": "Créneau d'horaires supprimé.",
+    "it": "Blocco di orari eliminato."
+  },
+  "Open menu": {
+    "de": "Menü öffnen",
+    "fr": "Ouvrir le menu",
+    "it": "Apri menu"
+  },
+  "Open page": {
+    "de": "Seite öffnen",
+    "fr": "Ouvrir la page",
+    "it": "Apri pagina"
+  },
+  "Or choose a specific staff member": {
+    "de": "Oder einen bestimmten Mitarbeiter auswählen",
+    "fr": "Ou choisissez un employé spécifique",
+    "it": "Oppure scegli un membro del personale specifico"
+  },
+  "PLZ": {
+    "de": "PLZ",
+    "fr": "Code postal",
+    "it": "CAP"
+  },
+  "Page Not Found": {
+    "de": "Seite nicht gefunden",
+    "fr": "Page non trouvée",
+    "it": "Pagina non trovata"
+  },
+  "Page disabled": {
+    "de": "Seite deaktiviert",
+    "fr": "Page désactivée",
+    "it": "Pagina disattivata"
+  },
+  "Page not found": {
+    "de": "Seite nicht gefunden",
+    "fr": "Page non trouvée",
+    "it": "Pagina non trovata"
+  },
+  "Page %(current)s of %(total)s": {
+    "de": "Seite %(current)s von %(total)s",
+    "fr": "Page %(current)s sur %(total)s",
+    "it": "Pagina %(current)s di %(total)s"
+  },
+  "Password": {
+    "de": "Passwort",
+    "fr": "Mot de passe",
+    "it": "Password"
+  },
+  "Password Updated": {
+    "de": "Passwort aktualisiert",
+    "fr": "Mot de passe mis à jour",
+    "it": "Password aggiornata"
+  },
+  "Password updated": {
+    "de": "Passwort aktualisiert",
+    "fr": "Mot de passe mis à jour",
+    "it": "Password aggiornata"
+  },
+  "Passwords do not match.": {
+    "de": "Die Passwörter stimmen nicht überein.",
+    "fr": "Les mots de passe ne correspondent pas.",
+    "it": "Le password non corrispondono."
+  },
+  "Past Bookings": {
+    "de": "Vergangene Buchungen",
+    "fr": "Réservations passées",
+    "it": "Prenotazioni passate"
+  },
+  "Pending": {
+    "de": "Ausstehend",
+    "fr": "En attente",
+    "it": "In attesa"
+  },
+  "Pending Bookings": {
+    "de": "Ausstehende Buchungen",
+    "fr": "Réservations en attente",
+    "it": "Prenotazioni in attesa"
+  },
+  "Pending Confirmation": {
+    "de": "Bestätigung ausstehend",
+    "fr": "Confirmation en attente",
+    "it": "Conferma in attesa"
+  },
+  "People who can be assigned to availability slots.": {
+    "de": "Personen, die Verfügbarkeitszeiten zugewiesen werden können.",
+    "fr": "Personnes pouvant être assignées à des créneaux de disponibilité.",
+    "it": "Persone che possono essere assegnate a fasce di disponibilita."
+  },
+  "Permanently delete this service and all its staff assignments. This cannot be undone. Services with existing bookings cannot be deleted.": {
+    "de": "Diese Dienstleistung und alle ihre Mitarbeiterzuweisungen dauerhaft löschen. Dies kann nicht rückgängig gemacht werden. Dienstleistungen mit bestehenden Buchungen können nicht gelöscht werden.",
+    "fr": "Supprimer définitivement ce service et toutes ses assignations d'employés. Cette action est irréversible. Les services avec des réservations existantes ne peuvent pas être supprimés.",
+    "it": "Elimina definitivamente questo servizio e tutte le sue assegnazioni del personale. Questa azione non può essere annullata. I servizi con prenotazioni esistenti non possono essere eliminati."
+  },
+  "Permanently delete this staff member. This action cannot be undone.": {
+    "de": "Diesen Mitarbeiter dauerhaft löschen. Diese Aktion kann nicht rückgängig gemacht werden.",
+    "fr": "Supprimer définitivement cet employé. Cette action est irréversible.",
+    "it": "Elimina definitivamente questo membro del personale. Questa azione non può essere annullata."
+  },
+  "Phone": {
+    "de": "Telefon",
+    "fr": "Téléphone",
+    "it": "Telefono"
+  },
+  "Phone number (optional)": {
+    "de": "Telefonnummer (optional)",
+    "fr": "Numéro de téléphone (facultatif)",
+    "it": "Numero di telefono (opzionale)"
+  },
+  "Phone:": {
+    "de": "Telefon:",
+    "fr": "Téléphone :",
+    "it": "Telefono:"
+  },
+  "Please contact the company directly to arrange an appointment.": {
+    "de": "Bitte wenden Sie sich direkt an das Unternehmen, um einen Termin zu vereinbaren.",
+    "fr": "Veuillez contacter directement l'entreprise pour organiser un rendez-vous.",
+    "it": "Contatta direttamente l'azienda per organizzare un appuntamento."
+  },
+  "Please review this request in your pending bookings.": {
+    "de": "Bitte überprüfen Sie diese Anfrage in Ihren ausstehenden Buchungen.",
+    "fr": "Veuillez examiner cette demande dans vos réservations en attente.",
+    "it": "Controlla questa richiesta nelle tue prenotazioni in attesa."
+  },
+  "Prev": {
+    "de": "Zurück",
+    "fr": "Précédent",
+    "it": "Precedente"
+  },
+  "Privacy Policy": {
+    "de": "Datenschutzerklärung",
+    "fr": "Politique de confidentialité",
+    "it": "Politica sulla privacy"
+  },
+  "Privacy accepted": {
+    "de": "Datenschutz akzeptiert",
+    "fr": "Confidentialité acceptée",
+    "it": "Privacy accettata"
+  },
+  "Public Booking Page": {
+    "de": "Öffentliche Buchungsseite",
+    "fr": "Page de réservation publique",
+    "it": "Pagina di prenotazione pubblica"
+  }
+}

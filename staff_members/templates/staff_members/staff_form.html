@@ -1,5 +1,6 @@
 {% extends "company_accounts/app_base.html" %}
-{% block title %}{{ title|default:"Add Staff Member" }}{% endblock %}
+{% load i18n %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block extra_style %}
 <style>
@@ -155,14 +156,14 @@
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
     <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
-  Staff Members
+  {% translate "Staff Members" %}
 </a>
 
 <div class="sm-form-card">
-  <h1 class="sm-form-title">{{ title|default:"Add Staff Member" }}</h1>
+  <h1 class="sm-form-title">{{ title }}</h1>
   <p class="sm-form-subtitle">
-    {% if title == "Edit Staff Member" %}Update the staff member's details.
-    {% else %}Add a person who can be assigned to availability slots.{% endif %}
+    {% if is_edit %}{% translate "Update the staff member's details." %}
+    {% else %}{% translate "Add a person who can be assigned to availability slots." %}{% endif %}
   </p>
 
   <form method="post" novalidate>
@@ -175,7 +176,7 @@
     {% endif %}
 
     <div class="sm-field">
-      <label class="sm-label" for="{{ form.name.id_for_label }}">Name *</label>
+      <label class="sm-label" for="{{ form.name.id_for_label }}">{% translate "Name" %} *</label>
       <input class="sm-input{% if form.name.errors %} sm-input--error{% endif %}"
              type="text"
              id="{{ form.name.id_for_label }}"
@@ -190,7 +191,7 @@
     </div>
 
     <div class="sm-field">
-      <label class="sm-label" for="{{ form.email.id_for_label }}">Email</label>
+      <label class="sm-label" for="{{ form.email.id_for_label }}">{% translate "Email" %}</label>
       <input class="sm-input{% if form.email.errors %} sm-input--error{% endif %}"
              type="email"
              id="{{ form.email.id_for_label }}"
@@ -202,7 +203,7 @@
     </div>
 
     <div class="sm-field">
-      <label class="sm-label" for="{{ form.phone.id_for_label }}">Phone</label>
+      <label class="sm-label" for="{{ form.phone.id_for_label }}">{% translate "Phone" %}</label>
       <input class="sm-input{% if form.phone.errors %} sm-input--error{% endif %}"
              type="text"
              id="{{ form.phone.id_for_label }}"
@@ -221,32 +222,32 @@
                id="{{ form.is_active.id_for_label }}"
                name="is_active"
                {% if form.is_active.value %}checked{% endif %}>
-        <label class="sm-checkbox-label" for="{{ form.is_active.id_for_label }}">Active</label>
+        <label class="sm-checkbox-label" for="{{ form.is_active.id_for_label }}">{% translate "Active" %}</label>
       </div>
     </div>
     {% endif %}
 
     <hr class="sm-divider">
 
-    <button type="submit" class="sm-submit">{{ submit_label|default:"Add staff member" }}</button>
-    <a href="{% url 'staff_members:list' %}" class="sm-cancel">Cancel</a>
+    <button type="submit" class="sm-submit">{{ submit_label }}</button>
+    <a href="{% url 'staff_members:list' %}" class="sm-cancel">{% translate "Cancel" %}</a>
   </form>
 
   {% if member %}
   <div class="sm-danger-zone">
-    <div class="sm-danger-title">Danger Zone</div>
+    <div class="sm-danger-title">{% translate "Danger Zone" %}</div>
     <p class="sm-danger-desc">
       {% if member.appointment_slots.exists %}
-        This staff member has existing availability slots. Deleting will <strong>deactivate</strong> them instead of permanently removing them.
+        {% blocktranslate %}This staff member has existing availability slots. Deleting will <strong>deactivate</strong> them instead of permanently removing them.{% endblocktranslate %}
       {% else %}
-        Permanently delete this staff member. This action cannot be undone.
+        {% translate "Permanently delete this staff member. This action cannot be undone." %}
       {% endif %}
     </p>
     <a href="{% url 'staff_members:delete' member.pk %}" class="sm-danger-btn">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
       </svg>
-      {% if member.appointment_slots.exists %}Deactivate staff member{% else %}Delete staff member{% endif %}
+      {% if member.appointment_slots.exists %}{% translate "Deactivate staff member" %}{% else %}{% translate "Delete staff member" %}{% endif %}
     </a>
   </div>
   {% endif %}

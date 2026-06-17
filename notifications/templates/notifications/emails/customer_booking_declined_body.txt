@@ -1,10 +1,10 @@
-{% load tz %}Hello {{ booking.customer_first_name }},
+{% load i18n %}{% load tz %}{% blocktranslate with first_name=booking.customer_first_name %}Hello {{ first_name }},{% endblocktranslate %}
 
-your booking request was declined.
+{% translate "your booking request was declined." %}
 
-Company: {{ booking.company.business_name }}
-Service: {{ booking.service_offering.name }}
-Staff member: {{ booking.staff_member.name }}
-Date/time: {% localtime on %}{{ booking.start_at }} - {{ booking.end_at }}{% endlocaltime %}
+{% translate "Company:" %} {{ booking.company.business_name }}
+{% translate "Service:" %} {{ booking.service_offering.name }}
+{% translate "Staff member:" %} {{ booking.staff_member.name }}
+{% translate "Date/time:" %} {% localtime on %}{{ booking.start_at }} - {{ booking.end_at }}{% endlocaltime %}
 
-Thank you.
+{% translate "Thank you." %}

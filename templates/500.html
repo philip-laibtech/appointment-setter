@@ -1,6 +1,7 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block title %}Server Error{% endblock %}
+{% block title %}{% translate "Server Error" %}{% endblock %}
 
 {% block head %}
   <style>
@@ -60,8 +61,8 @@
 {% block body %}
   <div class="error-card">
     <p class="error-code">500</p>
-    <h1 class="error-title">Something went wrong</h1>
-    <p class="error-text">An unexpected error occurred on our end. Please try again in a moment.</p>
-    <a href="/" class="error-home">Go to homepage</a>
+    <h1 class="error-title">{% translate "Something went wrong" %}</h1>
+    <p class="error-text">{% translate "An unexpected error occurred on our end. Please try again in a moment." %}</p>
+    <a href="/" class="error-home">{% translate "Go to homepage" %}</a>
   </div>
 {% endblock %}

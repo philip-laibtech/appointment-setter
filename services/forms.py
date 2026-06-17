@@ -1,4 +1,5 @@
 from django import forms
+from django.utils.translation import gettext_lazy as _
 
 from staff_members.models import StaffMember
 
@@ -14,12 +15,17 @@ class ServiceOfferingForm(forms.ModelForm):
         queryset=StaffMember.objects.none(),
         required=False,
         widget=forms.CheckboxSelectMultiple,
-        label="Assign to staff members",
+        label=_("Assign to staff members"),
     )
 
     class Meta:
         model = ServiceOffering
         fields = ["name", "description", "duration_minutes"]
+        labels = {
+            "name": _("Name"),
+            "description": _("Description"),
+            "duration_minutes": _("Duration (minutes)"),
+        }
 
     def __init__(self, *args, company=None, **kwargs):
         super().__init__(*args, **kwargs)
@@ -39,9 +45,9 @@ class ServiceOfferingForm(forms.ModelForm):
         if value is None:
             return value
         if value < 5:
-            raise forms.ValidationError("Duration must be at least 5 minutes.")
+            raise forms.ValidationError(_("Duration must be at least 5 minutes."))
         if value > 480:
-            raise forms.ValidationError("Duration must not exceed 480 minutes (8 hours).")
+            raise forms.ValidationError(_("Duration must not exceed 480 minutes (8 hours)."))
         return value
 
     def clean_assigned_staff_members(self):
@@ -50,11 +56,11 @@ class ServiceOfferingForm(forms.ModelForm):
             for member in members:
                 if member.company != self.company:
                     raise forms.ValidationError(
-                        "Invalid staff member selection."
+                        _("Invalid staff member selection.")
                     )
                 if not member.is_active:
                     raise forms.ValidationError(
-                        "Only active staff members can be assigned."
+                        _("Only active staff members can be assigned.")
                     )
         return members
 
@@ -62,3 +68,7 @@ class ServiceOfferingForm(forms.ModelForm):
 class ServiceOfferingEditForm(ServiceOfferingForm):
     class Meta(ServiceOfferingForm.Meta):
         fields = ["name", "description", "duration_minutes", "is_active"]
+        labels = {
+            **ServiceOfferingForm.Meta.labels,
+            "is_active": _("Active"),
+        }

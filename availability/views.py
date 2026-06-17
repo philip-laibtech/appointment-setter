@@ -5,6 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
+from django.utils.translation import gettext as _
+from django.utils.translation import ngettext
 from django.views.decorators.http import require_http_methods
 
 from bookings.models import Booking
@@ -57,7 +59,12 @@ def slot_create_view(request):
             end_at=form.cleaned_data["end_at"],
         )
         return redirect("availability:list")
-    return render(request, "availability/slot_form.html", {"form": form})
+    return render(request, "availability/slot_form.html", {
+        "form": form,
+        "is_edit": False,
+        "title": _("Add Open Hours"),
+        "submit_label": _("Add open hours"),
+    })
 
 
 @login_required
@@ -86,8 +93,9 @@ def slot_edit_view(request, slot_id):
         return redirect("availability:list")
     return render(request, "availability/slot_form.html", {
         "form": form,
-        "title": "Edit Open Hours",
-        "submit_label": "Save changes",
+        "is_edit": True,
+        "title": _("Edit Open Hours"),
+        "submit_label": _("Save changes"),
     })
 
 
@@ -104,10 +112,10 @@ def slot_delete_view(request, slot_id):
 
     if request.method == "POST":
         if future_active_bookings.exists():
-            messages.error(request, "Cannot delete: this slot has confirmed future bookings.")
+            messages.error(request, _("Cannot delete: this slot has confirmed future bookings."))
             return redirect(request.path)
         slot.delete()
-        messages.success(request, "Open hours block deleted.")
+        messages.success(request, _("Open hours block deleted."))
         return redirect("availability:list")
 
     return render(request, "availability/slot_confirm_delete.html", {
@@ -168,15 +176,27 @@ def recurring_create_view(request):
 
 def _add_recurring_messages(request, created, skipped):
     if created == 0 and skipped == 0:
-        messages.warning(request, "No matching dates found in the selected range.")
+        messages.warning(request, _("No matching dates found in the selected range."))
     elif created == 0:
         messages.warning(
             request,
-            f"No blocks were created — {skipped} skipped (already past or overlapping).",
+            ngettext(
+                "No blocks were created — %(count)d skipped (already past or overlapping).",
+                "No blocks were created — %(count)d skipped (already past or overlapping).",
+                skipped,
+            )
+            % {"count": skipped},
         )
     else:
-        n = f"{created} open hours block{'s' if created != 1 else ''}"
-        msg = f"Created {n}."
+        msg = ngettext(
+            "Created %(count)d open hours block.",
+            "Created %(count)d open hours blocks.",
+            created,
+        ) % {"count": created}
         if skipped:
-            msg += f" {skipped} skipped due to overlap or past date."
+            msg += " " + ngettext(
+                "%(count)d skipped due to overlap or past date.",
+                "%(count)d skipped due to overlap or past date.",
+                skipped,
+            ) % {"count": skipped}
         messages.success(request, msg)

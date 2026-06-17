@@ -1,5 +1,6 @@
 {% extends "company_accounts/app_base.html" %}
-{% block title %}Services — {{ user.business_name }}{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Services" %} — {{ user.business_name }}{% endblock %}
 
 {% block extra_style %}
 <style>
@@ -99,14 +100,14 @@
 {% block content %}
 <div class="sv-header">
   <div>
-    <h1 class="sv-page-title">Services</h1>
-    <p class="sv-page-subtitle">Services your company offers to customers.</p>
+    <h1 class="sv-page-title">{% translate "Services" %}</h1>
+    <p class="sv-page-subtitle">{% translate "Services your company offers to customers." %}</p>
   </div>
   <a href="{% url 'services:create' %}" class="sv-add-btn">
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
       <path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
     </svg>
-    Add service
+    {% translate "Add service" %}
   </a>
 </div>
 
@@ -119,16 +120,16 @@
           <div class="sv-name">{{ service.name }}</div>
           <div class="sv-meta">{{ service.duration_minutes }} min{% if service.description %} &middot; {{ service.description|truncatechars:80 }}{% endif %}</div>
           <div class="sv-staff">
-            <span class="sv-staff-label">Staff:</span>
+            <span class="sv-staff-label">{% translate "Staff:" %}</span>
             {% if service.active_assignments %}
               {% for assignment in service.active_assignments %}{{ assignment.staff_member.name }}{% if not forloop.last %}, {% endif %}{% endfor %}
             {% else %}
-              <span style="color:#9ca3af">None assigned</span>
+              <span style="color:#9ca3af">{% translate "None assigned" %}</span>
             {% endif %}
           </div>
         </div>
         <span class="sv-badge sv-badge--{% if service.is_active %}active{% else %}inactive{% endif %}">
-          {% if service.is_active %}Active{% else %}Inactive{% endif %}
+          {% if service.is_active %}{% translate "Active" %}{% else %}{% translate "Inactive" %}{% endif %}
         </span>
         <svg class="sv-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
           <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
@@ -138,13 +139,13 @@
   </ul>
 {% else %}
   <div class="sv-empty">
-    <p class="sv-empty-title">No services yet</p>
-    <p class="sv-empty-text">Add your first service offering to assign it to staff members.</p>
+    <p class="sv-empty-title">{% translate "No services yet" %}</p>
+    <p class="sv-empty-text">{% translate "Add your first service offering to assign it to staff members." %}</p>
     <a href="{% url 'services:create' %}" class="sv-empty-cta">
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
         <path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
-      Add first service
+      {% translate "Add first service" %}
     </a>
   </div>
 {% endif %}

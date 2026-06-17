@@ -1,8 +1,9 @@
 {% extends "auth_base.html" %}
-{% block title %}Register — Appointment Setter{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Register" %} — Appointment Setter{% endblock %}
 {% block content %}
 <div class="card">
-  <h1>Create a company account</h1>
+  <h1>{% translate "Create a company account" %}</h1>
   <form method="post" novalidate>
     {% csrf_token %}
     {% for field in form %}
@@ -16,8 +17,8 @@
         {% endif %}
       </div>
     {% endfor %}
-    <button type="submit">Register</button>
+    <button type="submit">{% translate "Register" %}</button>
   </form>
-  <a class="link-muted" href="{% url 'company_accounts:login' %}">Already have an account? Log in</a>
+  <a class="link-muted" href="{% url 'company_accounts:login' %}">{% translate "Already have an account? Log in" %}</a>
 </div>
 {% endblock %}

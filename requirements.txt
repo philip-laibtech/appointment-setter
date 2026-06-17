@@ -3,3 +3,4 @@ python-dotenv==1.1.1
 django-ratelimit==4.1.0
 django-simple-captcha==0.6.3
 django-csp==4.0
+babel==2.18.0

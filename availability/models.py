@@ -1,13 +1,14 @@
 from django.conf import settings
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 
 class AppointmentSlot(models.Model):
     class Status(models.TextChoices):
-        AVAILABLE = "available", "Available"
-        BOOKED = "booked", "Booked"
-        BLOCKED = "blocked", "Blocked"
-        PENDING_CONFIRMATION = "pending_confirmation", "Pending Confirmation"
+        AVAILABLE = "available", _("Available")
+        BOOKED = "booked", _("Booked")
+        BLOCKED = "blocked", _("Blocked")
+        PENDING_CONFIRMATION = "pending_confirmation", _("Pending Confirmation")
 
     company = models.ForeignKey(
         settings.AUTH_USER_MODEL,

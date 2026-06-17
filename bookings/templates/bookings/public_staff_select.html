@@ -1,5 +1,6 @@
 {% extends "bookings/public_booking_base.html" %}
-{% block title %}Book an Appointment — {{ company.business_name }}{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Book an Appointment" %} — {{ company.business_name }}{% endblock %}
 
 {% block extra_style %}
 <style>
@@ -24,8 +25,8 @@
 
 {% block content %}
 <p class="bk-company-label">{{ company.business_name }}</p>
-<h1 class="bk-page-title">Book an appointment</h1>
-<p class="bk-page-subtitle">Choose who you would like to book with.</p>
+<h1 class="bk-page-title">{% translate "Book an appointment" %}</h1>
+<p class="bk-page-subtitle">{% translate "Choose who you would like to book with." %}</p>
 
 {% if company.enable_any_employee_option %}
 <ul class="bk-list" role="list">
@@ -33,8 +34,8 @@
     <a href="{% url 'bookings:any_service_select' company_slug=company.slug %}">
       <div class="bk-avatar" aria-hidden="true">&#10022;</div>
       <div class="bk-staff-info">
-        <span class="bk-staff-name">Any Employee</span>
-        <span class="bk-staff-meta">Fastest available appointment with any suitable staff member.</span>
+        <span class="bk-staff-name">{% translate "Any Employee" %}</span>
+        <span class="bk-staff-meta">{% translate "Fastest available appointment with any suitable staff member." %}</span>
       </div>
       <svg class="bk-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
         <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
@@ -43,7 +44,7 @@
   </li>
 </ul>
 
-<p class="bk-divider-label">Or choose a specific staff member</p>
+<p class="bk-divider-label">{% translate "Or choose a specific staff member" %}</p>
 {% endif %}
 
 <ul class="bk-list" role="list">

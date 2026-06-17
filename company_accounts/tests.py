@@ -242,7 +242,8 @@ class CompanySettingsTest(TestCase):
             "timezone": "Europe/Zurich",
         })
         self.assertEqual(response.status_code, 200)
-        self.assertFormError(response.context["form"], "business_name", "Business name is required.")
+        # Company language defaults to German, so the error message is translated.
+        self.assertFormError(response.context["form"], "business_name", "Firmenname ist erforderlich.")
         self.account.refresh_from_db()
         self.assertEqual(self.account.business_name, "Acme AG")
 
@@ -454,3 +455,121 @@ class BookingConfirmationModeSettingsTests(TestCase):
         other.refresh_from_db()
         # other's mode must not have changed
         self.assertEqual(other.booking_confirmation_mode, "automatic")
+
+
+# ---------------------------------------------------------------------------
+# i18n: company settings (interface language)
+# ---------------------------------------------------------------------------
+
+class CompanyLanguageSettingsTests(TestCase):
+    def setUp(self):
+        self.company = make_account(email="lang@example.com", business_name="Lang Co")
+        self.settings_url = reverse("company_accounts:settings")
+
+    def test_new_company_defaults_to_german(self):
+        self.assertEqual(self.company.language, CompanyAccount.Language.GERMAN)
+
+    def test_settings_page_shows_language_field_with_all_choices(self):
+        self.client.force_login(self.company)
+        response = self.client.get(self.settings_url)
+        self.assertEqual(response.status_code, 200)
+        for code, _label in CompanyAccount.Language.choices:
+            self.assertContains(response, f'value="{code}"')
+
+    def test_company_can_update_language(self):
+        self.client.force_login(self.company)
+        self.client.post(self.settings_url, {
+            "business_name": self.company.business_name,
+            "timezone": self.company.timezone,
+            "booking_confirmation_mode": "automatic",
+            "language": "fr",
+        })
+        self.company.refresh_from_db()
+        self.assertEqual(self.company.language, "fr")
+
+    def test_invalid_language_code_rejected(self):
+        self.client.force_login(self.company)
+        response = self.client.post(self.settings_url, {
+            "business_name": self.company.business_name,
+            "timezone": self.company.timezone,
+            "booking_confirmation_mode": "automatic",
+            "language": "xx",
+        })
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(response.context["form"].errors.get("language"))
+        self.company.refresh_from_db()
+        self.assertEqual(self.company.language, "de")
+
+    def test_language_update_does_not_affect_other_company(self):
+        other = make_account(email="lang_other@example.com", business_name="Other Lang Co")
+        self.client.force_login(self.company)
+        self.client.post(self.settings_url, {
+            "business_name": self.company.business_name,
+            "timezone": self.company.timezone,
+            "booking_confirmation_mode": "automatic",
+            "language": "it",
+        })
+        other.refresh_from_db()
+        self.assertEqual(other.language, "de")
+
+    def test_settings_page_renders_in_updated_language(self):
+        self.company.language = "fr"
+        self.company.save(update_fields=["language"])
+        self.client.force_login(self.company)
+        response = self.client.get(self.settings_url)
+        self.assertContains(response, "Paramètres")
+
+
+# ---------------------------------------------------------------------------
+# i18n: authenticated interface
+# ---------------------------------------------------------------------------
+
+class AuthenticatedInterfaceLanguageTests(TestCase):
+    def setUp(self):
+        self.dashboard_url = reverse("company_accounts:dashboard")
+
+    def test_dashboard_renders_in_german_by_default(self):
+        company = make_account(email="de_dash@example.com", business_name="DE Co")
+        self.client.force_login(company)
+        response = self.client.get(self.dashboard_url)
+        self.assertContains(response, "Übersicht")
+
+    def test_dashboard_renders_in_french_when_company_language_fr(self):
+        company = make_account(email="fr_dash@example.com", business_name="FR Co")
+        company.language = "fr"
+        company.save(update_fields=["language"])
+        self.client.force_login(company)
+        response = self.client.get(self.dashboard_url)
+        self.assertContains(response, "Tableau de bord")
+
+    def test_dashboard_renders_in_italian_when_company_language_it(self):
+        company = make_account(email="it_dash@example.com", business_name="IT Co")
+        company.language = "it"
+        company.save(update_fields=["language"])
+        self.client.force_login(company)
+        response = self.client.get(self.dashboard_url)
+        self.assertContains(response, "Pannello di controllo")
+
+    def test_pending_bookings_page_respects_company_language(self):
+        company = make_account(email="fr_pending@example.com", business_name="FR Pending Co")
+        company.language = "fr"
+        company.save(update_fields=["language"])
+        self.client.force_login(company)
+        response = self.client.get(reverse("bookings:pending_bookings"))
+        self.assertContains(response, "Aucune demande de réservation en attente pour le moment.")
+
+    def test_all_bookings_page_respects_company_language(self):
+        company = make_account(email="it_all@example.com", business_name="IT All Co")
+        company.language = "it"
+        company.save(update_fields=["language"])
+        self.client.force_login(company)
+        response = self.client.get(reverse("bookings:all_bookings"))
+        self.assertContains(response, "Nessuna prenotazione in arrivo.")
+
+    def test_business_name_not_translated_regardless_of_language(self):
+        company = make_account(email="fr_name@example.com", business_name="Le Salon de Coiffure")
+        company.language = "fr"
+        company.save(update_fields=["language"])
+        self.client.force_login(company)
+        response = self.client.get(self.dashboard_url)
+        self.assertContains(response, "Le Salon de Coiffure")

@@ -1,6 +1,7 @@
 {% extends "company_accounts/app_base.html" %}
-{% block title %}Bookings{% endblock %}
-{% block page_title %}Bookings{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Bookings" %}{% endblock %}
+{% block page_title %}{% translate "Bookings" %}{% endblock %}
 
 {% block extra_style %}
 <style>
@@ -153,28 +154,28 @@
 {% block content %}
 <div class="bk-header">
   <div>
-    <h1 class="bk-title">Bookings</h1>
-    <p class="bk-sub">Upcoming confirmed appointments.</p>
+    <h1 class="bk-title">{% translate "Bookings" %}</h1>
+    <p class="bk-sub">{% translate "Upcoming confirmed appointments." %}</p>
   </div>
   <a href="{% url 'bookings:past_bookings' %}" class="bk-past-link">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M12 8v4l3 3"/>
       <circle cx="12" cy="12" r="10"/>
     </svg>
-    Past Bookings
+    {% translate "Past Bookings" %}
   </a>
 </div>
 
-<p class="bk-section-label">Upcoming</p>
+<p class="bk-section-label">{% translate "Upcoming" %}</p>
 {% if page_obj %}
   <table class="bk-table">
     <thead>
       <tr>
-        <th>Customer</th>
-        <th>Service</th>
-        <th>Staff</th>
-        <th>Timeslot</th>
-        <th>Status</th>
+        <th>{% translate "Customer" %}</th>
+        <th>{% translate "Service" %}</th>
+        <th>{% translate "Staff" %}</th>
+        <th>{% translate "Timeslot" %}</th>
+        <th>{% translate "Status" %}</th>
       </tr>
     </thead>
     <tbody>
@@ -204,7 +205,7 @@
         </td>
         <td>
           <a class="bk-row-link" href="{{ booking_url }}">
-            <span class="bk-badge bk-badge-confirmed">Confirmed</span>
+            <span class="bk-badge bk-badge-confirmed">{% translate "Confirmed" %}</span>
           </a>
         </td>
       </tr>
@@ -215,16 +216,16 @@
   {% if page_obj.paginator.num_pages > 1 %}
   <div class="bk-pagination">
     {% if page_obj.has_previous %}
-      <a href="?page={{ page_obj.previous_page_number }}" class="bk-page-btn">&#8592; Prev</a>
+      <a href="?page={{ page_obj.previous_page_number }}" class="bk-page-btn">&#8592; {% translate "Prev" %}</a>
     {% endif %}
-    <span class="bk-page-info">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+    <span class="bk-page-info">{% blocktranslate with current=page_obj.number total=page_obj.paginator.num_pages %}Page {{ current }} of {{ total }}{% endblocktranslate %}</span>
     {% if page_obj.has_next %}
-      <a href="?page={{ page_obj.next_page_number }}" class="bk-page-btn">Next &#8594;</a>
+      <a href="?page={{ page_obj.next_page_number }}" class="bk-page-btn">{% translate "Next" %} &#8594;</a>
     {% endif %}
   </div>
   {% endif %}
 
 {% else %}
-  <div class="bk-empty">No upcoming bookings.</div>
+  <div class="bk-empty">{% translate "No upcoming bookings." %}</div>
 {% endif %}
 {% endblock %}

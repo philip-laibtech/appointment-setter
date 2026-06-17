@@ -1,6 +1,7 @@
 from captcha.fields import CaptchaField
 
 from django import forms
+from django.utils.translation import gettext_lazy as _
 
 
 class BookingForm(forms.Form):
@@ -10,43 +11,43 @@ class BookingForm(forms.Form):
 
     customer_first_name = forms.CharField(
         max_length=100,
-        label="First name",
+        label=_("First name"),
         widget=forms.TextInput(attrs={"autocomplete": "given-name"}),
     )
     customer_last_name = forms.CharField(
         max_length=100,
-        label="Last name",
+        label=_("Last name"),
         widget=forms.TextInput(attrs={"autocomplete": "family-name"}),
     )
     customer_email = forms.EmailField(
-        label="Email address",
+        label=_("Email address"),
         widget=forms.EmailInput(attrs={"autocomplete": "email"}),
     )
     customer_phone = forms.CharField(
         max_length=30,
         required=False,
-        label="Phone number (optional)",
+        label=_("Phone number (optional)"),
         widget=forms.TextInput(attrs={"autocomplete": "tel"}),
     )
     customer_message = forms.CharField(
         required=False,
         max_length=1000,
-        label="Message (optional)",
+        label=_("Message (optional)"),
         widget=forms.Textarea(attrs={"rows": 3}),
     )
     privacy_accepted = forms.BooleanField(
         required=True,
-        label="I accept the privacy policy.",
-        error_messages={"required": "You must accept the privacy policy to proceed."},
+        label=_("I accept the privacy policy."),
+        error_messages={"required": _("You must accept the privacy policy to proceed.")},
     )
     captcha = CaptchaField(
-        error_messages={"invalid": "Incorrect security code. Please try again."},
+        error_messages={"invalid": _("Incorrect security code. Please try again.")},
     )
 
     def clean_website(self):
         value = self.cleaned_data.get("website", "")
         if value:
-            raise forms.ValidationError("Invalid form submission.")
+            raise forms.ValidationError(_("Invalid form submission."))
         return value
 
     def clean_customer_first_name(self):

@@ -1,14 +1,14 @@
-{% load tz %}Hello {{ booking.company.business_name }},
+{% load i18n %}{% load tz %}{% blocktranslate with business_name=booking.company.business_name %}Hello {{ business_name }},{% endblocktranslate %}
 
-a new booking has been confirmed.
+{% translate "a new booking has been confirmed." %}
 
-Customer: {{ booking.customer_first_name }} {{ booking.customer_last_name }}
-Email: {{ booking.customer_email }}
-Phone: {{ booking.customer_phone|default:"-" }}
+{% translate "Customer:" %} {{ booking.customer_first_name }} {{ booking.customer_last_name }}
+{% translate "Email:" %} {{ booking.customer_email }}
+{% translate "Phone:" %} {{ booking.customer_phone|default:"-" }}
 
-Service: {{ booking.service_offering.name }}
-Staff member: {{ booking.staff_member.name }}
-Date/time: {% localtime on %}{{ booking.start_at }} - {{ booking.end_at }}{% endlocaltime %}
+{% translate "Service:" %} {{ booking.service_offering.name }}
+{% translate "Staff member:" %} {{ booking.staff_member.name }}
+{% translate "Date/time:" %} {% localtime on %}{{ booking.start_at }} - {{ booking.end_at }}{% endlocaltime %}
 
-Message:
+{% translate "Message:" %}
 {{ booking.customer_message|default:"-" }}

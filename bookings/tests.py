@@ -547,7 +547,8 @@ class BookingConfirmedTests(TestCase):
         })
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Cancelled")
+        # Company language defaults to German, so the status badge is translated.
+        self.assertContains(response, "Storniert")
 
 
 class BookingCancelTests(TestCase):
@@ -713,7 +714,8 @@ class AnyEmployeeEntryTests(TestCase):
         _make_staff(company, "Alice")
         _make_staff(company, "Bob")
         response = self.client.get(_entry_url(company))
-        self.assertContains(response, "Any Employee")
+        # Company language defaults to German, so "Any Employee" is translated.
+        self.assertContains(response, "Beliebiger Mitarbeiter")
 
     def test_any_employee_not_shown_with_zero_active_staff(self):
         company = _make_company("anyentry2@example.com")
@@ -1500,3 +1502,53 @@ class ConfirmationModeIntegrityTests(TestCase):
         self.client.post(url, _valid_post_data())
         booking = Booking.objects.get(company=self.company_manual)
         self.assertEqual(booking.status, Booking.Status.PENDING)
+
+
+# ---------------------------------------------------------------------------
+# i18n: public booking flow
+# ---------------------------------------------------------------------------
+
+class PublicBookingLanguageTests(TestCase):
+    def test_public_staff_select_renders_in_company_language(self):
+        company = _make_company("fr_public@example.com", business_name="FR Public Co")
+        company.language = "fr"
+        company.save(update_fields=["language"])
+        _make_staff(company, "Alice")
+        _make_staff(company, "Bob")
+        response = self.client.get(_entry_url(company))
+        self.assertContains(response, "Choisissez avec qui vous souhaitez réserver.")
+
+    def test_public_page_language_independent_of_accept_language_header(self):
+        company = _make_company("de_public@example.com", business_name="DE Public Co")
+        # company.language defaults to "de"
+        _make_staff(company, "Alice")
+        _make_staff(company, "Bob")
+        response = self.client.get(_entry_url(company), HTTP_ACCEPT_LANGUAGE="fr")
+        self.assertContains(response, "Wählen Sie aus, mit wem Sie buchen möchten.")
+
+    def test_public_unavailable_page_in_company_language(self):
+        company = _make_company("it_unavailable@example.com", business_name="IT Co", public_page_enabled=False)
+        company.language = "it"
+        company.save(update_fields=["language"])
+        response = self.client.get(_entry_url(company))
+        self.assertContains(response, "La prenotazione online non è al momento disponibile.")
+
+    def test_service_select_page_renders_in_company_language(self):
+        company = _make_company("it_service@example.com", business_name="IT Service Co")
+        company.language = "it"
+        company.save(update_fields=["language"])
+        staff = _make_staff(company)
+        url = reverse("bookings:service_select", kwargs={
+            "company_slug": company.slug, "staff_uid": staff.public_id,
+        })
+        response = self.client.get(url)
+        self.assertContains(response, "Al momento non ci sono servizi disponibili per questo membro del personale.")
+
+    def test_business_name_not_translated_on_public_pages(self):
+        company = _make_company("fr_name@example.com", business_name="Salon de Beaute Geneve")
+        company.language = "fr"
+        company.save(update_fields=["language"])
+        _make_staff(company, "Alice")
+        _make_staff(company, "Bob")
+        response = self.client.get(_entry_url(company))
+        self.assertContains(response, "Salon de Beaute Geneve")

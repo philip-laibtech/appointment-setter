@@ -1,0 +1,242 @@
+{
+  "Forgot your password?": {
+    "de": "Passwort vergessen?",
+    "fr": "Mot de passe oublié ?",
+    "it": "Hai dimenticato la password?"
+  },
+  "Français": {
+    "de": "Français",
+    "fr": "Français",
+    "it": "Français"
+  },
+  "French": {
+    "de": "Französisch",
+    "fr": "Français",
+    "it": "Francese"
+  },
+  "Fri": {
+    "de": "Fr",
+    "fr": "Ven",
+    "it": "Ven"
+  },
+  "From": {
+    "de": "Von",
+    "fr": "De",
+    "it": "Da"
+  },
+  "German": {
+    "de": "Deutsch",
+    "fr": "Allemand",
+    "it": "Tedesco"
+  },
+  "Go back": {
+    "de": "Zurück",
+    "fr": "Retour",
+    "it": "Torna indietro"
+  },
+  "Go to homepage": {
+    "de": "Zur Startseite",
+    "fr": "Aller à l'accueil",
+    "it": "Vai alla home"
+  },
+  "Hello %(business_name)s,": {
+    "de": "Hallo %(business_name)s,",
+    "fr": "Bonjour %(business_name)s,",
+    "it": "Ciao %(business_name)s,"
+  },
+  "Hello %(first_name)s,": {
+    "de": "Hallo %(first_name)s,",
+    "fr": "Bonjour %(first_name)s,",
+    "it": "Ciao %(first_name)s,"
+  },
+  "I accept the <a href=\"#\" style=\"color:#111;\">privacy policy</a>.": {
+    "de": "Ich akzeptiere die <a href=\"#\" style=\"color:#111;\">Datenschutzerklärung</a>.",
+    "fr": "J'accepte la <a href=\"#\" style=\"color:#111;\">politique de confidentialité</a>.",
+    "it": "Accetto la <a href=\"#\" style=\"color:#111;\">politica sulla privacy</a>."
+  },
+  "I accept the privacy policy.": {
+    "de": "Ich akzeptiere die Datenschutzerklärung.",
+    "fr": "J'accepte la politique de confidentialité.",
+    "it": "Accetto la politica sulla privacy."
+  },
+  "If an account with that email exists, we've sent a password reset link. It will expire in 24 hours.": {
+    "de": "Falls ein Konto mit dieser E-Mail-Adresse existiert, haben wir einen Link zum Zurücksetzen des Passworts gesendet. Dieser läuft in 24 Stunden ab.",
+    "fr": "Si un compte avec cet e-mail existe, nous avons envoyé un lien de réinitialisation du mot de passe. Il expirera dans 24 heures.",
+    "it": "Se esiste un account con questa e-mail, abbiamo inviato un link per reimpostare la password. Scadrà entro 24 ore."
+  },
+  "If you did not request a password reset, you can ignore this email. Your password will not be changed.": {
+    "de": "Wenn Sie kein Zurücksetzen des Passworts angefordert haben, können Sie diese E-Mail ignorieren. Ihr Passwort wird nicht geändert.",
+    "fr": "Si vous n'avez pas demandé de réinitialisation du mot de passe, vous pouvez ignorer cet e-mail. Votre mot de passe ne sera pas modifié.",
+    "it": "Se non hai richiesto la reimpostazione della password, puoi ignorare questa e-mail. La tua password non verrà modificata."
+  },
+  "If you have any questions, please contact %(business_name)s directly.": {
+    "de": "Bei Fragen wenden Sie sich bitte direkt an %(business_name)s.",
+    "fr": "Pour toute question, veuillez contacter directement %(business_name)s.",
+    "it": "Per qualsiasi domanda, contatta direttamente %(business_name)s."
+  },
+  "Inactive": {
+    "de": "Inaktiv",
+    "fr": "Inactif",
+    "it": "Inattivo"
+  },
+  "Incorrect security code. Please try again.": {
+    "de": "Falscher Sicherheitscode. Bitte versuchen Sie es erneut.",
+    "fr": "Code de sécurité incorrect. Veuillez réessayer.",
+    "it": "Codice di sicurezza errato. Riprova."
+  },
+  "Interface language": {
+    "de": "Oberflächensprache",
+    "fr": "Langue de l'interface",
+    "it": "Lingua dell'interfaccia"
+  },
+  "Invalid form submission.": {
+    "de": "Ungültige Formularübermittlung.",
+    "fr": "Soumission de formulaire invalide.",
+    "it": "Invio del modulo non valido."
+  },
+  "Invalid staff member selection.": {
+    "de": "Ungültige Mitarbeiterauswahl.",
+    "fr": "Sélection d'employé invalide.",
+    "it": "Selezione del membro del personale non valida."
+  },
+  "Invalid staff member.": {
+    "de": "Ungültiger Mitarbeiter.",
+    "fr": "Employé invalide.",
+    "it": "Membro del personale non valido."
+  },
+  "Italian": {
+    "de": "Italienisch",
+    "fr": "Italien",
+    "it": "Italiano"
+  },
+  "Italiano": {
+    "de": "Italiano",
+    "fr": "Italiano",
+    "it": "Italiano"
+  },
+  "Keep booking": {
+    "de": "Buchung behalten",
+    "fr": "Conserver la réservation",
+    "it": "Mantieni la prenotazione"
+  },
+  "Language": {
+    "de": "Sprache",
+    "fr": "Langue",
+    "it": "Lingua"
+  },
+  "Language used for your dashboard, public booking page, and notification emails.": {
+    "de": "Sprache für Ihre Übersicht, die öffentliche Buchungsseite und Benachrichtigungs-E-Mails.",
+    "fr": "Langue utilisée pour votre tableau de bord, la page de réservation publique et les e-mails de notification.",
+    "it": "Lingua utilizzata per il pannello di controllo, la pagina di prenotazione pubblica e le e-mail di notifica."
+  },
+  "Last name": {
+    "de": "Nachname",
+    "fr": "Nom",
+    "it": "Cognome"
+  },
+  "Last updated": {
+    "de": "Zuletzt aktualisiert",
+    "fr": "Dernière mise à jour",
+    "it": "Ultimo aggiornamento"
+  },
+  "Last updated:": {
+    "de": "Zuletzt aktualisiert:",
+    "fr": "Dernière mise à jour :",
+    "it": "Ultimo aggiornamento:"
+  },
+  "Let's get started": {
+    "de": "Los geht's",
+    "fr": "Commençons",
+    "it": "Iniziamo"
+  },
+  "Link expired or invalid": {
+    "de": "Link abgelaufen oder ungültig",
+    "fr": "Lien expiré ou invalide",
+    "it": "Link scaduto o non valido"
+  },
+  "Location": {
+    "de": "Standort",
+    "fr": "Emplacement",
+    "it": "Posizione"
+  },
+  "Log in": {
+    "de": "Anmelden",
+    "fr": "Connexion",
+    "it": "Accedi"
+  },
+  "Login": {
+    "de": "Anmelden",
+    "fr": "Connexion",
+    "it": "Accesso"
+  },
+  "Logout": {
+    "de": "Abmelden",
+    "fr": "Déconnexion",
+    "it": "Esci"
+  },
+  "Main navigation": {
+    "de": "Hauptnavigation",
+    "fr": "Navigation principale",
+    "it": "Navigazione principale"
+  },
+  "Manage": {
+    "de": "Verwalten",
+    "fr": "Gérer",
+    "it": "Gestisci"
+  },
+  "Manage your business profile and public booking page.": {
+    "de": "Verwalten Sie Ihr Unternehmensprofil und Ihre öffentliche Buchungsseite.",
+    "fr": "Gérez votre profil d'entreprise et votre page de réservation publique.",
+    "it": "Gestisci il profilo aziendale e la pagina di prenotazione pubblica."
+  },
+  "Manual:": {
+    "de": "Manuell:",
+    "fr": "Manuel :",
+    "it": "Manuale:"
+  },
+  "Message": {
+    "de": "Nachricht",
+    "fr": "Message",
+    "it": "Messaggio"
+  },
+  "Message (optional)": {
+    "de": "Nachricht (optional)",
+    "fr": "Message (facultatif)",
+    "it": "Messaggio (opzionale)"
+  },
+  "Message:": {
+    "de": "Nachricht:",
+    "fr": "Message :",
+    "it": "Messaggio:"
+  },
+  "Mon": {
+    "de": "Mo",
+    "fr": "Lun",
+    "it": "Lun"
+  },
+  "Name": {
+    "de": "Name",
+    "fr": "Nom",
+    "it": "Nome"
+  },
+  "New booking confirmed": {
+    "de": "Neue Buchung bestätigt",
+    "fr": "Nouvelle réservation confirmée",
+    "it": "Nuova prenotazione confermata"
+  },
+  "New booking request": {
+    "de": "Neue Buchungsanfrage",
+    "fr": "Nouvelle demande de réservation",
+    "it": "Nuova richiesta di prenotazione"
+  },
+  "Next": {
+    "de": "Weiter",
+    "fr": "Suivant",
+    "it": "Successivo"
+  },
+  "No account yet? Register": {
+    "de": "Noch kein Konto? Registrieren",
+    "fr": "Pas encore de compte ? S'inscrire",
+    "it": "Non hai ancora un account? Registrati"
+  }
+}

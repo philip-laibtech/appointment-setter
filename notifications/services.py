@@ -9,19 +9,21 @@ import logging
 from django.conf import settings
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from django.utils import translation
 
 from bookings.models import Booking
 
 logger = logging.getLogger(__name__)
 
 
-def _send_template_email(template_prefix, to_email, context):
-    subject = render_to_string(
-        f"notifications/emails/{template_prefix}_subject.txt", context
-    ).strip()
-    body = render_to_string(
-        f"notifications/emails/{template_prefix}_body.txt", context
-    )
+def _send_template_email(template_prefix, to_email, context, language):
+    with translation.override(language):
+        subject = render_to_string(
+            f"notifications/emails/{template_prefix}_subject.txt", context
+        ).strip()
+        body = render_to_string(
+            f"notifications/emails/{template_prefix}_body.txt", context
+        )
     try:
         send_mail(
             subject=subject,
@@ -40,6 +42,7 @@ def send_booking_request_received_to_customer(booking):
         "customer_booking_request_received",
         booking.customer_email,
         {"booking": booking},
+        booking.company.language,
     )
 
 
@@ -48,6 +51,7 @@ def send_booking_confirmed_to_customer(booking):
         "customer_booking_confirmed",
         booking.customer_email,
         {"booking": booking},
+        booking.company.language,
     )
 
 
@@ -56,6 +60,7 @@ def send_booking_declined_to_customer(booking):
         "customer_booking_declined",
         booking.customer_email,
         {"booking": booking},
+        booking.company.language,
     )
 
 
@@ -64,6 +69,7 @@ def send_booking_cancelled_to_customer(booking):
         "customer_booking_cancelled",
         booking.customer_email,
         {"booking": booking},
+        booking.company.language,
     )
 
 
@@ -72,6 +78,7 @@ def send_new_booking_to_company(booking):
         "company_new_booking",
         booking.company.email,
         {"booking": booking},
+        booking.company.language,
     )
 
 
@@ -80,6 +87,7 @@ def send_new_booking_request_to_company(booking):
         "company_new_booking_request",
         booking.company.email,
         {"booking": booking},
+        booking.company.language,
     )
 
 

@@ -18,7 +18,8 @@ document.addEventListener('click', function (e) {
 function copyLink(btn, url) {
   navigator.clipboard.writeText(url).then(function () {
     var span = btn.querySelector('span');
-    span.textContent = 'Copied!';
-    setTimeout(function () { span.textContent = 'Copy link'; }, 2000);
+    var original = span.textContent;
+    span.textContent = btn.dataset.copiedText || original;
+    setTimeout(function () { span.textContent = original; }, 2000);
   });
 }

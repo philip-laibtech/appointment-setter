@@ -1,5 +1,6 @@
 {% extends "company_accounts/app_base.html" %}
-{% block title %}Open Hours — {{ user.business_name }}{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Open Hours" %} — {{ user.business_name }}{% endblock %}
 
 {% block extra_style %}
 <style>
@@ -269,8 +270,8 @@
 {% block content %}
 <div class="av-header">
   <div>
-    <h1 class="av-page-title">Open Hours</h1>
-    <p class="av-page-subtitle">Your upcoming availability for {{ user.business_name }}</p>
+    <h1 class="av-page-title">{% translate "Open Hours" %}</h1>
+    <p class="av-page-subtitle">{% blocktranslate with business_name=user.business_name %}Your upcoming availability for {{ business_name }}{% endblocktranslate %}</p>
   </div>
   <div class="av-header-actions">
     <a href="{% url 'availability:create_recurring' %}" class="av-outline-btn">
@@ -278,26 +279,26 @@
         <path d="M2 8a6 6 0 1 0 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
         <path d="M2 4v4h4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      Set recurring
+      {% translate "Set recurring" %}
     </a>
     <a href="{% url 'availability:create' %}" class="av-add-btn">
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
         <path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
-      Add once
+      {% translate "Add once" %}
     </a>
   </div>
 </div>
 
 {% if staff_members %}
 <div class="av-filter-bar">
-  <span class="av-filter-label">Staff:</span>
+  <span class="av-filter-label">{% translate "Staff:" %}</span>
   <a href="{% url 'availability:list' %}"
-     class="av-filter-pill{% if not selected_staff %} av-filter-pill--active{% endif %}">All</a>
+     class="av-filter-pill{% if not selected_staff %} av-filter-pill--active{% endif %}">{% translate "All" %}</a>
   {% for member in staff_members %}
     <a href="{% url 'availability:list' %}?staff={{ member.pk }}"
        class="av-filter-pill{% if selected_staff.pk == member.pk %} av-filter-pill--active{% endif %}">
-      {{ member.name }}{% if not member.is_active %} (inactive){% endif %}
+      {{ member.name }}{% if not member.is_active %} {% translate "(inactive)" %}{% endif %}
     </a>
   {% endfor %}
 </div>
@@ -325,7 +326,7 @@
         <span class="av-badge av-badge--{{ slot.status }}">{{ slot.get_status_display }}</span>
 
         <div class="av-actions">
-          <a href="{% url 'availability:delete' slot.pk %}" class="av-btn av-btn--danger">Delete</a>
+          <a href="{% url 'availability:delete' slot.pk %}" class="av-btn av-btn--danger">{% translate "Delete" %}</a>
         </div>
       </li>
     {% endfor %}
@@ -335,12 +336,16 @@
   <div style="display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-top:1.25rem;font-size:0.875rem;">
     {% if page_obj.has_previous %}
       <a href="?{% if selected_staff %}staff={{ selected_staff.pk }}&{% endif %}page={{ page_obj.previous_page_number }}"
-         style="padding:0.3rem 0.75rem;border:1.5px solid #e4e4e7;border-radius:6px;color:#374151;text-decoration:none;font-weight:500;">&#8592; Prev</a>
+         style="padding:0.3rem 0.75rem;border:1.5px solid #e4e4e7;border-radius:6px;color:#374151;text-decoration:none;font-weight:500;">&#8592; {% translate "Prev" %}</a>
     {% endif %}
-    <span style="color:#6b7280;">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+    <span style="color:#6b7280;">
+      {% with current=page_obj.number total=page_obj.paginator.num_pages %}
+        {% blocktranslate %}Page {{ current }} of {{ total }}{% endblocktranslate %}
+      {% endwith %}
+    </span>
     {% if page_obj.has_next %}
       <a href="?{% if selected_staff %}staff={{ selected_staff.pk }}&{% endif %}page={{ page_obj.next_page_number }}"
-         style="padding:0.3rem 0.75rem;border:1.5px solid #e4e4e7;border-radius:6px;color:#374151;text-decoration:none;font-weight:500;">Next &#8594;</a>
+         style="padding:0.3rem 0.75rem;border:1.5px solid #e4e4e7;border-radius:6px;color:#374151;text-decoration:none;font-weight:500;">{% translate "Next" %} &#8594;</a>
     {% endif %}
   </div>
   {% endif %}
@@ -354,17 +359,17 @@
       </svg>
     </div>
     <p class="av-empty-title">
-      {% if selected_staff %}No upcoming open hours for {{ selected_staff.name }}{% else %}No upcoming open hours{% endif %}
+      {% if selected_staff %}{% blocktranslate with name=selected_staff.name %}No upcoming open hours for {{ name }}{% endblocktranslate %}{% else %}{% translate "No upcoming open hours" %}{% endif %}
     </p>
     <p class="av-empty-text">
-      {% if selected_staff %}Try another staff member or add a new block.{% else %}Add a block to let customers know when you're available.{% endif %}
+      {% if selected_staff %}{% translate "Try another staff member or add a new block." %}{% else %}{% translate "Add a block to let customers know when you're available." %}{% endif %}
     </p>
     {% if not selected_staff %}
     <a href="{% url 'availability:create' %}" class="av-empty-cta">
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
         <path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
-      Add your first block
+      {% translate "Add your first block" %}
     </a>
     {% endif %}
   </div>

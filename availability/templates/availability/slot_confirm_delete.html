@@ -1,5 +1,6 @@
 {% extends "company_accounts/app_base.html" %}
-{% block title %}Delete Open Hours{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Delete Open Hours" %}{% endblock %}
 
 {% block extra_style %}
 <style>
@@ -148,12 +149,12 @@
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
     <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
-  Open Hours
+  {% translate "Open Hours" %}
 </a>
 
 <div class="av-delete-card">
-  <h1 class="av-delete-title">Delete this entry?</h1>
-  <p class="av-delete-subtitle">You are about to remove the following open hours block.</p>
+  <h1 class="av-delete-title">{% translate "Delete this entry?" %}</h1>
+  <p class="av-delete-subtitle">{% translate "You are about to remove the following open hours block." %}</p>
 
   <div class="av-preview">
     <div class="av-preview-date">{{ slot.start_at|date:"D, j N Y" }}</div>
@@ -168,9 +169,9 @@
         <path d="M8 6v3.5" stroke="#ea580c" stroke-width="1.5" stroke-linecap="round"/>
         <circle cx="8" cy="11.5" r="0.75" fill="#ea580c"/>
       </svg>
-      Cannot delete &mdash; {{ affected_bookings|length }} active future booking{{ affected_bookings|length|pluralize }}
+      {% blocktranslate count counter=affected_bookings|length %}Cannot delete &mdash; {{ counter }} active future booking{% plural %}Cannot delete &mdash; {{ counter }} active future bookings{% endblocktranslate %}
     </div>
-    <p style="margin:0 0 0.25rem;">Cancel or decline these bookings before deleting this slot.</p>
+    <p style="margin:0 0 0.25rem;">{% translate "Cancel or decline these bookings before deleting this slot." %}</p>
     <ul class="av-bookings-list">
       {% for booking in affected_bookings %}
       <li>{{ booking.customer_first_name }} {{ booking.customer_last_name }} &mdash; {{ booking.service_offering }} &mdash; {{ booking.start_at|date:"j N, H:i" }}</li>
@@ -179,7 +180,7 @@
   </div>
 
   <div class="av-delete-actions">
-    <a href="{% url 'availability:list' %}" class="av-cancel">Go back</a>
+    <a href="{% url 'availability:list' %}" class="av-cancel">{% translate "Go back" %}</a>
   </div>
 
   {% else %}
@@ -190,15 +191,15 @@
       <path d="M8 6v3.5" stroke="#b91c1c" stroke-width="1.5" stroke-linecap="round"/>
       <circle cx="8" cy="11.5" r="0.75" fill="#b91c1c"/>
     </svg>
-    This action cannot be undone.
+    {% translate "This action cannot be undone." %}
   </div>
 
   <div class="av-delete-actions">
     <form method="post">
       {% csrf_token %}
-      <button type="submit" class="av-btn-danger">Yes, delete this block</button>
+      <button type="submit" class="av-btn-danger">{% translate "Yes, delete this block" %}</button>
     </form>
-    <a href="{% url 'availability:list' %}" class="av-cancel">Cancel, keep it</a>
+    <a href="{% url 'availability:list' %}" class="av-cancel">{% translate "Cancel, keep it" %}</a>
   </div>
 
   {% endif %}

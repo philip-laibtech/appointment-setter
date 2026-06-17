@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-{% block title %}Simple appointment booking for your business{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Simple appointment booking for your business" %}{% endblock %}
 
 {% block head %}
 <style>
@@ -58,21 +59,21 @@
 <nav>
   <a class="brand" href="/">Appointment Setter</a>
   <span class="spacer"></span>
-  <a href="{% url 'company_accounts:login' %}">Login</a>
-  <a href="{% url 'company_accounts:register' %}">Register</a>
+  <a href="{% url 'company_accounts:login' %}">{% translate "Login" %}</a>
+  <a href="{% url 'company_accounts:register' %}">{% translate "Register" %}</a>
 </nav>
 
 <main>
   <div class="card">
-    <h1>Simple appointment booking for your business</h1>
+    <h1>{% translate "Simple appointment booking for your business" %}</h1>
     <div style="display:flex;flex-direction:column;gap:0.75rem;max-width:260px;margin:0 auto;">
       <a href="{% url 'company_accounts:register' %}"
          style="display:block;padding:0.7rem 1.25rem;background:#111;color:#fff;text-decoration:none;border-radius:4px;font-size:1rem;">
-        Let&#39;s get started
+        {% translate "Let's get started" %}
       </a>
       <a href="{% url 'company_accounts:login' %}"
          style="display:block;padding:0.7rem 1.25rem;background:#fff;color:#111;text-decoration:none;border-radius:4px;font-size:1rem;border:1px solid #ccc;">
-        Login
+        {% translate "Login" %}
       </a>
     </div>
   </div>

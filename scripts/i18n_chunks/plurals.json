@@ -1,0 +1,66 @@
+[
+  {
+    "singular": "%(count)d skipped due to overlap or past date.",
+    "plural": "%(count)d skipped due to overlap or past date.",
+    "de": [
+      "%(count)d übersprungen wegen Überschneidung oder vergangenem Datum.",
+      "%(count)d übersprungen wegen Überschneidung oder vergangenem Datum."
+    ],
+    "fr": [
+      "%(count)d ignoré en raison d'un chevauchement ou d'une date passée.",
+      "%(count)d ignorés en raison d'un chevauchement ou d'une date passée."
+    ],
+    "it": [
+      "%(count)d saltato per sovrapposizione o data passata.",
+      "%(count)d saltati per sovrapposizione o data passata."
+    ]
+  },
+  {
+    "singular": "Cannot delete &mdash; %(counter)s active future booking",
+    "plural": "Cannot delete &mdash; %(counter)s active future bookings",
+    "de": [
+      "Löschen nicht möglich &mdash; %(counter)s aktive zukünftige Buchung",
+      "Löschen nicht möglich &mdash; %(counter)s aktive zukünftige Buchungen"
+    ],
+    "fr": [
+      "Impossible de supprimer &mdash; %(counter)s réservation future active",
+      "Impossible de supprimer &mdash; %(counter)s réservations futures actives"
+    ],
+    "it": [
+      "Impossibile eliminare &mdash; %(counter)s prenotazione futura attiva",
+      "Impossibile eliminare &mdash; %(counter)s prenotazioni future attive"
+    ]
+  },
+  {
+    "singular": "Created %(count)d open hours block.",
+    "plural": "Created %(count)d open hours blocks.",
+    "de": [
+      "%(count)d Öffnungszeitenblock erstellt.",
+      "%(count)d Öffnungszeitenblöcke erstellt."
+    ],
+    "fr": [
+      "%(count)d créneau d'horaires créé.",
+      "%(count)d créneaux d'horaires créés."
+    ],
+    "it": [
+      "%(count)d blocco di orari creato.",
+      "%(count)d blocchi di orari creati."
+    ]
+  },
+  {
+    "singular": "No blocks were created — %(count)d skipped (already past or overlapping).",
+    "plural": "No blocks were created — %(count)d skipped (already past or overlapping).",
+    "de": [
+      "Es wurden keine Blöcke erstellt — %(count)d übersprungen (bereits vergangen oder überschneidend).",
+      "Es wurden keine Blöcke erstellt — %(count)d übersprungen (bereits vergangen oder überschneidend)."
+    ],
+    "fr": [
+      "Aucun créneau n'a été créé — %(count)d ignoré (déjà passé ou en chevauchement).",
+      "Aucun créneau n'a été créé — %(count)d ignorés (déjà passés ou en chevauchement)."
+    ],
+    "it": [
+      "Nessun blocco è stato creato — %(count)d saltato (già passato o sovrapposto).",
+      "Nessun blocco è stato creato — %(count)d saltati (già passati o sovrapposti)."
+    ]
+  }
+]

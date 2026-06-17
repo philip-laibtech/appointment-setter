@@ -11,7 +11,8 @@ class LandingPageTests(TestCase):
         self.assertEqual(self.response.status_code, 200)
 
     def test_landing_page_contains_title(self):
-        self.assertContains(self.response, "Simple appointment booking for your business")
+        # Default interface language is German.
+        self.assertContains(self.response, "Einfache Terminbuchung für Ihr Unternehmen")
 
     def test_landing_page_contains_register_link(self):
         self.assertContains(self.response, reverse("company_accounts:register"))

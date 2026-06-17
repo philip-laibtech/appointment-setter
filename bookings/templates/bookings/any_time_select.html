@@ -1,12 +1,13 @@
 {% extends "bookings/public_booking_base.html" %}
-{% block title %}Choose a Time — {{ company.business_name }}{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Choose a Time" %} — {{ company.business_name }}{% endblock %}
 
 {% block content %}
 <a href="{% url 'bookings:any_slot_select' company_slug=company.slug service_uid=service.public_id %}" class="bk-back">
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
     <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
-  Back
+  {% translate "Back" %}
 </a>
 
 {% include "bookings/_booking_steps.html" with current_step=3 %}
@@ -15,7 +16,7 @@
 <h1 class="bk-page-title">{{ target_date|date:"l, j F Y" }}</h1>
 
 <div class="bk-summary">
-  <span class="bk-summary-item"><strong>Service:</strong> {{ service.name }} ({{ service.duration_minutes }} min)</span>
+  <span class="bk-summary-item"><strong>{% translate "Service:" %}</strong> {% blocktranslate with name=service.name minutes=service.duration_minutes %}{{ name }} ({{ minutes }} min){% endblocktranslate %}</span>
 </div>
 
 {% if windows %}
@@ -29,8 +30,8 @@
   </div>
 {% else %}
   <div class="bk-empty">
-    <p class="bk-empty-title">No times available</p>
-    <p class="bk-empty-text">All slots on this day are taken. Please choose a different day.</p>
+    <p class="bk-empty-title">{% translate "No times available" %}</p>
+    <p class="bk-empty-text">{% translate "All slots on this day are taken. Please choose a different day." %}</p>
   </div>
 {% endif %}
 {% endblock %}

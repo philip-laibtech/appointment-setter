@@ -6,8 +6,9 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.utils import timezone
+from django.utils import timezone, translation
 from django.utils.http import url_has_allowed_host_and_scheme
+from django.utils.translation import gettext_lazy as _
 from django.views.decorators.http import require_http_methods
 from django_ratelimit.decorators import ratelimit
 
@@ -93,6 +94,7 @@ _SETTINGS_UPDATE_FIELDS = [
     "show_staff_names_publicly",
     "enable_any_employee_option",
     "booking_confirmation_mode",
+    "language",
     "updated_at",
 ]
 
@@ -105,6 +107,8 @@ def settings_view(request):
     if request.method == "POST" and form.is_valid():
         instance = form.save(commit=False)
         instance.save(update_fields=_SETTINGS_UPDATE_FIELDS)
-        messages.success(request, "Settings saved.")
+        translation.activate(instance.language)
+        request.LANGUAGE_CODE = translation.get_language()
+        messages.success(request, _("Settings saved."))
         return redirect("company_accounts:settings")
     return render(request, "company_accounts/settings.html", {"form": form, "company": company})

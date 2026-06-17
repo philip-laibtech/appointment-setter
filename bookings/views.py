@@ -10,6 +10,7 @@ from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
+from django.utils.translation import gettext as _
 from django.views.decorators.http import require_http_methods
 from django_ratelimit.decorators import ratelimit
 
@@ -25,6 +26,7 @@ from services.models import ServiceOffering, StaffServiceOffering
 from staff_members.models import StaffMember
 
 from .forms import BookingForm
+from .i18n import activate_company_language
 from .models import Booking
 
 
@@ -43,7 +45,9 @@ _ACTIVE_BOOKING_STATUSES = [Booking.Status.CONFIRMED, Booking.Status.PENDING]
 # ---------------------------------------------------------------------------
 
 def _get_active_company(company_slug):
-    return get_object_or_404(CompanyAccount, slug=company_slug, is_active=True)
+    company = get_object_or_404(CompanyAccount, slug=company_slug, is_active=True)
+    activate_company_language(company)
+    return company
 
 
 def _require_public_page(company):
@@ -819,11 +823,11 @@ def booking_detail_view(request, booking_id):
         company=request.user,
     )
     back_urls = {
-        "past": ("bookings:past_bookings", "Back to Past Bookings"),
-        "pending": ("bookings:pending_bookings", "Back to Pending Bookings"),
+        "past": ("bookings:past_bookings", _("Back to Past Bookings")),
+        "pending": ("bookings:pending_bookings", _("Back to Pending Bookings")),
     }
     back_url_name, back_label = back_urls.get(
-        request.GET.get("from"), ("bookings:all_bookings", "Back to Bookings")
+        request.GET.get("from"), ("bookings:all_bookings", _("Back to Bookings"))
     )
     return render(
         request,

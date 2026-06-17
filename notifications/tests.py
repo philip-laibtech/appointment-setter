@@ -191,6 +191,110 @@ class NotificationPrivacyTests(TestCase):
 
 
 # ---------------------------------------------------------------------------
+# i18n: notification emails
+# ---------------------------------------------------------------------------
+
+@override_settings(EMAIL_BACKEND="django.core.mail.backends.locmem.EmailBackend")
+class NotificationLanguageTests(TestCase):
+    def setUp(self):
+        mail.outbox = []
+
+    def _make_company_with_language(self, email, language, business_name="Test Co"):
+        company = _make_company(email, business_name=business_name)
+        company.language = language
+        company.save(update_fields=["language"])
+        return company
+
+    def test_customer_request_received_email_in_german_by_default(self):
+        company = self._make_company_with_language("de_company@example.com", "de")
+        staff = _make_staff(company)
+        service = _make_service(company)
+        booking = _make_booking(company, staff, service, status=Booking.Status.PENDING)
+        services.send_booking_request_received_to_customer(booking)
+
+        message = mail.outbox[0]
+        self.assertEqual(message.subject, "Ihre Buchungsanfrage wurde erhalten")
+        self.assertIn("Hallo Jane,", message.body)
+
+    def test_customer_confirmed_email_in_french(self):
+        company = self._make_company_with_language("fr_company@example.com", "fr")
+        staff = _make_staff(company)
+        service = _make_service(company)
+        booking = _make_booking(company, staff, service, status=Booking.Status.CONFIRMED)
+        services.send_booking_confirmed_to_customer(booking)
+
+        message = mail.outbox[0]
+        self.assertEqual(message.subject, "Votre réservation est confirmée")
+        self.assertIn("Bonjour Jane,", message.body)
+
+    def test_customer_declined_email_in_italian(self):
+        company = self._make_company_with_language("it_company@example.com", "it")
+        staff = _make_staff(company)
+        service = _make_service(company)
+        booking = _make_booking(company, staff, service, status=Booking.Status.DECLINED)
+        services.send_booking_declined_to_customer(booking)
+
+        message = mail.outbox[0]
+        self.assertEqual(message.subject, "La tua richiesta di prenotazione è stata rifiutata")
+        self.assertIn("Ciao Jane,", message.body)
+
+    def test_customer_cancelled_email_in_company_language(self):
+        company = self._make_company_with_language("fr_cancel@example.com", "fr")
+        staff = _make_staff(company)
+        service = _make_service(company)
+        booking = _make_booking(company, staff, service, status=Booking.Status.CONFIRMED)
+        services.send_booking_cancelled_to_customer(booking)
+
+        message = mail.outbox[0]
+        self.assertEqual(message.subject, "Votre rendez-vous a été annulé")
+
+    def test_company_new_booking_email_in_company_language(self):
+        company = self._make_company_with_language("it_newbooking@example.com", "it")
+        staff = _make_staff(company)
+        service = _make_service(company)
+        booking = _make_booking(company, staff, service, status=Booking.Status.CONFIRMED)
+        services.send_new_booking_to_company(booking)
+
+        message = mail.outbox[0]
+        self.assertIn("Servizio:", message.body)
+
+    def test_company_new_booking_request_email_in_company_language(self):
+        company = self._make_company_with_language("fr_newrequest@example.com", "fr")
+        staff = _make_staff(company)
+        service = _make_service(company)
+        booking = _make_booking(company, staff, service, status=Booking.Status.PENDING)
+        services.send_new_booking_request_to_company(booking)
+
+        message = mail.outbox[0]
+        self.assertIn("Service :", message.body)
+
+    def test_customer_provided_name_not_translated_in_email(self):
+        company = self._make_company_with_language("fr_customername@example.com", "fr")
+        staff = _make_staff(company)
+        service = _make_service(company)
+        booking = _make_booking(company, staff, service, status=Booking.Status.CONFIRMED)
+        booking.customer_first_name = "Pending"
+        booking.save(update_fields=["customer_first_name"])
+        services.send_booking_confirmed_to_customer(booking)
+
+        message = mail.outbox[0]
+        # "Pending" is a customer-provided name and must not be translated to "En attente"
+        self.assertIn("Bonjour Pending,", message.body)
+
+    def test_active_language_restored_after_sending_email(self):
+        from django.utils import translation
+
+        translation.activate("de")
+        company = self._make_company_with_language("fr_restore@example.com", "fr")
+        staff = _make_staff(company)
+        service = _make_service(company)
+        booking = _make_booking(company, staff, service, status=Booking.Status.CONFIRMED)
+        services.send_booking_confirmed_to_customer(booking)
+
+        self.assertEqual(translation.get_language(), "de")
+
+
+# ---------------------------------------------------------------------------
 # Booking integration tests
 # ---------------------------------------------------------------------------
 

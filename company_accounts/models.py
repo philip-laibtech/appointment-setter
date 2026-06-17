@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.db import models
 from django.utils.text import slugify
+from django.utils.translation import gettext_lazy as _
 
 
 class CompanyAccountManager(BaseUserManager):
@@ -26,6 +27,12 @@ class CompanyAccount(AbstractBaseUser, PermissionsMixin):
         AUTOMATIC = "automatic", "Automatic confirmation"
         MANUAL = "manual", "Manual confirmation"
 
+    class Language(models.TextChoices):
+        GERMAN = "de", _("Deutsch")
+        FRENCH = "fr", _("Français")
+        ITALIAN = "it", _("Italiano")
+        ENGLISH = "en", _("English")
+
     email = models.EmailField(unique=True)
     business_name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, blank=True)
@@ -42,6 +49,13 @@ class CompanyAccount(AbstractBaseUser, PermissionsMixin):
         max_length=20,
         choices=BookingConfirmationMode.choices,
         default=BookingConfirmationMode.AUTOMATIC,
+    )
+    language = models.CharField(
+        max_length=2,
+        choices=Language.choices,
+        default=Language.GERMAN,
+        verbose_name=_("Interface language"),
+        help_text=_("Language used for your dashboard, public booking page, and notification emails."),
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

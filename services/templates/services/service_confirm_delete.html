@@ -1,5 +1,6 @@
 {% extends "company_accounts/app_base.html" %}
-{% block title %}Delete Service{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "Delete Service" %}{% endblock %}
 
 {% block extra_style %}
 <style>
@@ -69,22 +70,22 @@
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
     <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
-  Edit Service
+  {% translate "Edit Service" %}
 </a>
 
 <div class="sv-form-card">
-  <h1 class="sv-form-title">Delete "{{ service.name }}"?</h1>
+  <h1 class="sv-form-title">{% blocktranslate with name=service.name %}Delete "{{ name }}"?{% endblocktranslate %}</h1>
   <p class="sv-form-subtitle">
-    This will permanently delete the service and all its staff assignments. This action cannot be undone.
+    {% translate "This will permanently delete the service and all its staff assignments. This action cannot be undone." %}
   </p>
 
   {% if has_bookings %}
   <div class="sv-warn">
-    This service has existing bookings and cannot be deleted.
+    {% translate "This service has existing bookings and cannot be deleted." %}
   </div>
   {% else %}
   <div class="sv-warn">
-    All staff assignments for this service will also be deleted.
+    {% translate "All staff assignments for this service will also be deleted." %}
   </div>
   {% endif %}
 
@@ -93,8 +94,8 @@
   <form method="post" novalidate>
     {% csrf_token %}
     <div class="sv-btn-row">
-      <a href="{% url 'services:edit' service.pk %}" class="sv-cancel">Cancel</a>
-      <button type="submit" class="sv-submit-danger" {% if has_bookings %}disabled{% endif %}>Delete</button>
+      <a href="{% url 'services:edit' service.pk %}" class="sv-cancel">{% translate "Cancel" %}</a>
+      <button type="submit" class="sv-submit-danger" {% if has_bookings %}disabled{% endif %}>{% translate "Delete" %}</button>
     </div>
   </form>
 </div>
