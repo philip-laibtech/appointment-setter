@@ -1,5 +1,6 @@
 from datetime import date as _date, datetime as _datetime, time as _time, timedelta
 
+from django.conf import settings
 from django.contrib.admin.sites import AdminSite
 from django.contrib.auth import get_user_model
 from django.test import TestCase
@@ -26,6 +27,7 @@ def _make_company(email, business_name="Test Co"):
         email=email,
         password="testpassword123",
         business_name=business_name,
+        tos_version=settings.CURRENT_TOS_VERSION,
     )
 
 
@@ -181,7 +183,7 @@ class OpenHoursListTests(TestCase):
         self.client.login(username="a@example.com", password="testpassword123")
         response = self.client.get(LIST_URL)
         self.assertEqual(response.status_code, 200)
-        slots_in_context = list(response.context["slots"])
+        slots_in_context = list(response.context["page_obj"].object_list)
         self.assertIn(slot_a, slots_in_context)
         self.assertEqual(len(slots_in_context), 1)
 
@@ -195,7 +197,7 @@ class OpenHoursListTests(TestCase):
         self.client.login(username="filter@example.com", password="testpassword123")
         response = self.client.get(LIST_URL + f"?staff={staff_a.pk}")
         self.assertEqual(response.status_code, 200)
-        slots = list(response.context["slots"])
+        slots = list(response.context["page_obj"].object_list)
         self.assertEqual(slots, [slot_a])
         self.assertEqual(response.context["selected_staff"], staff_a)
 
@@ -207,7 +209,7 @@ class OpenHoursListTests(TestCase):
         self.client.login(username="filterall@example.com", password="testpassword123")
         response = self.client.get(LIST_URL + "?staff=99999")
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(len(list(response.context["slots"])), 1)
+        self.assertEqual(len(list(response.context["page_obj"].object_list)), 1)
         self.assertIsNone(response.context["selected_staff"])
 
 

@@ -1,5 +1,6 @@
 from datetime import timedelta
 
+from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core import mail
 from django.test import TestCase, override_settings
@@ -27,6 +28,7 @@ def _make_company(email, business_name="Test Co", confirmation_mode=None):
         email=email,
         password="testpassword123",
         business_name=business_name,
+        tos_version=settings.CURRENT_TOS_VERSION,
     )
     if confirmation_mode:
         company.booking_confirmation_mode = confirmation_mode

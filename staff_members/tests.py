@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
@@ -15,6 +16,7 @@ def _make_company(email, business_name="Test Co"):
         email=email,
         password="testpassword123",
         business_name=business_name,
+        tos_version=settings.CURRENT_TOS_VERSION,
     )
 
 
@@ -174,7 +176,7 @@ class StaffDeleteTests(TestCase):
         self.assertEqual(response.status_code, 404)
         self.assertTrue(StaffMember.objects.filter(pk=self.member.pk).exists())
 
-    def test_member_with_slots_is_deactivated_not_deleted(self):
+    def test_member_with_slots_cannot_be_deleted(self):
         from availability.models import AppointmentSlot
         from django.utils import timezone
         from datetime import timedelta
@@ -187,10 +189,10 @@ class StaffDeleteTests(TestCase):
         )
         self.client.login(username="owner@example.com", password="testpassword123")
         response = self.client.post(self.delete_url)
-        self.assertRedirects(response, LIST_URL)
+        self.assertRedirects(response, self.delete_url)
         self.member.refresh_from_db()
         self.assertTrue(StaffMember.objects.filter(pk=self.member.pk).exists())
-        self.assertFalse(self.member.is_active)
+        self.assertTrue(self.member.is_active)
 
 
 class StaffModelTests(TestCase):

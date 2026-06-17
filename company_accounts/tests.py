@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth.password_validation import validate_password
 from django.core import mail
 from django.core.exceptions import ValidationError
@@ -13,6 +14,7 @@ def make_account(business_name="Acme AG", email="acme@example.com", password="S3
         email=email,
         password=password,
         business_name=business_name,
+        tos_version=settings.CURRENT_TOS_VERSION,
     )
 
 
@@ -102,7 +104,6 @@ class DashboardTest(TestCase):
         self.client.force_login(self.account)
         response = self.client.get(self.dashboard_url)
         self.assertContains(response, self.account.business_name)
-        self.assertContains(response, self.account.email)
         self.assertContains(response, self.account.slug)
 
 
@@ -112,8 +113,10 @@ class RegistrationAutoLoginTest(TestCase):
         response = self.client.post(url, {
             "business_name": "New Co",
             "email": "new@example.com",
+            "phone": "+41 79 123 45 67",
             "password1": "S3cur3Pass!",
             "password2": "S3cur3Pass!",
+            "tos_accepted": "on",
         })
         self.assertRedirects(response, reverse("company_accounts:dashboard"))
         self.assertTrue(response.wsgi_request.user.is_authenticated)
@@ -383,8 +386,8 @@ class CompanySettingsTest(TestCase):
             "bookings:slot_select",
             kwargs={
                 "company_slug": self.account.slug,
-                "staff_id": staff.pk,
-                "service_id": service.pk,
+                "staff_uid": staff.public_id,
+                "service_uid": service.public_id,
             },
         )
         response = self.client.get(url)

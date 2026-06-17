@@ -2,6 +2,7 @@ from datetime import date as date_type
 from datetime import timedelta
 from datetime import timezone as dt_tz
 
+from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
@@ -27,6 +28,7 @@ def _make_company(email, business_name="Test Co", public_page_enabled=True, is_a
         business_name=business_name,
         public_page_enabled=public_page_enabled,
         is_active=is_active,
+        tos_version=settings.CURRENT_TOS_VERSION,
     )
 
 
@@ -71,21 +73,21 @@ def _entry_url(company):
 
 def _service_url(company, staff):
     return reverse("bookings:service_select", kwargs={
-        "company_slug": company.slug, "staff_id": staff.pk,
+        "company_slug": company.slug, "staff_uid": staff.public_id,
     })
 
 
 def _slot_url(company, staff, service):
     return reverse("bookings:slot_select", kwargs={
-        "company_slug": company.slug, "staff_id": staff.pk, "service_id": service.pk,
+        "company_slug": company.slug, "staff_uid": staff.public_id, "service_uid": service.public_id,
     })
 
 
 def _time_url(company, staff, service, target_date):
     return reverse("bookings:time_select", kwargs={
         "company_slug": company.slug,
-        "staff_id": staff.pk,
-        "service_id": service.pk,
+        "staff_uid": staff.public_id,
+        "service_uid": service.public_id,
         "date": target_date.strftime("%Y-%m-%d"),
     })
 
@@ -94,8 +96,8 @@ def _book_url(company, staff, service, start_at):
     local = timezone.localtime(start_at)
     return reverse("bookings:book", kwargs={
         "company_slug": company.slug,
-        "staff_id": staff.pk,
-        "service_id": service.pk,
+        "staff_uid": staff.public_id,
+        "service_uid": service.public_id,
         "date": local.strftime("%Y-%m-%d"),
         "start_time": local.strftime("%H-%M"),
     })
@@ -110,6 +112,8 @@ def _valid_post_data():
         "customer_message": "",
         "privacy_accepted": "on",
         "website": "",
+        "captcha_0": "PASSED",
+        "captcha_1": "PASSED",
     }
 
 
@@ -189,14 +193,14 @@ class ServiceSelectTests(TestCase):
     def test_staff_not_belonging_to_company_returns_404(self):
         other_staff = _make_staff(self.other, "Eve")
         url = reverse("bookings:service_select", kwargs={
-            "company_slug": self.company.slug, "staff_id": other_staff.pk,
+            "company_slug": self.company.slug, "staff_uid": other_staff.public_id,
         })
         self.assertEqual(self.client.get(url).status_code, 404)
 
     def test_inactive_staff_returns_404(self):
         inactive = _make_staff(self.company, "Inactive", is_active=False)
         url = reverse("bookings:service_select", kwargs={
-            "company_slug": self.company.slug, "staff_id": inactive.pk,
+            "company_slug": self.company.slug, "staff_uid": inactive.public_id,
         })
         self.assertEqual(self.client.get(url).status_code, 404)
 
@@ -257,8 +261,8 @@ class DaySelectTests(TestCase):
         other_svc = _make_service(other)
         url = reverse("bookings:slot_select", kwargs={
             "company_slug": self.company.slug,
-            "staff_id": self.staff.pk,
-            "service_id": other_svc.pk,
+            "staff_uid": self.staff.public_id,
+            "service_uid": other_svc.public_id,
         })
         self.assertEqual(self.client.get(url).status_code, 404)
 
@@ -266,8 +270,8 @@ class DaySelectTests(TestCase):
         unassigned = _make_service(self.company, "Unassigned")
         url = reverse("bookings:slot_select", kwargs={
             "company_slug": self.company.slug,
-            "staff_id": self.staff.pk,
-            "service_id": unassigned.pk,
+            "staff_uid": self.staff.public_id,
+            "service_uid": unassigned.public_id,
         })
         self.assertEqual(self.client.get(url).status_code, 404)
 
@@ -434,8 +438,8 @@ class BookingFormTests(TestCase):
         _make_availability(other, other_staff)
         url = reverse("bookings:book", kwargs={
             "company_slug": self.company.slug,
-            "staff_id": other_staff.pk,
-            "service_id": other_service.pk,
+            "staff_uid": other_staff.public_id,
+            "service_uid": other_service.public_id,
             "date": self.start_at.strftime("%Y-%m-%d"),
             "start_time": self.start_at.strftime("%H-%M"),
         })
@@ -445,8 +449,8 @@ class BookingFormTests(TestCase):
         unassigned = _make_service(self.company, "Unassigned")
         url = reverse("bookings:book", kwargs={
             "company_slug": self.company.slug,
-            "staff_id": self.staff.pk,
-            "service_id": unassigned.pk,
+            "staff_uid": self.staff.public_id,
+            "service_uid": unassigned.public_id,
             "date": self.start_at.strftime("%Y-%m-%d"),
             "start_time": self.start_at.strftime("%H-%M"),
         })
@@ -463,8 +467,8 @@ class BookingFormTests(TestCase):
         past = datetime(2000, 1, 1, 10, 0, 0, tzinfo=dt_tz.utc)
         url = reverse("bookings:book", kwargs={
             "company_slug": self.company.slug,
-            "staff_id": self.staff.pk,
-            "service_id": self.service.pk,
+            "staff_uid": self.staff.public_id,
+            "service_uid": self.service.public_id,
             "date": "2000-01-01",
             "start_time": "10-00",
         })
@@ -683,14 +687,14 @@ def _any_service_url(company):
 
 def _any_slot_url(company, service):
     return reverse("bookings:any_slot_select", kwargs={
-        "company_slug": company.slug, "service_id": service.pk,
+        "company_slug": company.slug, "service_uid": service.public_id,
     })
 
 
 def _any_time_url(company, service, target_date):
     return reverse("bookings:any_time_select", kwargs={
         "company_slug": company.slug,
-        "service_id": service.pk,
+        "service_uid": service.public_id,
         "date": target_date.strftime("%Y-%m-%d"),
     })
 
@@ -698,7 +702,7 @@ def _any_time_url(company, service, target_date):
 def _any_book_url(company, service, date_str, start_time_str):
     return reverse("bookings:any_book", kwargs={
         "company_slug": company.slug,
-        "service_id": service.pk,
+        "service_uid": service.public_id,
         "date": date_str,
         "start_time": start_time_str,
     })
@@ -809,14 +813,14 @@ class AnySlotSelectTests(TestCase):
     def test_service_not_belonging_to_company_returns_404(self):
         other_svc = _make_service(self.other, "Other")
         url = reverse("bookings:any_slot_select", kwargs={
-            "company_slug": self.company.slug, "service_id": other_svc.pk,
+            "company_slug": self.company.slug, "service_uid": other_svc.public_id,
         })
         self.assertEqual(self.client.get(url).status_code, 404)
 
     def test_inactive_service_returns_404(self):
         inactive_svc = _make_service(self.company, "Inactive", is_active=False)
         url = reverse("bookings:any_slot_select", kwargs={
-            "company_slug": self.company.slug, "service_id": inactive_svc.pk,
+            "company_slug": self.company.slug, "service_uid": inactive_svc.public_id,
         })
         self.assertEqual(self.client.get(url).status_code, 404)
 
@@ -833,7 +837,7 @@ class AnySlotSelectTests(TestCase):
         # Bob NOT assigned to service
         _make_availability(company, staff, start_offset_hours=2, duration_hours=2)
         response = self.client.get(reverse("bookings:any_slot_select", kwargs={
-            "company_slug": company.slug, "service_id": service.pk,
+            "company_slug": company.slug, "service_uid": service.public_id,
         }))
         self.assertEqual(response.context["days"], [])
 
@@ -844,7 +848,7 @@ class AnySlotSelectTests(TestCase):
         _assign(inactive, service)
         _make_availability(company, inactive, start_offset_hours=2, duration_hours=2)
         response = self.client.get(reverse("bookings:any_slot_select", kwargs={
-            "company_slug": company.slug, "service_id": service.pk,
+            "company_slug": company.slug, "service_uid": service.public_id,
         }))
         self.assertEqual(response.context["days"], [])
 
@@ -855,7 +859,7 @@ class AnySlotSelectTests(TestCase):
         _assign(staff, service)
         _make_availability(company, staff, start_offset_hours=2, duration_hours=2, status="booked")
         response = self.client.get(reverse("bookings:any_slot_select", kwargs={
-            "company_slug": company.slug, "service_id": service.pk,
+            "company_slug": company.slug, "service_uid": service.public_id,
         }))
         self.assertEqual(response.context["days"], [])
 
@@ -872,7 +876,7 @@ class AnySlotSelectTests(TestCase):
             status=AppointmentSlot.Status.AVAILABLE,
         )
         response = self.client.get(reverse("bookings:any_slot_select", kwargs={
-            "company_slug": company.slug, "service_id": service.pk,
+            "company_slug": company.slug, "service_uid": service.public_id,
         }))
         self.assertEqual(response.context["days"], [])
 
@@ -889,7 +893,7 @@ class AnySlotSelectTests(TestCase):
             status=AppointmentSlot.Status.AVAILABLE,
         )
         response = self.client.get(reverse("bookings:any_slot_select", kwargs={
-            "company_slug": company.slug, "service_id": service.pk,
+            "company_slug": company.slug, "service_uid": service.public_id,
         }))
         self.assertEqual(response.context["days"], [])
 
@@ -899,7 +903,7 @@ class AnySlotSelectTests(TestCase):
         service = _make_service(company, "Test", duration=30)
         _assign(staff, service)
         response = self.client.get(reverse("bookings:any_slot_select", kwargs={
-            "company_slug": company.slug, "service_id": service.pk,
+            "company_slug": company.slug, "service_uid": service.public_id,
         }))
         self.assertEqual(response.context["days"], [])
 
@@ -940,7 +944,7 @@ class AnyTimeSelectTests(TestCase):
         inactive = _make_service(self.company, "Inactive", is_active=False)
         url = reverse("bookings:any_time_select", kwargs={
             "company_slug": self.company.slug,
-            "service_id": inactive.pk,
+            "service_uid": inactive.public_id,
             "date": self.target_date.strftime("%Y-%m-%d"),
         })
         self.assertEqual(self.client.get(url).status_code, 404)
@@ -1112,6 +1116,7 @@ def _make_company_manual(email, business_name="Manual Co"):
         password="testpassword123",
         business_name=business_name,
         booking_confirmation_mode=CompanyAccount.BookingConfirmationMode.MANUAL,
+        tos_version=settings.CURRENT_TOS_VERSION,
     )
 
 
@@ -1148,7 +1153,7 @@ class AutomaticConfirmationTests(TestCase):
             "company_slug": self.company.slug, "public_token": booking.public_token,
         })
         response = self.client.get(url)
-        self.assertContains(response, "Your booking is confirmed")
+        self.assertContains(response, "Ihre Buchung ist bestätigt")
 
 
 # ---------------------------------------------------------------------------
@@ -1192,8 +1197,8 @@ class ManualConfirmationTests(TestCase):
             "company_slug": self.company.slug, "public_token": booking.public_token,
         })
         response = self.client.get(url)
-        self.assertContains(response, "Booking request received")
-        self.assertNotContains(response, "Your booking is confirmed")
+        self.assertContains(response, "Buchungsanfrage erhalten")
+        self.assertNotContains(response, "Ihre Buchung ist bestätigt")
 
 
 # ---------------------------------------------------------------------------

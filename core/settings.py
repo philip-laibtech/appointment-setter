@@ -1,7 +1,10 @@
 import os
+import sys
 from pathlib import Path
 
 from django.utils.translation import gettext_lazy as _
+
+_TESTING = "test" in sys.argv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -139,6 +142,9 @@ if not DEBUG:
 # Inline styles are permitted across all templates; no inline scripts remain.
 # Bump this string whenever the privacy policy text changes materially.
 # The current value is stamped on every new Booking at creation time (GDPR audit trail).
+CAPTCHA_TEST_MODE = _TESTING
+RATELIMIT_ENABLE = not _TESTING
+
 PRIVACY_POLICY_VERSION = "1.0"
 
 # Bump this string whenever the Terms of Service change materially.

@@ -18,6 +18,6 @@ urlpatterns = [
     path("availability/", include("availability.urls")),
     path("staff/", include("staff_members.urls")),
     path("services/", include("services.urls")),
-    path("b/", include("bookings.urls")),
+    path("", include("bookings.urls")),
     path("", include("landing.urls")),
 ]
