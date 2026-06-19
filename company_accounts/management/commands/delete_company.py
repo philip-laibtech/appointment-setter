@@ -1,6 +1,10 @@
+import logging
+
 from django.conf import settings
 from django.core.mail import send_mail
 from django.core.management.base import BaseCommand, CommandError
+
+logger = logging.getLogger(__name__)
 from django.db import transaction
 from django.utils import timezone
 
@@ -97,7 +101,10 @@ class Command(BaseCommand):
             f"If you did not request this, please contact us immediately at {support_email}.\n\n"
             f"Appointment Setter"
         )
-        send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [farewell_email], fail_silently=True)
+        try:
+            send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [farewell_email])
+        except Exception:
+            logger.exception("Failed to send farewell confirmation email to %s for company %s", farewell_email, log.pk)
 
         self.stdout.write(self.style.SUCCESS(
             f"Deleted company \"{log.business_name}\". "

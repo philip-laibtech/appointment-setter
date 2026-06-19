@@ -1,5 +1,8 @@
+import logging
 from datetime import timedelta
 from zoneinfo import ZoneInfo
+
+logger = logging.getLogger(__name__)
 
 from django.conf import settings as django_settings
 from django.contrib import messages
@@ -59,7 +62,10 @@ def submit_account_deletion_view(request):
                 "requested_at": deletion_request.requested_at,
             },
         )
-        send_mail(subject, body, django_settings.DEFAULT_FROM_EMAIL, [support_email], fail_silently=True)
+        try:
+            send_mail(subject, body, django_settings.DEFAULT_FROM_EMAIL, [support_email])
+        except Exception:
+            logger.exception("Failed to send deletion request notification to support for company %s", company.pk)
 
     messages.success(
         request,
