@@ -1,0 +1,75 @@
+{% extends "company_accounts/app_base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Two-Factor Authentication" %} — {{ company.business_name }}{% endblock %}
+
+{% block extra_style %}
+<style>
+  main { max-width: 640px; }
+  .tf-page-title { font-size: 1.4rem; font-weight: 700; color: #111; margin-bottom: 0.25rem; }
+  .tf-page-sub { font-size: 0.9rem; color: #6b7280; margin-bottom: 2rem; }
+  .tf-section { background: #fff; border: 1px solid #e4e4e7; border-radius: 10px; padding: 1.5rem; margin-bottom: 1.5rem; }
+  .tf-status-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .tf-badge { font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.75rem; border-radius: 999px; }
+  .tf-badge-on { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+  .tf-badge-off { background: #f3f4f6; color: #6b7280; border: 1px solid #e5e7eb; }
+  .tf-hint { font-size: 0.875rem; color: #6b7280; margin-top: 0.5rem; }
+  .tf-save-btn { padding: 0.65rem 1.75rem; background: #111; color: #fff; border: none; border-radius: 6px; font-size: 0.9375rem; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
+  .tf-save-btn:hover { background: #333; }
+  .tf-secondary-btn { padding: 0.55rem 1.25rem; background: #fff; color: #374151; border: 1px solid #d1d5db; border-radius: 6px; font-size: 0.875rem; font-weight: 600; cursor: pointer; }
+  .tf-secondary-btn:hover { background: #f9fafb; }
+  .tf-danger-zone { border: 1px solid #fecaca; border-radius: 10px; padding: 1.5rem; margin-top: 1.5rem; }
+  .tf-danger-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #ef4444; margin-bottom: 0.75rem; }
+  .tf-password-row { display: flex; gap: 0.6rem; align-items: flex-start; margin-top: 0.75rem; flex-wrap: wrap; }
+  .tf-password-row input[type=password] { padding: 0.5rem 0.7rem; border: 1px solid #d1d5db; border-radius: 6px; font-size: 0.875rem; flex: 1; min-width: 180px; }
+  .tf-field-errors { color: #b91c1c; font-size: 0.8125rem; margin-top: 0.3rem; }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<h1 class="tf-page-title">{% translate "Two-factor authentication" %}</h1>
+<p class="tf-page-sub">{% translate "Require a one-time code from an authenticator app in addition to your password when logging in." %}</p>
+
+<div class="tf-section">
+  <div class="tf-status-row">
+    <div>
+      <span class="tf-badge {% if enabled %}tf-badge-on{% else %}tf-badge-off{% endif %}">
+        {% if enabled %}{% translate "Enabled" %}{% else %}{% translate "Disabled" %}{% endif %}
+      </span>
+      {% if enabled %}
+        <p class="tf-hint">{% blocktranslate count counter=backup_codes_remaining %}{{ counter }} backup code remaining.{% plural %}{{ counter }} backup codes remaining.{% endblocktranslate %}</p>
+      {% else %}
+        <p class="tf-hint">{% translate "Your account currently relies on your password alone." %}</p>
+      {% endif %}
+    </div>
+    {% if not enabled %}
+      <a href="{% url 'company_accounts:two_factor_setup' %}" class="tf-save-btn">{% translate "Enable" %}</a>
+    {% endif %}
+  </div>
+</div>
+
+{% if enabled %}
+<div class="tf-section">
+  <p class="tf-step-label">{% translate "Backup codes" %}</p>
+  <p class="tf-hint">{% translate "Generate a fresh set of single-use backup codes. Your previous codes will stop working." %}</p>
+  <form method="post" action="{% url 'company_accounts:two_factor_regenerate_backup_codes' %}" class="tf-password-row">
+    {% csrf_token %}
+    <input type="password" name="password" placeholder="{% translate 'Current password' %}" autocomplete="current-password" required>
+    <button type="submit" class="tf-secondary-btn">{% translate "Regenerate backup codes" %}</button>
+  </form>
+</div>
+
+<div class="tf-danger-zone">
+  <p class="tf-danger-title">{% translate "Disable two-factor authentication" %}</p>
+  <p class="tf-hint">{% translate "Your account will only be protected by your password." %}</p>
+  <form method="post" action="{% url 'company_accounts:two_factor_disable' %}" class="tf-password-row">
+    {% csrf_token %}
+    <input type="password" name="password" placeholder="{% translate 'Current password' %}" autocomplete="current-password" required>
+    <button type="submit" class="tf-secondary-btn" style="color:#b91c1c;border-color:#fca5a5;">{% translate "Disable" %}</button>
+  </form>
+</div>
+{% endif %}
+
+<p style="margin-top:1.5rem;"><a href="{% url 'company_accounts:settings' %}" style="color:#9ca3af;font-size:0.875rem;">{% translate "Back to settings" %}</a></p>
+
+{% endblock %}

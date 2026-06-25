@@ -8,6 +8,8 @@
   .tos-row label { font-size: 0.875rem; font-weight: 400; color: #374151; cursor: pointer; line-height: 1.5; }
   .tos-row label a { color: #111827; }
   .tos-row label a:hover { text-decoration: underline; }
+  .captcha-wrap { display: flex; flex-direction: column; gap: 0.5rem; }
+  .captcha-wrap img.captcha { border: 1px solid #d1d5db; border-radius: 6px; display: block; }
 </style>
 {% endblock %}
 {% block content %}
@@ -16,7 +18,7 @@
   <form method="post" novalidate>
     {% csrf_token %}
     {% for field in form %}
-      {% if field.name != 'tos_accepted' %}
+      {% if field.name != 'tos_accepted' and field.name != 'captcha' %}
         <div class="form-group">
           <label for="{{ field.id_for_label }}">{{ field.label }}</label>
           {{ field }}
@@ -47,6 +49,11 @@
           {% for error in form.tos_accepted.errors %}{{ error }}{% endfor %}
         </div>
       {% endif %}
+    </div>
+    <div class="form-group">
+      <label for="{{ form.captcha.auto_id }}">{% translate "Security check" %}</label>
+      <div class="captcha-wrap">{{ form.captcha }}</div>
+      {% for error in form.captcha.errors %}<p class="field-errors">{{ error }}</p>{% endfor %}
     </div>
     <button type="submit">{% translate "Register" %}</button>
   </form>

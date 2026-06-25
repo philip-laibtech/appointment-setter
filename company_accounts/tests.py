@@ -1,3 +1,5 @@
+import time
+
 from django.conf import settings
 from django.contrib.auth.password_validation import validate_password
 from django.core import mail
@@ -5,8 +7,18 @@ from django.core.exceptions import ValidationError
 from django.test import TestCase
 from django.urls import reverse
 
+from django_otp.oath import TOTP
+from django_otp.plugins.otp_static.models import StaticDevice, StaticToken
+from django_otp.plugins.otp_totp.models import TOTPDevice
+
 from .models import CompanyAccount
 from staff_members.models import StaffMember
+
+
+def current_totp_token(device):
+    totp = TOTP(device.bin_key, device.step, device.t0, device.digits, device.drift)
+    totp.time = time.time()
+    return str(totp.token()).zfill(device.digits)
 
 
 def make_account(business_name="Acme AG", email="acme@example.com", password="S3cur3Pass!"):
@@ -117,6 +129,8 @@ class RegistrationAutoLoginTest(TestCase):
             "password1": "S3cur3Pass!",
             "password2": "S3cur3Pass!",
             "tos_accepted": "on",
+            "captcha_0": "PASSED",
+            "captcha_1": "PASSED",
         })
         self.assertRedirects(response, reverse("company_accounts:dashboard"))
         self.assertTrue(response.wsgi_request.user.is_authenticated)
@@ -576,3 +590,284 @@ class AuthenticatedInterfaceLanguageTests(TestCase):
         self.client.force_login(company)
         response = self.client.get(self.dashboard_url)
         self.assertContains(response, "Le Salon de Coiffure")
+
+
+# ---------------------------------------------------------------------------
+# Two-factor authentication
+# ---------------------------------------------------------------------------
+
+class TwoFactorSetupTests(TestCase):
+    def setUp(self):
+        self.account = make_account(email="2fa_setup@example.com")
+        self.setup_url = reverse("company_accounts:two_factor_setup")
+        self.status_url = reverse("company_accounts:two_factor_status")
+        self.client.force_login(self.account)
+
+    def test_setup_requires_login(self):
+        self.client.logout()
+        response = self.client.get(self.setup_url)
+        self.assertRedirects(response, f"{reverse('company_accounts:login')}?next={self.setup_url}")
+
+    def test_status_page_shows_disabled_by_default(self):
+        response = self.client.get(self.status_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Disabled")
+
+    def test_get_setup_page_creates_unconfirmed_device_with_qr_and_secret(self):
+        response = self.client.get(self.setup_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "data:image/png;base64,")
+        device = TOTPDevice.objects.get(user=self.account, confirmed=False)
+        self.assertContains(response, response.context["secret"])
+        self.assertEqual(response.context["secret"].replace(" ", ""), self._b32_secret(device))
+
+    def _b32_secret(self, device):
+        import base64
+        return base64.b32encode(device.bin_key).decode("ascii")
+
+    def test_revisiting_setup_page_replaces_unconfirmed_device(self):
+        self.client.get(self.setup_url)
+        first = TOTPDevice.objects.get(user=self.account, confirmed=False)
+        self.client.get(self.setup_url)
+        self.assertEqual(TOTPDevice.objects.filter(user=self.account, confirmed=False).count(), 1)
+        second = TOTPDevice.objects.get(user=self.account, confirmed=False)
+        self.assertNotEqual(first.pk, second.pk)
+
+    def test_wrong_code_does_not_enable_2fa(self):
+        self.client.get(self.setup_url)
+        response = self.client.post(self.setup_url, {"token": "000000"})
+        self.assertEqual(response.status_code, 200)
+        self.assertFalse(TOTPDevice.objects.filter(user=self.account, confirmed=True).exists())
+
+    def test_correct_code_enables_2fa_and_shows_backup_codes(self):
+        self.client.get(self.setup_url)
+        device = TOTPDevice.objects.get(user=self.account, confirmed=False)
+        token = current_totp_token(device)
+        response = self.client.post(self.setup_url, {"token": token})
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "company_accounts/two_factor_backup_codes.html")
+        self.assertTrue(TOTPDevice.objects.filter(user=self.account, confirmed=True).exists())
+        codes = response.context["codes"]
+        self.assertEqual(len(codes), settings.TWO_FACTOR_BACKUP_CODE_COUNT)
+        self.assertEqual(StaticToken.objects.filter(device__user=self.account).count(), len(codes))
+
+    def test_setup_redirects_when_already_enabled(self):
+        self._enable_2fa()
+        response = self.client.get(self.setup_url)
+        self.assertRedirects(response, self.status_url)
+
+    def _enable_2fa(self):
+        self.client.get(self.setup_url)
+        device = TOTPDevice.objects.get(user=self.account, confirmed=False)
+        token = current_totp_token(device)
+        self.client.post(self.setup_url, {"token": token})
+        device.refresh_from_db()
+        return device
+
+
+class TwoFactorLoginTests(TestCase):
+    def setUp(self):
+        self.account = make_account(email="2fa_login@example.com")
+        self.login_url = reverse("company_accounts:login")
+        self.verify_url = reverse("company_accounts:two_factor_verify")
+        self.dashboard_url = reverse("company_accounts:dashboard")
+        self.device = TOTPDevice.objects.create(user=self.account, confirmed=True, name="default")
+
+    def test_login_with_2fa_enabled_does_not_log_in_immediately(self):
+        response = self.client.post(self.login_url, {
+            "username": self.account.email,
+            "password": "S3cur3Pass!",
+        })
+        self.assertRedirects(response, self.verify_url)
+        self.assertFalse(response.wsgi_request.user.is_authenticated)
+
+    def test_wrong_password_does_not_reach_verify_step(self):
+        response = self.client.post(self.login_url, {
+            "username": self.account.email,
+            "password": "wrongpassword",
+        })
+        self.assertEqual(response.status_code, 200)
+        self.assertNotIn("2fa_user_id", self.client.session)
+
+    def test_verify_page_inaccessible_without_pending_login(self):
+        response = self.client.get(self.verify_url)
+        self.assertRedirects(response, self.login_url)
+
+    def test_wrong_totp_code_does_not_log_in(self):
+        self.client.post(self.login_url, {
+            "username": self.account.email,
+            "password": "S3cur3Pass!",
+        })
+        response = self.client.post(self.verify_url, {"token": "000000"})
+        self.assertEqual(response.status_code, 200)
+        self.assertFalse(response.wsgi_request.user.is_authenticated)
+
+    def test_correct_totp_code_logs_in(self):
+        self.client.post(self.login_url, {
+            "username": self.account.email,
+            "password": "S3cur3Pass!",
+        })
+        token = current_totp_token(self.device)
+        response = self.client.post(self.verify_url, {"token": token})
+        self.assertRedirects(response, self.dashboard_url)
+        self.assertTrue(response.wsgi_request.user.is_authenticated)
+
+    def test_backup_code_logs_in_and_is_single_use(self):
+        static_device = StaticDevice.objects.create(user=self.account, name="backup", confirmed=True)
+        token = StaticToken.objects.create(device=static_device, token="abcd1234").token
+
+        self.client.post(self.login_url, {"username": self.account.email, "password": "S3cur3Pass!"})
+        response = self.client.post(self.verify_url, {"token": token})
+        self.assertRedirects(response, self.dashboard_url)
+        self.assertTrue(response.wsgi_request.user.is_authenticated)
+
+        self.client.logout()
+        self.client.post(self.login_url, {"username": self.account.email, "password": "S3cur3Pass!"})
+        response = self.client.post(self.verify_url, {"token": token})
+        self.assertEqual(response.status_code, 200)
+        self.assertFalse(response.wsgi_request.user.is_authenticated)
+
+    def test_next_param_preserved_through_2fa_verification(self):
+        settings_url = reverse("company_accounts:settings")
+        self.client.post(self.login_url, {
+            "username": self.account.email,
+            "password": "S3cur3Pass!",
+            "next": settings_url,
+        })
+        token = current_totp_token(self.device)
+        response = self.client.post(self.verify_url, {"token": token})
+        self.assertRedirects(response, settings_url)
+
+    def test_cancel_clears_pending_login_state(self):
+        self.client.post(self.login_url, {
+            "username": self.account.email,
+            "password": "S3cur3Pass!",
+        })
+        self.assertIn("2fa_user_id", self.client.session)
+        self.client.post(reverse("company_accounts:two_factor_cancel"))
+        self.assertNotIn("2fa_user_id", self.client.session)
+
+    def test_expired_pending_login_redirects_to_login_with_message(self):
+        from datetime import timedelta
+        from django.utils import timezone as dj_timezone
+
+        self.client.post(self.login_url, {
+            "username": self.account.email,
+            "password": "S3cur3Pass!",
+        })
+        session = self.client.session
+        session["2fa_started_at"] = (dj_timezone.now() - timedelta(minutes=11)).isoformat()
+        session.save()
+        response = self.client.get(self.verify_url, follow=True)
+        self.assertRedirects(response, self.login_url)
+        self.assertNotIn("2fa_user_id", self.client.session)
+
+
+class TwoFactorManagementTests(TestCase):
+    def setUp(self):
+        self.account = make_account(email="2fa_manage@example.com")
+        self.status_url = reverse("company_accounts:two_factor_status")
+        self.disable_url = reverse("company_accounts:two_factor_disable")
+        self.regen_url = reverse("company_accounts:two_factor_regenerate_backup_codes")
+        self.client.force_login(self.account)
+        self.device = TOTPDevice.objects.create(user=self.account, confirmed=True, name="default")
+        from company_accounts.two_factor import issue_backup_codes
+        issue_backup_codes(self.account)
+
+    def test_status_page_shows_enabled_and_backup_code_count(self):
+        response = self.client.get(self.status_url)
+        self.assertContains(response, "Enabled")
+        self.assertEqual(response.context["backup_codes_remaining"], settings.TWO_FACTOR_BACKUP_CODE_COUNT)
+
+    def test_disable_with_wrong_password_does_not_disable(self):
+        self.client.post(self.disable_url, {"password": "wrongpassword"})
+        self.assertTrue(TOTPDevice.objects.filter(user=self.account, confirmed=True).exists())
+
+    def test_disable_with_correct_password_removes_all_devices(self):
+        self.client.post(self.disable_url, {"password": "S3cur3Pass!"})
+        self.assertFalse(TOTPDevice.objects.filter(user=self.account).exists())
+        self.assertFalse(StaticDevice.objects.filter(user=self.account).exists())
+
+    def test_regenerate_with_wrong_password_keeps_old_codes(self):
+        old_tokens = set(StaticToken.objects.filter(device__user=self.account).values_list("token", flat=True))
+        self.client.post(self.regen_url, {"password": "wrongpassword"})
+        new_tokens = set(StaticToken.objects.filter(device__user=self.account).values_list("token", flat=True))
+        self.assertEqual(old_tokens, new_tokens)
+
+    def test_regenerate_with_correct_password_replaces_codes(self):
+        old_tokens = set(StaticToken.objects.filter(device__user=self.account).values_list("token", flat=True))
+        response = self.client.post(self.regen_url, {"password": "S3cur3Pass!"})
+        self.assertTemplateUsed(response, "company_accounts/two_factor_backup_codes.html")
+        new_tokens = set(response.context["codes"])
+        self.assertEqual(len(new_tokens), settings.TWO_FACTOR_BACKUP_CODE_COUNT)
+        self.assertTrue(old_tokens.isdisjoint(new_tokens) or len(old_tokens) == 0)
+        stored_tokens = set(StaticToken.objects.filter(device__user=self.account).values_list("token", flat=True))
+        self.assertEqual(stored_tokens, new_tokens)
+
+    def test_other_company_devices_are_unaffected_by_disable(self):
+        other = make_account(email="2fa_other@example.com")
+        other_device = TOTPDevice.objects.create(user=other, confirmed=True, name="default")
+        self.client.post(self.disable_url, {"password": "S3cur3Pass!"})
+        self.assertTrue(TOTPDevice.objects.filter(pk=other_device.pk, confirmed=True).exists())
+
+
+class SettingsPageTwoFactorLinkTests(TestCase):
+    def test_settings_page_links_to_two_factor_management(self):
+        account = make_account(email="2fa_settings_link@example.com")
+        self.client.force_login(account)
+        response = self.client.get(reverse("company_accounts:settings"))
+        self.assertContains(response, reverse("company_accounts:two_factor_status"))
+
+
+class AdminRequiresVerifiedOtpTests(TestCase):
+    """Closes AUDIT.md 2.4: the admin (full PII access) requires a verified
+    OTP device, independent of the optional 2FA setting for company logins."""
+
+    def setUp(self):
+        self.staff = CompanyAccount.objects.create_superuser(
+            email="admin_2fa@example.com",
+            password="S3cur3Pass!",
+            business_name="Admin Co",
+            tos_version=settings.CURRENT_TOS_VERSION,
+        )
+        self.login_url = reverse("admin:login")
+        self.index_url = reverse("admin:index")
+
+    def test_staff_without_device_cannot_log_in_via_admin(self):
+        response = self.client.post(self.login_url, {
+            "username": self.staff.email,
+            "password": "S3cur3Pass!",
+            "otp_device": "",
+            "otp_token": "",
+        })
+        self.assertEqual(response.status_code, 200)
+        self.assertFalse(response.wsgi_request.user.is_authenticated)
+
+    def test_staff_with_device_but_no_token_cannot_log_in_via_admin(self):
+        TOTPDevice.objects.create(user=self.staff, confirmed=True, name="default")
+        response = self.client.post(self.login_url, {
+            "username": self.staff.email,
+            "password": "S3cur3Pass!",
+            "otp_device": "",
+            "otp_token": "",
+        })
+        self.assertEqual(response.status_code, 200)
+        self.assertFalse(response.wsgi_request.user.is_authenticated)
+
+    def test_staff_with_correct_password_and_otp_token_reaches_admin_index(self):
+        device = TOTPDevice.objects.create(user=self.staff, confirmed=True, name="default")
+        response = self.client.post(f"{self.login_url}?next={self.index_url}", {
+            "username": self.staff.email,
+            "password": "S3cur3Pass!",
+            "otp_device": device.persistent_id,
+            "otp_token": current_totp_token(device),
+            "next": self.index_url,
+        })
+        self.assertRedirects(response, self.index_url)
+        self.assertTrue(response.wsgi_request.user.is_authenticated)
+
+    def test_force_login_without_otp_verification_cannot_reach_admin_index(self):
+        TOTPDevice.objects.create(user=self.staff, confirmed=True, name="default")
+        self.client.force_login(self.staff)
+        response = self.client.get(self.index_url)
+        self.assertNotEqual(response.status_code, 200)

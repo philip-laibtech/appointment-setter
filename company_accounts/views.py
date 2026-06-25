@@ -15,15 +15,30 @@ from django.utils.http import url_has_allowed_host_and_scheme
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.http import require_http_methods
 from django_ratelimit.decorators import ratelimit
+from django_otp import login as otp_login, user_has_device
+from django_otp.plugins.otp_static.models import StaticDevice
+from django_otp.plugins.otp_totp.models import TOTPDevice
 
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 
-from .forms import CompanyLoginForm, CompanyRegistrationForm, CompanySettingsForm
-from .models import DeletionRequest
+from .forms import (
+    CompanyLoginForm,
+    CompanyRegistrationForm,
+    CompanySettingsForm,
+    PasswordConfirmForm,
+    TOTPSetupForm,
+    TwoFactorVerifyForm,
+)
+from .models import CompanyAccount, DeletionRequest
+from .two_factor import backup_codes_remaining, build_qr_data_uri, format_secret, issue_backup_codes
 from bookings.models import Booking
 from staff_members.models import StaffMember
 from services.models import ServiceOffering
+
+# How long a verified-password-but-not-yet-verified-2FA session may sit idle
+# before the pending login is discarded and the user must re-enter their password.
+TWO_FACTOR_PENDING_TTL = timedelta(minutes=10)
 
 
 @login_required
@@ -110,6 +125,16 @@ def register_view(request):
     })
 
 
+def _safe_next_url(request, candidate):
+    if candidate and url_has_allowed_host_and_scheme(
+        url=candidate,
+        allowed_hosts={request.get_host()},
+        require_https=request.is_secure(),
+    ):
+        return candidate
+    return ""
+
+
 @require_http_methods(["GET", "POST"])
 @ratelimit(key="ip", rate="5/m", block=True)
 @ratelimit(key="post:username", rate="5/m", method="POST", block=True)
@@ -118,17 +143,62 @@ def login_view(request):
         return redirect("company_accounts:dashboard")
     form = CompanyLoginForm(request, data=request.POST or None)
     if request.method == "POST" and form.is_valid():
-        login(request, form.get_user())
-        next_url = request.POST.get("next") or request.GET.get("next")
-        if next_url and url_has_allowed_host_and_scheme(
-            url=next_url,
-            allowed_hosts={request.get_host()},
-            require_https=request.is_secure(),
-        ):
-            return redirect(next_url)
-        return redirect("company_accounts:dashboard")
+        user = form.get_user()
+        next_url = _safe_next_url(request, request.POST.get("next") or request.GET.get("next"))
+        if user_has_device(user, confirmed=True):
+            request.session["2fa_user_id"] = user.pk
+            request.session["2fa_next"] = next_url
+            request.session["2fa_started_at"] = timezone.now().isoformat()
+            return redirect("company_accounts:two_factor_verify")
+        login(request, user)
+        return redirect(next_url or "company_accounts:dashboard")
     next_url = request.GET.get("next", "")
     return render(request, "company_accounts/login.html", {"form": form, "next": next_url})
+
+
+@require_http_methods(["GET", "POST"])
+@ratelimit(key="ip", rate="10/m", block=True)
+def two_factor_verify_view(request):
+    user_id = request.session.get("2fa_user_id")
+    started_at_raw = request.session.get("2fa_started_at")
+    expired = False
+    if started_at_raw:
+        try:
+            started_at = timezone.datetime.fromisoformat(started_at_raw)
+        except ValueError:
+            expired = True
+        else:
+            expired = timezone.now() - started_at > TWO_FACTOR_PENDING_TTL
+    if not user_id or expired:
+        for key in ("2fa_user_id", "2fa_next", "2fa_started_at"):
+            request.session.pop(key, None)
+        if expired:
+            messages.error(request, _("Your sign-in session expired. Please log in again."))
+        return redirect("company_accounts:login")
+
+    try:
+        user = CompanyAccount.objects.get(pk=user_id, is_active=True)
+    except CompanyAccount.DoesNotExist:
+        for key in ("2fa_user_id", "2fa_next", "2fa_started_at"):
+            request.session.pop(key, None)
+        return redirect("company_accounts:login")
+
+    form = TwoFactorVerifyForm(request.POST or None, user=user)
+    if request.method == "POST" and form.is_valid():
+        next_url = request.session.get("2fa_next", "")
+        for key in ("2fa_user_id", "2fa_next", "2fa_started_at"):
+            request.session.pop(key, None)
+        login(request, user)
+        otp_login(request, form.matched_device)
+        return redirect(next_url or "company_accounts:dashboard")
+    return render(request, "company_accounts/two_factor_verify.html", {"form": form})
+
+
+@require_http_methods(["POST"])
+def two_factor_cancel_view(request):
+    for key in ("2fa_user_id", "2fa_next", "2fa_started_at"):
+        request.session.pop(key, None)
+    return redirect("company_accounts:login")
 
 
 @require_http_methods(["POST"])
@@ -196,3 +266,87 @@ def settings_view(request):
         messages.success(request, _("Settings saved."))
         return redirect("company_accounts:settings")
     return render(request, "company_accounts/settings.html", {"form": form, "company": company})
+
+
+@login_required
+@require_http_methods(["GET"])
+def two_factor_status_view(request):
+    company = request.user
+    enabled = user_has_device(company, confirmed=True)
+    return render(request, "company_accounts/two_factor_status.html", {
+        "company": company,
+        "enabled": enabled,
+        "backup_codes_remaining": backup_codes_remaining(company) if enabled else 0,
+        "password_form": PasswordConfirmForm(user=company),
+    })
+
+
+@login_required
+@require_http_methods(["GET", "POST"])
+@ratelimit(key="user", rate="20/h", block=True)
+def two_factor_setup_view(request):
+    company = request.user
+    if user_has_device(company, confirmed=True):
+        messages.info(request, _("Two-factor authentication is already enabled."))
+        return redirect("company_accounts:two_factor_status")
+
+    if request.method == "POST":
+        device = TOTPDevice.objects.filter(user=company, confirmed=False).order_by("-id").first()
+        if device is None:
+            messages.error(request, _("Your setup session expired. Please start again."))
+            return redirect("company_accounts:two_factor_setup")
+        form = TOTPSetupForm(request.POST, device=device)
+        if form.is_valid():
+            device.confirmed = True
+            device.name = "default"
+            device.save(update_fields=["confirmed", "name"])
+            codes = issue_backup_codes(company)
+            messages.success(request, _("Two-factor authentication is now enabled."))
+            return render(request, "company_accounts/two_factor_backup_codes.html", {
+                "company": company,
+                "codes": codes,
+            })
+    else:
+        TOTPDevice.objects.filter(user=company, confirmed=False).delete()
+        device = TOTPDevice.objects.create(user=company, confirmed=False, name="default-unconfirmed")
+        form = TOTPSetupForm(device=device)
+
+    return render(request, "company_accounts/two_factor_setup.html", {
+        "company": company,
+        "form": form,
+        "qr_data_uri": build_qr_data_uri(device.config_url),
+        "secret": format_secret(device),
+    })
+
+
+@login_required
+@require_http_methods(["POST"])
+@ratelimit(key="user", rate="10/h", block=True)
+def two_factor_disable_view(request):
+    form = PasswordConfirmForm(request.POST, user=request.user)
+    if form.is_valid():
+        TOTPDevice.objects.filter(user=request.user).delete()
+        StaticDevice.objects.filter(user=request.user).delete()
+        messages.success(request, _("Two-factor authentication has been disabled."))
+    else:
+        messages.error(request, _("Incorrect password. Two-factor authentication was not disabled."))
+    return redirect("company_accounts:two_factor_status")
+
+
+@login_required
+@require_http_methods(["POST"])
+@ratelimit(key="user", rate="10/h", block=True)
+def two_factor_regenerate_backup_codes_view(request):
+    company = request.user
+    if not user_has_device(company, confirmed=True):
+        return redirect("company_accounts:two_factor_status")
+    form = PasswordConfirmForm(request.POST, user=company)
+    if form.is_valid():
+        codes = issue_backup_codes(company)
+        messages.success(request, _("New backup codes have been generated. Your old codes no longer work."))
+        return render(request, "company_accounts/two_factor_backup_codes.html", {
+            "company": company,
+            "codes": codes,
+        })
+    messages.error(request, _("Incorrect password. Backup codes were not regenerated."))
+    return redirect("company_accounts:two_factor_status")

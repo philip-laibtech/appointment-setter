@@ -569,6 +569,7 @@ _CONFIRMED_PAGE_TTL = timedelta(minutes=10)
 
 
 @require_http_methods(["GET"])
+@ratelimit(key="ip", rate="20/m", block=True)
 def public_booking_confirmed_view(request, company_slug, public_token):
     company = _get_active_company(company_slug)
     booking = get_object_or_404(Booking, public_token=public_token, company=company)
@@ -770,6 +771,7 @@ def any_booking_form_view(request, company_slug, service_uid, date, start_time):
 
 
 @require_http_methods(["GET", "POST"])
+@ratelimit(key="ip", rate="20/m", block=True)
 def public_booking_cancel_view(request, company_slug, public_token):
     company = _get_active_company(company_slug)
     booking = get_object_or_404(

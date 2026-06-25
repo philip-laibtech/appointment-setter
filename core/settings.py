@@ -2,6 +2,7 @@ import os
 import sys
 from pathlib import Path
 
+from django.core.exceptions import ImproperlyConfigured
 from django.utils.translation import gettext_lazy as _
 
 _TESTING = "test" in sys.argv
@@ -17,6 +18,19 @@ DEBUG = os.environ.get("DJANGO_DEBUG", "true").lower() == "true"
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost 127.0.0.1").split()
 
+# Django admin mount path. Must be overridden to a unique, non-guessable value
+# in production so the admin isn't reachable at the well-known /admin/ path.
+DJANGO_ADMIN_URL = os.environ.get("DJANGO_ADMIN_URL", "")
+if not DJANGO_ADMIN_URL:
+    if DEBUG or _TESTING:
+        DJANGO_ADMIN_URL = "admin/"
+    else:
+        raise ImproperlyConfigured(
+            "DJANGO_ADMIN_URL must be set to a unique path when DJANGO_DEBUG=false."
+        )
+if not DJANGO_ADMIN_URL.endswith("/"):
+    DJANGO_ADMIN_URL += "/"
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -26,6 +40,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "captcha",
     "csp",
+    "django_otp",
+    "django_otp.plugins.otp_totp",
+    "django_otp.plugins.otp_static",
     "company_accounts",
     "landing",
     "availability",
@@ -44,6 +61,7 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django_otp.middleware.OTPMiddleware",
     "company_accounts.middleware.TosGateMiddleware",
     "company_accounts.middleware.CompanyLanguageMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
@@ -153,6 +171,12 @@ CURRENT_TOS_VERSION = "1.0"
 
 # Days after a booking's end_at before customer PII fields are anonymised.
 CUSTOMER_DATA_RETENTION_DAYS = 30
+
+# Two-factor authentication (django-otp)
+# Issuer name shown inside the authenticator app next to the account entry.
+OTP_TOTP_ISSUER = "Appointment Setter"
+# Number of single-use backup codes generated/regenerated for account recovery.
+TWO_FACTOR_BACKUP_CODE_COUNT = 10
 
 CONTENT_SECURITY_POLICY = {
     "DIRECTIVES": {

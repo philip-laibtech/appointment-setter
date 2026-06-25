@@ -1,0 +1,35 @@
+{% extends "auth_base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Two-Factor Authentication" %} — Appointment Setter{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>{% translate "Two-factor authentication" %}</h1>
+  <p style="font-size:0.875rem;color:#6b7280;margin-bottom:1.25rem;">
+    {% translate "Enter the 6-digit code from your authenticator app, or one of your backup codes." %}
+  </p>
+  <form method="post" novalidate>
+    {% csrf_token %}
+    {% if form.non_field_errors %}
+      <div class="field-errors" style="margin-bottom:1rem">
+        {% for error in form.non_field_errors %}{{ error }}{% endfor %}
+      </div>
+    {% endif %}
+    <div class="form-group">
+      <label for="{{ form.token.id_for_label }}">{{ form.token.label }}</label>
+      {{ form.token }}
+      {% if form.token.errors %}
+        <div class="field-errors">
+          {% for error in form.token.errors %}{{ error }}{% endfor %}
+        </div>
+      {% endif %}
+    </div>
+    <button type="submit">{% translate "Verify" %}</button>
+  </form>
+  <form method="post" action="{% url 'company_accounts:two_factor_cancel' %}" style="margin-top:0.75rem;">
+    {% csrf_token %}
+    <button type="submit" style="width:auto;background:none;color:#9ca3af;font-size:0.8125rem;font-weight:500;padding:0;margin-top:0;text-decoration:underline;cursor:pointer;">
+      {% translate "Cancel and return to login" %}
+    </button>
+  </form>
+</div>
+{% endblock %}

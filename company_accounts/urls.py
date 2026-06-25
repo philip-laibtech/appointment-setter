@@ -15,11 +15,21 @@ urlpatterns = [
     path("register/", views.register_view, name="register"),
     path("login/", views.login_view, name="login"),
     path("logout/", views.logout_view, name="logout"),
+    path("2fa/verify/", views.two_factor_verify_view, name="two_factor_verify"),
+    path("2fa/verify/cancel/", views.two_factor_cancel_view, name="two_factor_cancel"),
     path("tos-reaccept/", views.tos_reaccept_view, name="tos_reaccept"),
     path("delete-account/", views.request_account_deletion_view, name="request_account_deletion"),
     path("delete-account/confirm/", views.submit_account_deletion_view, name="submit_account_deletion"),
     path("dashboard/", views.dashboard_view, name="dashboard"),
     path("settings/", views.settings_view, name="settings"),
+    path("settings/2fa/", views.two_factor_status_view, name="two_factor_status"),
+    path("settings/2fa/setup/", views.two_factor_setup_view, name="two_factor_setup"),
+    path("settings/2fa/disable/", views.two_factor_disable_view, name="two_factor_disable"),
+    path(
+        "settings/2fa/backup-codes/regenerate/",
+        views.two_factor_regenerate_backup_codes_view,
+        name="two_factor_regenerate_backup_codes",
+    ),
 
     # Password reset flow
     path(

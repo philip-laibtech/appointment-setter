@@ -10,7 +10,7 @@ _TOS_GATE_EXEMPT_PREFIXES = (
     "/logout/",
     "/register/",
     "/password-reset/",
-    "/admin/",
+    f"/{settings.DJANGO_ADMIN_URL}",
     "/privacy/",
     "/terms/",
     "/b/",        # public booking flow

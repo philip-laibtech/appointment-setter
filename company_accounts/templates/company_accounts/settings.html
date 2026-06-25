@@ -396,6 +396,15 @@
 
 </form>
 
+<div class="st-section" style="margin-top:1.5rem;">
+  <p class="st-section-title">{% translate "Security" %}</p>
+  <div class="st-field">
+    <label class="st-label">{% translate "Two-factor authentication" %}</label>
+    <p class="st-hint">{% translate "Require a one-time code from an authenticator app in addition to your password when logging in." %}</p>
+    <a href="{% url 'company_accounts:two_factor_status' %}" class="st-readonly-link">{% translate "Manage two-factor authentication" %} →</a>
+  </div>
+</div>
+
 <div class="st-danger-zone">
   <p class="st-danger-title">{% translate "Danger Zone" %}</p>
   <p class="st-danger-desc">
