@@ -192,7 +192,6 @@
         <th>{% translate "Staff" %}</th>
         <th>{% translate "Timeslot" %}</th>
         <th>{% translate "Status" %}</th>
-        <th>{% translate "Actions" %}</th>
       </tr>
     </thead>
     <tbody>
@@ -232,9 +231,6 @@
               <span class="bk-badge bk-badge-pending">{{ booking.get_status_display }}</span>
             {% endif %}
           </a>
-        </td>
-        <td class="bk-cell">
-          <span style="color:#d1d5db;font-size:0.8rem;">—</span>
         </td>
       </tr>
       {% endfor %}
