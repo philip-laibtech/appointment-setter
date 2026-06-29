@@ -30,6 +30,7 @@ from .forms import (
     TOTPSetupForm,
     TwoFactorVerifyForm,
 )
+from .lockout import clear_failed_attempts, is_locked_out, record_failed_attempt
 from .models import CompanyAccount, DeletionRequest
 from .two_factor import backup_codes_remaining, build_qr_data_uri, format_secret, issue_backup_codes
 from bookings.models import Booking
@@ -141,9 +142,21 @@ def _safe_next_url(request, candidate):
 def login_view(request):
     if request.user.is_authenticated:
         return redirect("company_accounts:dashboard")
+
+    submitted_email = request.POST.get("username", "") if request.method == "POST" else ""
+    if request.method == "POST" and submitted_email and is_locked_out(submitted_email):
+        messages.error(
+            request,
+            _("Too many failed login attempts for this account. Please try again in %(minutes)d minutes.")
+            % {"minutes": django_settings.ACCOUNT_LOCKOUT_DURATION_MINUTES},
+        )
+        form = CompanyLoginForm(request)
+        return render(request, "company_accounts/login.html", {"form": form, "next": request.GET.get("next", "")})
+
     form = CompanyLoginForm(request, data=request.POST or None)
     if request.method == "POST" and form.is_valid():
         user = form.get_user()
+        clear_failed_attempts(submitted_email)
         next_url = _safe_next_url(request, request.POST.get("next") or request.GET.get("next"))
         if user_has_device(user, confirmed=True):
             request.session["2fa_user_id"] = user.pk
@@ -152,6 +165,8 @@ def login_view(request):
             return redirect("company_accounts:two_factor_verify")
         login(request, user)
         return redirect(next_url or "company_accounts:dashboard")
+    if request.method == "POST" and submitted_email:
+        record_failed_attempt(submitted_email)
     next_url = request.GET.get("next", "")
     return render(request, "company_accounts/login.html", {"form": form, "next": next_url})
 
@@ -248,6 +263,7 @@ _SETTINGS_UPDATE_FIELDS = [
     "show_staff_names_publicly",
     "enable_any_employee_option",
     "booking_confirmation_mode",
+    "slot_interval_minutes",
     "language",
     "updated_at",
 ]

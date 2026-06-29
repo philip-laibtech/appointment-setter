@@ -93,6 +93,7 @@ class CompanySettingsForm(forms.ModelForm):
             "show_staff_names_publicly",
             "enable_any_employee_option",
             "booking_confirmation_mode",
+            "slot_interval_minutes",
             "language",
         )
 
@@ -100,6 +101,7 @@ class CompanySettingsForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields["business_name"].error_messages["required"] = _("Business name is required.")
         self.fields["language"].required = False
+        self.fields["slot_interval_minutes"].required = False
 
     def clean_business_name(self):
         name = self.cleaned_data.get("business_name", "").strip()
@@ -113,6 +115,16 @@ class CompanySettingsForm(forms.ModelForm):
         if mode not in valid:
             raise ValidationError(_("Select a valid confirmation mode."))
         return mode
+
+    def clean_slot_interval_minutes(self):
+        value = self.cleaned_data.get("slot_interval_minutes")
+        if value is None:
+            return self.instance.slot_interval_minutes
+        if value < 5:
+            raise ValidationError(_("Slot interval must be at least 5 minutes."))
+        if value > 120:
+            raise ValidationError(_("Slot interval must not exceed 120 minutes."))
+        return value
 
     def clean_language(self):
         language = self.cleaned_data.get("language", "")

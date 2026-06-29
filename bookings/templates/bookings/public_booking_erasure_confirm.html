@@ -1,0 +1,51 @@
+{% extends "bookings/public_booking_base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Request Erasure" %} — {{ company.business_name }}{% endblock %}
+
+{% block extra_style %}
+<style>
+  .bk-erase-card { background: #fff; border: 1px solid #e4e4e7; border-radius: 10px; padding: 2rem; }
+  .bk-erase-title { font-size: 1.25rem; font-weight: 700; color: #111; margin-bottom: 0.5rem; }
+  .bk-erase-lead { font-size: 0.9rem; color: #6b7280; margin-bottom: 1rem; line-height: 1.6; }
+  .bk-erase-warn {
+    background: #fef2f2; border: 1px solid #fca5a5; border-radius: 6px;
+    padding: 0.875rem 1rem; color: #b91c1c; font-size: 0.875rem; margin-bottom: 1.5rem; line-height: 1.55;
+  }
+  .bk-btn-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .bk-confirm-erase {
+    flex: 1; padding: 0.65rem 1rem; background: #dc2626; color: #fff;
+    border: none; border-radius: 6px; font-size: 0.9375rem; font-weight: 600;
+    cursor: pointer; text-align: center;
+  }
+  .bk-confirm-erase:hover { background: #b91c1c; }
+  .bk-keep {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    padding: 0.65rem 1rem; background: #fff; color: #374151;
+    border: 1px solid #e4e4e7; border-radius: 6px; font-size: 0.9375rem;
+    font-weight: 600; text-decoration: none;
+  }
+  .bk-keep:hover { background: #f9fafb; border-color: #9ca3af; color: #111; text-decoration: none; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="bk-erase-card">
+  <h1 class="bk-erase-title">{% translate "Request erasure of your data" %}</h1>
+  <p class="bk-erase-lead">
+    {% translate "This will permanently remove your name, email, phone number, and message from this booking. The appointment date, time, and service stay on file for the company's business records, but will no longer be linked to you personally." %}
+  </p>
+  <div class="bk-erase-warn">
+    {% translate "This action cannot be undone. If your appointment is still upcoming, the company will lose your contact details and may need to cancel it." %}
+  </div>
+
+  <form method="post">
+    {% csrf_token %}
+    <div class="bk-btn-row">
+      <button type="submit" class="bk-confirm-erase">{% translate "Yes, erase my data" %}</button>
+      <a href="{% url 'bookings:my_data' company_slug=company.slug public_token=booking.public_token %}" class="bk-keep">
+        {% translate "Cancel" %}
+      </a>
+    </div>
+  </form>
+</div>
+{% endblock %}

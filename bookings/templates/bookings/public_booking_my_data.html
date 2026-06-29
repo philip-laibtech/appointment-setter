@@ -1,0 +1,67 @@
+{% extends "bookings/public_booking_base.html" %}
+{% load i18n %}
+{% block title %}{% translate "My Data" %} — {{ company.business_name }}{% endblock %}
+
+{% block extra_style %}
+<style>
+  .bk-data-card { background: #fff; border: 1px solid #e4e4e7; border-radius: 10px; padding: 2rem; }
+  .bk-data-title { font-size: 1.25rem; font-weight: 700; color: #111; margin-bottom: 0.5rem; }
+  .bk-data-lead { font-size: 0.9rem; color: #6b7280; margin-bottom: 1.5rem; line-height: 1.6; }
+  .bk-detail-table { width: 100%; border-collapse: collapse; margin-bottom: 1.75rem; }
+  .bk-detail-table th, .bk-detail-table td { text-align: left; padding: 0.45rem 0; font-size: 0.9rem; border-bottom: 1px solid #f3f4f6; }
+  .bk-detail-table tr:last-child th, .bk-detail-table tr:last-child td { border-bottom: none; }
+  .bk-detail-table th { color: #6b7280; font-weight: 600; width: 45%; }
+  .bk-detail-table td { color: #111; }
+  .bk-btn-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .bk-export-link, .bk-erase-link {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    padding: 0.65rem 1rem; border-radius: 6px; font-size: 0.9375rem;
+    font-weight: 600; text-decoration: none; min-width: 180px;
+  }
+  .bk-export-link { background: #fff; color: #374151; border: 1px solid #e4e4e7; }
+  .bk-export-link:hover { background: #f9fafb; border-color: #9ca3af; color: #111; text-decoration: none; }
+  .bk-erase-link { background: #fff; color: #dc2626; border: 1px solid #fca5a5; }
+  .bk-erase-link:hover { background: #fef2f2; border-color: #dc2626; text-decoration: none; }
+  .bk-anon-note { background: #f9fafb; border: 1px solid #e4e4e7; border-radius: 6px; padding: 0.875rem 1rem; color: #6b7280; font-size: 0.875rem; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="bk-data-card">
+  <h1 class="bk-data-title">{% translate "Your Data" %}</h1>
+
+  {% if booking.anonymized_at %}
+    <p class="bk-anon-note">
+      {% translate "This booking's personal data has already been anonymised and is no longer available." %}
+    </p>
+  {% else %}
+    <p class="bk-data-lead">
+      {% translate "This is the personal data we currently hold for this booking, in line with your rights under data protection law." %}
+    </p>
+
+    <table class="bk-detail-table">
+      <tr><th>{% translate "Company" %}</th><td>{{ company.business_name }}</td></tr>
+      <tr><th>{% translate "Staff member" %}</th><td>{{ booking.staff_member.name }}</td></tr>
+      <tr><th>{% translate "Service" %}</th><td>{{ booking.service_offering.name }}</td></tr>
+      <tr><th>{% translate "Date" %}</th><td>{{ booking.start_at|date:"l, j F Y" }}</td></tr>
+      <tr><th>{% translate "Time" %}</th><td>{{ booking.start_at|date:"H:i" }} – {{ booking.end_at|date:"H:i" }}</td></tr>
+      <tr><th>{% translate "Status" %}</th><td>{{ booking.get_status_display }}</td></tr>
+      <tr><th>{% translate "First name" %}</th><td>{{ booking.customer_first_name }}</td></tr>
+      <tr><th>{% translate "Last name" %}</th><td>{{ booking.customer_last_name }}</td></tr>
+      <tr><th>{% translate "Email" %}</th><td>{{ booking.customer_email }}</td></tr>
+      <tr><th>{% translate "Phone" %}</th><td>{{ booking.customer_phone|default:"—" }}</td></tr>
+      <tr><th>{% translate "Message" %}</th><td>{{ booking.customer_message|default:"—" }}</td></tr>
+      <tr><th>{% translate "Privacy policy accepted" %}</th><td>{{ booking.privacy_accepted_at|date:"j F Y, H:i" }} ({% translate "version" %} {{ booking.privacy_policy_version }})</td></tr>
+    </table>
+
+    <div class="bk-btn-row">
+      <a href="{% url 'bookings:my_data_export' company_slug=company.slug public_token=booking.public_token %}" class="bk-export-link">
+        {% translate "Download my data" %}
+      </a>
+      <a href="{% url 'bookings:request_erasure' company_slug=company.slug public_token=booking.public_token %}" class="bk-erase-link">
+        {% translate "Request erasure" %}
+      </a>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

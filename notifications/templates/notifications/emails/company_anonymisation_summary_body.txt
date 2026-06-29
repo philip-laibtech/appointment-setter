@@ -1,0 +1,9 @@
+{% load i18n %}{% blocktranslate with business_name=company.business_name %}Hello {{ business_name }},{% endblocktranslate %}
+
+{% blocktranslate count counter=count %}{{ count }} booking on your account has passed its data retention period and its customer details (name, email, phone, message) have now been automatically anonymised, as described in our Privacy Policy.{% plural %}{{ count }} bookings on your account have passed their data retention period and their customer details (name, email, phone, message) have now been automatically anonymised, as described in our Privacy Policy.{% endblocktranslate %}
+
+{% translate "The appointment date, time, service, and staff member are kept for your business records. The booking itself was not deleted — only the customer's personal details." %}
+
+{% translate "No action is required on your part." %}
+
+{% translate "Thank you." %}

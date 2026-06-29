@@ -1,0 +1,1 @@
+{% load i18n %}{% blocktranslate %}Customer data anonymised for {{ count }} booking(s){% endblocktranslate %}

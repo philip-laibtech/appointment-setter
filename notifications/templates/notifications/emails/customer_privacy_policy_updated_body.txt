@@ -1,0 +1,9 @@
+{% load i18n %}{% blocktranslate with first_name=booking.customer_first_name %}Hello {{ first_name }},{% endblocktranslate %}
+
+{% blocktranslate with business_name=booking.company.business_name %}you have an upcoming appointment with {{ business_name }}, and we've updated our Privacy Policy since you booked.{% endblocktranslate %}
+
+{% translate "Privacy Policy:" %} {{ privacy_policy_url }}
+
+{% translate "This does not require any action from you. If you have questions about how your data is handled, please contact the company you booked with." %}
+
+{% translate "Thank you." %}

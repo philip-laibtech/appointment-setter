@@ -1,9 +1,12 @@
 from datetime import date as date_type
 from datetime import timedelta
 from datetime import timezone as dt_tz
+from io import StringIO
 
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.core import mail
+from django.core.management import call_command
 from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone
@@ -356,6 +359,22 @@ class TimeSelectTests(TestCase):
             # No window should overlap with the blocked range
             self.assertFalse(w < block_end and window_end > block_start)
 
+    def test_custom_slot_interval_changes_window_spacing(self):
+        self.company.slot_interval_minutes = 5
+        self.company.save()
+        response = self.client.get(_time_url(self.company, self.staff, self.service, self.target_date))
+        windows = response.context["windows"]
+        gaps = {b - a for a, b in zip(windows, windows[1:])}
+        self.assertTrue(gaps)
+        self.assertTrue(all(gap == timedelta(minutes=5) for gap in gaps))
+
+    def test_default_slot_interval_is_15_minutes(self):
+        response = self.client.get(_time_url(self.company, self.staff, self.service, self.target_date))
+        windows = response.context["windows"]
+        gaps = {b - a for a, b in zip(windows, windows[1:])}
+        self.assertTrue(gaps)
+        self.assertTrue(all(gap == timedelta(minutes=15) for gap in gaps))
+
 
 # ---------------------------------------------------------------------------
 # 5. Booking Creation
@@ -622,8 +641,204 @@ class BookingCancelTests(TestCase):
         from bookings.views import _windows_for_date
         windows = _windows_for_date(
             self.staff, self.service.duration_minutes, self.start_at.date(),
+            timedelta(minutes=self.company.slot_interval_minutes),
         )
         self.assertIn(self.start_at, windows)
+
+
+class PendingBookingCustomerCancelTests(TestCase):
+    """AUDIT.md 5.7 — customers can cancel PENDING (not just CONFIRMED) bookings."""
+
+    def setUp(self):
+        self.company = _make_company("pendingcancel@example.com")
+        self.staff = _make_staff(self.company)
+        self.service = _make_service(self.company)
+        _assign(self.staff, self.service)
+        start_at = _make_start_at()
+        self.booking = _create_booking(
+            self.company, self.staff, self.service, start_at, start_at + timedelta(minutes=30),
+        )
+        self.booking.status = Booking.Status.PENDING
+        self.booking.save(update_fields=["status"])
+        self.cancel_url = reverse("bookings:cancel", kwargs={
+            "company_slug": self.company.slug,
+            "public_token": self.booking.public_token,
+        })
+
+    def test_get_shows_cancel_page_for_pending_booking(self):
+        response = self.client.get(self.cancel_url)
+        self.assertEqual(response.status_code, 200)
+
+    def test_post_cancels_pending_booking(self):
+        self.client.post(self.cancel_url)
+        self.booking.refresh_from_db()
+        self.assertEqual(self.booking.status, Booking.Status.CANCELLED)
+
+    def test_declined_booking_cannot_be_cancelled(self):
+        self.booking.status = Booking.Status.DECLINED
+        self.booking.save(update_fields=["status"])
+        self.assertEqual(self.client.get(self.cancel_url).status_code, 404)
+
+
+class CustomerDataRightsTests(TestCase):
+    """AUDIT.md 4.3/4.4 — self-service data access, export, and erasure via public_token."""
+
+    def setUp(self):
+        self.company = _make_company("rights@example.com")
+        self.staff = _make_staff(self.company)
+        self.service = _make_service(self.company)
+        _assign(self.staff, self.service)
+        start_at = _make_start_at()
+        self.booking = _create_booking(
+            self.company, self.staff, self.service, start_at, start_at + timedelta(minutes=30),
+        )
+        self.my_data_url = reverse("bookings:my_data", kwargs={
+            "company_slug": self.company.slug,
+            "public_token": self.booking.public_token,
+        })
+        self.export_url = reverse("bookings:my_data_export", kwargs={
+            "company_slug": self.company.slug,
+            "public_token": self.booking.public_token,
+        })
+        self.erase_url = reverse("bookings:request_erasure", kwargs={
+            "company_slug": self.company.slug,
+            "public_token": self.booking.public_token,
+        })
+
+    def test_my_data_page_shows_customer_data(self):
+        response = self.client.get(self.my_data_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Jane")
+        self.assertContains(response, "jane@example.com")
+
+    def test_wrong_token_returns_404(self):
+        url = reverse("bookings:my_data", kwargs={
+            "company_slug": self.company.slug,
+            "public_token": "not-a-real-token",
+        })
+        self.assertEqual(self.client.get(url).status_code, 404)
+
+    def test_export_returns_json_with_customer_data(self):
+        response = self.client.get(self.export_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response["Content-Type"], "application/json")
+        self.assertIn("attachment", response["Content-Disposition"])
+        data = response.json()
+        self.assertEqual(data["customer_email"], "jane@example.com")
+
+    def test_erasure_confirm_page_renders(self):
+        response = self.client.get(self.erase_url)
+        self.assertEqual(response.status_code, 200)
+
+    def test_erasure_post_anonymises_booking(self):
+        self.client.post(self.erase_url)
+        self.booking.refresh_from_db()
+        self.assertIsNotNone(self.booking.anonymized_at)
+        self.assertEqual(self.booking.customer_first_name, "[deleted]")
+        self.assertEqual(self.booking.customer_email, "[deleted]")
+        self.assertEqual(self.booking.customer_phone, "[deleted]")
+        self.assertEqual(self.booking.public_token, f"anon-{self.booking.pk}")
+
+    def test_my_data_page_after_erasure_shows_anonymised_notice(self):
+        self.client.post(self.erase_url)
+        self.booking.refresh_from_db()
+        url = reverse("bookings:my_data", kwargs={
+            "company_slug": self.company.slug,
+            "public_token": self.booking.public_token,
+        })
+        response = self.client.get(url)
+        self.assertNotContains(response, "jane@example.com")
+
+    def test_erasure_is_idempotent(self):
+        self.client.post(self.erase_url)
+        self.booking.refresh_from_db()
+        first_anon_token = self.booking.public_token
+        # Second erasure attempt against the now-stale original token 404s
+        # because the token has already changed — proves it can't be replayed.
+        self.assertEqual(self.client.post(self.erase_url).status_code, 404)
+        self.booking.refresh_from_db()
+        self.assertEqual(self.booking.public_token, first_anon_token)
+
+
+class DeleteBookingConfirmViewTests(TestCase):
+    """AUDIT.md 3.5 — GET confirm page + POST delete, no JS dependency."""
+
+    def setUp(self):
+        self.company = _make_company("deleteconfirm@example.com")
+        self.other = _make_company("deleteconfirmother@example.com")
+        self.staff = _make_staff(self.company)
+        self.service = _make_service(self.company)
+        start_at = _make_start_at()
+        self.booking = _create_booking(
+            self.company, self.staff, self.service, start_at, start_at + timedelta(minutes=30),
+        )
+        self.confirm_url = reverse("bookings:delete_booking_confirm", kwargs={"booking_id": self.booking.pk})
+        self.delete_url = reverse("bookings:delete_booking", kwargs={"booking_id": self.booking.pk})
+
+    def test_requires_login(self):
+        response = self.client.get(self.confirm_url)
+        self.assertEqual(response.status_code, 302)
+
+    def test_confirm_page_renders_for_owner(self):
+        self.client.force_login(self.company)
+        response = self.client.get(self.confirm_url)
+        self.assertEqual(response.status_code, 200)
+
+    def test_confirm_page_404s_for_other_company(self):
+        self.client.force_login(self.other)
+        response = self.client.get(self.confirm_url)
+        self.assertEqual(response.status_code, 404)
+
+    def test_post_to_delete_url_removes_booking(self):
+        self.client.force_login(self.company)
+        self.client.post(self.delete_url)
+        self.assertFalse(Booking.objects.filter(pk=self.booking.pk).exists())
+
+
+class ConsentRecordExportTests(TestCase):
+    """AUDIT.md 6.3 — admin can export consent records (privacy_policy_version, accepted_at)."""
+
+    def test_export_csv_contains_consent_fields(self):
+        from .admin import BookingAdmin
+
+        company = _make_company("consentexport@example.com")
+        staff = _make_staff(company)
+        service = _make_service(company)
+        start_at = _make_start_at()
+        booking = _create_booking(company, staff, service, start_at, start_at + timedelta(minutes=30))
+        booking.privacy_policy_version = "1.0"
+        booking.save(update_fields=["privacy_policy_version"])
+
+        admin_instance = BookingAdmin(Booking, None)
+        response = admin_instance.export_consent_records_as_csv(None, Booking.objects.filter(pk=booking.pk))
+        content = response.content.decode()
+        self.assertIn("jane@example.com", content)
+        self.assertIn("1.0", content)
+        self.assertEqual(response["Content-Type"], "text/csv")
+
+
+class BookingStatusPropertyTests(TestCase):
+    """AUDIT.md 3.6 — status checks via model properties, not string literals."""
+
+    def setUp(self):
+        self.company = _make_company("statusprops@example.com")
+        self.staff = _make_staff(self.company)
+        self.service = _make_service(self.company)
+        start_at = _make_start_at()
+        self.booking = _create_booking(
+            self.company, self.staff, self.service, start_at, start_at + timedelta(minutes=30),
+        )
+
+    def test_is_confirmed_default(self):
+        self.assertTrue(self.booking.is_confirmed)
+        self.assertFalse(self.booking.is_pending)
+        self.assertFalse(self.booking.is_cancelled)
+        self.assertFalse(self.booking.is_declined)
+
+    def test_is_pending_after_status_change(self):
+        self.booking.status = Booking.Status.PENDING
+        self.assertTrue(self.booking.is_pending)
+        self.assertFalse(self.booking.is_confirmed)
 
 
 # ---------------------------------------------------------------------------
@@ -1187,7 +1402,10 @@ class ManualConfirmationTests(TestCase):
         self.client.post(self.url, _valid_post_data())
         # The pending booking is in _occupied_ranges, so its window is excluded.
         from bookings.views import _windows_for_date
-        windows = _windows_for_date(self.staff, self.service.duration_minutes, self.start_at.date())
+        windows = _windows_for_date(
+            self.staff, self.service.duration_minutes, self.start_at.date(),
+            timedelta(minutes=self.company.slot_interval_minutes),
+        )
         self.assertNotIn(self.start_at, windows)
 
     def test_manual_booking_confirmation_page_says_request_received(self):
@@ -1557,3 +1775,117 @@ class PublicBookingLanguageTests(TestCase):
         _make_staff(company, "Bob")
         response = self.client.get(_entry_url(company))
         self.assertContains(response, "Salon de Beaute Geneve")
+
+
+# ---------------------------------------------------------------------------
+# Management commands — GDPR retention (AUDIT.md 5.1, 5.2, 6.1, 6.5)
+# ---------------------------------------------------------------------------
+
+class AnonymiseOldBookingsCommandTests(TestCase):
+    def setUp(self):
+        mail.outbox = []
+        self.company = _make_company("anon@example.com")
+        self.staff = _make_staff(self.company)
+        self.service = _make_service(self.company)
+
+    def _old_booking(self, days_ago):
+        end_at = timezone.now() - timedelta(days=days_ago)
+        return Booking.objects.create(
+            company=self.company,
+            staff_member=self.staff,
+            service_offering=self.service,
+            start_at=end_at - timedelta(minutes=30),
+            end_at=end_at,
+            customer_first_name="Jane",
+            customer_last_name="Doe",
+            customer_email="jane@example.com",
+            customer_phone="+41791234567",
+            customer_message="please call ahead",
+            privacy_accepted_at=timezone.now() - timedelta(days=days_ago),
+        )
+
+    def test_old_booking_anonymised(self):
+        booking = self._old_booking(days_ago=settings.CUSTOMER_DATA_RETENTION_DAYS + 1)
+        call_command("anonymise_old_bookings", stdout=StringIO())
+        booking.refresh_from_db()
+        self.assertEqual(booking.customer_first_name, "[deleted]")
+        self.assertEqual(booking.customer_last_name, "[deleted]")
+        self.assertEqual(booking.customer_email, "[deleted]")
+        self.assertEqual(booking.customer_phone, "[deleted]")
+        self.assertEqual(booking.customer_message, "[deleted]")
+        self.assertIsNotNone(booking.anonymized_at)
+
+    def test_public_token_cleared_and_unique(self):
+        b1 = self._old_booking(days_ago=settings.CUSTOMER_DATA_RETENTION_DAYS + 1)
+        b2 = self._old_booking(days_ago=settings.CUSTOMER_DATA_RETENTION_DAYS + 2)
+        call_command("anonymise_old_bookings", stdout=StringIO())
+        b1.refresh_from_db()
+        b2.refresh_from_db()
+        self.assertEqual(b1.public_token, f"anon-{b1.pk}")
+        self.assertEqual(b2.public_token, f"anon-{b2.pk}")
+        self.assertNotEqual(b1.public_token, b2.public_token)
+
+    def test_recent_booking_not_anonymised(self):
+        booking = self._old_booking(days_ago=1)
+        call_command("anonymise_old_bookings", stdout=StringIO())
+        booking.refresh_from_db()
+        self.assertEqual(booking.customer_first_name, "Jane")
+        self.assertIsNone(booking.anonymized_at)
+
+    def test_dry_run_makes_no_changes(self):
+        booking = self._old_booking(days_ago=settings.CUSTOMER_DATA_RETENTION_DAYS + 1)
+        call_command("anonymise_old_bookings", "--dry-run", stdout=StringIO())
+        booking.refresh_from_db()
+        self.assertEqual(booking.customer_first_name, "Jane")
+        self.assertIsNone(booking.anonymized_at)
+
+    def test_company_receives_anonymisation_summary_email(self):
+        self._old_booking(days_ago=settings.CUSTOMER_DATA_RETENTION_DAYS + 1)
+        self._old_booking(days_ago=settings.CUSTOMER_DATA_RETENTION_DAYS + 2)
+        call_command("anonymise_old_bookings", stdout=StringIO())
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertEqual(mail.outbox[0].to, [self.company.email])
+
+
+class NotifyPrivacyPolicyChangeCommandTests(TestCase):
+    def setUp(self):
+        mail.outbox = []
+        self.company = _make_company("notify@example.com")
+        self.staff = _make_staff(self.company)
+        self.service = _make_service(self.company)
+
+    def test_notifies_customers_with_upcoming_confirmed_booking(self):
+        start_at = _make_start_at()
+        _create_booking(self.company, self.staff, self.service, start_at, start_at + timedelta(minutes=30))
+        call_command(
+            "notify_privacy_policy_change", "--site-url", "https://example.com", stdout=StringIO(),
+        )
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertEqual(mail.outbox[0].to, ["jane@example.com"])
+        self.assertIn("https://example.com", mail.outbox[0].body)
+
+    def test_does_not_notify_for_past_booking(self):
+        past_start = timezone.now() - timedelta(days=5)
+        Booking.objects.create(
+            company=self.company,
+            staff_member=self.staff,
+            service_offering=self.service,
+            start_at=past_start,
+            end_at=past_start + timedelta(minutes=30),
+            customer_first_name="Jane",
+            customer_last_name="Doe",
+            customer_email="jane@example.com",
+            privacy_accepted_at=timezone.now(),
+        )
+        call_command(
+            "notify_privacy_policy_change", "--site-url", "https://example.com", stdout=StringIO(),
+        )
+        self.assertEqual(len(mail.outbox), 0)
+
+    def test_dry_run_sends_nothing(self):
+        start_at = _make_start_at()
+        _create_booking(self.company, self.staff, self.service, start_at, start_at + timedelta(minutes=30))
+        call_command(
+            "notify_privacy_policy_change", "--site-url", "https://example.com", "--dry-run", stdout=StringIO(),
+        )
+        self.assertEqual(len(mail.outbox), 0)

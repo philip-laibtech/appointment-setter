@@ -1,0 +1,20 @@
+{% extends "bookings/public_booking_base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Data Erased" %} — {{ company.business_name }}{% endblock %}
+
+{% block extra_style %}
+<style>
+  .bk-done-card { background: #fff; border: 1px solid #e4e4e7; border-radius: 10px; padding: 2rem; }
+  .bk-done-title { font-size: 1.25rem; font-weight: 700; color: #111; margin-bottom: 0.5rem; }
+  .bk-done-lead { font-size: 0.9rem; color: #6b7280; line-height: 1.6; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="bk-done-card">
+  <h1 class="bk-done-title">{% translate "Your data has been erased" %}</h1>
+  <p class="bk-done-lead">
+    {% translate "Your personal details have been permanently removed from this booking." %}
+  </p>
+</div>
+{% endblock %}

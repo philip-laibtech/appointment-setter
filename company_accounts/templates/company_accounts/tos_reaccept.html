@@ -37,7 +37,7 @@
       <div class="tos-row">
         <input type="checkbox" id="tos_accepted" name="tos_accepted" required>
         <label for="tos_accepted">
-          {% blocktranslate with tos_url=tos_url %}
+          {% blocktranslate with tos_url=tos_url trimmed %}
             I have read and accept the updated <a href="{{ tos_url }}" target="_blank" rel="noopener noreferrer">Terms of Service</a>.
           {% endblocktranslate %}
         </label>

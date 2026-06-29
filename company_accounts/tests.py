@@ -1,11 +1,16 @@
 import time
+from datetime import timedelta
+from io import StringIO
 
 from django.conf import settings
 from django.contrib.auth.password_validation import validate_password
 from django.core import mail
+from django.core.cache import cache
 from django.core.exceptions import ValidationError
+from django.core.management import CommandError, call_command
 from django.test import TestCase
 from django.urls import reverse
+from django.utils import timezone
 
 from django_otp.oath import TOTP
 from django_otp.plugins.otp_static.models import StaticDevice, StaticToken
@@ -79,6 +84,7 @@ class CompanyAccountModelTests(TestCase):
 
 class LoginTest(TestCase):
     def setUp(self):
+        cache.clear()
         self.account = make_account()
         self.login_url = reverse("company_accounts:login")
 
@@ -96,6 +102,51 @@ class LoginTest(TestCase):
         })
         self.assertEqual(response.status_code, 200)
         self.assertFalse(response.wsgi_request.user.is_authenticated)
+
+
+class LoginLockoutTests(TestCase):
+    def setUp(self):
+        cache.clear()
+        self.account = make_account()
+        self.login_url = reverse("company_accounts:login")
+
+    def _fail_login(self):
+        return self.client.post(self.login_url, {
+            "username": "acme@example.com",
+            "password": "wrongpassword",
+        })
+
+    def test_account_locked_out_after_threshold_failed_attempts(self):
+        for _ in range(settings.ACCOUNT_LOCKOUT_THRESHOLD):
+            self._fail_login()
+
+        response = self.client.post(self.login_url, {
+            "username": "acme@example.com",
+            "password": "S3cur3Pass!",
+        })
+        self.assertEqual(response.status_code, 200)
+        self.assertFalse(response.wsgi_request.user.is_authenticated)
+
+    def test_successful_login_clears_failed_attempts(self):
+        for _ in range(settings.ACCOUNT_LOCKOUT_THRESHOLD - 1):
+            self._fail_login()
+
+        response = self.client.post(self.login_url, {
+            "username": "acme@example.com",
+            "password": "S3cur3Pass!",
+        })
+        self.assertRedirects(response, reverse("company_accounts:dashboard"))
+
+    def test_lockout_is_keyed_per_account_not_global(self):
+        make_account(business_name="Other Co", email="other@example.com")
+        for _ in range(settings.ACCOUNT_LOCKOUT_THRESHOLD):
+            self._fail_login()
+
+        response = self.client.post(self.login_url, {
+            "username": "other@example.com",
+            "password": "S3cur3Pass!",
+        })
+        self.assertRedirects(response, reverse("company_accounts:dashboard"))
 
 
 class DashboardTest(TestCase):
@@ -474,6 +525,70 @@ class BookingConfirmationModeSettingsTests(TestCase):
         self.assertEqual(other.booking_confirmation_mode, "automatic")
 
 
+class SlotIntervalSettingsTests(TestCase):
+    """Company-configurable slot interval: default 15 min, min 5, max 120."""
+
+    def setUp(self):
+        self.company = make_account(email="slotinterval@example.com")
+        self.settings_url = reverse("company_accounts:settings")
+
+    def test_default_slot_interval_is_15_minutes(self):
+        self.assertEqual(self.company.slot_interval_minutes, 15)
+
+    def test_settings_page_shows_slot_interval_field(self):
+        self.client.force_login(self.company)
+        response = self.client.get(self.settings_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "slot_interval_minutes")
+
+    def test_company_can_set_valid_slot_interval(self):
+        self.client.force_login(self.company)
+        self.client.post(self.settings_url, {
+            "business_name": self.company.business_name,
+            "timezone": self.company.timezone,
+            "booking_confirmation_mode": "automatic",
+            "slot_interval_minutes": "30",
+        })
+        self.company.refresh_from_db()
+        self.assertEqual(self.company.slot_interval_minutes, 30)
+
+    def test_slot_interval_below_minimum_is_rejected(self):
+        self.client.force_login(self.company)
+        response = self.client.post(self.settings_url, {
+            "business_name": self.company.business_name,
+            "timezone": self.company.timezone,
+            "booking_confirmation_mode": "automatic",
+            "slot_interval_minutes": "4",
+        })
+        self.assertEqual(response.status_code, 200)
+        self.company.refresh_from_db()
+        self.assertEqual(self.company.slot_interval_minutes, 15)
+
+    def test_slot_interval_above_maximum_is_rejected(self):
+        self.client.force_login(self.company)
+        response = self.client.post(self.settings_url, {
+            "business_name": self.company.business_name,
+            "timezone": self.company.timezone,
+            "booking_confirmation_mode": "automatic",
+            "slot_interval_minutes": "121",
+        })
+        self.assertEqual(response.status_code, 200)
+        self.company.refresh_from_db()
+        self.assertEqual(self.company.slot_interval_minutes, 15)
+
+    def test_omitted_slot_interval_keeps_current_value(self):
+        self.company.slot_interval_minutes = 20
+        self.company.save()
+        self.client.force_login(self.company)
+        self.client.post(self.settings_url, {
+            "business_name": self.company.business_name,
+            "timezone": self.company.timezone,
+            "booking_confirmation_mode": "automatic",
+        })
+        self.company.refresh_from_db()
+        self.assertEqual(self.company.slot_interval_minutes, 20)
+
+
 # ---------------------------------------------------------------------------
 # i18n: company settings (interface language)
 # ---------------------------------------------------------------------------
@@ -611,7 +726,7 @@ class TwoFactorSetupTests(TestCase):
     def test_status_page_shows_disabled_by_default(self):
         response = self.client.get(self.status_url)
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Disabled")
+        self.assertContains(response, "Deaktiviert")
 
     def test_get_setup_page_creates_unconfirmed_device_with_qr_and_secret(self):
         response = self.client.get(self.setup_url)
@@ -667,6 +782,7 @@ class TwoFactorSetupTests(TestCase):
 
 class TwoFactorLoginTests(TestCase):
     def setUp(self):
+        cache.clear()
         self.account = make_account(email="2fa_login@example.com")
         self.login_url = reverse("company_accounts:login")
         self.verify_url = reverse("company_accounts:two_factor_verify")
@@ -776,7 +892,7 @@ class TwoFactorManagementTests(TestCase):
 
     def test_status_page_shows_enabled_and_backup_code_count(self):
         response = self.client.get(self.status_url)
-        self.assertContains(response, "Enabled")
+        self.assertContains(response, "Aktiviert")
         self.assertEqual(response.context["backup_codes_remaining"], settings.TWO_FACTOR_BACKUP_CODE_COUNT)
 
     def test_disable_with_wrong_password_does_not_disable(self):
@@ -871,3 +987,84 @@ class AdminRequiresVerifiedOtpTests(TestCase):
         self.client.force_login(self.staff)
         response = self.client.get(self.index_url)
         self.assertNotEqual(response.status_code, 200)
+
+
+class DeleteCompanyCommandTests(TestCase):
+    """AUDIT.md 3.3 — --confirm-name allows non-interactive (cron/CI) use."""
+
+    def setUp(self):
+        mail.outbox = []
+        self.account = make_account(business_name="Acme AG", email="acme@example.com")
+
+    def test_dry_run_does_not_delete(self):
+        call_command("delete_company", "--email", "acme@example.com", "--confirmed-by", "Tester", "--dry-run", stdout=StringIO())
+        self.assertTrue(CompanyAccount.objects.filter(email="acme@example.com").exists())
+
+    def test_confirm_name_flag_deletes_without_input(self):
+        call_command(
+            "delete_company",
+            "--email", "acme@example.com",
+            "--confirmed-by", "Tester",
+            "--confirm-name", "Acme AG",
+            stdout=StringIO(),
+        )
+        self.assertFalse(CompanyAccount.objects.filter(email="acme@example.com").exists())
+
+    def test_wrong_confirm_name_aborts(self):
+        with self.assertRaises(CommandError):
+            call_command(
+                "delete_company",
+                "--email", "acme@example.com",
+                "--confirmed-by", "Tester",
+                "--confirm-name", "Wrong Name",
+                stdout=StringIO(),
+            )
+        self.assertTrue(CompanyAccount.objects.filter(email="acme@example.com").exists())
+
+    def test_deletion_writes_audit_log_and_sends_farewell_email(self):
+        from .models import AccountDeletionLog
+        call_command(
+            "delete_company",
+            "--email", "acme@example.com",
+            "--confirmed-by", "Tester",
+            "--confirm-name", "Acme AG",
+            stdout=StringIO(),
+        )
+        self.assertTrue(AccountDeletionLog.objects.filter(business_name="Acme AG").exists())
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertEqual(mail.outbox[0].to, ["acme@example.com"])
+
+
+class PurgeDeletionLogsCommandTests(TestCase):
+    def _make_log(self, business_name, executed_at):
+        from .models import AccountDeletionLog
+        log = AccountDeletionLog.objects.create(
+            company_email_hash=AccountDeletionLog.hash_email(f"{business_name}@example.com"),
+            business_name=business_name,
+            deletion_token="tok",
+            requested_at=executed_at,
+            confirmed_by="Tester",
+        )
+        log.executed_at = executed_at
+        log.save(update_fields=["executed_at"])
+        return log
+
+    def test_old_log_purged(self):
+        old_cutoff = timezone.now().replace(year=timezone.now().year - settings.DELETION_LOG_RETENTION_YEARS - 1)
+        self._make_log("Old Co", old_cutoff)
+        call_command("purge_deletion_logs", stdout=StringIO())
+        from .models import AccountDeletionLog
+        self.assertFalse(AccountDeletionLog.objects.filter(business_name="Old Co").exists())
+
+    def test_recent_log_kept(self):
+        self._make_log("Recent Co", timezone.now())
+        call_command("purge_deletion_logs", stdout=StringIO())
+        from .models import AccountDeletionLog
+        self.assertTrue(AccountDeletionLog.objects.filter(business_name="Recent Co").exists())
+
+    def test_dry_run_does_not_purge(self):
+        old_cutoff = timezone.now().replace(year=timezone.now().year - settings.DELETION_LOG_RETENTION_YEARS - 1)
+        self._make_log("Old Co", old_cutoff)
+        call_command("purge_deletion_logs", "--dry-run", stdout=StringIO())
+        from .models import AccountDeletionLog
+        self.assertTrue(AccountDeletionLog.objects.filter(business_name="Old Co").exists())

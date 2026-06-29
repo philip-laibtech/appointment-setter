@@ -36,6 +36,15 @@ class Command(BaseCommand):
             action="store_true",
             help="Show what would be deleted without making any changes.",
         )
+        parser.add_argument(
+            "--confirm-name",
+            dest="confirm_name",
+            default=None,
+            help=(
+                "Business name, passed non-interactively to confirm deletion "
+                "(skips the input() prompt). Required for scripted/cron use."
+            ),
+        )
 
     def handle(self, *args, **options):
         email = options["email"].strip().lower()
@@ -72,7 +81,10 @@ class Command(BaseCommand):
             self.stdout.write(self.style.WARNING("[dry-run] No changes made."))
             return
 
-        confirm = input("Type the business name exactly to confirm deletion: ").strip()
+        if options["confirm_name"] is not None:
+            confirm = options["confirm_name"].strip()
+        else:
+            confirm = input("Type the business name exactly to confirm deletion: ").strip()
         if confirm != company.business_name:
             raise CommandError("Business name did not match. Aborting.")
 

@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.shortcuts import redirect
 from django.views.generic import TemplateView
 
@@ -14,9 +15,21 @@ class HomeView(TemplateView):
 class PrivacyPolicyView(TemplateView):
     template_name = "landing/privacy_policy.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["policy_version"] = settings.PRIVACY_POLICY_VERSION
+        context["last_updated"] = settings.PRIVACY_POLICY_LAST_UPDATED
+        return context
+
 
 class TermsOfServiceView(TemplateView):
     template_name = "landing/terms_of_service.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["tos_version"] = settings.CURRENT_TOS_VERSION
+        context["last_updated"] = settings.CURRENT_TOS_LAST_UPDATED
+        return context
 
 
 class LegalNoticeView(TemplateView):

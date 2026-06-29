@@ -6,7 +6,7 @@ from datetime import timedelta
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.db import transaction
-from django.http import Http404
+from django.http import Http404, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
@@ -26,6 +26,7 @@ from notifications.services import (
 from services.models import ServiceOffering, StaffServiceOffering
 from staff_members.models import StaffMember
 
+from .anonymisation import anonymise_booking_instance
 from .forms import BookingForm
 from .i18n import activate_company_language
 from .models import Booking
@@ -34,7 +35,6 @@ from .models import Booking
 class _SlotTaken(Exception):
     """Raised inside the booking transaction when the slot is no longer available."""
 
-_WINDOW_STEP = timedelta(minutes=15)
 _LOOKAHEAD_DAYS = 60
 
 # Booking statuses that count as "occupying" a time window for conflict detection.
@@ -105,9 +105,9 @@ def _occupied_ranges(staff_member, day_start, day_end):
     return booked + blocked
 
 
-def _windows_for_date(staff_member, service_duration_minutes, target_date):
+def _windows_for_date(staff_member, service_duration_minutes, target_date, step):
     """
-    Generate all available start times (15-min step) for the given date.
+    Generate all available start times (stepped by `step`) for the given date.
     A window is available if:
       - It falls within an AVAILABLE AppointmentSlot for the staff member.
       - It does not overlap any active (confirmed or pending) booking or blocked slot.
@@ -138,12 +138,12 @@ def _windows_for_date(staff_member, service_duration_minutes, target_date):
                 )
                 if not overlaps:
                     windows.append(current)
-            current += _WINDOW_STEP
+            current += step
 
     return windows
 
 
-def _available_days(staff_member, service_duration_minutes):
+def _available_days(staff_member, service_duration_minutes, step):
     """
     Return a sorted list of dates (within the next _LOOKAHEAD_DAYS) that have
     at least one available time window for the given staff member and service.
@@ -190,7 +190,7 @@ def _available_days(staff_member, service_duration_minutes):
                 )
                 if not overlaps:
                     available.add(timezone.localtime(current).date())
-            current += _WINDOW_STEP
+            current += step
 
     return sorted(available)
 
@@ -249,17 +249,19 @@ def _eligible_staff_for_any(company, service):
 
 def _available_days_for_any(company, service):
     """Sorted list of dates with at least one available window across all eligible staff."""
+    step = timedelta(minutes=company.slot_interval_minutes)
     available = set()
     for staff in _eligible_staff_for_any(company, service):
-        available.update(_available_days(staff, service.duration_minutes))
+        available.update(_available_days(staff, service.duration_minutes, step))
     return sorted(available)
 
 
 def _windows_for_date_any(company, service, target_date):
     """Sorted unique available start times across all eligible staff for the given date."""
+    step = timedelta(minutes=company.slot_interval_minutes)
     available = set()
     for staff in _eligible_staff_for_any(company, service):
-        available.update(_windows_for_date(staff, service.duration_minutes, target_date))
+        available.update(_windows_for_date(staff, service.duration_minutes, target_date, step))
     return sorted(available)
 
 
@@ -376,7 +378,9 @@ def public_slot_select_view(request, company_slug, staff_uid, service_uid):
     service = _get_active_service(company, service_uid)
     _get_active_assignment(staff_member, service)
 
-    days = _available_days(staff_member, service.duration_minutes)
+    days = _available_days(
+        staff_member, service.duration_minutes, timedelta(minutes=company.slot_interval_minutes)
+    )
 
     return render(
         request,
@@ -393,7 +397,7 @@ def public_slot_select_view(request, company_slug, staff_uid, service_uid):
 @require_http_methods(["GET"])
 @ratelimit(key="ip", rate="60/h", block=True)
 def public_time_select_view(request, company_slug, staff_uid, service_uid, date):
-    """Time selection: shows available 15-minute-stepped windows for a chosen day."""
+    """Time selection: shows available windows (stepped by the company's slot interval) for a chosen day."""
     company = _get_active_company(company_slug)
     _require_public_page(company)
     staff_member = _get_active_staff(company, staff_uid)
@@ -401,7 +405,12 @@ def public_time_select_view(request, company_slug, staff_uid, service_uid, date)
     _get_active_assignment(staff_member, service)
 
     target_date = _parse_date(date)
-    windows = _windows_for_date(staff_member, service.duration_minutes, target_date)
+    windows = _windows_for_date(
+        staff_member,
+        service.duration_minutes,
+        target_date,
+        timedelta(minutes=company.slot_interval_minutes),
+    )
 
     return render(
         request,
@@ -622,7 +631,7 @@ def any_slot_select_view(request, company_slug, service_uid):
 @require_http_methods(["GET"])
 @ratelimit(key="ip", rate="60/h", block=True)
 def any_time_select_view(request, company_slug, service_uid, date):
-    """Time selection: shows available 15-minute-stepped windows for a chosen day across all eligible staff."""
+    """Time selection: shows available windows (stepped by the company's slot interval) for a chosen day across all eligible staff."""
     company = _get_active_company(company_slug)
     _require_public_page(company)
     _require_any_employee_enabled(company)
@@ -778,7 +787,7 @@ def public_booking_cancel_view(request, company_slug, public_token):
         Booking,
         public_token=public_token,
         company=company,
-        status=Booking.Status.CONFIRMED,
+        status__in=_ACTIVE_BOOKING_STATUSES,
     )
 
     if request.method == "POST":
@@ -788,7 +797,7 @@ def public_booking_cancel_view(request, company_slug, public_token):
                 .filter(
                     public_token=public_token,
                     company=company,
-                    status=Booking.Status.CONFIRMED,
+                    status__in=_ACTIVE_BOOKING_STATUSES,
                 )
                 .first()
             )
@@ -810,6 +819,90 @@ def public_booking_cancel_view(request, company_slug, public_token):
     return render(
         request,
         "bookings/public_booking_cancel.html",
+        {"company": company, "booking": booking},
+    )
+
+
+# ---------------------------------------------------------------------------
+# Customer self-service data access / portability / erasure
+# (GDPR Art. 15, 17, 20 — AUDIT.md 4.3 / 4.4)
+#
+# Access control is identical to the existing confirmed/cancel pages: holding
+# the public_token (256 bits of entropy, emailed only to the customer) is
+# what proves "this is your booking". Unlike the confirmation page, these
+# views have no TTL — a customer must be able to exercise these rights at
+# any time before their data is anonymised.
+# ---------------------------------------------------------------------------
+
+def _get_booking_for_token_or_404(company, public_token):
+    return get_object_or_404(Booking, public_token=public_token, company=company)
+
+
+@require_http_methods(["GET"])
+@ratelimit(key="ip", rate="20/m", block=True)
+def public_booking_my_data_view(request, company_slug, public_token):
+    company = _get_active_company(company_slug)
+    booking = _get_booking_for_token_or_404(company, public_token)
+    return render(
+        request,
+        "bookings/public_booking_my_data.html",
+        {"company": company, "booking": booking},
+    )
+
+
+@require_http_methods(["GET"])
+@ratelimit(key="ip", rate="20/m", block=True)
+def public_booking_export_view(request, company_slug, public_token):
+    """Machine-readable export of everything stored about this booking (Art. 20)."""
+    company = _get_active_company(company_slug)
+    booking = _get_booking_for_token_or_404(company, public_token)
+
+    if booking.anonymized_at:
+        data = {"anonymized_at": booking.anonymized_at.isoformat(), "data": "This booking's personal data has already been anonymised."}
+    else:
+        data = {
+            "company": company.business_name,
+            "staff_member": booking.staff_member.name if booking.staff_member_id else None,
+            "service": booking.service_offering.name,
+            "start_at": booking.start_at.isoformat(),
+            "end_at": booking.end_at.isoformat(),
+            "status": booking.get_status_display(),
+            "customer_first_name": booking.customer_first_name,
+            "customer_last_name": booking.customer_last_name,
+            "customer_email": booking.customer_email,
+            "customer_phone": booking.customer_phone,
+            "customer_message": booking.customer_message,
+            "privacy_accepted_at": booking.privacy_accepted_at.isoformat(),
+            "privacy_policy_version": booking.privacy_policy_version,
+            "created_at": booking.created_at.isoformat(),
+        }
+
+    response = JsonResponse(data)
+    response["Content-Disposition"] = f'attachment; filename="booking-{booking.pk}-data.json"'
+    return response
+
+
+@require_http_methods(["GET", "POST"])
+@ratelimit(key="ip", rate="20/m", block=True)
+def public_booking_erasure_view(request, company_slug, public_token):
+    """Immediate self-service erasure of this booking's PII (Art. 17)."""
+    company = _get_active_company(company_slug)
+    booking = _get_booking_for_token_or_404(company, public_token)
+
+    if request.method == "POST":
+        if not booking.anonymized_at:
+            with transaction.atomic():
+                locked = get_object_or_404(
+                    Booking.objects.select_for_update(),
+                    pk=booking.pk,
+                )
+                if not locked.anonymized_at:
+                    anonymise_booking_instance(locked)
+        return render(request, "bookings/public_booking_erasure_done.html", {"company": company})
+
+    return render(
+        request,
+        "bookings/public_booking_erasure_confirm.html",
         {"company": company, "booking": booking},
     )
 
@@ -929,6 +1022,19 @@ def confirm_booking_view(request, booking_id):
             lambda booking=booking: send_booking_confirmed_to_customer(booking)
         )
     return redirect("bookings:pending_bookings")
+
+
+@login_required
+@require_http_methods(["GET"])
+def delete_booking_confirm_view(request, booking_id):
+    booking = get_object_or_404(
+        Booking,
+        pk=booking_id,
+        company=request.user,
+    )
+    if booking.start_at <= timezone.now():
+        raise Http404
+    return render(request, "bookings/delete_booking_confirm.html", {"booking": booking})
 
 
 @login_required

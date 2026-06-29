@@ -42,6 +42,11 @@ urlpatterns = [
         views.delete_booking_view,
         name="delete_booking",
     ),
+    path(
+        "manage/<int:booking_id>/delete/confirm/",
+        views.delete_booking_confirm_view,
+        name="delete_booking_confirm",
+    ),
 
     # ── Public booking flow ──────────────────────────────────────────────────
     # Served at /b/<company_slug>/... — exempt from TOS gate and login.
@@ -106,5 +111,20 @@ urlpatterns = [
         "b/<slug:company_slug>/booking/<str:public_token>/cancel/",
         views.public_booking_cancel_view,
         name="cancel",
+    ),
+    path(
+        "b/<slug:company_slug>/booking/<str:public_token>/my-data/",
+        views.public_booking_my_data_view,
+        name="my_data",
+    ),
+    path(
+        "b/<slug:company_slug>/booking/<str:public_token>/my-data/export/",
+        views.public_booking_export_view,
+        name="my_data_export",
+    ),
+    path(
+        "b/<slug:company_slug>/booking/<str:public_token>/erase/",
+        views.public_booking_erasure_view,
+        name="request_erasure",
     ),
 ]

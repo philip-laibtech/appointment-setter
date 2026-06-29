@@ -48,6 +48,7 @@ class CompanyAccount(AbstractBaseUser, PermissionsMixin):
     timezone = models.CharField(max_length=64, default="Europe/Zurich")
     show_staff_names_publicly = models.BooleanField(default=True)
     enable_any_employee_option = models.BooleanField(default=True)
+    slot_interval_minutes = models.PositiveIntegerField(default=15)
     booking_confirmation_mode = models.CharField(
         max_length=20,
         choices=BookingConfirmationMode.choices,

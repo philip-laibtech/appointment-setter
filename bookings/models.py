@@ -94,6 +94,22 @@ class Booking(models.Model):
         if errors:
             raise ValidationError(errors)
 
+    @property
+    def is_pending(self):
+        return self.status == self.Status.PENDING
+
+    @property
+    def is_confirmed(self):
+        return self.status == self.Status.CONFIRMED
+
+    @property
+    def is_cancelled(self):
+        return self.status == self.Status.CANCELLED
+
+    @property
+    def is_declined(self):
+        return self.status == self.Status.DECLINED
+
     def __str__(self):
         return (
             f"{self.customer_first_name} {self.customer_last_name} "

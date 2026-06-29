@@ -144,7 +144,6 @@ DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", "noreply@example.com")
 SUPPORT_EMAIL = os.environ.get("SUPPORT_EMAIL", "")
 
 # Security headers — enforced in production (DEBUG=False)
-SECURE_BROWSER_XSS_FILTER = True
 X_FRAME_OPTIONS = "DENY"
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
@@ -156,6 +155,18 @@ if not DEBUG:
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
 
+# Session cookie expires when the browser closes, AND the server-side session
+# itself expires after 2 weeks (Django's SESSION_COOKIE_AGE default) —
+# whichever comes first. Matches the privacy policy's session cookie claim.
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+# django-ratelimit resolves the client IP from this WSGI META key. REMOTE_ADDR
+# (the default) is safe even behind a misconfigured proxy, because it cannot
+# be set by the client. Only override this to a header like "HTTP_X_REAL_IP"
+# if your reverse proxy is configured to always overwrite that header itself
+# (never forwarding a client-supplied value) — see docs/deployment.md.
+RATELIMIT_IP_META_KEY = os.environ.get("RATELIMIT_IP_META_KEY", "REMOTE_ADDR")
+
 # Content Security Policy (django-csp 4.0)
 # Inline styles are permitted across all templates; no inline scripts remain.
 # Bump this string whenever the privacy policy text changes materially.
@@ -164,13 +175,30 @@ CAPTCHA_TEST_MODE = _TESTING
 RATELIMIT_ENABLE = not _TESTING
 
 PRIVACY_POLICY_VERSION = "1.0"
+# Human-readable date shown as "Last updated" on the privacy policy page.
+# Update together with PRIVACY_POLICY_VERSION whenever the policy text changes.
+PRIVACY_POLICY_LAST_UPDATED = "June 17, 2026"
 
 # Bump this string whenever the Terms of Service change materially.
 # The current value is stamped on every new CompanyAccount at registration.
 CURRENT_TOS_VERSION = "1.0"
+# Human-readable date shown as "Last updated" on the terms of service page.
+# Update together with CURRENT_TOS_VERSION whenever the ToS text changes.
+CURRENT_TOS_LAST_UPDATED = "June 17, 2026"
 
 # Days after a booking's end_at before customer PII fields are anonymised.
 CUSTOMER_DATA_RETENTION_DAYS = 30
+
+# Per-account login lockout (company_accounts/lockout.py). Complements the
+# IP/username rate limits on login_view with a check keyed on the submitted
+# account, so a distributed/botnet attack against one account is still
+# throttled even if requests are spread across many IPs.
+ACCOUNT_LOCKOUT_THRESHOLD = 10
+ACCOUNT_LOCKOUT_DURATION_MINUTES = 15
+
+# Years to retain AccountDeletionLog entries (proof-of-deletion audit trail)
+# before they are purged by `python manage.py purge_deletion_logs`.
+DELETION_LOG_RETENTION_YEARS = 3
 
 # Two-factor authentication (django-otp)
 # Issuer name shown inside the authenticator app next to the account entry.
@@ -191,4 +219,55 @@ CONTENT_SECURITY_POLICY = {
         "form-action": ["'self'"],
         "frame-ancestors": ["'none'"],
     }
+}
+
+# Structured application logging (AUDIT.md 5.3/7.2/7.3).
+#
+# PII-scrubbing policy: log messages in this codebase must never include
+# customer_first_name, customer_last_name, customer_email, customer_phone,
+# or customer_message. Use non-PII identifiers instead (booking.pk,
+# company.pk) — see existing logger.exception() calls in notifications/
+# services.py and company_accounts/views.py for the established pattern.
+# Logs go to stdout/stderr — capture and rotate them at the process
+# supervisor level (systemd journal, Docker log driver, etc.) in production.
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "structured": {
+            "format": "%(asctime)s %(levelname)s %(name)s %(message)s",
+        },
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "structured",
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "CRITICAL" if _TESTING else "WARNING",
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": "CRITICAL" if _TESTING else "INFO",
+            "propagate": False,
+        },
+        "company_accounts": {
+            "handlers": ["console"],
+            "level": "CRITICAL" if _TESTING else "INFO",
+            "propagate": False,
+        },
+        "bookings": {
+            "handlers": ["console"],
+            "level": "CRITICAL" if _TESTING else "INFO",
+            "propagate": False,
+        },
+        "notifications": {
+            "handlers": ["console"],
+            "level": "CRITICAL" if _TESTING else "INFO",
+            "propagate": False,
+        },
+    },
 }

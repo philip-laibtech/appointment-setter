@@ -222,11 +222,11 @@
         </td>
         <td>
           <a class="bk-row-link" href="{{ booking_url }}?from=past">
-            {% if booking.status == "confirmed" %}
+            {% if booking.is_confirmed %}
               <span class="bk-badge bk-badge-confirmed">{% translate "Confirmed" %}</span>
-            {% elif booking.status == "cancelled" %}
+            {% elif booking.is_cancelled %}
               <span class="bk-badge bk-badge-cancelled">{% translate "Cancelled" %}</span>
-            {% elif booking.status == "declined" %}
+            {% elif booking.is_declined %}
               <span class="bk-badge bk-badge-declined">{% translate "Declined" %}</span>
             {% else %}
               <span class="bk-badge bk-badge-pending">{{ booking.get_status_display }}</span>

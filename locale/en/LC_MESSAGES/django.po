@@ -21,6 +21,153 @@ msgstr ""
 msgid "(inactive)"
 msgstr ""
 
+msgid "1. Controller"
+msgstr ""
+
+msgid "1. Description of Service"
+msgstr ""
+
+msgid "10. Changes to These Terms"
+msgstr ""
+
+msgid "10. Children"
+msgstr ""
+
+msgid "11. Changes to This Policy"
+msgstr ""
+
+msgid "11. Contact"
+msgstr ""
+
+msgid "12. Contact"
+msgstr ""
+
+msgid "2. Account Registration"
+msgstr ""
+
+msgid "2. Data We Collect"
+msgstr ""
+
+msgid "3. Acceptable Use"
+msgstr ""
+
+msgid "3. Purpose and Legal Basis"
+msgstr ""
+
+msgid "4. Data Processing Agreement (DPA)"
+msgstr ""
+
+msgid "4. Data Sharing and Third Parties"
+msgstr ""
+
+msgid "4.1 Roles."
+msgstr ""
+
+msgid "4.2 Purpose limitation."
+msgstr ""
+
+msgid "4.3 Your obligations as Controller."
+msgstr ""
+
+msgid "4.4 Our obligations as Processor."
+msgstr ""
+
+msgid "4.5 Sub-processors."
+msgstr ""
+
+msgid "4.6 Data breach notification."
+msgstr ""
+
+msgid "4.7 Retention and deletion."
+msgstr ""
+
+msgid "5. Intellectual Property"
+msgstr ""
+
+msgid "5. International Transfers"
+msgstr ""
+
+msgid "6. Disclaimer of Warranties"
+msgstr ""
+
+msgid "6. Retention"
+msgstr ""
+
+msgid "7. Cookies"
+msgstr ""
+
+msgid "7. Limitation of Liability"
+msgstr ""
+
+msgid "8. Termination"
+msgstr ""
+
+msgid "8. Your Rights"
+msgstr ""
+
+msgid "9. Governing Law"
+msgstr ""
+
+msgid "9. Security"
+msgstr ""
+
+msgid "<strong>Account management</strong> — to operate business accounts, authenticate users, and provide access to the dashboard. Legal basis: performance of a contract (GDPR Art. 6(1)(b))."
+msgstr ""
+
+msgid "<strong>Appointment details:</strong> date, time, service type, and assigned staff member for each booking."
+msgstr ""
+
+msgid "<strong>Business account data:</strong> business name, email address, postal address, phone number, and website URL provided at registration or in account settings."
+msgstr ""
+
+msgid "<strong>Business account data:</strong> retained for as long as the account is active. Deleted within 7 days of a verified account deletion request."
+msgstr ""
+
+msgid "<strong>CSRF cookie (<code>csrftoken</code>):</strong> strictly necessary. Protects forms against cross-site request forgery attacks. Not used for tracking."
+msgstr ""
+
+msgid "<strong>Customer booking PII</strong> (name, email, phone, message): automatically anonymised 30 days after the appointment takes place. The booking record itself (date, time, service) is retained for business accounting purposes."
+msgstr ""
+
+msgid "<strong>Customer booking data:</strong> first name, last name, email address, phone number, and any optional message provided when booking an appointment."
+msgstr ""
+
+msgid "<strong>Email delivery provider:</strong> used to send booking confirmation and notification emails. Your name and email address are transmitted to deliver these messages."
+msgstr ""
+
+msgid "<strong>Hosting provider:</strong> the servers on which this platform runs. All data stored on the platform resides on these servers."
+msgstr ""
+
+msgid "<strong>Providing the booking service</strong> — to create, confirm, and manage appointments between businesses and their customers. Legal basis: performance of a contract (GDPR Art. 6(1)(b))."
+msgstr ""
+
+msgid "<strong>Security and fraud prevention</strong> — to detect and prevent abuse, rate-limit requests, and maintain the integrity of the platform. Legal basis: legitimate interests (GDPR Art. 6(1)(f))."
+msgstr ""
+
+msgid "<strong>Sending transactional notifications</strong> — confirmation, cancellation, and reminder emails sent to customers and businesses. Legal basis: performance of a contract (GDPR Art. 6(1)(b))."
+msgstr ""
+
+msgid "<strong>Server access logs</strong> (IP address, user-agent, timestamps): retained for 30 days, then deleted automatically."
+msgstr ""
+
+msgid "<strong>Session cookie (<code>sessionid</code>):</strong> strictly necessary. Keeps business users logged in to the dashboard. Expires at the end of the browser session or after 2 weeks, whichever comes first."
+msgstr ""
+
+msgid "<strong>Session data:</strong> a session identifier stored in a strictly necessary cookie to keep you logged in."
+msgstr ""
+
+msgid "<strong>Technical data:</strong> IP address, browser type, and request timestamps recorded in server access logs."
+msgstr ""
+
+msgid "A support agent will call you to verify your identity before anything is deleted."
+msgstr ""
+
+msgid "Accept and continue"
+msgstr ""
+
+msgid "Access the personal data we hold about you (Art. 15 GDPR)"
+msgstr ""
+
 msgid "Account Information"
 msgstr ""
 
@@ -46,6 +193,9 @@ msgid "Add a block to let customers know when you're available."
 msgstr ""
 
 msgid "Add a person who can be assigned to availability slots."
+msgstr ""
+
+msgid "Add an extra layer of protection to your account using an authenticator app."
 msgstr ""
 
 msgid "Add and manage people assignable to bookings."
@@ -81,13 +231,28 @@ msgstr ""
 msgid "All"
 msgstr ""
 
+msgid "All availability slots and recurring schedules"
+msgstr ""
+
+msgid "All booking records and customer data"
+msgstr ""
+
 msgid "All completed and past appointments."
+msgstr ""
+
+msgid "All content on this website, including but not limited to text, graphics, logos, and software, is the property of the operator and is protected by applicable intellectual property law. Reproduction or distribution without prior written consent is prohibited."
+msgstr ""
+
+msgid "All services and service configurations"
 msgstr ""
 
 msgid "All slots on this day are taken. Please choose a different day."
 msgstr ""
 
 msgid "All staff assignments for this service will also be deleted."
+msgstr ""
+
+msgid "All staff members and their profiles"
 msgstr ""
 
 msgid "Already have an account? Log in"
@@ -105,13 +270,25 @@ msgstr ""
 msgid "Appointment"
 msgstr ""
 
+msgid "Appointment Setter is a software-as-a-service platform that allows businesses (\"you\" or the \"Controller\") to create and manage appointment bookings for their customers. We provide the technical infrastructure; you use it to operate your own booking workflow."
+msgstr ""
+
+msgid "Appointment Setter is an online platform that enables businesses to manage and accept appointments from their customers. This policy explains what personal data we collect, why we collect it, and how we protect it. It applies to business accounts that use our platform and to customers who book appointments through it."
+msgstr ""
+
 msgid "Are you sure you want to cancel?"
+msgstr ""
+
+msgid "Are you sure you want to delete this booking?"
 msgstr ""
 
 msgid "Are you sure you want to delete this booking? The customer will be notified by email."
 msgstr ""
 
 msgid "Assign to staff members"
+msgstr ""
+
+msgid "Attempt to gain unauthorised access to the Service or its underlying systems."
 msgstr ""
 
 msgid "Automatic:"
@@ -138,6 +315,9 @@ msgstr ""
 msgid "Back to Pending Bookings"
 msgstr ""
 
+msgid "Back to Settings"
+msgstr ""
+
 msgid "Back to booking"
 msgstr ""
 
@@ -145,6 +325,15 @@ msgid "Back to home"
 msgstr ""
 
 msgid "Back to login"
+msgstr ""
+
+msgid "Back to settings"
+msgstr ""
+
+msgid "Backup Codes"
+msgstr ""
+
+msgid "Backup codes"
 msgstr ""
 
 msgid "Between 5 and 480 minutes."
@@ -189,6 +378,9 @@ msgstr ""
 msgid "Booking Unavailable"
 msgstr ""
 
+msgid "Booking details"
+msgstr ""
+
 msgid "Booking record"
 msgstr ""
 
@@ -213,10 +405,16 @@ msgstr ""
 msgid "Business name is required."
 msgstr ""
 
+msgid "Can't scan? Enter this code manually:"
+msgstr ""
+
 msgid "Cancel"
 msgstr ""
 
 msgid "Cancel Booking"
+msgstr ""
+
+msgid "Cancel and return to login"
 msgstr ""
 
 msgid "Cancel booking"
@@ -277,6 +475,9 @@ msgstr ""
 msgid "Click the link below to set a new password. This link is valid for 24 hours."
 msgstr ""
 
+msgid "Collect or store personal data beyond what is necessary for appointment management."
+msgstr ""
+
 msgid "Company"
 msgstr ""
 
@@ -310,6 +511,9 @@ msgstr ""
 msgid "Confirmed"
 msgstr ""
 
+msgid "Contact"
+msgstr ""
+
 msgid "Contact Information"
 msgstr ""
 
@@ -319,13 +523,22 @@ msgstr ""
 msgid "Copy link"
 msgstr ""
 
+msgid "Correct inaccurate or incomplete data (Art. 16 GDPR)"
+msgstr ""
+
 msgid "Create a company account"
 msgstr ""
 
 msgid "Create schedule"
 msgstr ""
 
+msgid "Current password"
+msgstr ""
+
 msgid "Customer"
+msgstr ""
+
+msgid "Customer booking personal data (name, email, phone, message) is automatically anonymised 30 days after the appointment takes place. Upon account deletion, all remaining data associated with your account is permanently removed within 7 days."
 msgstr ""
 
 msgid "Customer:"
@@ -335,6 +548,9 @@ msgid "Danger Zone"
 msgstr ""
 
 msgid "Dashboard"
+msgstr ""
+
+msgid "Data Erased"
 msgstr ""
 
 msgid "Date"
@@ -365,6 +581,9 @@ msgstr ""
 msgid "Delete \"%(name)s\"?"
 msgstr ""
 
+msgid "Delete Booking"
+msgstr ""
+
 msgid "Delete Open Hours"
 msgstr ""
 
@@ -380,13 +599,34 @@ msgstr ""
 msgid "Delete staff member"
 msgstr ""
 
+msgid "Delete this booking?"
+msgstr ""
+
 msgid "Delete this entry?"
+msgstr ""
+
+msgid "Depending on your location, you may have the right to:"
 msgstr ""
 
 msgid "Description"
 msgstr ""
 
 msgid "Deutsch"
+msgstr ""
+
+msgid "Disable"
+msgstr ""
+
+msgid "Disable two-factor authentication"
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "Disclaimer"
+msgstr ""
+
+msgid "Download my data"
 msgstr ""
 
 msgid "Duration"
@@ -425,7 +665,19 @@ msgstr ""
 msgid "Employee pre-selected"
 msgstr ""
 
+msgid "Enable"
+msgstr ""
+
 msgid "Enable \"Any Employee\" option"
+msgstr ""
+
+msgid "Enable \"Any Employee\" option"
+msgstr ""
+
+msgid "Enable two-factor authentication"
+msgstr ""
+
+msgid "Enabled"
 msgstr ""
 
 msgid "End date must be within one year from today."
@@ -440,6 +692,9 @@ msgstr ""
 msgid "English"
 msgstr ""
 
+msgid "Enter the 6-digit code from your authenticator app, or one of your backup codes."
+msgstr ""
+
 msgid "Enter the email address you registered with. If an account exists, you will receive a link to set a new password."
 msgstr ""
 
@@ -447,6 +702,9 @@ msgid "Fastest available appointment with any suitable staff member."
 msgstr ""
 
 msgid "First name"
+msgstr ""
+
+msgid "For any privacy-related questions, requests, or complaints:<br><br> <strong>[TODO_OPERATOR_NAME]</strong><br> [TODO_OPERATOR_ADDRESS]<br> <a href=\"mailto:[TODO_PRIVACY_EMAIL]\">[TODO_PRIVACY_EMAIL]</a>"
 msgstr ""
 
 msgid "Forgot your password?"
@@ -462,6 +720,9 @@ msgid "Fri"
 msgstr ""
 
 msgid "From"
+msgstr ""
+
+msgid "Generate a fresh set of single-use backup codes. Your previous codes will stop working."
 msgstr ""
 
 msgid "German"
@@ -487,7 +748,19 @@ msgstr ""
 msgid "I accept the privacy policy."
 msgstr ""
 
+msgid "I have read and accept the updated <a href=\"%(tos_url)s\" target=\"_blank\" rel=\"noopener noreferrer\">Terms of Service</a>."
+msgstr ""
+
+msgid "I understand that this will permanently delete my account and all associated data, and that this action cannot be undone."
+msgstr ""
+
+msgid "I've saved my codes"
+msgstr ""
+
 msgid "If an account with that email exists, we've sent a password reset link. It will expire in 24 hours."
+msgstr ""
+
+msgid "If this number is wrong, update it in"
 msgstr ""
 
 msgid "If you did not request a password reset, you can ignore this email. Your password will not be changed."
@@ -497,10 +770,16 @@ msgstr ""
 msgid "If you have any questions, please contact %(business_name)s directly."
 msgstr ""
 
+msgid "In the event of a personal data breach affecting your customers' data, we will notify you without undue delay and no later than 72 hours after becoming aware of the breach, providing sufficient information for you to meet your own notification obligations under GDPR Art. 33 and Art. 34."
+msgstr ""
+
 msgid "Inactive"
 msgstr ""
 
 msgid "Incorrect security code. Please try again."
+msgstr ""
+
+msgid "Intellectual Property"
 msgstr ""
 
 msgid "Interface language"
@@ -539,13 +818,22 @@ msgstr ""
 msgid "Last updated:"
 msgstr ""
 
+msgid "Legal Notice"
+msgstr ""
+
 msgid "Let's get started"
 msgstr ""
 
 msgid "Link expired or invalid"
 msgstr ""
 
+msgid "Links to Third-Party Websites"
+msgstr ""
+
 msgid "Location"
+msgstr ""
+
+msgid "Lodge a complaint with your local supervisory authority"
 msgstr ""
 
 msgid "Log in"
@@ -561,6 +849,9 @@ msgid "Main navigation"
 msgstr ""
 
 msgid "Manage"
+msgstr ""
+
+msgid "Manage two-factor authentication"
 msgstr ""
 
 msgid "Manage your business profile and public booking page."
@@ -579,6 +870,9 @@ msgid "Message:"
 msgstr ""
 
 msgid "Mon"
+msgstr ""
+
+msgid "My Data"
 msgstr ""
 
 msgid "Name"
@@ -615,6 +909,9 @@ msgid "No past bookings yet."
 msgstr ""
 
 msgid "No pending booking requests at this time."
+msgstr ""
+
+msgid "No phone number on file."
 msgstr ""
 
 msgid "No services available"
@@ -654,6 +951,9 @@ msgstr ""
 msgid "Open Hours"
 msgstr ""
 
+msgid "Open an authenticator app (e.g. Google Authenticator, Authy, 1Password) and scan the code below."
+msgstr ""
+
 msgid "Open hours block deleted."
 msgstr ""
 
@@ -663,7 +963,16 @@ msgstr ""
 msgid "Open page"
 msgstr ""
 
+msgid "Operator"
+msgstr ""
+
+msgid "Operator information pursuant to applicable disclosure requirements."
+msgstr ""
+
 msgid "Or choose a specific staff member"
+msgstr ""
+
+msgid "Our Terms of Service have been updated. Please review and accept them to continue using Appointment Setter."
 msgstr ""
 
 msgid "PLZ"
@@ -739,6 +1048,9 @@ msgstr ""
 msgid "Privacy accepted"
 msgstr ""
 
+msgid "Privacy policy accepted"
+msgstr ""
+
 msgid "Public Booking Page"
 msgstr ""
 
@@ -749,6 +1061,18 @@ msgid "Public booking link"
 msgstr ""
 
 msgid "Public booking page enabled"
+msgstr ""
+
+msgid "Questions about these Terms:<br><br> <strong>[TODO_OPERATOR_NAME]</strong><br> [TODO_OPERATOR_ADDRESS]<br> <a href=\"mailto:[TODO_CONTACT_EMAIL]\">[TODO_CONTACT_EMAIL]</a>"
+msgstr ""
+
+msgid "Read carefully before continuing. This action cannot be undone."
+msgstr ""
+
+msgid "Receive your data in a portable format (Art. 20 GDPR)"
+msgstr ""
+
+msgid "Regenerate backup codes"
 msgstr ""
 
 msgid "Register"
@@ -764,10 +1088,37 @@ msgstr ""
 msgid "Repeat on"
 msgstr ""
 
+msgid "Request Account Deletion"
+msgstr ""
+
+msgid "Request Erasure"
+msgstr ""
+
 msgid "Request a new link"
 msgstr ""
 
+msgid "Request deletion of your data (Art. 17 GDPR)"
+msgstr ""
+
+msgid "Request erasure"
+msgstr ""
+
+msgid "Request erasure of your data"
+msgstr ""
+
 msgid "Requested"
+msgstr ""
+
+msgid "Requesting deletion will permanently remove your account, all staff members, services, availability, and booking records. A support agent will call you to verify your identity before anything is deleted."
+msgstr ""
+
+msgid "Require a one-time code from an authenticator app in addition to your password when logging in."
+msgstr ""
+
+msgid "Required to verify your identity if you request account deletion."
+msgstr ""
+
+msgid "Resell, sublicense, or otherwise make the Service available to third parties without our written consent."
 msgstr ""
 
 msgid "Reset Password"
@@ -778,6 +1129,12 @@ msgstr ""
 
 #, python-format
 msgid "Reset your password — %(domain)s"
+msgstr ""
+
+msgid "Responsible for Content"
+msgstr ""
+
+msgid "Restrict or object to certain processing (Art. 18 / 21 GDPR)"
 msgstr ""
 
 msgid "Review and confirm or decline customer booking requests."
@@ -792,6 +1149,12 @@ msgstr ""
 msgid "Save settings"
 msgstr ""
 
+msgid "Save your backup codes"
+msgstr ""
+
+msgid "Security"
+msgstr ""
+
 msgid "Security check"
 msgstr ""
 
@@ -802,6 +1165,9 @@ msgid "Select a valid language."
 msgstr ""
 
 msgid "Select at least one day of the week."
+msgstr ""
+
+msgid "Send deletion request"
 msgstr ""
 
 msgid "Send reset link"
@@ -843,6 +1209,9 @@ msgstr ""
 msgid "Set Recurring Hours"
 msgstr ""
 
+msgid "Set Up Two-Factor Authentication"
+msgstr ""
+
 msgid "Set a new password"
 msgstr ""
 
@@ -850,6 +1219,9 @@ msgid "Set new password"
 msgstr ""
 
 msgid "Set recurring"
+msgstr ""
+
+msgid "Set up two-factor authentication"
 msgstr ""
 
 msgid "Settings"
@@ -874,6 +1246,9 @@ msgid "Slug"
 msgstr ""
 
 msgid "Something went wrong"
+msgstr ""
+
+msgid "Spacing between bookable time slots shown to customers. Minimum 5 minutes, default 15 minutes."
 msgstr ""
 
 msgid "Staff"
@@ -924,13 +1299,37 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
+msgid "Step 1 — Scan this QR code"
+msgstr ""
+
+msgid "Step 2 — Enter the code from your app"
+msgstr ""
+
+msgid "Store these somewhere safe — a password manager or printed copy. Each code can be used once if you lose access to your authenticator app."
+msgstr ""
+
 msgid "Street"
 msgstr ""
 
 msgid "Sun"
 msgstr ""
 
+msgid "Terms of Service"
+msgstr ""
+
 msgid "Thank you."
+msgstr ""
+
+msgid "The Service and its original content, features, and functionality are and will remain the exclusive property of <strong>[TODO_OPERATOR_NAME]</strong>. You retain ownership of any content or data you upload. You grant us a limited licence to process that content solely to provide the Service."
+msgstr ""
+
+msgid "The Service is provided \"as is\" and \"as available\" without warranties of any kind, either express or implied. We do not warrant that the Service will be uninterrupted, error-free, or free of harmful components."
+msgstr ""
+
+msgid "The data controller responsible for this platform is:<br><br> <strong>[TODO_OPERATOR_NAME]</strong><br> [TODO_OPERATOR_ADDRESS]<br> [TODO_OPERATOR_CITY_COUNTRY]<br> Privacy contact: <a href=\"mailto:[TODO_PRIVACY_EMAIL]\">[TODO_PRIVACY_EMAIL]</a>"
+msgstr ""
+
+msgid "The information provided on this website is for general informational purposes only. While we strive to keep the content accurate and up to date, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, or suitability of the information. Any reliance you place on such information is therefore strictly at your own risk."
 msgstr ""
 
 msgid "The page you're looking for doesn't exist or has been moved."
@@ -943,6 +1342,15 @@ msgid "There are currently no services available for this staff member."
 msgstr ""
 
 msgid "There are currently no services available."
+msgstr ""
+
+msgid "These Terms are governed by the laws of <strong>[TODO_JURISDICTION]</strong>. Any disputes shall be subject to the exclusive jurisdiction of the courts of <strong>[TODO_JURISDICTION]</strong>."
+msgstr ""
+
+msgid "These Terms of Service (\"Terms\") govern your access to and use of Appointment Setter (the \"Service\"), operated by <strong>[TODO_OPERATOR_NAME]</strong> (\"we\", \"us\", or \"our\"). By registering for or using the Service, you agree to be bound by these Terms. If you do not agree, do not use the Service."
+msgstr ""
+
+msgid "These codes are shown only once and cannot be retrieved later. If you lose them, you can generate a new set from your security settings (this invalidates the old ones)."
 msgstr ""
 
 msgid "These hours overlap with an existing slot for this staff member. Please choose a different time."
@@ -960,6 +1368,9 @@ msgstr ""
 msgid "This action cannot be undone."
 msgstr ""
 
+msgid "This action cannot be undone. If your appointment is still upcoming, the company will lose your contact details and may need to cancel it."
+msgstr ""
+
 msgid "This action cannot be undone. Your time slot will be released and may be booked by someone else."
 msgstr ""
 
@@ -969,10 +1380,22 @@ msgstr ""
 msgid "This booking request was declined."
 msgstr ""
 
+msgid "This booking's personal data has already been anonymised and is no longer available."
+msgstr ""
+
+msgid "This is the personal data we currently hold for this booking, in line with your rights under data protection law."
+msgstr ""
+
 msgid "This page is unavailable."
 msgstr ""
 
 msgid "This password reset link has already been used or has expired. Please request a new one."
+msgstr ""
+
+msgid "This platform is not directed at children under the age of 16. We do not knowingly collect personal data from anyone under 16. If you believe we have inadvertently collected data from a child, please contact us and we will delete it promptly."
+msgstr ""
+
+msgid "This section constitutes the Data Processing Agreement between you (the Controller) and us (the Processor) as required by Article 28 of the General Data Protection Regulation (GDPR) and applicable data protection law."
 msgstr ""
 
 msgid "This service has existing bookings and cannot be deleted."
@@ -987,6 +1410,9 @@ msgstr ""
 msgid "This time slot was just booked by someone else."
 msgstr ""
 
+msgid "This website may contain links to external websites operated by third parties. We have no control over the content of those sites and accept no responsibility for them or for any loss or damage that may arise from your use of them."
+msgstr ""
+
 msgid "This will permanently delete the service and all its staff assignments. This action cannot be undone."
 msgstr ""
 
@@ -996,10 +1422,16 @@ msgstr ""
 msgid "This will permanently delete this booking, free up the time slot again, and notify the customer by email that their appointment has been cancelled. This action cannot be undone."
 msgstr ""
 
+msgid "This will permanently remove your name, email, phone number, and message from this booking. The appointment date, time, and service stay on file for the company's business records, but will no longer be linked to you personally."
+msgstr ""
+
 msgid "Thu"
 msgstr ""
 
 msgid "Time"
+msgstr ""
+
+msgid "Time slot interval (minutes)"
 msgstr ""
 
 msgid "Timeslot"
@@ -1010,6 +1442,12 @@ msgid "Timezone: %(tz)s"
 msgstr ""
 
 msgid "To"
+msgstr ""
+
+msgid "To exercise any of these rights, contact us at <a href=\"mailto:[TODO_PRIVACY_EMAIL]\">[TODO_PRIVACY_EMAIL]</a>. We will respond within 30 days."
+msgstr ""
+
+msgid "To the fullest extent permitted by law, <strong>[TODO_OPERATOR_NAME]</strong> shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of or inability to use the Service, even if we have been advised of the possibility of such damages."
 msgstr ""
 
 msgid "Today's Bookings"
@@ -1028,6 +1466,15 @@ msgid "Try another staff member or add a new block."
 msgstr ""
 
 msgid "Tue"
+msgstr ""
+
+msgid "Two-Factor Authentication"
+msgstr ""
+
+msgid "Two-factor authentication"
+msgstr ""
+
+msgid "Two-factor authentication QR code"
 msgstr ""
 
 msgid "Until"
@@ -1054,6 +1501,24 @@ msgstr ""
 msgid "Update the staff member's details."
 msgstr ""
 
+msgid "Updated Terms of Service"
+msgstr ""
+
+msgid "Use the Service for any unlawful purpose or in violation of any applicable regulation."
+msgstr ""
+
+msgid "Use the Service to send unsolicited commercial communications."
+msgstr ""
+
+msgid "Verification by phone"
+msgstr ""
+
+msgid "Verify"
+msgstr ""
+
+msgid "Version"
+msgstr ""
+
 msgid "View bookings →"
 msgstr ""
 
@@ -1063,10 +1528,55 @@ msgstr ""
 msgid "View upcoming and past appointments."
 msgstr ""
 
+msgid "We collect the following categories of personal data:"
+msgstr ""
+
+msgid "We do not process personal data for advertising, profiling, or any purpose beyond operating the appointment management service."
+msgstr ""
+
+msgid "We do not sell personal data to any third party. We do not share data with advertising networks or analytics providers."
+msgstr ""
+
+msgid "We do not use analytics, advertising, or any non-essential cookies."
+msgstr ""
+
+msgid "We may update these Terms from time to time. Material changes will be communicated to your registered email address at least 14 days before they take effect. Continued use of the Service after changes take effect constitutes acceptance of the revised Terms. If you do not agree to the new Terms, you must stop using the Service and delete your account."
+msgstr ""
+
+msgid "We may update this policy from time to time. Material changes will be communicated to registered business accounts via email and will be clearly noted at the top of this page with an updated date. Continued use of the platform after changes take effect constitutes acceptance of the revised policy."
+msgstr ""
+
+msgid "We process customer personal data exclusively for the purpose of operating the appointment management features of the Service. We do not use customer data for advertising, profiling, analytics sold to third parties, or any other purpose."
+msgstr ""
+
+msgid "We process personal data for the following purposes:"
+msgstr ""
+
+msgid "We protect personal data using industry-standard measures: all connections are encrypted in transit via HTTPS, passwords are stored as one-way hashes and never in plain text, and access to production systems is restricted to authorised personnel. No method of transmission or storage is completely secure; we cannot guarantee absolute security but we take reasonable precautions to minimise risk."
+msgstr ""
+
+msgid "We share personal data only with the following categories of service providers, solely to the extent necessary to operate the platform:"
+msgstr ""
+
+msgid "We use the following categories of sub-processors to deliver the Service: email delivery providers (to send booking notifications) and hosting/infrastructure providers (to store and serve the application). We will inform you of any material changes to sub-processors."
+msgstr ""
+
+msgid "We use the following cookies:"
+msgstr ""
+
+msgid "We will call:"
+msgstr ""
+
+msgid "We will: (a) process personal data only on your documented instructions; (b) ensure that persons authorised to process personal data are bound by confidentiality; (c) implement appropriate technical and organisational security measures; (d) assist you in fulfilling data subject rights requests to the extent technically feasible; (e) delete or return all personal data upon termination of the Service relationship."
+msgstr ""
+
 msgid "Website"
 msgstr ""
 
 msgid "Wed"
+msgstr ""
+
+msgid "What will be permanently deleted"
 msgstr ""
 
 msgid "When disabled, customers cannot access your booking page."
@@ -1078,10 +1588,19 @@ msgstr ""
 msgid "When enabled and you have multiple staff members, customers can book the first available appointment with any staff member."
 msgstr ""
 
+msgid "When your customers book appointments through the Service, you are the data controller and we act solely as a data processor on your behalf. We process customer personal data only to provide the Service to you."
+msgstr ""
+
+msgid "Where personal data is transferred to service providers outside the European Economic Area, we ensure an appropriate level of protection is in place through Standard Contractual Clauses or an applicable adequacy decision. Contact us at the address above for details of the specific safeguards applied."
+msgstr ""
+
 msgid "With"
 msgstr ""
 
 msgid "With:"
+msgstr ""
+
+msgid "Withdraw consent at any time, where processing is based on consent"
 msgstr ""
 
 msgid "Yes, cancel booking"
@@ -1090,10 +1609,31 @@ msgstr ""
 msgid "Yes, delete this block"
 msgstr ""
 
+msgid "Yes, erase my data"
+msgstr ""
+
+msgid "You agree not to:"
+msgstr ""
+
 msgid "You are about to remove the following open hours block."
 msgstr ""
 
+msgid "You are responsible for ensuring that you have a lawful basis for collecting your customers' personal data, that you provide them with appropriate privacy information at the point of booking, and that you handle any data subject rights requests they raise with you."
+msgstr ""
+
+msgid "You may delete your account at any time by contacting us. We reserve the right to suspend or terminate your account if you breach these Terms. Upon termination, your right to use the Service ceases immediately and we will process any data deletion in accordance with section 4.7."
+msgstr ""
+
 msgid "You must accept the privacy policy to proceed."
+msgstr ""
+
+msgid "You must add a phone number in"
+msgstr ""
+
+msgid "You must be at least 18 years old and have the legal authority to enter into these Terms on behalf of your business."
+msgstr ""
+
+msgid "You must provide accurate and complete information when creating an account. You are responsible for maintaining the confidentiality of your credentials and for all activity that occurs under your account. Notify us immediately at <a href=\"mailto:[TODO_CONTACT_EMAIL]\">[TODO_CONTACT_EMAIL]</a> if you suspect unauthorised access."
 msgstr ""
 
 #, python-format
@@ -1103,7 +1643,16 @@ msgstr ""
 msgid "You've made too many requests in a short period. Please wait a moment and try again."
 msgstr ""
 
+msgid "Your Data"
+msgstr ""
+
 msgid "Your Details"
+msgstr ""
+
+msgid "Your account currently relies on your password alone."
+msgstr ""
+
+msgid "Your account will only be protected by your password."
 msgstr ""
 
 msgid "Your appointment has been cancelled"
@@ -1135,7 +1684,13 @@ msgstr ""
 msgid "Your booking request was received"
 msgstr ""
 
+msgid "Your company account and login credentials"
+msgstr ""
+
 msgid "Your confirmation details have been sent to your email. This page will expire shortly and cannot be revisited."
+msgstr ""
+
+msgid "Your data has been erased"
 msgstr ""
 
 msgid "Your data will be used solely to manage this appointment."
@@ -1145,6 +1700,9 @@ msgid "Your details"
 msgstr ""
 
 msgid "Your password has been changed. You can now log in with your new password."
+msgstr ""
+
+msgid "Your personal details have been permanently removed from this booking."
 msgstr ""
 
 #, python-format
@@ -1157,6 +1715,12 @@ msgstr ""
 msgid "a new booking request is waiting for confirmation."
 msgstr ""
 
+msgid "before requesting deletion."
+msgstr ""
+
+msgid "before sending this request."
+msgstr ""
+
 msgid "booking requests must be reviewed and approved before they are confirmed."
 msgstr ""
 
@@ -1164,6 +1728,9 @@ msgid "bookings are confirmed immediately when a customer submits the form."
 msgstr ""
 
 msgid "optional"
+msgstr ""
+
+msgid "version"
 msgstr ""
 
 msgid "we received your booking request."
@@ -1190,6 +1757,8 @@ msgstr ""
 msgid "— Select staff member —"
 msgstr ""
 
+
+
 #, python-format
 msgid "%(count)d skipped due to overlap or past date."
 msgid_plural "%(count)d skipped due to overlap or past date."
@@ -1214,3 +1783,8 @@ msgid_plural "No blocks were created — %(count)d skipped (already past or over
 msgstr[0] ""
 msgstr[1] ""
 
+#, python-format
+msgid "%(counter)s backup code remaining."
+msgid_plural "%(counter)s backup codes remaining."
+msgstr[0] ""
+msgstr[1] ""

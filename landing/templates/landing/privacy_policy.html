@@ -116,124 +116,142 @@
 
   <div class="card">
     <h1>{% translate "Privacy Policy" %}</h1>
-    <p class="meta">{% translate "Last updated:" %} June 17, 2026</p>
+    <p class="meta">{% translate "Last updated:" %} {{ last_updated }} &nbsp;·&nbsp; {% translate "Version" %} {{ policy_version }}</p>
 
     <p>
+      {% blocktranslate trimmed %}
       Appointment Setter is an online platform that enables businesses to manage and accept
       appointments from their customers. This policy explains what personal data we collect,
       why we collect it, and how we protect it. It applies to business accounts that use our
       platform and to customers who book appointments through it.
+      {% endblocktranslate %}
     </p>
 
     <hr>
 
-    <h2>1. Controller</h2>
+    <h2>{% translate "1. Controller" %}</h2>
     <p>
+      {% blocktranslate trimmed %}
       The data controller responsible for this platform is:<br><br>
-      <strong>[OPERATOR_NAME]</strong><br>
-      [OPERATOR_ADDRESS]<br>
-      [OPERATOR_CITY, COUNTRY]<br>
-      Privacy contact: <a href="mailto:[PRIVACY_EMAIL]">[PRIVACY_EMAIL]</a>
+      <strong>[TODO_OPERATOR_NAME]</strong><br>
+      [TODO_OPERATOR_ADDRESS]<br>
+      [TODO_OPERATOR_CITY_COUNTRY]<br>
+      Privacy contact: <a href="mailto:[TODO_PRIVACY_EMAIL]">[TODO_PRIVACY_EMAIL]</a>
+      {% endblocktranslate %}
     </p>
 
-    <h2>2. Data We Collect</h2>
-    <p>We collect the following categories of personal data:</p>
+    <h2>{% translate "2. Data We Collect" %}</h2>
+    <p>{% translate "We collect the following categories of personal data:" %}</p>
     <ul>
-      <li><strong>Business account data:</strong> business name, email address, postal address, phone number, and website URL provided at registration or in account settings.</li>
-      <li><strong>Customer booking data:</strong> first name, last name, email address, phone number, and any optional message provided when booking an appointment.</li>
-      <li><strong>Appointment details:</strong> date, time, service type, and assigned staff member for each booking.</li>
-      <li><strong>Technical data:</strong> IP address, browser type, and request timestamps recorded in server access logs.</li>
-      <li><strong>Session data:</strong> a session identifier stored in a strictly necessary cookie to keep you logged in.</li>
+      <li>{% blocktranslate trimmed %}<strong>Business account data:</strong> business name, email address, postal address, phone number, and website URL provided at registration or in account settings.{% endblocktranslate %}</li>
+      <li>{% blocktranslate trimmed %}<strong>Customer booking data:</strong> first name, last name, email address, phone number, and any optional message provided when booking an appointment.{% endblocktranslate %}</li>
+      <li>{% blocktranslate trimmed %}<strong>Appointment details:</strong> date, time, service type, and assigned staff member for each booking.{% endblocktranslate %}</li>
+      <li>{% blocktranslate trimmed %}<strong>Technical data:</strong> IP address, browser type, and request timestamps recorded in server access logs.{% endblocktranslate %}</li>
+      <li>{% blocktranslate trimmed %}<strong>Session data:</strong> a session identifier stored in a strictly necessary cookie to keep you logged in.{% endblocktranslate %}</li>
     </ul>
 
-    <h2>3. Purpose and Legal Basis</h2>
-    <p>We process personal data for the following purposes:</p>
+    <h2>{% translate "3. Purpose and Legal Basis" %}</h2>
+    <p>{% translate "We process personal data for the following purposes:" %}</p>
     <ul>
-      <li><strong>Providing the booking service</strong> — to create, confirm, and manage appointments between businesses and their customers. Legal basis: performance of a contract (GDPR Art. 6(1)(b)).</li>
-      <li><strong>Sending transactional notifications</strong> — confirmation, cancellation, and reminder emails sent to customers and businesses. Legal basis: performance of a contract (GDPR Art. 6(1)(b)).</li>
-      <li><strong>Account management</strong> — to operate business accounts, authenticate users, and provide access to the dashboard. Legal basis: performance of a contract (GDPR Art. 6(1)(b)).</li>
-      <li><strong>Security and fraud prevention</strong> — to detect and prevent abuse, rate-limit requests, and maintain the integrity of the platform. Legal basis: legitimate interests (GDPR Art. 6(1)(f)).</li>
+      <li>{% blocktranslate trimmed %}<strong>Providing the booking service</strong> — to create, confirm, and manage appointments between businesses and their customers. Legal basis: performance of a contract (GDPR Art. 6(1)(b)).{% endblocktranslate %}</li>
+      <li>{% blocktranslate trimmed %}<strong>Sending transactional notifications</strong> — confirmation, cancellation, and reminder emails sent to customers and businesses. Legal basis: performance of a contract (GDPR Art. 6(1)(b)).{% endblocktranslate %}</li>
+      <li>{% blocktranslate trimmed %}<strong>Account management</strong> — to operate business accounts, authenticate users, and provide access to the dashboard. Legal basis: performance of a contract (GDPR Art. 6(1)(b)).{% endblocktranslate %}</li>
+      <li>{% blocktranslate trimmed %}<strong>Security and fraud prevention</strong> — to detect and prevent abuse, rate-limit requests, and maintain the integrity of the platform. Legal basis: legitimate interests (GDPR Art. 6(1)(f)).{% endblocktranslate %}</li>
     </ul>
-    <p style="margin-top:0.75rem;">We do not process personal data for advertising, profiling, or any purpose beyond operating the appointment management service.</p>
+    <p style="margin-top:0.75rem;">{% translate "We do not process personal data for advertising, profiling, or any purpose beyond operating the appointment management service." %}</p>
 
-    <h2>4. Data Sharing and Third Parties</h2>
+    <h2>{% translate "4. Data Sharing and Third Parties" %}</h2>
     <p>
+      {% blocktranslate trimmed %}
       We share personal data only with the following categories of service providers, solely to the extent
       necessary to operate the platform:
+      {% endblocktranslate %}
     </p>
     <ul>
-      <li><strong>Email delivery provider:</strong> used to send booking confirmation and notification emails. Your name and email address are transmitted to deliver these messages.</li>
-      <li><strong>Hosting provider:</strong> the servers on which this platform runs. All data stored on the platform resides on these servers.</li>
+      <li>{% blocktranslate trimmed %}<strong>Email delivery provider:</strong> used to send booking confirmation and notification emails. Your name and email address are transmitted to deliver these messages.{% endblocktranslate %}</li>
+      <li>{% blocktranslate trimmed %}<strong>Hosting provider:</strong> the servers on which this platform runs. All data stored on the platform resides on these servers.{% endblocktranslate %}</li>
     </ul>
-    <p style="margin-top:0.75rem;">We do not sell personal data to any third party. We do not share data with advertising networks or analytics providers.</p>
+    <p style="margin-top:0.75rem;">{% translate "We do not sell personal data to any third party. We do not share data with advertising networks or analytics providers." %}</p>
 
-    <h2>5. International Transfers</h2>
+    <h2>{% translate "5. International Transfers" %}</h2>
     <p>
+      {% blocktranslate trimmed %}
       Where personal data is transferred to service providers outside the European Economic Area, we ensure
       an appropriate level of protection is in place through Standard Contractual Clauses or an applicable
       adequacy decision. Contact us at the address above for details of the specific safeguards applied.
+      {% endblocktranslate %}
     </p>
 
-    <h2>6. Retention</h2>
+    <h2>{% translate "6. Retention" %}</h2>
     <ul>
-      <li><strong>Customer booking PII</strong> (name, email, phone, message): automatically anonymised 30 days after the appointment takes place. The booking record itself (date, time, service) is retained for business accounting purposes.</li>
-      <li><strong>Business account data:</strong> retained for as long as the account is active. Deleted within 7 days of a verified account deletion request.</li>
-      <li><strong>Server access logs</strong> (IP address, user-agent, timestamps): retained for 30 days, then deleted automatically.</li>
+      <li>{% blocktranslate trimmed %}<strong>Customer booking PII</strong> (name, email, phone, message): automatically anonymised 30 days after the appointment takes place. The booking record itself (date, time, service) is retained for business accounting purposes.{% endblocktranslate %}</li>
+      <li>{% blocktranslate trimmed %}<strong>Business account data:</strong> retained for as long as the account is active. Deleted within 7 days of a verified account deletion request.{% endblocktranslate %}</li>
+      <li>{% blocktranslate trimmed %}<strong>Server access logs</strong> (IP address, user-agent, timestamps): retained for 30 days, then deleted automatically.{% endblocktranslate %}</li>
     </ul>
 
-    <h2>7. Cookies</h2>
-    <p>We use the following cookies:</p>
+    <h2>{% translate "7. Cookies" %}</h2>
+    <p>{% translate "We use the following cookies:" %}</p>
     <ul>
-      <li><strong>Session cookie (<code>sessionid</code>):</strong> strictly necessary. Keeps business users logged in to the dashboard. Expires at the end of the browser session or after 2 weeks, whichever comes first.</li>
-      <li><strong>CSRF cookie (<code>csrftoken</code>):</strong> strictly necessary. Protects forms against cross-site request forgery attacks. Not used for tracking.</li>
+      <li>{% blocktranslate trimmed %}<strong>Session cookie (<code>sessionid</code>):</strong> strictly necessary. Keeps business users logged in to the dashboard. Expires at the end of the browser session or after 2 weeks, whichever comes first.{% endblocktranslate %}</li>
+      <li>{% blocktranslate trimmed %}<strong>CSRF cookie (<code>csrftoken</code>):</strong> strictly necessary. Protects forms against cross-site request forgery attacks. Not used for tracking.{% endblocktranslate %}</li>
     </ul>
-    <p style="margin-top:0.75rem;">We do not use analytics, advertising, or any non-essential cookies.</p>
+    <p style="margin-top:0.75rem;">{% translate "We do not use analytics, advertising, or any non-essential cookies." %}</p>
 
-    <h2>8. Your Rights</h2>
-    <p>Depending on your location, you may have the right to:</p>
+    <h2>{% translate "8. Your Rights" %}</h2>
+    <p>{% translate "Depending on your location, you may have the right to:" %}</p>
     <ul>
-      <li>Access the personal data we hold about you (Art. 15 GDPR)</li>
-      <li>Correct inaccurate or incomplete data (Art. 16 GDPR)</li>
-      <li>Request deletion of your data (Art. 17 GDPR)</li>
-      <li>Restrict or object to certain processing (Art. 18 / 21 GDPR)</li>
-      <li>Receive your data in a portable format (Art. 20 GDPR)</li>
-      <li>Withdraw consent at any time, where processing is based on consent</li>
-      <li>Lodge a complaint with your local supervisory authority</li>
+      <li>{% translate "Access the personal data we hold about you (Art. 15 GDPR)" %}</li>
+      <li>{% translate "Correct inaccurate or incomplete data (Art. 16 GDPR)" %}</li>
+      <li>{% translate "Request deletion of your data (Art. 17 GDPR)" %}</li>
+      <li>{% translate "Restrict or object to certain processing (Art. 18 / 21 GDPR)" %}</li>
+      <li>{% translate "Receive your data in a portable format (Art. 20 GDPR)" %}</li>
+      <li>{% translate "Withdraw consent at any time, where processing is based on consent" %}</li>
+      <li>{% translate "Lodge a complaint with your local supervisory authority" %}</li>
     </ul>
     <p style="margin-top:0.75rem;">
+      {% blocktranslate trimmed %}
       To exercise any of these rights, contact us at
-      <a href="mailto:[PRIVACY_EMAIL]">[PRIVACY_EMAIL]</a>.
+      <a href="mailto:[TODO_PRIVACY_EMAIL]">[TODO_PRIVACY_EMAIL]</a>.
       We will respond within 30 days.
+      {% endblocktranslate %}
     </p>
 
-    <h2>9. Security</h2>
+    <h2>{% translate "9. Security" %}</h2>
     <p>
+      {% blocktranslate trimmed %}
       We protect personal data using industry-standard measures: all connections are encrypted in transit
       via HTTPS, passwords are stored as one-way hashes and never in plain text, and access to production
-      systems is restricted to authorised personnel. No method of transmission or storage is 100% secure;
+      systems is restricted to authorised personnel. No method of transmission or storage is completely secure;
       we cannot guarantee absolute security but we take reasonable precautions to minimise risk.
+      {% endblocktranslate %}
     </p>
 
-    <h2>10. Children</h2>
+    <h2>{% translate "10. Children" %}</h2>
     <p>
+      {% blocktranslate trimmed %}
       This platform is not directed at children under the age of 16. We do not knowingly collect personal
       data from anyone under 16. If you believe we have inadvertently collected data from a child, please
       contact us and we will delete it promptly.
+      {% endblocktranslate %}
     </p>
 
-    <h2>11. Changes to This Policy</h2>
+    <h2>{% translate "11. Changes to This Policy" %}</h2>
     <p>
+      {% blocktranslate trimmed %}
       We may update this policy from time to time. Material changes will be communicated to registered
       business accounts via email and will be clearly noted at the top of this page with an updated date.
       Continued use of the platform after changes take effect constitutes acceptance of the revised policy.
+      {% endblocktranslate %}
     </p>
 
-    <h2>12. Contact</h2>
+    <h2>{% translate "12. Contact" %}</h2>
     <p>
+      {% blocktranslate trimmed %}
       For any privacy-related questions, requests, or complaints:<br><br>
-      <strong>[OPERATOR_NAME]</strong><br>
-      [OPERATOR_ADDRESS]<br>
-      <a href="mailto:[PRIVACY_EMAIL]">[PRIVACY_EMAIL]</a>
+      <strong>[TODO_OPERATOR_NAME]</strong><br>
+      [TODO_OPERATOR_ADDRESS]<br>
+      <a href="mailto:[TODO_PRIVACY_EMAIL]">[TODO_PRIVACY_EMAIL]</a>
+      {% endblocktranslate %}
     </p>
   </div>
 </main>

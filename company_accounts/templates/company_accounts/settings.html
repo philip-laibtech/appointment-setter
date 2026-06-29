@@ -362,6 +362,27 @@
         </div>
       {% endif %}
     </div>
+
+    <div class="st-field">
+      <label class="st-label" for="{{ form.slot_interval_minutes.id_for_label }}">{% translate "Time slot interval (minutes)" %}</label>
+      <input
+        class="st-input"
+        type="number"
+        id="{{ form.slot_interval_minutes.id_for_label }}"
+        name="{{ form.slot_interval_minutes.html_name }}"
+        value="{{ form.slot_interval_minutes.value|default:'' }}"
+        min="5"
+        max="120"
+        step="1"
+        required
+      >
+      <p class="st-hint">{% translate "Spacing between bookable time slots shown to customers. Minimum 5 minutes, default 15 minutes." %}</p>
+      {% if form.slot_interval_minutes.errors %}
+        <div class="st-field-errors">
+          {% for error in form.slot_interval_minutes.errors %}{{ error }}{% endfor %}
+        </div>
+      {% endif %}
+    </div>
   </div>
 
   <div class="st-section">

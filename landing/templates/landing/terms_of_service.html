@@ -100,145 +100,183 @@
 
   <div class="card">
     <h1>{% translate "Terms of Service" %}</h1>
-    <p class="meta">{% translate "Last updated:" %} June 17, 2026 &nbsp;·&nbsp; Version 1.0</p>
+    <p class="meta">{% translate "Last updated:" %} {{ last_updated }} &nbsp;·&nbsp; {% translate "Version" %} {{ tos_version }}</p>
 
     <p>
+      {% blocktranslate trimmed %}
       These Terms of Service ("Terms") govern your access to and use of Appointment Setter
-      (the "Service"), operated by <strong>[OPERATOR_NAME]</strong> ("we", "us", or "our").
+      (the "Service"), operated by <strong>[TODO_OPERATOR_NAME]</strong> ("we", "us", or "our").
       By registering for or using the Service, you agree to be bound by these Terms.
       If you do not agree, do not use the Service.
+      {% endblocktranslate %}
     </p>
 
     <hr>
 
-    <h2>1. Description of Service</h2>
+    <h2>{% translate "1. Description of Service" %}</h2>
     <p>
+      {% blocktranslate trimmed %}
       Appointment Setter is a software-as-a-service platform that allows businesses ("you"
       or the "Controller") to create and manage appointment bookings for their customers.
       We provide the technical infrastructure; you use it to operate your own booking workflow.
+      {% endblocktranslate %}
     </p>
 
-    <h2>2. Account Registration</h2>
+    <h2>{% translate "2. Account Registration" %}</h2>
     <p>
+      {% blocktranslate trimmed %}
       You must provide accurate and complete information when creating an account. You are
       responsible for maintaining the confidentiality of your credentials and for all activity
       that occurs under your account. Notify us immediately at
-      <a href="mailto:[CONTACT_EMAIL]">[CONTACT_EMAIL]</a> if you suspect unauthorised access.
+      <a href="mailto:[TODO_CONTACT_EMAIL]">[TODO_CONTACT_EMAIL]</a> if you suspect unauthorised access.
+      {% endblocktranslate %}
     </p>
     <p>
+      {% blocktranslate trimmed %}
       You must be at least 18 years old and have the legal authority to enter into these Terms
       on behalf of your business.
+      {% endblocktranslate %}
     </p>
 
-    <h2>3. Acceptable Use</h2>
-    <p>You agree not to:</p>
+    <h2>{% translate "3. Acceptable Use" %}</h2>
+    <p>{% translate "You agree not to:" %}</p>
     <ul>
-      <li>Use the Service for any unlawful purpose or in violation of any applicable regulation.</li>
-      <li>Collect or store personal data beyond what is necessary for appointment management.</li>
-      <li>Attempt to gain unauthorised access to the Service or its underlying systems.</li>
-      <li>Resell, sublicense, or otherwise make the Service available to third parties without our written consent.</li>
-      <li>Use the Service to send unsolicited commercial communications.</li>
+      <li>{% translate "Use the Service for any unlawful purpose or in violation of any applicable regulation." %}</li>
+      <li>{% translate "Collect or store personal data beyond what is necessary for appointment management." %}</li>
+      <li>{% translate "Attempt to gain unauthorised access to the Service or its underlying systems." %}</li>
+      <li>{% translate "Resell, sublicense, or otherwise make the Service available to third parties without our written consent." %}</li>
+      <li>{% translate "Use the Service to send unsolicited commercial communications." %}</li>
     </ul>
 
-    <h2>4. Data Processing Agreement (DPA)</h2>
+    <h2>{% translate "4. Data Processing Agreement (DPA)" %}</h2>
     <p>
+      {% blocktranslate trimmed %}
       This section constitutes the Data Processing Agreement between you (the Controller)
       and us (the Processor) as required by Article 28 of the General Data Protection
       Regulation (GDPR) and applicable data protection law.
+      {% endblocktranslate %}
     </p>
-    <p><strong>4.1 Roles.</strong>
+    <p><strong>{% translate "4.1 Roles." %}</strong>
+      {% blocktranslate trimmed %}
       When your customers book appointments through the Service, you are the data controller
       and we act solely as a data processor on your behalf. We process customer personal data
       only to provide the Service to you.
+      {% endblocktranslate %}
     </p>
-    <p><strong>4.2 Purpose limitation.</strong>
+    <p><strong>{% translate "4.2 Purpose limitation." %}</strong>
+      {% blocktranslate trimmed %}
       We process customer personal data exclusively for the purpose of operating the
       appointment management features of the Service. We do not use customer data for
       advertising, profiling, analytics sold to third parties, or any other purpose.
+      {% endblocktranslate %}
     </p>
-    <p><strong>4.3 Your obligations as Controller.</strong>
+    <p><strong>{% translate "4.3 Your obligations as Controller." %}</strong>
+      {% blocktranslate trimmed %}
       You are responsible for ensuring that you have a lawful basis for collecting your
       customers' personal data, that you provide them with appropriate privacy information
       at the point of booking, and that you handle any data subject rights requests they
       raise with you.
+      {% endblocktranslate %}
     </p>
-    <p><strong>4.4 Our obligations as Processor.</strong>
+    <p><strong>{% translate "4.4 Our obligations as Processor." %}</strong>
+      {% blocktranslate trimmed %}
       We will: (a) process personal data only on your documented instructions; (b) ensure
       that persons authorised to process personal data are bound by confidentiality; (c)
       implement appropriate technical and organisational security measures; (d) assist you
       in fulfilling data subject rights requests to the extent technically feasible; (e)
       delete or return all personal data upon termination of the Service relationship.
+      {% endblocktranslate %}
     </p>
-    <p><strong>4.5 Sub-processors.</strong>
+    <p><strong>{% translate "4.5 Sub-processors." %}</strong>
+      {% blocktranslate trimmed %}
       We use the following categories of sub-processors to deliver the Service: email
       delivery providers (to send booking notifications) and hosting/infrastructure
       providers (to store and serve the application). We will inform you of any material
       changes to sub-processors.
+      {% endblocktranslate %}
     </p>
-    <p><strong>4.6 Data breach notification.</strong>
+    <p><strong>{% translate "4.6 Data breach notification." %}</strong>
+      {% blocktranslate trimmed %}
       In the event of a personal data breach affecting your customers' data, we will
       notify you without undue delay and no later than 72 hours after becoming aware of
       the breach, providing sufficient information for you to meet your own notification
       obligations under GDPR Art. 33 and Art. 34.
+      {% endblocktranslate %}
     </p>
-    <p><strong>4.7 Retention and deletion.</strong>
+    <p><strong>{% translate "4.7 Retention and deletion." %}</strong>
+      {% blocktranslate trimmed %}
       Customer booking personal data (name, email, phone, message) is automatically
       anonymised 30 days after the appointment takes place. Upon account deletion, all
       remaining data associated with your account is permanently removed within 7 days.
+      {% endblocktranslate %}
     </p>
 
-    <h2>5. Intellectual Property</h2>
+    <h2>{% translate "5. Intellectual Property" %}</h2>
     <p>
+      {% blocktranslate trimmed %}
       The Service and its original content, features, and functionality are and will remain
-      the exclusive property of <strong>[OPERATOR_NAME]</strong>. You retain ownership of
+      the exclusive property of <strong>[TODO_OPERATOR_NAME]</strong>. You retain ownership of
       any content or data you upload. You grant us a limited licence to process that content
       solely to provide the Service.
+      {% endblocktranslate %}
     </p>
 
-    <h2>6. Disclaimer of Warranties</h2>
+    <h2>{% translate "6. Disclaimer of Warranties" %}</h2>
     <p>
+      {% blocktranslate trimmed %}
       The Service is provided "as is" and "as available" without warranties of any kind,
       either express or implied. We do not warrant that the Service will be uninterrupted,
       error-free, or free of harmful components.
+      {% endblocktranslate %}
     </p>
 
-    <h2>7. Limitation of Liability</h2>
+    <h2>{% translate "7. Limitation of Liability" %}</h2>
     <p>
-      To the fullest extent permitted by law, <strong>[OPERATOR_NAME]</strong> shall not be
+      {% blocktranslate trimmed %}
+      To the fullest extent permitted by law, <strong>[TODO_OPERATOR_NAME]</strong> shall not be
       liable for any indirect, incidental, special, consequential, or punitive damages arising
       from your use of or inability to use the Service, even if we have been advised of the
       possibility of such damages.
+      {% endblocktranslate %}
     </p>
 
-    <h2>8. Termination</h2>
+    <h2>{% translate "8. Termination" %}</h2>
     <p>
+      {% blocktranslate trimmed %}
       You may delete your account at any time by contacting us. We reserve the right to
       suspend or terminate your account if you breach these Terms. Upon termination, your
       right to use the Service ceases immediately and we will process any data deletion
       in accordance with section 4.7.
+      {% endblocktranslate %}
     </p>
 
-    <h2>9. Governing Law</h2>
+    <h2>{% translate "9. Governing Law" %}</h2>
     <p>
-      These Terms are governed by the laws of <strong>[JURISDICTION]</strong>. Any disputes
+      {% blocktranslate trimmed %}
+      These Terms are governed by the laws of <strong>[TODO_JURISDICTION]</strong>. Any disputes
       shall be subject to the exclusive jurisdiction of the courts of
-      <strong>[JURISDICTION]</strong>.
+      <strong>[TODO_JURISDICTION]</strong>.
+      {% endblocktranslate %}
     </p>
 
-    <h2>10. Changes to These Terms</h2>
+    <h2>{% translate "10. Changes to These Terms" %}</h2>
     <p>
+      {% blocktranslate trimmed %}
       We may update these Terms from time to time. Material changes will be communicated
       to your registered email address at least 14 days before they take effect. Continued
       use of the Service after changes take effect constitutes acceptance of the revised Terms.
       If you do not agree to the new Terms, you must stop using the Service and delete your account.
+      {% endblocktranslate %}
     </p>
 
-    <h2>11. Contact</h2>
+    <h2>{% translate "11. Contact" %}</h2>
     <p>
+      {% blocktranslate trimmed %}
       Questions about these Terms:<br><br>
-      <strong>[OPERATOR_NAME]</strong><br>
-      [OPERATOR_ADDRESS]<br>
-      <a href="mailto:[CONTACT_EMAIL]">[CONTACT_EMAIL]</a>
+      <strong>[TODO_OPERATOR_NAME]</strong><br>
+      [TODO_OPERATOR_ADDRESS]<br>
+      <a href="mailto:[TODO_CONTACT_EMAIL]">[TODO_CONTACT_EMAIL]</a>
+      {% endblocktranslate %}
     </p>
   </div>
 </main>

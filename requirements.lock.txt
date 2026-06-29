@@ -1,0 +1,21 @@
+# Fully pinned dependency snapshot (direct + transitive), generated with:
+#   pip install -r requirements.txt && pip freeze > requirements.lock.txt
+#
+# Use this file for reproducible installs (CI, production):
+#   pip install -r requirements.lock.txt
+#
+# requirements.txt remains the source of truth for direct dependencies.
+# Regenerate this file whenever requirements.txt changes.
+asgiref==3.11.1
+babel==2.18.0
+Django==6.0.5
+django-csp==4.0
+django-otp==1.7.0
+django-ranged-response==0.2.0
+django-ratelimit==4.1.0
+django-simple-captcha==0.6.3
+packaging==26.2
+pillow==12.2.0
+python-dotenv==1.1.1
+qrcode==8.2
+sqlparse==0.5.5
