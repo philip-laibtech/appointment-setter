@@ -116,7 +116,7 @@ class Command(BaseCommand):
         try:
             send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [farewell_email])
         except Exception:
-            logger.exception("Failed to send farewell confirmation email to %s for company %s", farewell_email, log.pk)
+            logger.exception("Failed to send farewell confirmation email for deletion log entry %s", log.pk)
 
         self.stdout.write(self.style.SUCCESS(
             f"Deleted company \"{log.business_name}\". "
