@@ -90,6 +90,27 @@ WSGI_APPLICATION = "core.wsgi.application"
 
 _db_engine = os.environ.get("DB_ENGINE") or "django.db.backends.sqlite3"
 _db_name = os.environ.get("DB_NAME") or str(BASE_DIR / "db.sqlite3")
+
+_db_options = {}
+if _db_engine == "django.db.backends.mysql":
+    # utf8mb4 stores full Unicode (incl. emoji); STRICT_TRANS_TABLES makes
+    # MySQL reject/truncate-error on invalid data instead of silently
+    # coercing it, matching Django's own field validation.
+    _db_options["charset"] = "utf8mb4"
+    _db_options["init_command"] = "SET sql_mode='STRICT_TRANS_TABLES'"
+
+    # Encrypt the connection to MySQL by default. REQUIRED enforces TLS
+    # without pinning a CA (fine for localhost/self-signed setups); set
+    # DB_SSL_CA to a CA bundle path to additionally verify the server
+    # certificate (VERIFY_CA/VERIFY_IDENTITY), or DB_SSL_MODE=DISABLED to
+    # turn this off for a trusted local-only connection.
+    _db_ssl_mode = os.environ.get("DB_SSL_MODE", "REQUIRED").upper()
+    if _db_ssl_mode != "DISABLED":
+        _db_options["ssl_mode"] = _db_ssl_mode
+        _db_ssl_ca = os.environ.get("DB_SSL_CA", "")
+        if _db_ssl_ca:
+            _db_options["ssl"] = {"ca": _db_ssl_ca}
+
 DATABASES = {
     "default": {
         "ENGINE": _db_engine,
@@ -98,6 +119,7 @@ DATABASES = {
         "PASSWORD": os.environ.get("DB_PASSWORD", ""),
         "HOST": os.environ.get("DB_HOST", ""),
         "PORT": os.environ.get("DB_PORT", ""),
+        "OPTIONS": _db_options,
     }
 }
 
