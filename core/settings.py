@@ -54,6 +54,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "csp.middleware.CSPMiddleware",
     "core.middleware.PermissionsPolicyMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -150,6 +151,14 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Email
@@ -176,6 +185,13 @@ if not DEBUG:
     SECURE_HSTS_SECONDS = 31536000
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
+
+# The app sits behind a reverse proxy (nginx) that terminates TLS and
+# forwards plain HTTP internally. Without this, SECURE_SSL_REDIRECT above
+# sees every request as insecure and redirect-loops. Only safe because the
+# proxy is configured to always overwrite X-Forwarded-Proto itself — same
+# spoofing caveat as RATELIMIT_IP_META_KEY below.
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 # Session cookie expires when the browser closes, AND the server-side session
 # itself expires after 2 weeks (Django's SESSION_COOKIE_AGE default) —

@@ -6,6 +6,8 @@ from django.views.defaults import permission_denied as _default_403
 from django_otp.admin import OTPAdminSite
 from django_ratelimit.exceptions import Ratelimited
 
+from core.views import health_check
+
 # Require a verified OTP device to use the admin, regardless of the optional
 # 2FA setting for regular company accounts (admin grants full PII access).
 admin.site.__class__ = OTPAdminSite
@@ -18,6 +20,7 @@ def handler403(request, exception=None):
 
 
 urlpatterns = [
+    path("healthz/", health_check),
     path(settings.DJANGO_ADMIN_URL, admin.site.urls),
     path("captcha/", include("captcha.urls")),
     path("", include("company_accounts.urls")),

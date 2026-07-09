@@ -1,0 +1,40 @@
+name: Deploy stage
+
+# Runs after "Build and push image" finishes for develop — deploys the
+# just-built <branch>-<sha> tag to stage.terminklick.ch over SSH via the
+# restricted deploy-app.sh wrapper (never runs docker directly as the
+# deploy user — see docs/production_docker.md).
+on:
+  workflow_run:
+    workflows: ["Build and push image"]
+    branches: ["develop"]
+    types: [completed]
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - id: tag
+        run: echo "tag=develop-${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+        env:
+          GITHUB_SHA: ${{ github.event.workflow_run.head_sha }}
+
+      - name: Load deploy key
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Trust host key
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -p "${{ secrets.SSH_PORT }}" "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Deploy over SSH
+        run: |
+          ssh -p "${{ secrets.SSH_PORT }}" "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            "sudo /usr/local/bin/deploy-app.sh stage ${{ steps.tag.outputs.tag }}"
