@@ -162,6 +162,9 @@ msgstr "<strong>Dati tecnici:</strong> indirizzo IP, tipo di browser e timestamp
 msgid "A support agent will call you to verify your identity before anything is deleted."
 msgstr "Un agente del supporto ti chiamerà per verificare la tua identità prima che venga eliminato qualcosa."
 
+msgid "About"
+msgstr "Chi siamo"
+
 msgid "Accept and continue"
 msgstr "Accetta e continua"
 
@@ -695,8 +698,14 @@ msgstr "Inserisci il codice a 6 cifre dalla tua app di autenticazione, oppure un
 msgid "Enter the email address you registered with. If an account exists, you will receive a link to set a new password."
 msgstr "Inserisci l'indirizzo e-mail con cui ti sei registrato. Se esiste un account, riceverai un link per impostare una nuova password."
 
+msgid "FAQ"
+msgstr "FAQ"
+
 msgid "Fastest available appointment with any suitable staff member."
 msgstr "Appuntamento disponibile più rapido con qualsiasi membro del personale idoneo."
+
+msgid "Features"
+msgstr "Funzionalità"
 
 msgid "First name"
 msgstr "Nome"
@@ -1040,6 +1049,9 @@ msgstr "Controlla questa richiesta nelle tue prenotazioni in attesa."
 
 msgid "Prev"
 msgstr "Precedente"
+
+msgid "Pricing"
+msgstr "Prezzi"
 
 msgid "Privacy Policy"
 msgstr "Politica sulla privacy"

@@ -34,3 +34,23 @@ class TermsOfServiceView(TemplateView):
 
 class LegalNoticeView(TemplateView):
     template_name = "landing/legal_notice.html"
+
+
+class PricingView(TemplateView):
+    template_name = "landing/pricing.html"
+
+
+class FeaturesView(TemplateView):
+    template_name = "landing/features.html"
+
+
+class AboutView(TemplateView):
+    template_name = "landing/about.html"
+
+
+class ContactView(TemplateView):
+    template_name = "landing/contact.html"
+
+
+class FaqView(TemplateView):
+    template_name = "landing/faq.html"

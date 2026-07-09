@@ -162,6 +162,9 @@ msgstr ""
 msgid "A support agent will call you to verify your identity before anything is deleted."
 msgstr ""
 
+msgid "About"
+msgstr ""
+
 msgid "Accept and continue"
 msgstr ""
 
@@ -695,7 +698,13 @@ msgstr ""
 msgid "Enter the email address you registered with. If an account exists, you will receive a link to set a new password."
 msgstr ""
 
+msgid "FAQ"
+msgstr ""
+
 msgid "Fastest available appointment with any suitable staff member."
+msgstr ""
+
+msgid "Features"
 msgstr ""
 
 msgid "First name"
@@ -1037,6 +1046,9 @@ msgid "Please review this request in your pending bookings."
 msgstr ""
 
 msgid "Prev"
+msgstr ""
+
+msgid "Pricing"
 msgstr ""
 
 msgid "Privacy Policy"
