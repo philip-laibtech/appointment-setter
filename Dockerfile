@@ -15,6 +15,7 @@ FROM python:3.12-slim
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     default-mysql-client \
+    gettext \
     && rm -rf /var/lib/apt/lists/* \
     && useradd --create-home --shell /usr/sbin/nologin appuser
 
@@ -26,8 +27,11 @@ COPY . .
 ENV PATH=/venv/bin:$PATH
 
 # No real secrets needed here — core/settings.py falls back to a dev-only
-# SECRET_KEY and DEBUG=true when unset, and collectstatic never touches the DB.
-RUN python manage.py collectstatic --noinput
+# SECRET_KEY and DEBUG=true when unset, and collectstatic/compilemessages
+# never touch the DB. .mo files are gitignored (build artifacts of .po), so
+# they must be regenerated here — without this every locale silently falls
+# back to the German source strings.
+RUN python manage.py compilemessages && python manage.py collectstatic --noinput
 
 RUN chown -R appuser:appuser /app
 USER appuser
