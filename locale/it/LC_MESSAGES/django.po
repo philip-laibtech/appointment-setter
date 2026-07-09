@@ -671,9 +671,6 @@ msgstr "Attiva"
 msgid "Enable \"Any Employee\" option"
 msgstr "Attiva l'opzione «Qualsiasi membro del personale»"
 
-msgid "Enable \"Any Employee\" option"
-msgstr "Attiva l'opzione \"Qualsiasi dipendente\""
-
 msgid "Enable two-factor authentication"
 msgstr "Attiva l'autenticazione a due fattori"
 
