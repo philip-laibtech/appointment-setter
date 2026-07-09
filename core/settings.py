@@ -151,6 +151,7 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = [BASE_DIR / "static"]
 STORAGES = {
     "default": {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
@@ -240,7 +241,7 @@ DELETION_LOG_RETENTION_YEARS = 3
 
 # Two-factor authentication (django-otp)
 # Issuer name shown inside the authenticator app next to the account entry.
-OTP_TOTP_ISSUER = "Appointment Setter"
+OTP_TOTP_ISSUER = "Terminklick"
 # Number of single-use backup codes generated/regenerated for account recovery.
 TWO_FACTOR_BACKUP_CODE_COUNT = 10
 

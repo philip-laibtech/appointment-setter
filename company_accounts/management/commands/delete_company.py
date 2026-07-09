@@ -106,12 +106,12 @@ class Command(BaseCommand):
         subject = f"Your account has been deleted — {log.business_name}"
         body = (
             f"Hello,\n\n"
-            f"This confirms that your Appointment Setter account ({log.business_name}) "
+            f"This confirms that your Terminklick account ({log.business_name}) "
             f"and all associated data have been permanently deleted as requested.\n\n"
             f"Reference: {log.deletion_token or 'N/A'}\n"
             f"Deleted at: {log.executed_at.strftime('%Y-%m-%d %H:%M UTC')}\n\n"
             f"If you did not request this, please contact us immediately at {support_email}.\n\n"
-            f"Appointment Setter"
+            f"Terminklick"
         )
         try:
             send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [farewell_email])

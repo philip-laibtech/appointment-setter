@@ -1,7 +1,7 @@
 
 msgid ""
 msgstr ""
-"Project-Id-Version: Appointment Setter VERSION\n"
+"Project-Id-Version: Terminklick VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2026-06-15 21:16+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -270,11 +270,11 @@ msgstr "Qualsiasi membro del personale"
 msgid "Appointment"
 msgstr "Appuntamento"
 
-msgid "Appointment Setter is a software-as-a-service platform that allows businesses (\"you\" or the \"Controller\") to create and manage appointment bookings for their customers. We provide the technical infrastructure; you use it to operate your own booking workflow."
-msgstr "Appointment Setter è una piattaforma software-as-a-service che consente alle aziende (\"tu\" o il \"Titolare del trattamento\") di creare e gestire prenotazioni di appuntamenti per i propri clienti. Noi forniamo l'infrastruttura tecnica; tu la utilizzi per gestire il tuo flusso di prenotazione."
+msgid "Terminklick is a software-as-a-service platform that allows businesses (\"you\" or the \"Controller\") to create and manage appointment bookings for their customers. We provide the technical infrastructure; you use it to operate your own booking workflow."
+msgstr "Terminklick è una piattaforma software-as-a-service che consente alle aziende (\"tu\" o il \"Titolare del trattamento\") di creare e gestire prenotazioni di appuntamenti per i propri clienti. Noi forniamo l'infrastruttura tecnica; tu la utilizzi per gestire il tuo flusso di prenotazione."
 
-msgid "Appointment Setter is an online platform that enables businesses to manage and accept appointments from their customers. This policy explains what personal data we collect, why we collect it, and how we protect it. It applies to business accounts that use our platform and to customers who book appointments through it."
-msgstr "Appointment Setter è una piattaforma online che consente alle aziende di gestire e accettare appuntamenti dai propri clienti. Questa informativa spiega quali dati personali raccogliamo, perché li raccogliamo e come li proteggiamo. Si applica agli account aziendali che utilizzano la nostra piattaforma e ai clienti che prenotano appuntamenti tramite essa."
+msgid "Terminklick is an online platform that enables businesses to manage and accept appointments from their customers. This policy explains what personal data we collect, why we collect it, and how we protect it. It applies to business accounts that use our platform and to customers who book appointments through it."
+msgstr "Terminklick è una piattaforma online che consente alle aziende di gestire e accettare appuntamenti dai propri clienti. Questa informativa spiega quali dati personali raccogliamo, perché li raccogliamo e come li proteggiamo. Si applica agli account aziendali che utilizzano la nostra piattaforma e ai clienti che prenotano appuntamenti tramite essa."
 
 msgid "Are you sure you want to cancel?"
 msgstr "Sei sicuro di voler annullare?"
@@ -971,8 +971,8 @@ msgstr "Informazioni sul gestore conformemente agli obblighi di trasparenza appl
 msgid "Or choose a specific staff member"
 msgstr "Oppure scegli un membro del personale specifico"
 
-msgid "Our Terms of Service have been updated. Please review and accept them to continue using Appointment Setter."
-msgstr "I nostri termini di servizio sono stati aggiornati. Esaminali e accettali per continuare a utilizzare Appointment Setter."
+msgid "Our Terms of Service have been updated. Please review and accept them to continue using Terminklick."
+msgstr "I nostri termini di servizio sono stati aggiornati. Esaminali e accettali per continuare a utilizzare Terminklick."
 
 msgid "PLZ"
 msgstr "CAP"
@@ -1346,8 +1346,8 @@ msgstr "Al momento non ci sono servizi disponibili."
 msgid "These Terms are governed by the laws of <strong>[TODO_JURISDICTION]</strong>. Any disputes shall be subject to the exclusive jurisdiction of the courts of <strong>[TODO_JURISDICTION]</strong>."
 msgstr "I presenti Termini sono regolati dalla legge di <strong>[TODO_JURISDICTION]</strong>. Qualsiasi controversia sarà soggetta alla giurisdizione esclusiva dei tribunali di <strong>[TODO_JURISDICTION]</strong>."
 
-msgid "These Terms of Service (\"Terms\") govern your access to and use of Appointment Setter (the \"Service\"), operated by <strong>[TODO_OPERATOR_NAME]</strong> (\"we\", \"us\", or \"our\"). By registering for or using the Service, you agree to be bound by these Terms. If you do not agree, do not use the Service."
-msgstr "I presenti termini di servizio (\"Termini\") regolano l'accesso e l'utilizzo di Appointment Setter (il \"Servizio\"), gestito da <strong>[TODO_OPERATOR_NAME]</strong> (\"noi\"). Registrandoti o utilizzando il Servizio, accetti di essere vincolato dai presenti Termini. Se non sei d'accordo, non utilizzare il Servizio."
+msgid "These Terms of Service (\"Terms\") govern your access to and use of Terminklick (the \"Service\"), operated by <strong>[TODO_OPERATOR_NAME]</strong> (\"we\", \"us\", or \"our\"). By registering for or using the Service, you agree to be bound by these Terms. If you do not agree, do not use the Service."
+msgstr "I presenti termini di servizio (\"Termini\") regolano l'accesso e l'utilizzo di Terminklick (il \"Servizio\"), gestito da <strong>[TODO_OPERATOR_NAME]</strong> (\"noi\"). Registrandoti o utilizzando il Servizio, accetti di essere vincolato dai presenti Termini. Se non sei d'accordo, non utilizzare il Servizio."
 
 msgid "These codes are shown only once and cannot be retrieved later. If you lose them, you can generate a new set from your security settings (this invalidates the old ones)."
 msgstr "Questi codici vengono mostrati solo una volta e non possono essere recuperati in seguito. Se li perdi, puoi generare un nuovo set dalle impostazioni di sicurezza (questo invalida quelli precedenti)."

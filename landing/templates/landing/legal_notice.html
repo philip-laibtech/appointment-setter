@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% block title %}{% translate "Legal Notice" %} — Appointment Setter{% endblock %}
+{% load static %}
+{% block title %}{% translate "Legal Notice" %} — Terminklick{% endblock %}
 
 {% block head %}
 <style>
@@ -8,9 +9,9 @@
 
   :root {
     --sb-border: #e5e7eb;
-    --text-primary: #111827;
+    --text-primary: #2b364c;
     --text-muted: #6b7280;
-    --bg-body: #f9fafb;
+    --bg-body: #f1f4f4;
     --topbar-h: 56px;
   }
 
@@ -31,7 +32,8 @@
     gap: 1.5rem;
   }
 
-  .brand { font-weight: 700; font-size: 0.9375rem; color: #111; text-decoration: none; }
+  .brand { display: flex; align-items: center; text-decoration: none; }
+  .brand img { height: 40px; width: auto; transform: translateY(9px); }
   .spacer { flex: 1; }
   nav a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
   nav a:hover { color: var(--text-primary); }
@@ -99,7 +101,9 @@
 
 {% block body %}
 <nav>
-  <a class="brand" href="/">Appointment Setter</a>
+  <a class="brand" href="/">
+    <img src="{% static 'img/logo.svg' %}" alt="Terminklick">
+  </a>
   <span class="spacer"></span>
   <a href="{% url 'company_accounts:login' %}">{% translate "Login" %}</a>
   <a href="{% url 'company_accounts:register' %}">{% translate "Register" %}</a>

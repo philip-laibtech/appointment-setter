@@ -10,10 +10,10 @@
     --sb-width: 240px;
     --sb-collapsed: 64px;
     --sb-border: #e5e7eb;
-    --text-primary: #111827;
+    --text-primary: #2b364c;
     --text-muted: #6b7280;
     --text-nav: #374151;
-    --bg-body: #f9fafb;
+    --bg-body: #f1f4f4;
     --topbar-h: 56px;
     --ease: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -60,24 +60,23 @@
   }
 
   .sb-logo {
-    width: 28px; height: 28px;
-    background: #111827;
-    border-radius: 6px;
-    display: flex; align-items: center; justify-content: center;
+    height: 40px;
+    width: auto;
     flex-shrink: 0;
+    /* The wordmark sits above the taller icon in the source file, so
+       flex-centering the whole image leaves the text looking too high.
+       Nudge down so the wordmark itself lands on the row's center. */
+    transform: translateY(9px);
   }
 
   .sb-brand {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
-    white-space: nowrap;
     overflow: hidden;
     flex: 1;
-    transition: opacity var(--ease);
   }
-  .sidebar.is-collapsed .sb-brand { opacity: 0; pointer-events: none; }
 
   /* ── Edge collapse pin ───────────────────────────── */
   .sb-pin {
@@ -97,7 +96,7 @@
   }
   .sb-pin:hover {
     color: var(--text-primary);
-    background: #f9fafb;
+    background: #f1f4f4;
     box-shadow: 0 2px 6px rgba(0,0,0,0.12);
   }
   .sb-pin svg {
@@ -190,7 +189,7 @@
     position: absolute;
     left: calc(100% + 14px);
     top: 50%; transform: translateY(-50%);
-    background: #1f2937;
+    background: #3a4966;
     color: #fff;
     font-size: 0.75rem;
     font-weight: 500;
@@ -313,7 +312,8 @@
     align-items: center;
     gap: 1.5rem;
   }
-  .guest-nav .brand { font-weight: 700; font-size: 0.9375rem; color: #111; text-decoration: none; }
+  .guest-nav .brand { display: flex; align-items: center; text-decoration: none; }
+  .guest-nav .brand img { height: 40px; width: auto; transform: translateY(9px); }
   .guest-nav .spacer { flex: 1; }
   .guest-nav a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
   .guest-nav a:hover { color: var(--text-primary); }
@@ -330,13 +330,13 @@
     width: 100%; padding: 0.55rem 0.75rem; border: 1px solid #d1d5db;
     border-radius: 6px; font-size: 0.9375rem; color: var(--text-primary); background: #fff;
   }
-  input:focus { outline: 2px solid #3b82f6; outline-offset: -1px; border-color: transparent; }
+  input:focus { outline: 2px solid #2563eb; outline-offset: -1px; border-color: transparent; }
   button[type=submit] {
-    width: 100%; padding: 0.625rem; background: #111827; color: #fff;
+    width: 100%; padding: 0.625rem; background: #2b364c; color: #fff;
     border: none; border-radius: 6px; font-size: 0.9375rem; font-weight: 600;
     cursor: pointer; margin-top: 0.5rem; transition: background 0.14s;
   }
-  button[type=submit]:hover { background: #1f2937; }
+  button[type=submit]:hover { background: #3a4966; }
   .messages { margin-bottom: 1.25rem; }
   .messages li { list-style: none; padding: 0.6rem 0.875rem; border-radius: 6px; margin-bottom: 0.5rem; font-size: 0.875rem; }
   .messages .error { background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
@@ -381,15 +381,9 @@
   <aside class="sidebar" id="sidebar" aria-label="{% translate 'Main navigation' %}">
 
     <div class="sb-head">
-      <div class="sb-logo" aria-hidden="true">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="4" width="18" height="18" rx="2"/>
-          <line x1="16" y1="2" x2="16" y2="6"/>
-          <line x1="8" y1="2" x2="8" y2="6"/>
-          <line x1="3" y1="10" x2="21" y2="10"/>
-        </svg>
-      </div>
-      <a class="sb-brand" href="/">Appointment Setter</a>
+      <a class="sb-brand" href="/">
+        <img class="sb-logo" src="{% static 'img/logo.svg' %}" alt="Terminklick">
+      </a>
     </div>
 
     <button class="sb-pin" id="sbPin" aria-label="{% translate 'Toggle sidebar' %}">
@@ -535,7 +529,9 @@
     </div>
 {% else %}
   <nav class="guest-nav">
-    <a class="brand" href="/">Appointment Setter</a>
+    <a class="brand" href="/">
+      <img src="{% static 'img/logo.svg' %}" alt="Terminklick">
+    </a>
     <span class="spacer"></span>
     <a href="{% url 'company_accounts:login' %}">{% translate "Login" %}</a>
     <a href="{% url 'company_accounts:register' %}">{% translate "Register" %}</a>

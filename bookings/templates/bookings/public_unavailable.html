@@ -8,7 +8,7 @@
     background: #fff; border: 1px solid #e4e4e7; border-radius: 10px;
     padding: 3rem 2rem; text-align: center;
   }
-  .bk-unavailable-title { font-size: 1.25rem; font-weight: 700; color: #111; margin-bottom: 0.75rem; }
+  .bk-unavailable-title { font-size: 1.25rem; font-weight: 700; color: #2b364c; margin-bottom: 0.75rem; }
   .bk-unavailable-text  { font-size: 0.9rem; color: #6b7280; line-height: 1.6; }
 </style>
 {% endblock %}
@@ -28,7 +28,7 @@
   {% if reason == "slot_taken" %}
     <p class="bk-unavailable-text">{% translate "Another customer completed their booking just before you. Please choose a different time." %}</p>
     {% if time_select_url %}
-      <a href="{{ time_select_url }}" style="display:inline-block;margin-top:1.25rem;padding:0.6rem 1.25rem;background:#111;color:#fff;border-radius:6px;font-size:0.875rem;font-weight:600;text-decoration:none;">{% translate "Choose another time" %}</a>
+      <a href="{{ time_select_url }}" style="display:inline-block;margin-top:1.25rem;padding:0.6rem 1.25rem;background:#2b364c;color:#fff;border-radius:6px;font-size:0.875rem;font-weight:600;text-decoration:none;">{% translate "Choose another time" %}</a>
     {% endif %}
   {% else %}
     <p class="bk-unavailable-text">{% translate "Please contact the company directly to arrange an appointment." %}</p>

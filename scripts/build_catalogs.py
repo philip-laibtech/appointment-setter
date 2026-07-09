@@ -44,7 +44,7 @@ def load_plurals():
 def build_catalog(locale, singles, plurals):
     catalog = Catalog(
         locale=locale,
-        project="Appointment Setter",
+        project="Terminklick",
         charset="utf-8",
     )
     catalog._header_comment = ""

@@ -1,6 +1,6 @@
 {% extends "auth_base.html" %}
 {% load i18n %}
-{% block title %}{% translate "Updated Terms of Service" %} — Appointment Setter{% endblock %}
+{% block title %}{% translate "Updated Terms of Service" %} — Terminklick{% endblock %}
 {% block extra_style %}
 <style>
   .card { max-width: 460px; }
@@ -15,9 +15,9 @@
     line-height: 1.5;
   }
   .tos-row { display: flex; align-items: flex-start; gap: 0.6rem; margin-top: 0.25rem; }
-  .tos-row input[type=checkbox] { margin-top: 0.2rem; flex-shrink: 0; width: 1rem; height: 1rem; cursor: pointer; accent-color: #111827; }
+  .tos-row input[type=checkbox] { margin-top: 0.2rem; flex-shrink: 0; width: 1rem; height: 1rem; cursor: pointer; accent-color: #2b364c; }
   .tos-row label { font-size: 0.875rem; font-weight: 400; color: #374151; cursor: pointer; line-height: 1.5; }
-  .tos-row label a { color: #111827; }
+  .tos-row label a { color: #2b364c; }
   .tos-row label a:hover { text-decoration: underline; }
 </style>
 {% endblock %}
@@ -26,7 +26,7 @@
   <h1>{% translate "Updated Terms of Service" %}</h1>
 
   <div class="notice">
-    {% translate "Our Terms of Service have been updated. Please review and accept them to continue using Appointment Setter." %}
+    {% translate "Our Terms of Service have been updated. Please review and accept them to continue using Terminklick." %}
   </div>
 
   <form method="post" novalidate>

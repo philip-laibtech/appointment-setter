@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% block title %}{% translate "Terms of Service" %} — Appointment Setter{% endblock %}
+{% load static %}
+{% block title %}{% translate "Terms of Service" %} — Terminklick{% endblock %}
 
 {% block head %}
 <style>
@@ -8,9 +9,9 @@
 
   :root {
     --sb-border: #e5e7eb;
-    --text-primary: #111827;
+    --text-primary: #2b364c;
     --text-muted: #6b7280;
-    --bg-body: #f9fafb;
+    --bg-body: #f1f4f4;
     --topbar-h: 56px;
   }
 
@@ -31,7 +32,8 @@
     gap: 1.5rem;
   }
 
-  .brand { font-weight: 700; font-size: 0.9375rem; color: #111; text-decoration: none; }
+  .brand { display: flex; align-items: center; text-decoration: none; }
+  .brand img { height: 40px; width: auto; transform: translateY(9px); }
   .spacer { flex: 1; }
   nav a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
   nav a:hover { color: var(--text-primary); }
@@ -89,7 +91,9 @@
 
 {% block body %}
 <nav>
-  <a class="brand" href="/">Appointment Setter</a>
+  <a class="brand" href="/">
+    <img src="{% static 'img/logo.svg' %}" alt="Terminklick">
+  </a>
   <span class="spacer"></span>
   <a href="{% url 'company_accounts:login' %}">{% translate "Login" %}</a>
   <a href="{% url 'company_accounts:register' %}">{% translate "Register" %}</a>
@@ -104,7 +108,7 @@
 
     <p>
       {% blocktranslate trimmed %}
-      These Terms of Service ("Terms") govern your access to and use of Appointment Setter
+      These Terms of Service ("Terms") govern your access to and use of Terminklick
       (the "Service"), operated by <strong>[TODO_OPERATOR_NAME]</strong> ("we", "us", or "our").
       By registering for or using the Service, you agree to be bound by these Terms.
       If you do not agree, do not use the Service.
@@ -116,7 +120,7 @@
     <h2>{% translate "1. Description of Service" %}</h2>
     <p>
       {% blocktranslate trimmed %}
-      Appointment Setter is a software-as-a-service platform that allows businesses ("you"
+      Terminklick is a software-as-a-service platform that allows businesses ("you"
       or the "Controller") to create and manage appointment bookings for their customers.
       We provide the technical infrastructure; you use it to operate your own booking workflow.
       {% endblocktranslate %}

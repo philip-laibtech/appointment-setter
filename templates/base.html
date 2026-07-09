@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {% load static %}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}Appointment Setter{% endblock %}</title>
+  <link rel="icon" href="{% static 'img/favicon.svg' %}" type="image/svg+xml">
+  <title>{% block title %}Terminklick{% endblock %}</title>
   {% block head %}{% endblock %}
 </head>
 <body{% block body_attrs %}{% endblock %}>
