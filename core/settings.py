@@ -216,14 +216,14 @@ RATELIMIT_ENABLE = not _TESTING
 PRIVACY_POLICY_VERSION = "1.0"
 # Human-readable date shown as "Last updated" on the privacy policy page.
 # Update together with PRIVACY_POLICY_VERSION whenever the policy text changes.
-PRIVACY_POLICY_LAST_UPDATED = "June 17, 2026"
+PRIVACY_POLICY_LAST_UPDATED = "July 10, 2026"
 
 # Bump this string whenever the Terms of Service change materially.
 # The current value is stamped on every new CompanyAccount at registration.
 CURRENT_TOS_VERSION = "1.0"
 # Human-readable date shown as "Last updated" on the terms of service page.
 # Update together with CURRENT_TOS_VERSION whenever the ToS text changes.
-CURRENT_TOS_LAST_UPDATED = "June 17, 2026"
+CURRENT_TOS_LAST_UPDATED = "July 10, 2026"
 
 # Days after a booking's end_at before customer PII fields are anonymised.
 CUSTOMER_DATA_RETENTION_DAYS = 30
