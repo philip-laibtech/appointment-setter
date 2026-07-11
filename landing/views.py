@@ -54,3 +54,8 @@ class ContactView(TemplateView):
 
 class FaqView(TemplateView):
     template_name = "landing/faq.html"
+
+
+class RobotsTxtView(TemplateView):
+    template_name = "landing/robots.txt"
+    content_type = "text/plain"

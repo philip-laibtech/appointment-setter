@@ -1,0 +1,20 @@
+User-agent: *
+Disallow: /register/
+Disallow: /login/
+Disallow: /logout/
+Disallow: /2fa/
+Disallow: /dashboard/
+Disallow: /settings/
+Disallow: /delete-account/
+Disallow: /password-reset/
+Disallow: /manage/
+Disallow: /availability/
+Disallow: /staff/
+Disallow: /services/
+Disallow: /captcha/
+Disallow: /healthz/
+Disallow: /b/*/staff/
+Disallow: /b/*/any/
+Disallow: /b/*/booking/
+
+Sitemap: {{ request.scheme }}://{{ request.get_host }}/sitemap.xml
