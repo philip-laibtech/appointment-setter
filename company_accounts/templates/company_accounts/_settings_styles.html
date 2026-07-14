@@ -1,0 +1,307 @@
+main { max-width: 640px; }
+
+.settings-header { margin-bottom: 2rem; }
+.settings-title { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); letter-spacing: -0.01em; }
+.settings-sub { font-size: 0.9rem; color: var(--text-muted); margin-top: 0.25rem; }
+
+.settings-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text-faint);
+  font-size: 0.875rem;
+  text-decoration: none;
+  margin-bottom: 1.25rem;
+}
+.settings-back:hover { color: var(--text-primary); }
+.settings-back svg { width: 15px; height: 15px; }
+
+.settings-group { margin-bottom: 2rem; }
+.settings-group-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 0 0 0.5rem 0.25rem;
+}
+.settings-group-footer {
+  font-size: 0.8125rem;
+  color: var(--text-faint);
+  margin: 0.5rem 0.25rem 0;
+  line-height: 1.5;
+}
+
+.settings-card {
+  background: #fff;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+.settings-card.is-danger { border-color: var(--danger-border); }
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1.25rem;
+  border-bottom: 1px solid #f1f2f4;
+}
+.settings-row:last-child { border-bottom: none; }
+.settings-row.is-stacked { align-items: flex-start; }
+
+a.settings-row { text-decoration: none; color: inherit; cursor: pointer; transition: background 0.1s; }
+a.settings-row:hover { background: var(--bg-alt); }
+
+.settings-row-main { flex: 1; min-width: 0; }
+.settings-row-label { display: block; font-size: 0.9375rem; font-weight: 500; color: var(--text-primary); }
+.settings-row.is-danger .settings-row-label { color: var(--danger); }
+.settings-row-desc { font-size: 0.8125rem; color: var(--text-muted); margin-top: 0.2rem; line-height: 1.45; }
+
+/* Fixed-width label + inline editable field, used for text entry rows */
+.settings-row-label-fixed {
+  width: 120px;
+  flex-shrink: 0;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text-body);
+}
+
+.settings-field-input {
+  min-width: 0;
+  border: 1px solid transparent;
+  background: transparent;
+  padding: 0.4rem 0.55rem;
+  margin: -0.4rem -0.55rem;
+  border-radius: 6px;
+  font-size: 0.9375rem;
+  font-family: inherit;
+  color: var(--text-primary);
+  transition: background 0.1s, border-color 0.1s;
+}
+.settings-field-input:hover { background: var(--bg-alt); }
+.settings-field-input:focus {
+  outline: none;
+  background: #fff;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+/* Text entry: fills remaining row width, right-aligned until focused */
+.settings-field-input { flex: 1; text-align: right; }
+.settings-field-input:focus { text-align: left; }
+.settings-field-input::placeholder { color: var(--text-faint); }
+.settings-field-input.is-narrow { flex: 0 0 76px; text-align: right; }
+.settings-field-input.is-narrow:focus { text-align: right; }
+
+/* Dropdowns: plain text value + chevron, pinned to the row's trailing edge — no box, no border */
+.settings-select {
+  flex: 0 0 auto;
+  margin-left: auto;
+  min-width: 0;
+  max-width: 60%;
+  border: none;
+  background: transparent;
+  padding: 0.2rem 1.2rem 0.2rem 0;
+  font-size: 0.9375rem;
+  font-family: inherit;
+  color: var(--text-muted);
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  text-align: right;
+  text-align-last: right;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 14px;
+  transition: color 0.12s;
+}
+.settings-select:hover { color: var(--text-primary); }
+.settings-select:focus { outline: none; color: var(--text-primary); }
+.settings-select:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+
+.settings-inline-group { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; margin-left: auto; }
+.settings-suffix { font-size: 0.8125rem; color: var(--text-faint); flex-shrink: 0; }
+
+/* Paired fields sharing one row, e.g. postal code + city */
+.settings-field-group { flex: 1; display: flex; gap: 0.5rem; min-width: 0; }
+.settings-field-group .settings-field-input { text-align: left; }
+.settings-field-group .settings-field-input:focus { text-align: left; }
+
+.settings-field-errors { color: var(--danger); font-size: 0.8125rem; margin-top: 0.35rem; }
+
+.settings-row-value { font-size: 0.9375rem; color: var(--text-muted); text-align: right; word-break: break-word; }
+
+.settings-copy-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  border: 1px solid var(--border-soft);
+  background: #fff;
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.12s;
+}
+.settings-copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+.settings-copy-btn svg { width: 13px; height: 13px; }
+
+/* Trailing status + chevron for navigational rows */
+.settings-row-trailing {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-faint);
+  font-size: 0.875rem;
+}
+.settings-chevron { width: 16px; height: 16px; color: var(--text-faint); flex-shrink: 0; }
+
+/* Status badges */
+.settings-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.settings-badge.is-on { background: var(--success-bg); color: var(--success); border: 1px solid var(--success-border); }
+.settings-badge.is-off { background: #f3f4f6; color: var(--text-muted); border: 1px solid var(--border); }
+
+/* iOS-style toggle switch */
+.settings-toggle {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 25px;
+  flex-shrink: 0;
+}
+.settings-toggle input { position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.settings-toggle-track {
+  position: absolute;
+  inset: 0;
+  background: #d1d5db;
+  border-radius: 999px;
+  transition: background 0.15s;
+  pointer-events: none;
+}
+.settings-toggle-track::after {
+  content: "";
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 21px; height: 21px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  transition: transform 0.15s;
+}
+.settings-toggle input:checked ~ .settings-toggle-track { background: var(--accent); }
+.settings-toggle input:checked ~ .settings-toggle-track::after { transform: translateX(17px); }
+.settings-toggle input:focus-visible ~ .settings-toggle-track { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Buttons */
+.settings-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: 0.12s;
+  line-height: 1.2;
+}
+.settings-btn-primary { background: var(--navy); color: #fff; }
+.settings-btn-primary:hover { background: var(--navy-light); }
+.settings-btn-secondary { background: #fff; color: var(--text-body); border-color: var(--border-soft); }
+.settings-btn-secondary:hover { background: var(--bg-alt); }
+.settings-btn-danger { background: #fff; color: var(--danger); border-color: #fca5a5; }
+.settings-btn-danger:hover { background: var(--danger-bg); border-color: var(--danger); }
+.settings-btn-danger.is-solid { background: var(--danger); color: #fff; border-color: transparent; }
+.settings-btn-danger.is-solid:hover { background: var(--danger-dark); }
+.settings-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.settings-btn-sm { padding: 0.5rem 1rem; font-size: 0.8125rem; }
+
+.settings-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+
+.settings-password-row { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; }
+.settings-password-row input[type=password] {
+  flex: 1;
+  min-width: 180px;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-family: inherit;
+}
+.settings-password-row input[type=password]:focus { outline: 2px solid var(--accent); outline-offset: -1px; border-color: transparent; }
+
+.settings-notice {
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+.settings-notice.is-warning { background: #fffbeb; border: 1px solid #fde68a; color: #92400e; }
+
+/* External-link chevron, used for rows that leave the app (legal pages, docs) */
+.settings-ext-icon { width: 15px; height: 15px; color: var(--text-faint); flex-shrink: 0; }
+
+/* Help tiles: two compact cards side by side (support + documentation) */
+.settings-tile-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 480px) { .settings-tile-row { grid-template-columns: 1fr; } }
+
+.settings-tile {
+  background: #fff;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 1.25rem;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: border-color 0.12s;
+}
+a.settings-tile:hover { border-color: var(--accent); }
+.settings-tile.is-disabled { color: var(--text-faint); }
+
+.settings-tile-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: var(--accent-bg);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.settings-tile-icon svg { width: 18px; height: 18px; }
+.settings-tile.is-disabled .settings-tile-icon { background: var(--bg-panel); color: var(--text-faint); }
+
+.settings-tile-title { font-size: 0.9375rem; font-weight: 600; color: var(--text-primary); display: flex; align-items: center; gap: 0.5rem; }
+.settings-tile.is-disabled .settings-tile-title { color: var(--text-muted); }
+.settings-tile-desc { font-size: 0.8125rem; color: var(--text-muted); line-height: 1.45; }
+
+.settings-tile-badge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--text-faint);
+  background: var(--bg-panel);
+  border: 1px solid var(--border-soft);
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+}

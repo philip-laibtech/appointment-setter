@@ -1,0 +1,95 @@
+{% extends "company_accounts/app_base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Contact support" %} — {{ company.business_name }}{% endblock %}
+{% block page_title %}{% translate "Settings" %}{% endblock %}
+
+{% block extra_style %}
+<style>
+{% include "company_accounts/_settings_styles.html" %}
+  .support-textarea {
+    width: 100%;
+    resize: vertical;
+    min-height: 140px;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--border-soft);
+    border-radius: 8px;
+    font-size: 0.9375rem;
+    font-family: inherit;
+    color: var(--text-primary);
+    background: #fff;
+  }
+  .support-textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-bg); }
+  .support-input {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--border-soft);
+    border-radius: 8px;
+    font-size: 0.9375rem;
+    font-family: inherit;
+    color: var(--text-primary);
+    background: #fff;
+  }
+  .support-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-bg); }
+  .support-field { margin-bottom: 1.25rem; }
+  .support-field:last-of-type { margin-bottom: 0; }
+  .support-field label { display: block; font-size: 0.875rem; font-weight: 600; color: var(--text-body); margin-bottom: 0.4rem; }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<a href="{% url 'company_accounts:settings' %}" class="settings-back">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+  {% translate "Settings" %}
+</a>
+
+<div class="settings-header">
+  <h1 class="settings-title">{% translate "Contact support" %}</h1>
+  <p class="settings-sub">{% translate "Questions or issues? Send us a message and we'll get back to you." %}</p>
+</div>
+
+<div class="settings-card" style="padding:1.5rem;">
+  <form method="post" novalidate>
+    {% csrf_token %}
+
+    <div class="support-field">
+      <label for="{{ form.subject.id_for_label }}">{{ form.subject.label }}</label>
+      <input
+        class="support-input"
+        type="text"
+        id="{{ form.subject.id_for_label }}"
+        name="{{ form.subject.html_name }}"
+        value="{{ form.subject.value|default:'' }}"
+        maxlength="150"
+        required
+      >
+      {% if form.subject.errors %}
+        <div class="settings-field-errors">{% for error in form.subject.errors %}{{ error }}{% endfor %}</div>
+      {% endif %}
+    </div>
+
+    <div class="support-field">
+      <label for="{{ form.message.id_for_label }}">{{ form.message.label }}</label>
+      <textarea
+        class="support-textarea"
+        id="{{ form.message.id_for_label }}"
+        name="{{ form.message.html_name }}"
+        maxlength="5000"
+        required
+      >{{ form.message.value|default:'' }}</textarea>
+      {% if form.message.errors %}
+        <div class="settings-field-errors">{% for error in form.message.errors %}{{ error }}{% endfor %}</div>
+      {% endif %}
+    </div>
+
+    {% if form.non_field_errors %}
+      <div class="settings-field-errors" style="margin-bottom:1rem;">
+        {% for error in form.non_field_errors %}{{ error }}<br>{% endfor %}
+      </div>
+    {% endif %}
+
+    <button type="submit" class="settings-btn settings-btn-primary" style="margin-top:1.5rem;">{% translate "Send message" %}</button>
+  </form>
+</div>
+
+{% endblock %}

@@ -1,36 +1,43 @@
 {% extends "company_accounts/app_base.html" %}
 {% load i18n %}
 {% block title %}{% translate "Backup Codes" %} — {{ company.business_name }}{% endblock %}
+{% block page_title %}{% translate "Settings" %}{% endblock %}
 
 {% block extra_style %}
 <style>
-  main { max-width: 560px; }
-  .tf-page-title { font-size: 1.4rem; font-weight: 700; color: #2b364c; margin-bottom: 0.25rem; }
-  .tf-page-sub { font-size: 0.9rem; color: #6b7280; margin-bottom: 2rem; }
-  .tf-section { background: #fff; border: 1px solid #e4e4e7; border-radius: 10px; padding: 1.5rem; margin-bottom: 1.5rem; }
-  .tf-warning { background: #fffbeb; border: 1px solid #fde68a; color: #92400e; border-radius: 8px; padding: 0.875rem 1rem; font-size: 0.875rem; margin-bottom: 1.5rem; }
-  .tf-codes { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.95rem; background: #f1f4f4; border: 1px solid #e4e4e7; border-radius: 8px; padding: 1.25rem; }
+{% include "company_accounts/_settings_styles.html" %}
+  .tf-codes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.95rem;
+    background: var(--bg-panel);
+    border: 1px solid var(--border-soft);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
   .tf-codes span { text-align: center; letter-spacing: 0.05em; }
-  .tf-save-btn { padding: 0.65rem 1.75rem; background: #2b364c; color: #fff; border: none; border-radius: 6px; font-size: 0.9375rem; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; margin-top: 1.5rem; }
-  .tf-save-btn:hover { background: #3a4966; }
 </style>
 {% endblock %}
 
 {% block content %}
 
-<h1 class="tf-page-title">{% translate "Save your backup codes" %}</h1>
-<p class="tf-page-sub">{% translate "Store these somewhere safe — a password manager or printed copy. Each code can be used once if you lose access to your authenticator app." %}</p>
+<div class="settings-header">
+  <h1 class="settings-title">{% translate "Save your backup codes" %}</h1>
+  <p class="settings-sub">{% translate "Store these somewhere safe — a password manager or printed copy. Each code can be used once if you lose access to your authenticator app." %}</p>
+</div>
 
-<div class="tf-warning">
+<div class="settings-notice is-warning">
   {% translate "These codes are shown only once and cannot be retrieved later. If you lose them, you can generate a new set from your security settings (this invalidates the old ones)." %}
 </div>
 
-<div class="tf-section">
+<div class="settings-card">
   <div class="tf-codes">
     {% for code in codes %}<span>{{ code }}</span>{% endfor %}
   </div>
 </div>
 
-<a href="{% url 'company_accounts:two_factor_status' %}" class="tf-save-btn">{% translate "I've saved my codes" %}</a>
+<a href="{% url 'company_accounts:two_factor_status' %}" class="settings-btn settings-btn-primary" style="margin-top:1.5rem;">{% translate "I've saved my codes" %}</a>
 
 {% endblock %}

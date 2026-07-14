@@ -22,6 +22,7 @@ urlpatterns = [
     path("delete-account/confirm/", views.submit_account_deletion_view, name="submit_account_deletion"),
     path("dashboard/", views.dashboard_view, name="dashboard"),
     path("settings/", views.settings_view, name="settings"),
+    path("settings/support/", views.support_request_view, name="support_request"),
     path("settings/2fa/", views.two_factor_status_view, name="two_factor_status"),
     path("settings/2fa/setup/", views.two_factor_setup_view, name="two_factor_setup"),
     path("settings/2fa/disable/", views.two_factor_disable_view, name="two_factor_disable"),

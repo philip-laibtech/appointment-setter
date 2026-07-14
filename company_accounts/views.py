@@ -19,7 +19,7 @@ from django_otp import login as otp_login, user_has_device
 from django_otp.plugins.otp_static.models import StaticDevice
 from django_otp.plugins.otp_totp.models import TOTPDevice
 
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage, send_mail
 from django.template.loader import render_to_string
 
 from .forms import (
@@ -27,6 +27,7 @@ from .forms import (
     CompanyRegistrationForm,
     CompanySettingsForm,
     PasswordConfirmForm,
+    SupportRequestForm,
     TOTPSetupForm,
     TwoFactorVerifyForm,
 )
@@ -253,6 +254,7 @@ def dashboard_view(request):
 
 
 _SETTINGS_UPDATE_FIELDS = [
+    "email",
     "business_name",
     "street",
     "plz",
@@ -281,7 +283,50 @@ def settings_view(request):
         request.LANGUAGE_CODE = translation.get_language()
         messages.success(request, _("Settings saved."))
         return redirect("company_accounts:settings")
-    return render(request, "company_accounts/settings.html", {"form": form, "company": company})
+    return render(request, "company_accounts/settings.html", {
+        "form": form,
+        "company": company,
+        "two_factor_enabled": user_has_device(company, confirmed=True),
+    })
+
+
+@login_required
+@require_http_methods(["GET", "POST"])
+@ratelimit(key="user", rate="5/h", block=True)
+def support_request_view(request):
+    company = request.user
+    form = SupportRequestForm(request.POST or None)
+    if request.method == "POST" and form.is_valid():
+        support_email = django_settings.SUPPORT_EMAIL
+        if support_email:
+            subject = f"Support Request — {company.business_name}: {form.cleaned_data['subject']}"
+            body = render_to_string(
+                "company_accounts/emails/support_request.txt",
+                {
+                    "company": company,
+                    "subject": form.cleaned_data["subject"],
+                    "message": form.cleaned_data["message"],
+                },
+            )
+            try:
+                email = EmailMessage(
+                    subject,
+                    body,
+                    django_settings.DEFAULT_FROM_EMAIL,
+                    [support_email],
+                    reply_to=[company.email],
+                )
+                email.send()
+            except Exception:
+                logger.exception("Failed to send support request email for company %s", company.pk)
+                messages.error(request, _("Something went wrong sending your message. Please try again."))
+                return redirect("company_accounts:support_request")
+        messages.success(request, _("Your message has been sent. We'll get back to you as soon as possible."))
+        return redirect("company_accounts:settings")
+    return render(request, "company_accounts/support_request.html", {
+        "form": form,
+        "company": company,
+    })
 
 
 @login_required

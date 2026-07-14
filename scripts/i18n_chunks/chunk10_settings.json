@@ -1,0 +1,112 @@
+{
+  "Postal code / city": {
+    "de": "PLZ / Ort",
+    "fr": "NPA / Ville",
+    "it": "CAP / Località"
+  },
+  "City": {
+    "de": "Ort",
+    "fr": "Ville",
+    "it": "Località"
+  },
+  "Your phone number is used to verify your identity if you request account deletion.": {
+    "de": "Ihre Telefonnummer wird verwendet, um Ihre Identität bei einer Kontolöschung zu bestätigen.",
+    "fr": "Votre numéro de téléphone permet de vérifier votre identité en cas de demande de suppression de compte.",
+    "it": "Il tuo numero di telefono viene utilizzato per verificare la tua identità in caso di richiesta di eliminazione dell'account."
+  },
+  "Booking page": {
+    "de": "Buchungsseite",
+    "fr": "Page de réservation",
+    "it": "Pagina di prenotazione"
+  },
+  "Customers can book appointments online.": {
+    "de": "Kunden können online Termine buchen.",
+    "fr": "Les clients peuvent réserver des rendez-vous en ligne.",
+    "it": "I clienti possono prenotare appuntamenti online."
+  },
+  "Show staff names": {
+    "de": "Mitarbeitername anzeigen",
+    "fr": "Afficher les noms du personnel",
+    "it": "Mostra i nomi del personale"
+  },
+  "Staff names are visible on the public booking page.": {
+    "de": "Namen der Mitarbeitenden werden auf der Buchungsseite angezeigt.",
+    "fr": "Les noms du personnel sont visibles sur la page de réservation publique.",
+    "it": "I nomi del personale sono visibili sulla pagina di prenotazione pubblica."
+  },
+  "\"Any employee\" option": {
+    "de": "Option „Beliebiger Mitarbeiter“",
+    "fr": "Option « N'importe quel employé »",
+    "it": "Opzione \"Qualsiasi dipendente\""
+  },
+  "Customers can let any available staff member be picked automatically.": {
+    "de": "Kunden können automatisch den ersten verfügbaren Mitarbeitenden wählen lassen.",
+    "fr": "Les clients peuvent laisser choisir automatiquement le premier membre du personnel disponible.",
+    "it": "I clienti possono lasciare che venga scelto automaticamente il primo membro del personale disponibile."
+  },
+  "Confirmation": {
+    "de": "Bestätigung",
+    "fr": "Confirmation",
+    "it": "Conferma"
+  },
+  "Whether bookings are confirmed instantly or need your approval.": {
+    "de": "Legt fest, ob Buchungen sofort bestätigt werden oder Ihre Freigabe benötigen.",
+    "fr": "Détermine si les réservations sont confirmées immédiatement ou nécessitent votre validation.",
+    "it": "Stabilisce se le prenotazioni vengono confermate immediatamente o richiedono la tua approvazione."
+  },
+  "Time slot interval": {
+    "de": "Zeitfenster-Abstand",
+    "fr": "Intervalle des créneaux",
+    "it": "Intervallo delle fasce orarie"
+  },
+  "Spacing between bookable time slots.": {
+    "de": "Abstand zwischen buchbaren Zeitfenstern.",
+    "fr": "Espacement entre les créneaux réservables.",
+    "it": "Distanza tra le fasce orarie prenotabili."
+  },
+  "min": {
+    "de": "Min.",
+    "fr": "min",
+    "it": "min"
+  },
+  "Account & security": {
+    "de": "Konto & Sicherheit",
+    "fr": "Compte et sécurité",
+    "it": "Account e sicurezza"
+  },
+  "Public link": {
+    "de": "Öffentlicher Link",
+    "fr": "Lien public",
+    "it": "Link pubblico"
+  },
+  "Copy": {
+    "de": "Kopieren",
+    "fr": "Copier",
+    "it": "Copia"
+  },
+  "Copied": {
+    "de": "Kopiert",
+    "fr": "Copié",
+    "it": "Copiato"
+  },
+  "Delete account": {
+    "de": "Konto löschen",
+    "fr": "Supprimer le compte",
+    "it": "Elimina account"
+  },
+  "Permanently remove your account and all associated data.": {
+    "de": "Entfernt Ihr Konto und alle zugehörigen Daten dauerhaft.",
+    "fr": "Supprime définitivement votre compte et toutes les données associées.",
+    "it": "Rimuove definitivamente il tuo account e tutti i dati associati."
+  },
+  "Regenerate": {
+    "de": "Neu generieren",
+    "fr": "Régénérer",
+    "it": "Rigenera"
+  },
+  "Step 1 — Scan this code": {
+    "de": "Schritt 1 — Code scannen",
+    "fr": "Étape 1 — Scannez ce code",
+    "it": "Passo 1 — Scansiona questo codice"
+  }
+}

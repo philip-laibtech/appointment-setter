@@ -1,0 +1,82 @@
+{
+  "Help": {
+    "de": "Hilfe",
+    "fr": "Aide",
+    "it": "Aiuto"
+  },
+  "Contact support": {
+    "de": "Support kontaktieren",
+    "fr": "Contacter le support",
+    "it": "Contatta il supporto"
+  },
+  "Questions or issues? Send us a message.": {
+    "de": "Fragen oder Probleme? Schreiben Sie uns.",
+    "fr": "Des questions ou des problèmes ? Envoyez-nous un message.",
+    "it": "Domande o problemi? Scrivici un messaggio."
+  },
+  "Questions or issues? Send us a message and we'll get back to you.": {
+    "de": "Fragen oder Probleme? Schreiben Sie uns, wir melden uns bei Ihnen.",
+    "fr": "Des questions ou des problèmes ? Envoyez-nous un message, nous vous répondrons.",
+    "it": "Domande o problemi? Scrivici un messaggio, ti risponderemo."
+  },
+  "Documentation": {
+    "de": "Dokumentation",
+    "fr": "Documentation",
+    "it": "Documentazione"
+  },
+  "Coming soon": {
+    "de": "Bald verfügbar",
+    "fr": "Bientôt disponible",
+    "it": "Prossimamente"
+  },
+  "Guides and how-tos for getting the most out of Terminklick.": {
+    "de": "Anleitungen, um Terminklick optimal zu nutzen.",
+    "fr": "Guides et tutoriels pour tirer le meilleur parti de Terminklick.",
+    "it": "Guide e tutorial per sfruttare al meglio Terminklick."
+  },
+  "Enter a valid email address.": {
+    "de": "Geben Sie eine gültige E-Mail-Adresse ein.",
+    "fr": "Saisissez une adresse e-mail valide.",
+    "it": "Inserisci un indirizzo e-mail valido."
+  },
+  "Email is required.": {
+    "de": "E-Mail-Adresse ist erforderlich.",
+    "fr": "L'adresse e-mail est obligatoire.",
+    "it": "L'indirizzo e-mail è obbligatorio."
+  },
+  "This email address is already in use.": {
+    "de": "Diese E-Mail-Adresse wird bereits verwendet.",
+    "fr": "Cette adresse e-mail est déjà utilisée.",
+    "it": "Questo indirizzo e-mail è già in uso."
+  },
+  "Subject": {
+    "de": "Betreff",
+    "fr": "Objet",
+    "it": "Oggetto"
+  },
+  "Please enter a subject.": {
+    "de": "Bitte geben Sie einen Betreff ein.",
+    "fr": "Veuillez saisir un objet.",
+    "it": "Inserisci un oggetto."
+  },
+  "Please describe your question or issue in a bit more detail.": {
+    "de": "Bitte beschreiben Sie Ihre Frage oder Ihr Problem etwas ausführlicher.",
+    "fr": "Veuillez décrire votre question ou votre problème plus en détail.",
+    "it": "Descrivi la tua domanda o il tuo problema in modo più dettagliato."
+  },
+  "Something went wrong sending your message. Please try again.": {
+    "de": "Beim Senden Ihrer Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
+    "fr": "Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer.",
+    "it": "Si è verificato un errore durante l'invio del messaggio. Riprova."
+  },
+  "Your message has been sent. We'll get back to you as soon as possible.": {
+    "de": "Ihre Nachricht wurde gesendet. Wir melden uns so schnell wie möglich bei Ihnen.",
+    "fr": "Votre message a été envoyé. Nous vous répondrons dès que possible.",
+    "it": "Il tuo messaggio è stato inviato. Ti risponderemo il prima possibile."
+  },
+  "Send message": {
+    "de": "Nachricht senden",
+    "fr": "Envoyer le message",
+    "it": "Invia messaggio"
+  }
+}

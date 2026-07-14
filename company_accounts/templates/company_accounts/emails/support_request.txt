@@ -1,0 +1,14 @@
+Support Request
+================
+
+Business name : {{ company.business_name }}
+Account email : {{ company.email }}
+Phone         : {{ company.phone }}
+
+Subject
+-------
+{{ subject }}
+
+Message
+-------
+{{ message }}

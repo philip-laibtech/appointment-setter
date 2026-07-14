@@ -2538,3 +2538,117 @@ msgstr "I dati completi del gestore sono disponibili nelle nostre <a href=\"%(le
 msgid "No. Once a slot is booked or has a pending request, it's no longer offered to other customers, so double-booking isn't possible."
 msgstr "No. Non appena un orario viene prenotato o ha una richiesta in attesa, non viene più proposto ad altri clienti: le doppie prenotazioni sono quindi impossibili."
 
+msgid "Postal code / city"
+msgstr "CAP / Località"
+
+msgid "City"
+msgstr "Località"
+
+msgid "Your phone number is used to verify your identity if you request account deletion."
+msgstr "Il tuo numero di telefono viene utilizzato per verificare la tua identità in caso di richiesta di eliminazione dell'account."
+
+msgid "Booking page"
+msgstr "Pagina di prenotazione"
+
+msgid "Customers can book appointments online."
+msgstr "I clienti possono prenotare appuntamenti online."
+
+msgid "Show staff names"
+msgstr "Mostra i nomi del personale"
+
+msgid "Staff names are visible on the public booking page."
+msgstr "I nomi del personale sono visibili sulla pagina di prenotazione pubblica."
+
+msgid "\"Any employee\" option"
+msgstr "Opzione \"Qualsiasi dipendente\""
+
+msgid "Customers can let any available staff member be picked automatically."
+msgstr "I clienti possono lasciare che venga scelto automaticamente il primo membro del personale disponibile."
+
+msgid "Confirmation"
+msgstr "Conferma"
+
+msgid "Whether bookings are confirmed instantly or need your approval."
+msgstr "Stabilisce se le prenotazioni vengono confermate immediatamente o richiedono la tua approvazione."
+
+msgid "Time slot interval"
+msgstr "Intervallo delle fasce orarie"
+
+msgid "Spacing between bookable time slots."
+msgstr "Distanza tra le fasce orarie prenotabili."
+
+msgid "min"
+msgstr "min"
+
+msgid "Account & security"
+msgstr "Account e sicurezza"
+
+msgid "Public link"
+msgstr "Link pubblico"
+
+msgid "Copy"
+msgstr "Copia"
+
+msgid "Copied"
+msgstr "Copiato"
+
+msgid "Delete account"
+msgstr "Elimina account"
+
+msgid "Permanently remove your account and all associated data."
+msgstr "Rimuove definitivamente il tuo account e tutti i dati associati."
+
+msgid "Regenerate"
+msgstr "Rigenera"
+
+msgid "Step 1 — Scan this code"
+msgstr "Passo 1 — Scansiona questo codice"
+
+msgid "Help"
+msgstr "Aiuto"
+
+msgid "Contact support"
+msgstr "Contatta il supporto"
+
+msgid "Questions or issues? Send us a message."
+msgstr "Domande o problemi? Scrivici un messaggio."
+
+msgid "Questions or issues? Send us a message and we'll get back to you."
+msgstr "Domande o problemi? Scrivici un messaggio, ti risponderemo."
+
+msgid "Documentation"
+msgstr "Documentazione"
+
+msgid "Coming soon"
+msgstr "Prossimamente"
+
+msgid "Guides and how-tos for getting the most out of Terminklick."
+msgstr "Guide e tutorial per sfruttare al meglio Terminklick."
+
+msgid "Enter a valid email address."
+msgstr "Inserisci un indirizzo e-mail valido."
+
+msgid "Email is required."
+msgstr "L'indirizzo e-mail è obbligatorio."
+
+msgid "This email address is already in use."
+msgstr "Questo indirizzo e-mail è già in uso."
+
+msgid "Subject"
+msgstr "Oggetto"
+
+msgid "Please enter a subject."
+msgstr "Inserisci un oggetto."
+
+msgid "Please describe your question or issue in a bit more detail."
+msgstr "Descrivi la tua domanda o il tuo problema in modo più dettagliato."
+
+msgid "Something went wrong sending your message. Please try again."
+msgstr "Si è verificato un errore durante l'invio del messaggio. Riprova."
+
+msgid "Your message has been sent. We'll get back to you as soon as possible."
+msgstr "Il tuo messaggio è stato inviato. Ti risponderemo il prima possibile."
+
+msgid "Send message"
+msgstr "Invia messaggio"
+

@@ -2546,3 +2546,117 @@ msgstr "Zeitraster selbst bestimmen: von 5 bis 120 Minuten"
 msgid "Customer contact details are anonymised automatically a set number of days after the appointment, keeping your records lean by default."
 msgstr "Kontaktdaten von Kundinnen und Kunden werden automatisch nach einer festgelegten Anzahl Tage nach dem Termin anonymisiert. Ihre Daten bleiben so von Grund auf schlank."
 
+msgid "Postal code / city"
+msgstr "PLZ / Ort"
+
+msgid "City"
+msgstr "Ort"
+
+msgid "Your phone number is used to verify your identity if you request account deletion."
+msgstr "Ihre Telefonnummer wird verwendet, um Ihre Identität bei einer Kontolöschung zu bestätigen."
+
+msgid "Booking page"
+msgstr "Buchungsseite"
+
+msgid "Customers can book appointments online."
+msgstr "Kunden können online Termine buchen."
+
+msgid "Show staff names"
+msgstr "Mitarbeitername anzeigen"
+
+msgid "Staff names are visible on the public booking page."
+msgstr "Namen der Mitarbeitenden werden auf der Buchungsseite angezeigt."
+
+msgid "\"Any employee\" option"
+msgstr "Option „Beliebiger Mitarbeiter“"
+
+msgid "Customers can let any available staff member be picked automatically."
+msgstr "Kunden können automatisch den ersten verfügbaren Mitarbeitenden wählen lassen."
+
+msgid "Confirmation"
+msgstr "Bestätigung"
+
+msgid "Whether bookings are confirmed instantly or need your approval."
+msgstr "Legt fest, ob Buchungen sofort bestätigt werden oder Ihre Freigabe benötigen."
+
+msgid "Time slot interval"
+msgstr "Zeitfenster-Abstand"
+
+msgid "Spacing between bookable time slots."
+msgstr "Abstand zwischen buchbaren Zeitfenstern."
+
+msgid "min"
+msgstr "Min."
+
+msgid "Account & security"
+msgstr "Konto & Sicherheit"
+
+msgid "Public link"
+msgstr "Öffentlicher Link"
+
+msgid "Copy"
+msgstr "Kopieren"
+
+msgid "Copied"
+msgstr "Kopiert"
+
+msgid "Delete account"
+msgstr "Konto löschen"
+
+msgid "Permanently remove your account and all associated data."
+msgstr "Entfernt Ihr Konto und alle zugehörigen Daten dauerhaft."
+
+msgid "Regenerate"
+msgstr "Neu generieren"
+
+msgid "Step 1 — Scan this code"
+msgstr "Schritt 1 — Code scannen"
+
+msgid "Help"
+msgstr "Hilfe"
+
+msgid "Contact support"
+msgstr "Support kontaktieren"
+
+msgid "Questions or issues? Send us a message."
+msgstr "Fragen oder Probleme? Schreiben Sie uns."
+
+msgid "Questions or issues? Send us a message and we'll get back to you."
+msgstr "Fragen oder Probleme? Schreiben Sie uns, wir melden uns bei Ihnen."
+
+msgid "Documentation"
+msgstr "Dokumentation"
+
+msgid "Coming soon"
+msgstr "Bald verfügbar"
+
+msgid "Guides and how-tos for getting the most out of Terminklick."
+msgstr "Anleitungen, um Terminklick optimal zu nutzen."
+
+msgid "Enter a valid email address."
+msgstr "Geben Sie eine gültige E-Mail-Adresse ein."
+
+msgid "Email is required."
+msgstr "E-Mail-Adresse ist erforderlich."
+
+msgid "This email address is already in use."
+msgstr "Diese E-Mail-Adresse wird bereits verwendet."
+
+msgid "Subject"
+msgstr "Betreff"
+
+msgid "Please enter a subject."
+msgstr "Bitte geben Sie einen Betreff ein."
+
+msgid "Please describe your question or issue in a bit more detail."
+msgstr "Bitte beschreiben Sie Ihre Frage oder Ihr Problem etwas ausführlicher."
+
+msgid "Something went wrong sending your message. Please try again."
+msgstr "Beim Senden Ihrer Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
+
+msgid "Your message has been sent. We'll get back to you as soon as possible."
+msgstr "Ihre Nachricht wurde gesendet. Wir melden uns so schnell wie möglich bei Ihnen."
+
+msgid "Send message"
+msgstr "Nachricht senden"
+

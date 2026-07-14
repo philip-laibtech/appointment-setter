@@ -2442,3 +2442,117 @@ msgstr ""
 msgid "Full operator details are listed in our <a href=\"%(legal_url)s\">Legal Notice</a>."
 msgstr ""
 
+msgid "Postal code / city"
+msgstr ""
+
+msgid "City"
+msgstr ""
+
+msgid "Your phone number is used to verify your identity if you request account deletion."
+msgstr ""
+
+msgid "Booking page"
+msgstr ""
+
+msgid "Customers can book appointments online."
+msgstr ""
+
+msgid "Show staff names"
+msgstr ""
+
+msgid "Staff names are visible on the public booking page."
+msgstr ""
+
+msgid "\"Any employee\" option"
+msgstr ""
+
+msgid "Customers can let any available staff member be picked automatically."
+msgstr ""
+
+msgid "Confirmation"
+msgstr ""
+
+msgid "Whether bookings are confirmed instantly or need your approval."
+msgstr ""
+
+msgid "Time slot interval"
+msgstr ""
+
+msgid "Spacing between bookable time slots."
+msgstr ""
+
+msgid "min"
+msgstr ""
+
+msgid "Account & security"
+msgstr ""
+
+msgid "Public link"
+msgstr ""
+
+msgid "Copy"
+msgstr ""
+
+msgid "Copied"
+msgstr ""
+
+msgid "Delete account"
+msgstr ""
+
+msgid "Permanently remove your account and all associated data."
+msgstr ""
+
+msgid "Regenerate"
+msgstr ""
+
+msgid "Step 1 — Scan this code"
+msgstr ""
+
+msgid "Help"
+msgstr ""
+
+msgid "Contact support"
+msgstr ""
+
+msgid "Questions or issues? Send us a message."
+msgstr ""
+
+msgid "Questions or issues? Send us a message and we'll get back to you."
+msgstr ""
+
+msgid "Documentation"
+msgstr ""
+
+msgid "Coming soon"
+msgstr ""
+
+msgid "Guides and how-tos for getting the most out of Terminklick."
+msgstr ""
+
+msgid "Enter a valid email address."
+msgstr ""
+
+msgid "Email is required."
+msgstr ""
+
+msgid "This email address is already in use."
+msgstr ""
+
+msgid "Subject"
+msgstr ""
+
+msgid "Please enter a subject."
+msgstr ""
+
+msgid "Please describe your question or issue in a bit more detail."
+msgstr ""
+
+msgid "Something went wrong sending your message. Please try again."
+msgstr ""
+
+msgid "Your message has been sent. We'll get back to you as soon as possible."
+msgstr ""
+
+msgid "Send message"
+msgstr ""
+

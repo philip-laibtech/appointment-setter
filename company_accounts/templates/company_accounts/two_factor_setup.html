@@ -1,52 +1,71 @@
 {% extends "company_accounts/app_base.html" %}
 {% load i18n %}
 {% block title %}{% translate "Set Up Two-Factor Authentication" %} — {{ company.business_name }}{% endblock %}
+{% block page_title %}{% translate "Settings" %}{% endblock %}
 
 {% block extra_style %}
 <style>
-  main { max-width: 560px; }
-  .tf-page-title { font-size: 1.4rem; font-weight: 700; color: #2b364c; margin-bottom: 0.25rem; }
-  .tf-page-sub { font-size: 0.9rem; color: #6b7280; margin-bottom: 2rem; }
-  .tf-section { background: #fff; border: 1px solid #e4e4e7; border-radius: 10px; padding: 1.5rem; margin-bottom: 1.5rem; }
-  .tf-step-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9ca3af; margin-bottom: 0.875rem; }
+{% include "company_accounts/_settings_styles.html" %}
   .tf-qr-wrap { display: flex; justify-content: center; padding: 1rem 0; }
-  .tf-qr-wrap img { width: 220px; height: 220px; border: 1px solid #e4e4e7; border-radius: 8px; }
-  .tf-secret { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.875rem; background: #f1f4f4; border: 1px solid #e4e4e7; border-radius: 6px; padding: 0.75rem 1rem; text-align: center; letter-spacing: 0.05em; margin-top: 0.75rem; word-break: break-all; }
-  .tf-field { margin-bottom: 1.25rem; }
-  .tf-label { display: block; font-size: 0.875rem; font-weight: 600; color: #374151; margin-bottom: 0.35rem; }
-  .tf-input { width: 100%; padding: 0.55rem 0.75rem; border: 1px solid #d1d5db; border-radius: 6px; font-size: 1.1rem; letter-spacing: 0.15em; text-align: center; color: #2b364c; background: #fff; }
-  .tf-input:focus { outline: 2px solid #2563eb; border-color: transparent; }
-  .tf-field-errors { color: #b91c1c; font-size: 0.8125rem; margin-top: 0.3rem; }
-  .tf-save-btn { padding: 0.65rem 1.75rem; background: #2b364c; color: #fff; border: none; border-radius: 6px; font-size: 0.9375rem; font-weight: 600; cursor: pointer; }
-  .tf-save-btn:hover { background: #3a4966; }
+  .tf-qr-wrap img { width: 200px; height: 200px; border: 1px solid var(--border-soft); border-radius: 8px; }
+  .tf-secret {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.875rem;
+    background: var(--bg-panel);
+    border: 1px solid var(--border-soft);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    letter-spacing: 0.05em;
+    margin-top: 0.75rem;
+    word-break: break-all;
+  }
+  .tf-token-input {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--border-soft);
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-family: inherit;
+    letter-spacing: 0.2em;
+    text-align: center;
+    color: var(--text-primary);
+    background: #fff;
+  }
+  .tf-token-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-bg); }
 </style>
 {% endblock %}
 
 {% block content %}
 
-<h1 class="tf-page-title">{% translate "Set up two-factor authentication" %}</h1>
-<p class="tf-page-sub">{% translate "Add an extra layer of protection to your account using an authenticator app." %}</p>
+<a href="{% url 'company_accounts:two_factor_status' %}" class="settings-back">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+  {% translate "Two-factor authentication" %}
+</a>
 
-<div class="tf-section">
-  <p class="tf-step-label">{% translate "Step 1 — Scan this QR code" %}</p>
-  <p style="font-size:0.875rem;color:#6b7280;">
-    {% translate "Open an authenticator app (e.g. Google Authenticator, Authy, 1Password) and scan the code below." %}
-  </p>
-  <div class="tf-qr-wrap">
-    <img src="{{ qr_data_uri }}" alt="{% translate 'Two-factor authentication QR code' %}">
-  </div>
-  <p style="font-size:0.8125rem;color:#9ca3af;text-align:center;">{% translate "Can't scan? Enter this code manually:" %}</p>
-  <p class="tf-secret">{{ secret }}</p>
+<div class="settings-header">
+  <h1 class="settings-title">{% translate "Set up two-factor authentication" %}</h1>
 </div>
 
-<div class="tf-section">
-  <p class="tf-step-label">{% translate "Step 2 — Enter the code from your app" %}</p>
-  <form method="post" novalidate>
-    {% csrf_token %}
-    <div class="tf-field">
-      <label class="tf-label" for="{{ form.token.id_for_label }}">{{ form.token.label }}</label>
+<div class="settings-group">
+  <p class="settings-group-title">{% translate "Step 1 — Scan this code" %}</p>
+  <div class="settings-card" style="padding:1.25rem;">
+    <p class="settings-row-desc">{% translate "Open an authenticator app (e.g. Google Authenticator, Authy, 1Password) and scan the code below." %}</p>
+    <div class="tf-qr-wrap">
+      <img src="{{ qr_data_uri }}" alt="{% translate 'Two-factor authentication QR code' %}">
+    </div>
+    <p class="settings-row-desc" style="text-align:center;">{% translate "Can't scan? Enter this code manually:" %}</p>
+    <p class="tf-secret">{{ secret }}</p>
+  </div>
+</div>
+
+<div class="settings-group">
+  <p class="settings-group-title">{% translate "Step 2 — Enter the code from your app" %}</p>
+  <div class="settings-card" style="padding:1.25rem;">
+    <form method="post" novalidate>
+      {% csrf_token %}
       <input
-        class="tf-input"
+        class="tf-token-input"
         type="text"
         inputmode="numeric"
         autocomplete="one-time-code"
@@ -57,20 +76,14 @@
         placeholder="000000"
       >
       {% if form.token.errors %}
-        <div class="tf-field-errors">
-          {% for error in form.token.errors %}{{ error }}{% endfor %}
-        </div>
+        <div class="settings-field-errors">{% for error in form.token.errors %}{{ error }}{% endfor %}</div>
       {% endif %}
       {% if form.non_field_errors %}
-        <div class="tf-field-errors">
-          {% for error in form.non_field_errors %}{{ error }}{% endfor %}
-        </div>
+        <div class="settings-field-errors">{% for error in form.non_field_errors %}{{ error }}{% endfor %}</div>
       {% endif %}
-    </div>
-    <button type="submit" class="tf-save-btn">{% translate "Enable two-factor authentication" %}</button>
-  </form>
+      <button type="submit" class="settings-btn settings-btn-primary" style="width:100%;margin-top:1rem;">{% translate "Enable two-factor authentication" %}</button>
+    </form>
+  </div>
 </div>
-
-<a href="{% url 'company_accounts:two_factor_status' %}" style="color:#9ca3af;font-size:0.875rem;">{% translate "Cancel" %}</a>
 
 {% endblock %}

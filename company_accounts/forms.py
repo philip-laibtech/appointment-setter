@@ -83,6 +83,7 @@ class CompanySettingsForm(forms.ModelForm):
     class Meta:
         model = CompanyAccount
         fields = (
+            "email",
             "business_name",
             "street",
             "plz",
@@ -100,6 +101,8 @@ class CompanySettingsForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields["business_name"].error_messages["required"] = _("Business name is required.")
+        self.fields["email"].error_messages["required"] = _("Email is required.")
+        self.fields["email"].error_messages["invalid"] = _("Enter a valid email address.")
         self.fields["language"].required = False
         self.fields["slot_interval_minutes"].required = False
 
@@ -108,6 +111,12 @@ class CompanySettingsForm(forms.ModelForm):
         if not name:
             raise ValidationError(_("Business name is required."))
         return name
+
+    def clean_email(self):
+        email = CompanyAccount.objects.normalize_email(self.cleaned_data.get("email", ""))
+        if CompanyAccount.objects.exclude(pk=self.instance.pk).filter(email__iexact=email).exists():
+            raise ValidationError(_("This email address is already in use."))
+        return email
 
     def clean_booking_confirmation_mode(self):
         mode = self.cleaned_data.get("booking_confirmation_mode", "")
@@ -229,3 +238,29 @@ class PasswordConfirmForm(forms.Form):
         if not password or not self.user.check_password(password):
             raise ValidationError(_("Incorrect password."))
         return password
+
+
+class SupportRequestForm(forms.Form):
+    subject = forms.CharField(
+        label=_("Subject"),
+        max_length=150,
+        widget=forms.TextInput(attrs={"autofocus": True}),
+    )
+    message = forms.CharField(
+        label=_("Message"),
+        min_length=10,
+        max_length=5000,
+        widget=forms.Textarea(attrs={"rows": 7}),
+    )
+
+    def clean_subject(self):
+        subject = self.cleaned_data.get("subject", "").strip()
+        if not subject:
+            raise ValidationError(_("Please enter a subject."))
+        return subject
+
+    def clean_message(self):
+        message = self.cleaned_data.get("message", "").strip()
+        if len(message) < 10:
+            raise ValidationError(_("Please describe your question or issue in a bit more detail."))
+        return message
