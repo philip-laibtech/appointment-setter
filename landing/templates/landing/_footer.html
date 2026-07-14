@@ -1,0 +1,41 @@
+{% load i18n %}
+{% load static %}
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="{% static 'img/logo.svg' %}" alt="Terminklick">
+        <p>{% translate "Online booking pages for service businesses. Simple to set up, easy for your customers, built with privacy in mind." %}</p>
+      </div>
+      <div class="footer-col">
+        <h4>{% translate "Product" %}</h4>
+        <ul>
+          <li><a href="{% url 'landing:features' %}">{% translate "Features" %}</a></li>
+          <li><a href="{% url 'landing:pricing' %}">{% translate "Pricing" %}</a></li>
+          <li><a href="{% url 'company_accounts:register' %}">{% translate "Get started" %}</a></li>
+          <li><a href="{% url 'company_accounts:login' %}">{% translate "Login" %}</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>{% translate "Company" %}</h4>
+        <ul>
+          <li><a href="{% url 'landing:about' %}">{% translate "About" %}</a></li>
+          <li><a href="{% url 'landing:faq' %}">{% translate "FAQ" %}</a></li>
+          <li><a href="{% url 'landing:contact' %}">{% translate "Contact" %}</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>{% translate "Legal" %}</h4>
+        <ul>
+          <li><a href="{% url 'landing:privacy_policy' %}">{% translate "Privacy Policy" %}</a></li>
+          <li><a href="{% url 'landing:terms_of_service' %}">{% translate "Terms of Service" %}</a></li>
+          <li><a href="{% url 'landing:legal_notice' %}">{% translate "Legal Notice" %}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; {% now "Y" %} Laib Technologies GmbH &mdash; Terminklick</span>
+      <span>{% translate "Made in Switzerland." %}</span>
+    </div>
+  </div>
+</footer>

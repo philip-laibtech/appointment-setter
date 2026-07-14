@@ -1,106 +1,116 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load static %}
-{% block title %}{% translate "Features" %} — Terminklick{% endblock %}
+{% block title %}{% translate "Features" %} | Terminklick{% endblock %}
 
 {% block head %}
+<meta name="description" content="{% translate 'A public booking page, flexible staff scheduling, and privacy-first tools for service businesses. Everything is included in one plan.' %}">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --sb-border: #e5e7eb;
-    --text-primary: #2b364c;
-    --text-muted: #6b7280;
-    --bg-body: #f1f4f4;
-    --topbar-h: 56px;
-  }
-
-  body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: var(--bg-body);
-    color: var(--text-primary);
-    min-height: 100vh;
-  }
-
-  nav {
-    background: #fff;
-    border-bottom: 1px solid var(--sb-border);
-    padding: 0 1.75rem;
-    height: var(--topbar-h);
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-  }
-
-  .brand { display: flex; align-items: center; text-decoration: none; justify-self: start; }
-  .brand img { height: 40px; width: auto; transform: translateY(9px); }
-  .nav-links { display: flex; align-items: center; gap: 1.75rem; justify-self: center; }
-  .nav-actions { display: flex; align-items: center; gap: 1.5rem; justify-self: end; }
-  nav a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
-  nav a:hover { color: var(--text-primary); }
-
-  main {
-    max-width: 760px;
-    margin: 2.5rem auto;
-    padding: 0 1.25rem 4rem;
-  }
-
-  .card {
-    background: #fff;
-    border: 1px solid var(--sb-border);
-    border-radius: 10px;
-    padding: 2.5rem 3rem;
-  }
-
-  h1 { font-size: 1.625rem; font-weight: 700; margin-bottom: 0.375rem; }
-  .meta { font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 2.5rem; }
-
-  p, li {
-    font-size: 0.9375rem;
-    line-height: 1.7;
-    color: #374151;
-  }
-
-  a.back {
-    display: inline-block;
-    margin-bottom: 1.25rem;
-    font-size: 0.875rem;
-    color: var(--text-muted);
-    text-decoration: none;
-  }
-  a.back:hover { color: var(--text-primary); }
-
-  @media (max-width: 600px) {
-    .card { padding: 1.5rem 1.25rem; }
-  }
+{% include "landing/_marketing_styles.html" %}
 </style>
 {% endblock %}
 
 {% block body %}
-<nav>
-  <a class="brand" href="/">
-    <img src="{% static 'img/logo.svg' %}" alt="Terminklick">
-  </a>
-  <div class="nav-links">
-    <a href="{% url 'landing:features' %}">{% translate "Features" %}</a>
-    <a href="{% url 'landing:pricing' %}">{% translate "Pricing" %}</a>
-    <a href="{% url 'landing:about' %}">{% translate "About" %}</a>
-    <a href="{% url 'landing:faq' %}">{% translate "FAQ" %}</a>
-    <a href="{% url 'landing:contact' %}">{% translate "Contact" %}</a>
-  </div>
-  <div class="nav-actions">
-    <a href="{% url 'company_accounts:login' %}">{% translate "Login" %}</a>
-    <a href="{% url 'company_accounts:register' %}">{% translate "Register" %}</a>
-  </div>
-</nav>
+{% include "landing/_nav.html" %}
 
 <main>
-  <a class="back" href="/">&larr; {% translate "Back to home" %}</a>
 
-  <div class="card">
-    <h1>{% translate "Features" %}</h1>
-    <p class="meta">{% translate "Coming soon." %}</p>
-    <p>{% translate "A full overview of what Terminklick can do for your business is on its way." %}</p>
-  </div>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">{% translate "Features" %}</span>
+      <h1>{% translate "Everything a booking page needs. Nothing it doesn't." %}</h1>
+      <p>{% translate "One plan, fully unlocked from day one: a public booking page, staff and service management, flexible availability, and the privacy tools your customers expect." %}</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="hero-split">
+        <div>
+          <span class="eyebrow">{% translate "For your customers" %}</span>
+          <h2>{% translate "A booking page that just works" %}</h2>
+          <p class="lede" style="margin-bottom:1.5rem;">{% translate "Customers pick a staff member, a service, and a time: no account, no app, no back-and-forth. They get a confirmation by email and a private link to view or cancel their booking at any time." %}</p>
+          <ul class="check-list">
+            <li>{% translate "Mobile-friendly page at your own link" %}</li>
+            <li>{% translate 'Optional "any available staff" mode for faster booking' %}</li>
+            <li>{% translate "Double-booking prevented automatically" %}</li>
+          </ul>
+        </div>
+        {% include "landing/_mockup_booking.html" %}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-alt">
+    <div class="container">
+      <div class="hero-split">
+        {% include "landing/_mockup_dashboard.html" %}
+        <div>
+          <span class="eyebrow">{% translate "For your business" %}</span>
+          <h2>{% translate "One dashboard for staff, services, and bookings" %}</h2>
+          <p class="lede" style="margin-bottom:1.5rem;">{% translate "Add every staff member and service you offer, with no limit on either. Assign which staff perform which services, set a duration for each, and switch between automatic and manual booking confirmation whenever you like." %}</p>
+          <ul class="check-list">
+            <li>{% translate "Unlimited staff and services" %}</li>
+            <li>{% translate "Recurring weekly hours or one-off availability blocks" %}</li>
+            <li>{% translate "Slot spacing you control, from 5 to 120 minutes" %}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">{% translate "And the rest" %}</span>
+        <h2>{% translate "Built with privacy as a feature, not an afterthought" %}</h2>
+      </div>
+      <div class="grid grid-3">
+        <div class="card feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M21 8L12 3 3 8l9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/></svg></div>
+          <h3>{% translate "Plain-text notifications" %}</h3>
+          <p>{% translate "Customers and staff get plain-text emails for each step: new request, confirmation, decline, or cancellation. No tracking pixels, no HTML email trackers." %}</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8l6 6 6-6"/><path d="M3 5h18M3 12h18M3 19h18"/></svg></div>
+          <h3>{% translate "Multi-language interface" %}</h3>
+          <p>{% translate "Your dashboard, public booking page, and every customer email are available in German, French, Italian, and English." %}</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+          <h3>{% translate "Automatic or manual confirmation" %}</h3>
+          <p>{% translate "Let bookings confirm themselves the moment a slot is chosen, or review every request yourself before it's final. Set once in settings, change anytime." %}</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 118 0v4"/></svg></div>
+          <h3>{% translate "Optional two-factor authentication" %}</h3>
+          <p>{% translate "Turn on TOTP-based two-factor login for your account, with single-use backup codes in case you lose your device." %}</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6l8-4z"/></svg></div>
+          <h3>{% translate "Customer data rights, built in" %}</h3>
+          <p>{% translate "Every customer can view, export, or request erasure of their own booking data through a private link, with no account or support ticket needed." %}</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <h3>{% translate "Automatic data cleanup" %}</h3>
+          <p>{% translate "Customer contact details are anonymised automatically a set number of days after the appointment, keeping your records lean by default." %}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-alt">
+    <div class="container" style="max-width:760px;">
+      <div class="cta-band">
+        <h2>{% translate "One plan. Every feature. 18 CHF a month." %}</h2>
+        <p>{% translate "No add-ons to buy, no features locked behind a higher tier." %}</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'company_accounts:register' %}">{% translate "Get started" %}</a>
+      </div>
+    </div>
+  </section>
+
 </main>
+
+{% include "landing/_footer.html" %}
 {% endblock %}

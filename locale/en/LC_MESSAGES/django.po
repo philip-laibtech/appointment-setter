@@ -126,7 +126,9 @@ msgstr ""
 msgid "<strong>CSRF cookie (<code>csrftoken</code>):</strong> strictly necessary. Protects forms against cross-site request forgery attacks. Not used for tracking."
 msgstr ""
 
-msgid "<strong>Customer booking PII</strong> (name, email, phone, message): automatically anonymised 30 days after the appointment takes place. The booking record itself (date, time, service) is retained for business accounting purposes."
+msgid ""
+"<strong>Customer booking PII</strong> (name, email, phone, message): automatically anonymised 30 days after the appointment takes place. The booking record itself (date, time, service) is retained "
+"for business accounting purposes."
 msgstr ""
 
 msgid "<strong>Customer booking data:</strong> first name, last name, email address, phone number, and any optional message provided when booking an appointment."
@@ -150,7 +152,9 @@ msgstr ""
 msgid "<strong>Server access logs</strong> (IP address, user-agent, timestamps): retained for 30 days, then deleted automatically."
 msgstr ""
 
-msgid "<strong>Session cookie (<code>sessionid</code>):</strong> strictly necessary. Keeps business users logged in to the dashboard. Expires at the end of the browser session or after 2 weeks, whichever comes first."
+msgid ""
+"<strong>Session cookie (<code>sessionid</code>):</strong> strictly necessary. Keeps business users logged in to the dashboard. Expires at the end of the browser session or after 2 weeks, whichever "
+"comes first."
 msgstr ""
 
 msgid "<strong>Session data:</strong> a session identifier stored in a strictly necessary cookie to keep you logged in."
@@ -243,7 +247,9 @@ msgstr ""
 msgid "All completed and past appointments."
 msgstr ""
 
-msgid "All content on this website, including but not limited to text, graphics, logos, and software, is the property of the operator and is protected by applicable intellectual property law. Reproduction or distribution without prior written consent is prohibited."
+msgid ""
+"All content on this website, including but not limited to text, graphics, logos, and software, is the property of the operator and is protected by applicable intellectual property law. Reproduction"
+" or distribution without prior written consent is prohibited."
 msgstr ""
 
 msgid "All services and service configurations"
@@ -273,10 +279,14 @@ msgstr ""
 msgid "Appointment"
 msgstr ""
 
-msgid "Terminklick is a software-as-a-service platform that allows businesses (\"you\" or the \"Controller\") to create and manage appointment bookings for their customers. We provide the technical infrastructure; you use it to operate your own booking workflow."
+msgid ""
+"Terminklick is a software-as-a-service platform that allows businesses (\"you\" or the \"Controller\") to create and manage appointment bookings for their customers. We provide the technical "
+"infrastructure; you use it to operate your own booking workflow."
 msgstr ""
 
-msgid "Terminklick is an online platform that enables businesses to manage and accept appointments from their customers. This policy explains what personal data we collect, why we collect it, and how we protect it. It applies to business accounts that use our platform and to customers who book appointments through it."
+msgid ""
+"Terminklick is an online platform that enables businesses to manage and accept appointments from their customers. This policy explains what personal data we collect, why we collect it, and how we "
+"protect it. It applies to business accounts that use our platform and to customers who book appointments through it."
 msgstr ""
 
 msgid "Are you sure you want to cancel?"
@@ -541,7 +551,9 @@ msgstr ""
 msgid "Customer"
 msgstr ""
 
-msgid "Customer booking personal data (name, email, phone, message) is automatically anonymised 30 days after the appointment takes place. Upon account deletion, all remaining data associated with your account is permanently removed within 7 days."
+msgid ""
+"Customer booking personal data (name, email, phone, message) is automatically anonymised 30 days after the appointment takes place. Upon account deletion, all remaining data associated with your "
+"account is permanently removed within 7 days."
 msgstr ""
 
 msgid "Customer:"
@@ -710,7 +722,9 @@ msgstr ""
 msgid "First name"
 msgstr ""
 
-msgid "For any privacy-related questions, requests, or complaints:<br><br> <strong>[TODO_OPERATOR_NAME]</strong><br> [TODO_OPERATOR_ADDRESS]<br> <a href=\"mailto:[TODO_PRIVACY_EMAIL]\">[TODO_PRIVACY_EMAIL]</a>"
+msgid ""
+"For any privacy-related questions, requests, or complaints:<br><br> <strong>[TODO_OPERATOR_NAME]</strong><br> [TODO_OPERATOR_ADDRESS]<br> <a "
+"href=\"mailto:[TODO_PRIVACY_EMAIL]\">[TODO_PRIVACY_EMAIL]</a>"
 msgstr ""
 
 msgid "Forgot your password?"
@@ -754,6 +768,7 @@ msgstr ""
 msgid "I accept the privacy policy."
 msgstr ""
 
+#, python-format
 msgid "I have read and accept the updated <a href=\"%(tos_url)s\" target=\"_blank\" rel=\"noopener noreferrer\">Terms of Service</a>."
 msgstr ""
 
@@ -776,7 +791,9 @@ msgstr ""
 msgid "If you have any questions, please contact %(business_name)s directly."
 msgstr ""
 
-msgid "In the event of a personal data breach affecting your customers' data, we will notify you without undue delay and no later than 72 hours after becoming aware of the breach, providing sufficient information for you to meet your own notification obligations under GDPR Art. 33 and Art. 34."
+msgid ""
+"In the event of a personal data breach affecting your customers' data, we will notify you without undue delay and no later than 72 hours after becoming aware of the breach, providing sufficient "
+"information for you to meet your own notification obligations under GDPR Art. 33 and Art. 34."
 msgstr ""
 
 msgid "Inactive"
@@ -1118,7 +1135,9 @@ msgstr ""
 msgid "Requested"
 msgstr ""
 
-msgid "Requesting deletion will permanently remove your account, all staff members, services, availability, and booking records. A support agent will call you to verify your identity before anything is deleted."
+msgid ""
+"Requesting deletion will permanently remove your account, all staff members, services, availability, and booking records. A support agent will call you to verify your identity before anything is "
+"deleted."
 msgstr ""
 
 msgid "Require a one-time code from an authenticator app in addition to your password when logging in."
@@ -1329,16 +1348,24 @@ msgstr ""
 msgid "Thank you."
 msgstr ""
 
-msgid "The Service and its original content, features, and functionality are and will remain the exclusive property of <strong>[TODO_OPERATOR_NAME]</strong>. You retain ownership of any content or data you upload. You grant us a limited licence to process that content solely to provide the Service."
+msgid ""
+"The Service and its original content, features, and functionality are and will remain the exclusive property of <strong>[TODO_OPERATOR_NAME]</strong>. You retain ownership of any content or data "
+"you upload. You grant us a limited licence to process that content solely to provide the Service."
 msgstr ""
 
-msgid "The Service is provided \"as is\" and \"as available\" without warranties of any kind, either express or implied. We do not warrant that the Service will be uninterrupted, error-free, or free of harmful components."
+msgid ""
+"The Service is provided \"as is\" and \"as available\" without warranties of any kind, either express or implied. We do not warrant that the Service will be uninterrupted, error-free, or free of "
+"harmful components."
 msgstr ""
 
-msgid "The data controller responsible for this platform is:<br><br> <strong>[TODO_OPERATOR_NAME]</strong><br> [TODO_OPERATOR_ADDRESS]<br> [TODO_OPERATOR_CITY_COUNTRY]<br> Privacy contact: <a href=\"mailto:[TODO_PRIVACY_EMAIL]\">[TODO_PRIVACY_EMAIL]</a>"
+msgid ""
+"The data controller responsible for this platform is:<br><br> <strong>[TODO_OPERATOR_NAME]</strong><br> [TODO_OPERATOR_ADDRESS]<br> [TODO_OPERATOR_CITY_COUNTRY]<br> Privacy contact: <a "
+"href=\"mailto:[TODO_PRIVACY_EMAIL]\">[TODO_PRIVACY_EMAIL]</a>"
 msgstr ""
 
-msgid "The information provided on this website is for general informational purposes only. While we strive to keep the content accurate and up to date, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, or suitability of the information. Any reliance you place on such information is therefore strictly at your own risk."
+msgid ""
+"The information provided on this website is for general informational purposes only. While we strive to keep the content accurate and up to date, we make no representations or warranties of any "
+"kind, express or implied, about the completeness, accuracy, reliability, or suitability of the information. Any reliance you place on such information is therefore strictly at your own risk."
 msgstr ""
 
 msgid "The page you're looking for doesn't exist or has been moved."
@@ -1356,7 +1383,9 @@ msgstr ""
 msgid "These Terms are governed by the laws of <strong>[TODO_JURISDICTION]</strong>. Any disputes shall be subject to the exclusive jurisdiction of the courts of <strong>[TODO_JURISDICTION]</strong>."
 msgstr ""
 
-msgid "These Terms of Service (\"Terms\") govern your access to and use of Terminklick (the \"Service\"), operated by <strong>[TODO_OPERATOR_NAME]</strong> (\"we\", \"us\", or \"our\"). By registering for or using the Service, you agree to be bound by these Terms. If you do not agree, do not use the Service."
+msgid ""
+"These Terms of Service (\"Terms\") govern your access to and use of Terminklick (the \"Service\"), operated by <strong>[TODO_OPERATOR_NAME]</strong> (\"we\", \"us\", or \"our\"). By registering for"
+" or using the Service, you agree to be bound by these Terms. If you do not agree, do not use the Service."
 msgstr ""
 
 msgid "These codes are shown only once and cannot be retrieved later. If you lose them, you can generate a new set from your security settings (this invalidates the old ones)."
@@ -1401,10 +1430,14 @@ msgstr ""
 msgid "This password reset link has already been used or has expired. Please request a new one."
 msgstr ""
 
-msgid "This platform is not directed at children under the age of 16. We do not knowingly collect personal data from anyone under 16. If you believe we have inadvertently collected data from a child, please contact us and we will delete it promptly."
+msgid ""
+"This platform is not directed at children under the age of 16. We do not knowingly collect personal data from anyone under 16. If you believe we have inadvertently collected data from a child, "
+"please contact us and we will delete it promptly."
 msgstr ""
 
-msgid "This section constitutes the Data Processing Agreement between you (the Controller) and us (the Processor) as required by Article 28 of the General Data Protection Regulation (GDPR) and applicable data protection law."
+msgid ""
+"This section constitutes the Data Processing Agreement between you (the Controller) and us (the Processor) as required by Article 28 of the General Data Protection Regulation (GDPR) and applicable "
+"data protection law."
 msgstr ""
 
 msgid "This service has existing bookings and cannot be deleted."
@@ -1419,7 +1452,9 @@ msgstr ""
 msgid "This time slot was just booked by someone else."
 msgstr ""
 
-msgid "This website may contain links to external websites operated by third parties. We have no control over the content of those sites and accept no responsibility for them or for any loss or damage that may arise from your use of them."
+msgid ""
+"This website may contain links to external websites operated by third parties. We have no control over the content of those sites and accept no responsibility for them or for any loss or damage "
+"that may arise from your use of them."
 msgstr ""
 
 msgid "This will permanently delete the service and all its staff assignments. This action cannot be undone."
@@ -1431,7 +1466,9 @@ msgstr ""
 msgid "This will permanently delete this booking, free up the time slot again, and notify the customer by email that their appointment has been cancelled. This action cannot be undone."
 msgstr ""
 
-msgid "This will permanently remove your name, email, phone number, and message from this booking. The appointment date, time, and service stay on file for the company's business records, but will no longer be linked to you personally."
+msgid ""
+"This will permanently remove your name, email, phone number, and message from this booking. The appointment date, time, and service stay on file for the company's business records, but will no "
+"longer be linked to you personally."
 msgstr ""
 
 msgid "Thu"
@@ -1456,7 +1493,9 @@ msgstr ""
 msgid "To exercise any of these rights, contact us at <a href=\"mailto:[TODO_PRIVACY_EMAIL]\">[TODO_PRIVACY_EMAIL]</a>. We will respond within 30 days."
 msgstr ""
 
-msgid "To the fullest extent permitted by law, <strong>[TODO_OPERATOR_NAME]</strong> shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of or inability to use the Service, even if we have been advised of the possibility of such damages."
+msgid ""
+"To the fullest extent permitted by law, <strong>[TODO_OPERATOR_NAME]</strong> shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of "
+"or inability to use the Service, even if we have been advised of the possibility of such damages."
 msgstr ""
 
 msgid "Today's Bookings"
@@ -1549,25 +1588,36 @@ msgstr ""
 msgid "We do not use analytics, advertising, or any non-essential cookies."
 msgstr ""
 
-msgid "We may update these Terms from time to time. Material changes will be communicated to your registered email address at least 14 days before they take effect. Continued use of the Service after changes take effect constitutes acceptance of the revised Terms. If you do not agree to the new Terms, you must stop using the Service and delete your account."
+msgid ""
+"We may update these Terms from time to time. Material changes will be communicated to your registered email address at least 14 days before they take effect. Continued use of the Service after "
+"changes take effect constitutes acceptance of the revised Terms. If you do not agree to the new Terms, you must stop using the Service and delete your account."
 msgstr ""
 
-msgid "We may update this policy from time to time. Material changes will be communicated to registered business accounts via email and will be clearly noted at the top of this page with an updated date. Continued use of the platform after changes take effect constitutes acceptance of the revised policy."
+msgid ""
+"We may update this policy from time to time. Material changes will be communicated to registered business accounts via email and will be clearly noted at the top of this page with an updated date. "
+"Continued use of the platform after changes take effect constitutes acceptance of the revised policy."
 msgstr ""
 
-msgid "We process customer personal data exclusively for the purpose of operating the appointment management features of the Service. We do not use customer data for advertising, profiling, analytics sold to third parties, or any other purpose."
+msgid ""
+"We process customer personal data exclusively for the purpose of operating the appointment management features of the Service. We do not use customer data for advertising, profiling, analytics sold"
+" to third parties, or any other purpose."
 msgstr ""
 
 msgid "We process personal data for the following purposes:"
 msgstr ""
 
-msgid "We protect personal data using industry-standard measures: all connections are encrypted in transit via HTTPS, passwords are stored as one-way hashes and never in plain text, and access to production systems is restricted to authorised personnel. No method of transmission or storage is completely secure; we cannot guarantee absolute security but we take reasonable precautions to minimise risk."
+msgid ""
+"We protect personal data using industry-standard measures: all connections are encrypted in transit via HTTPS, passwords are stored as one-way hashes and never in plain text, and access to "
+"production systems is restricted to authorised personnel. No method of transmission or storage is completely secure; we cannot guarantee absolute security but we take reasonable precautions to "
+"minimise risk."
 msgstr ""
 
 msgid "We share personal data only with the following categories of service providers, solely to the extent necessary to operate the platform:"
 msgstr ""
 
-msgid "We use the following categories of sub-processors to deliver the Service: email delivery providers (to send booking notifications) and hosting/infrastructure providers (to store and serve the application). We will inform you of any material changes to sub-processors."
+msgid ""
+"We use the following categories of sub-processors to deliver the Service: email delivery providers (to send booking notifications) and hosting/infrastructure providers (to store and serve the "
+"application). We will inform you of any material changes to sub-processors."
 msgstr ""
 
 msgid "We use the following cookies:"
@@ -1576,7 +1626,10 @@ msgstr ""
 msgid "We will call:"
 msgstr ""
 
-msgid "We will: (a) process personal data only on your documented instructions; (b) ensure that persons authorised to process personal data are bound by confidentiality; (c) implement appropriate technical and organisational security measures; (d) assist you in fulfilling data subject rights requests to the extent technically feasible; (e) delete or return all personal data upon termination of the Service relationship."
+msgid ""
+"We will: (a) process personal data only on your documented instructions; (b) ensure that persons authorised to process personal data are bound by confidentiality; (c) implement appropriate "
+"technical and organisational security measures; (d) assist you in fulfilling data subject rights requests to the extent technically feasible; (e) delete or return all personal data upon termination"
+" of the Service relationship."
 msgstr ""
 
 msgid "Website"
@@ -1597,10 +1650,14 @@ msgstr ""
 msgid "When enabled and you have multiple staff members, customers can book the first available appointment with any staff member."
 msgstr ""
 
-msgid "When your customers book appointments through the Service, you are the data controller and we act solely as a data processor on your behalf. We process customer personal data only to provide the Service to you."
+msgid ""
+"When your customers book appointments through the Service, you are the data controller and we act solely as a data processor on your behalf. We process customer personal data only to provide the "
+"Service to you."
 msgstr ""
 
-msgid "Where personal data is transferred to service providers outside the European Economic Area, we ensure an appropriate level of protection is in place through Standard Contractual Clauses or an applicable adequacy decision. Contact us at the address above for details of the specific safeguards applied."
+msgid ""
+"Where personal data is transferred to service providers outside the European Economic Area, we ensure an appropriate level of protection is in place through Standard Contractual Clauses or an "
+"applicable adequacy decision. Contact us at the address above for details of the specific safeguards applied."
 msgstr ""
 
 msgid "With"
@@ -1627,10 +1684,14 @@ msgstr ""
 msgid "You are about to remove the following open hours block."
 msgstr ""
 
-msgid "You are responsible for ensuring that you have a lawful basis for collecting your customers' personal data, that you provide them with appropriate privacy information at the point of booking, and that you handle any data subject rights requests they raise with you."
+msgid ""
+"You are responsible for ensuring that you have a lawful basis for collecting your customers' personal data, that you provide them with appropriate privacy information at the point of booking, and "
+"that you handle any data subject rights requests they raise with you."
 msgstr ""
 
-msgid "You may delete your account at any time by contacting us. We reserve the right to suspend or terminate your account if you breach these Terms. Upon termination, your right to use the Service ceases immediately and we will process any data deletion in accordance with section 4.7."
+msgid ""
+"You may delete your account at any time by contacting us. We reserve the right to suspend or terminate your account if you breach these Terms. Upon termination, your right to use the Service ceases"
+" immediately and we will process any data deletion in accordance with section 4.7."
 msgstr ""
 
 msgid "You must accept the privacy policy to proceed."
@@ -1642,7 +1703,9 @@ msgstr ""
 msgid "You must be at least 18 years old and have the legal authority to enter into these Terms on behalf of your business."
 msgstr ""
 
-msgid "You must provide accurate and complete information when creating an account. You are responsible for maintaining the confidentiality of your credentials and for all activity that occurs under your account. Notify us immediately at <a href=\"mailto:[TODO_CONTACT_EMAIL]\">[TODO_CONTACT_EMAIL]</a> if you suspect unauthorised access."
+msgid ""
+"You must provide accurate and complete information when creating an account. You are responsible for maintaining the confidentiality of your credentials and for all activity that occurs under your "
+"account. Notify us immediately at <a href=\"mailto:[TODO_CONTACT_EMAIL]\">[TODO_CONTACT_EMAIL]</a> if you suspect unauthorised access."
 msgstr ""
 
 #, python-format
@@ -1766,8 +1829,6 @@ msgstr ""
 msgid "— Select staff member —"
 msgstr ""
 
-
-
 #, python-format
 msgid "%(count)d skipped due to overlap or past date."
 msgid_plural "%(count)d skipped due to overlap or past date."
@@ -1797,3 +1858,587 @@ msgid "%(counter)s backup code remaining."
 msgid_plural "%(counter)s backup codes remaining."
 msgstr[0] ""
 msgstr[1] ""
+
+msgid "1. Choose a service"
+msgstr ""
+
+msgid "45 min"
+msgstr ""
+
+msgid "90 min"
+msgstr ""
+
+msgid "A booking page that just works"
+msgstr ""
+
+msgid "A clean, mobile-friendly page at your own link. Customers book in under a minute, with no account required."
+msgstr ""
+
+msgid "A few principles we don't compromise on"
+msgstr ""
+
+msgid "Accept bookings automatically, or review and confirm each one yourself before it's final."
+msgstr ""
+
+msgid "Add as many staff members and services as you need, and decide who offers what."
+msgstr ""
+
+msgid ""
+"Add every staff member and service you offer, with no limit on either. Assign which staff perform which services, set a duration for each, and switch between automatic and manual booking "
+"confirmation whenever you like."
+msgstr ""
+
+msgid "Add your staff and services"
+msgstr ""
+
+msgid "And the rest"
+msgstr ""
+
+msgid "Answers to common questions about how Terminklick works, pricing, security, and customer data."
+msgstr ""
+
+msgid "Automatic data cleanup"
+msgstr ""
+
+msgid "Automatic or manual booking confirmation"
+msgstr ""
+
+msgid "Automatic or manual confirmation"
+msgstr ""
+
+msgid "Automatic or manual confirmation, per your workflow"
+msgstr ""
+
+msgid "Availability"
+msgstr ""
+
+msgid "Billed monthly."
+msgstr ""
+
+msgid "Booking confirmed"
+msgstr ""
+
+msgid "Bookings and availability"
+msgstr ""
+
+msgid "Built for how service businesses actually run"
+msgstr ""
+
+msgid "Built in Switzerland, for businesses that live on their calendar."
+msgstr ""
+
+msgid "Built with privacy as a feature, not an afterthought"
+msgstr ""
+
+msgid "Can I review bookings before they're confirmed?"
+msgstr ""
+
+msgid "Can I switch between monthly and yearly billing?"
+msgstr ""
+
+msgid "Can a customer cancel their own booking?"
+msgstr ""
+
+msgid "Can two customers book the same time slot by mistake?"
+msgstr ""
+
+msgid "Can't find what you're looking for? Reach out on our Contact page."
+msgstr ""
+
+msgid "Colour &amp; Treatment"
+msgstr ""
+
+msgid "Common questions about bookings, pricing, and security."
+msgstr ""
+
+msgid "Confirmation your way"
+msgstr ""
+
+msgid "Create your account"
+msgstr ""
+
+msgid "Create your account and publish your first booking page today."
+msgstr ""
+
+msgid "Customer contact details are anonymised automatically a set number of days after the appointment, keeping your records lean by default."
+msgstr ""
+
+msgid ""
+"Customer contact details are anonymised automatically a set number of days after the appointment. Customers can also request an export or deletion of their own data at any time through their "
+"private booking link."
+msgstr ""
+
+msgid "Customer data rights, built in"
+msgstr ""
+
+msgid "Customers and staff get plain-text emails for each step: new request, confirmation, decline, or cancellation. No tracking pixels, no HTML email trackers."
+msgstr ""
+
+msgid "Define recurring weekly hours in a few clicks, or add one-off blocks for specific dates. You can change either at any time."
+msgstr ""
+
+msgid "Define recurring weekly hours in a few clicks, or block off one-off days. Change it anytime as your schedule shifts."
+msgstr ""
+
+msgid "Do my customers need to create an account?"
+msgstr ""
+
+msgid "Do you offer more than one plan?"
+msgstr ""
+
+msgid "Does Terminklick track my customers?"
+msgstr ""
+
+msgid "Double-booking prevented automatically"
+msgstr ""
+
+msgid "Email notifications for you and your customers"
+msgstr ""
+
+msgid "Email us"
+msgstr ""
+
+msgid "Every booking, in one place"
+msgstr ""
+
+msgid "Everything a booking page needs. Nothing it doesn't."
+msgstr ""
+
+msgid "Everything included"
+msgstr ""
+
+msgid "Flexible availability"
+msgstr ""
+
+msgid "For your business"
+msgstr ""
+
+msgid "For your customers"
+msgstr ""
+
+msgid "Frequently asked questions"
+msgstr ""
+
+msgid "Fri, 10:30"
+msgstr ""
+
+msgid "Fri, 16:15"
+msgstr ""
+
+msgid "Full operator and contact details."
+msgstr ""
+
+msgid "GDPR self-service tools for your customers"
+msgstr ""
+
+msgid "GDPR-friendly by design"
+msgstr ""
+
+msgid "German, French, Italian, and English interface"
+msgstr ""
+
+msgid "Get in touch"
+msgstr ""
+
+msgid "Get in touch with the team behind Terminklick."
+msgstr ""
+
+msgid "Get started"
+msgstr ""
+
+msgid "Getting started"
+msgstr ""
+
+msgid "Give your customers a booking page that works around the clock. Set your availability, manage staff and services, and let clients book without an account."
+msgstr ""
+
+msgid "Haircut &amp; Styling"
+msgstr ""
+
+msgid "How do I set my availability?"
+msgstr ""
+
+msgid "How it works"
+msgstr ""
+
+msgid "How long does setup take?"
+msgstr ""
+
+msgid "How much does Terminklick cost?"
+msgstr ""
+
+msgid "Is my account protected by two-factor authentication?"
+msgstr ""
+
+msgid "Is my staff or service count limited?"
+msgstr ""
+
+msgid "Is there a limit on staff, services, or bookings?"
+msgstr ""
+
+msgid "Is there a setup fee?"
+msgstr ""
+
+msgid "Kept simple, on purpose"
+msgstr ""
+
+msgid "Legal"
+msgstr ""
+
+msgid "Let bookings confirm themselves the moment a slot is chosen, or review every request yourself before it's final. Set once in settings, change anytime."
+msgstr ""
+
+msgid "Let customers book you. Without the phone tag."
+msgstr ""
+
+msgid "List who works for you and what you offer, with a duration for each service. No limit on how many you add."
+msgstr ""
+
+msgid "Live in three steps"
+msgstr ""
+
+msgid "Made in Switzerland."
+msgstr ""
+
+msgid "Menu"
+msgstr ""
+
+msgid "Mobile-friendly page at your own link"
+msgstr ""
+
+msgid "Monthly"
+msgstr ""
+
+msgid "Most businesses add their staff, services, and availability, and publish their booking page within the same day. There's no onboarding call required."
+msgstr ""
+
+msgid "Multi-language"
+msgstr ""
+
+msgid "Multi-language interface"
+msgstr ""
+
+msgid "No add-ons to buy, no features locked behind a higher tier."
+msgstr ""
+
+msgid "No credit card required to create your account."
+msgstr ""
+
+msgid "No setup calls, no onboarding project. Most businesses are ready to take their first booking the same day."
+msgstr ""
+
+msgid "No third-party trackers or ad cookies"
+msgstr ""
+
+msgid "No third-party trackers or ad cookies on any page, and customer data is anonymised automatically after a set period. Nothing to configure."
+msgstr ""
+
+msgid "No third-party trackers, optional two-factor authentication, and self-service data export or deletion for every customer."
+msgstr ""
+
+msgid "No tiers to compare, no per-seat fees, no features locked behind a higher plan. Everything Terminklick does is included."
+msgstr ""
+
+msgid "No. Customers book with just their name, email, and phone number. They manage or cancel their booking later through a private link sent by email, without ever registering."
+msgstr ""
+
+msgid "No. Once a slot is booked or has a pending request, it's no longer offered to other customers, so double-booking isn't possible."
+msgstr ""
+
+msgid "No. The plan includes unlimited staff members, services, and bookings."
+msgstr ""
+
+msgid "No. There are no third-party trackers, ad cookies, or analytics scripts on the public booking page or your dashboard."
+msgstr ""
+
+msgid "No. Your plan includes unlimited staff members, services, and bookings."
+msgstr ""
+
+msgid "One dashboard for staff, services, and bookings"
+msgstr ""
+
+msgid "One plan, every feature. Nothing to unlock."
+msgstr ""
+
+msgid "One plan, everything included: 18 CHF per month or 160 CHF billed yearly."
+msgstr ""
+
+msgid "One plan, one focus: helping customers book you. We'd rather do that well than add features that get in the way."
+msgstr ""
+
+msgid "One plan. 18 CHF a month."
+msgstr ""
+
+msgid "One plan. Every feature. 18 CHF a month."
+msgstr ""
+
+msgid "One plan. Nothing hidden."
+msgstr ""
+
+msgid "One price, billed monthly or yearly. No usage tiers, no surprise invoices."
+msgstr ""
+
+msgid "Online booking for service businesses"
+msgstr ""
+
+msgid "Online booking pages for service businesses. Simple to set up, easy for your customers, built with privacy in mind."
+msgstr ""
+
+msgid "Optional \"any available staff\" mode for faster booking"
+msgstr ""
+
+msgid "Optional two-factor authentication"
+msgstr ""
+
+msgid "Plain-text email notifications, no tracking"
+msgstr ""
+
+msgid "Plain-text notifications"
+msgstr ""
+
+msgid "Pricing FAQ"
+msgstr ""
+
+msgid "Pricing and billing"
+msgstr ""
+
+msgid "Privacy and security"
+msgstr ""
+
+msgid "Privacy by default"
+msgstr ""
+
+msgid "Product"
+msgstr ""
+
+msgid "Public booking page"
+msgstr ""
+
+msgid "Public booking page with your own link"
+msgstr ""
+
+msgid "Questions"
+msgstr ""
+
+msgid "Ready to stop juggling phone calls?"
+msgstr ""
+
+msgid "Recurring availability and one-off scheduling"
+msgstr ""
+
+msgid "Recurring weekly hours or one-off availability blocks"
+msgstr ""
+
+msgid "Recurring weekly hours or one-off blocks, with a slot interval you control down to the minute."
+msgstr ""
+
+msgid "Save 26%"
+msgstr ""
+
+msgid "Security and privacy"
+msgstr ""
+
+msgid "See all FAQs"
+msgstr ""
+
+msgid "See all features"
+msgstr ""
+
+msgid "See how it works"
+msgstr ""
+
+msgid "See it on your own booking page"
+msgstr ""
+
+msgid "See what's included and how billing works."
+msgstr ""
+
+msgid "Send us an email"
+msgstr ""
+
+msgid "Set up your booking page today and let customers reach you whenever it suits them."
+msgstr ""
+
+msgid "Set your availability"
+msgstr ""
+
+msgid "Share your booking page"
+msgstr ""
+
+msgid "Simple pricing"
+msgstr ""
+
+msgid "Slot spacing you control, from 5 to 120 minutes"
+msgstr ""
+
+msgid "Staff and services"
+msgstr ""
+
+msgid "Still have questions? Contact us"
+msgstr ""
+
+msgid "Straightforward pricing"
+msgstr ""
+
+msgid "Swiss-made"
+msgstr ""
+
+msgid "Switzerland"
+msgstr ""
+
+msgid "Terminklick is built by Laib Technologies GmbH in Romanshorn, Switzerland, to give service businesses a simple, privacy-first booking page."
+msgstr ""
+
+msgid "Terminklick is made by Laib Technologies GmbH, an independent software company based in Romanshorn, Switzerland."
+msgstr ""
+
+msgid "Terminklick is operated by <strong>Laib Technologies GmbH</strong>, registered in Romanshorn, Switzerland (UID CHE-266.537.384)."
+msgstr ""
+
+msgid "The company behind Terminklick"
+msgstr ""
+
+msgid "Thu, 14:00"
+msgstr ""
+
+msgid "Turn on TOTP-based two-factor login for your account, with single-use backup codes in case you lose your device."
+msgstr ""
+
+msgid "Unlimited staff and services"
+msgstr ""
+
+msgid "Unlimited staff members and services"
+msgstr ""
+
+msgid "View pricing"
+msgstr ""
+
+msgid "What happens to customer data over time?"
+msgstr ""
+
+msgid "What if I want to stop using Terminklick?"
+msgstr ""
+
+msgid "What is Terminklick?"
+msgstr ""
+
+msgid "What languages is Terminklick available in?"
+msgstr ""
+
+msgid "What we care about"
+msgstr ""
+
+msgid "Why we built it"
+msgstr ""
+
+msgid "Works for one staff member or a whole team"
+msgstr ""
+
+msgid "Yearly"
+msgstr ""
+
+msgid "Yes. Choose manual confirmation in your settings and every request waits for your approval. Or leave it on automatic and bookings confirm themselves the moment a slot is chosen."
+msgstr ""
+
+msgid "Yes. Get in touch and we'll adjust your billing cycle."
+msgstr ""
+
+msgid "You can request deletion of your account and all associated data at any time from your account settings."
+msgstr ""
+
+msgid "You can turn on optional two-factor authentication (TOTP, using any standard authenticator app) with single-use backup codes in your account settings."
+msgstr ""
+
+msgid "Your dashboard"
+msgstr ""
+
+msgid "Your dashboard, booking page, and customer emails are available in German, French, Italian, and English."
+msgstr ""
+
+msgid "Your dashboard, public booking page, and every customer email are available in German, French, Italian, and English."
+msgstr ""
+
+msgid "month"
+msgstr ""
+
+msgid "year"
+msgstr ""
+
+msgid "Terminklick gives your business a public booking page. Customers pick a staff member, a service, and a time slot, and the booking lands directly in your dashboard. No phone calls needed."
+msgstr ""
+
+msgid "Yes, at any time, using the private link they received by email. No account or phone call needed."
+msgstr ""
+
+msgid "No, one plan includes every feature, so there's nothing to compare or upgrade later."
+msgstr ""
+
+msgid "German, French, Italian, and English: for your dashboard, your public booking page, and every email sent to your customers."
+msgstr ""
+
+msgid "Anna K., Haircut &amp; Styling"
+msgstr ""
+
+msgid "Marco P., Colour &amp; Treatment"
+msgstr ""
+
+msgid "Julia S., Manicure"
+msgstr ""
+
+msgid "2. Pick a time (Thursday)"
+msgstr ""
+
+msgid "Billed yearly, equivalent to about 13.30 CHF a month."
+msgstr ""
+
+msgid "No. 18 CHF a month or 160 CHF a year is the full price. There are no setup costs or hidden extras."
+msgstr ""
+
+msgid ""
+"Too many service businesses still take appointments by phone, one call at a time, with no view of the calendar until someone picks up. Every missed call is a booking that goes to a competitor "
+"instead."
+msgstr ""
+
+msgid ""
+"Terminklick replaces that with a booking page your customers can use whenever it suits them, while keeping the parts that matter to you (your hours, your staff, your confirmation process) entirely "
+"in your control."
+msgstr ""
+
+msgid "Questions about Terminklick, your account, or anything else: we read every message ourselves."
+msgstr ""
+
+msgid "Online appointment booking for service businesses"
+msgstr ""
+
+msgid "Terminklick gives your business a booking page customers can use anytime. No account needed on their end. You set the hours, the services, and the staff; we handle the calendar."
+msgstr ""
+
+msgid "Send customers your personal link. They pick a service, a staff member, and a time. No account, no app to install."
+msgstr ""
+
+msgid "See new requests as they come in. Confirm automatically, or review each booking yourself: your choice, set once in settings."
+msgstr ""
+
+msgid "Or 160 CHF billed yearly, saving more than a quarter."
+msgstr ""
+
+msgid "A public booking page, flexible staff scheduling, and privacy-first tools for service businesses. Everything is included in one plan."
+msgstr ""
+
+msgid "One plan, fully unlocked from day one: a public booking page, staff and service management, flexible availability, and the privacy tools your customers expect."
+msgstr ""
+
+msgid "Customers pick a staff member, a service, and a time: no account, no app, no back-and-forth. They get a confirmation by email and a private link to view or cancel their booking at any time."
+msgstr ""
+
+msgid "Every customer can view, export, or request erasure of their own booking data through a private link, with no account or support ticket needed."
+msgstr ""
+
+#, python-format
+msgid "18 CHF a month, or 160 CHF billed yearly. See our <a href=\"%(pricing_url)s\">pricing page</a> for full details."
+msgstr ""
+
+#, python-format
+msgid "Full operator details are listed in our <a href=\"%(legal_url)s\">Legal Notice</a>."
+msgstr ""
+

@@ -1,0 +1,24 @@
+{% load i18n %}
+{% load static %}
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="brand" href="{% url 'landing:home' %}">
+      <img src="{% static 'img/logo.svg' %}" alt="Terminklick">
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <div class="nav-menu">
+      <div class="nav-links">
+        <a href="{% url 'landing:features' %}">{% translate "Features" %}</a>
+        <a href="{% url 'landing:pricing' %}">{% translate "Pricing" %}</a>
+        <a href="{% url 'landing:about' %}">{% translate "About" %}</a>
+        <a href="{% url 'landing:faq' %}">{% translate "FAQ" %}</a>
+        <a href="{% url 'landing:contact' %}">{% translate "Contact" %}</a>
+      </div>
+      <div class="nav-actions">
+        <a class="btn btn-ghost" href="{% url 'company_accounts:login' %}">{% translate "Login" %}</a>
+        <a class="btn btn-primary" href="{% url 'company_accounts:register' %}">{% translate "Get started" %}</a>
+      </div>
+    </div>
+    <label class="nav-toggle-label" for="nav-toggle" aria-label="{% translate 'Menu' %}"><span></span></label>
+  </div>
+</nav>

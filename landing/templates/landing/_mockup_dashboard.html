@@ -1,0 +1,39 @@
+{% load i18n %}
+<div class="mockup-window">
+  <div class="mockup-toolbar">
+    <div class="mockup-dots"><span></span><span></span><span></span></div>
+    <div class="mockup-url">terminklick.ch/dashboard</div>
+  </div>
+  <div class="mockup-dash">
+    <div class="mockup-dash-nav">
+      <div class="item active">{% translate "Bookings" %}</div>
+      <div class="item">{% translate "Staff" %}</div>
+      <div class="item">{% translate "Services" %}</div>
+      <div class="item">{% translate "Availability" %}</div>
+      <div class="item">{% translate "Settings" %}</div>
+    </div>
+    <div class="mockup-dash-main">
+      <div class="mockup-row">
+        <div>
+          <div class="who">{% translate "Anna K., Haircut &amp; Styling" %}</div>
+          <div class="when">{% translate "Thu, 14:00" %}</div>
+        </div>
+        <span class="mockup-pill confirmed">{% translate "Confirmed" %}</span>
+      </div>
+      <div class="mockup-row">
+        <div>
+          <div class="who">{% translate "Marco P., Colour &amp; Treatment" %}</div>
+          <div class="when">{% translate "Fri, 10:30" %}</div>
+        </div>
+        <span class="mockup-pill pending">{% translate "Pending" %}</span>
+      </div>
+      <div class="mockup-row">
+        <div>
+          <div class="who">{% translate "Julia S., Manicure" %}</div>
+          <div class="when">{% translate "Fri, 16:15" %}</div>
+        </div>
+        <span class="mockup-pill confirmed">{% translate "Confirmed" %}</span>
+      </div>
+    </div>
+  </div>
+</div>

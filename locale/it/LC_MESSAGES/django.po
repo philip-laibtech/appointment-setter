@@ -118,7 +118,9 @@ msgid "<strong>Appointment details:</strong> date, time, service type, and assig
 msgstr "<strong>Dettagli dell'appuntamento:</strong> data, ora, tipo di servizio e membro del personale assegnato per ciascuna prenotazione."
 
 msgid "<strong>Business account data:</strong> business name, email address, postal address, phone number, and website URL provided at registration or in account settings."
-msgstr "<strong>Dati dell'account aziendale:</strong> nome dell'attività, indirizzo e-mail, indirizzo postale, numero di telefono e URL del sito web forniti durante la registrazione o nelle impostazioni dell'account."
+msgstr ""
+"<strong>Dati dell'account aziendale:</strong> nome dell'attività, indirizzo e-mail, indirizzo postale, numero di telefono e URL del sito web forniti durante la registrazione o nelle impostazioni "
+"dell'account."
 
 msgid "<strong>Business account data:</strong> retained for as long as the account is active. Deleted within 7 days of a verified account deletion request."
 msgstr "<strong>Dati dell'account aziendale:</strong> conservati per tutta la durata di attività dell'account. Cancellati entro 7 giorni da una richiesta verificata di cancellazione dell'account."
@@ -126,8 +128,12 @@ msgstr "<strong>Dati dell'account aziendale:</strong> conservati per tutta la du
 msgid "<strong>CSRF cookie (<code>csrftoken</code>):</strong> strictly necessary. Protects forms against cross-site request forgery attacks. Not used for tracking."
 msgstr "<strong>Cookie CSRF (<code>csrftoken</code>):</strong> strettamente necessario. Protegge i moduli dagli attacchi di cross-site request forgery. Non utilizzato per finalità di tracciamento."
 
-msgid "<strong>Customer booking PII</strong> (name, email, phone, message): automatically anonymised 30 days after the appointment takes place. The booking record itself (date, time, service) is retained for business accounting purposes."
-msgstr "<strong>Dati personali di prenotazione del cliente</strong> (nome, e-mail, telefono, messaggio): anonimizzati automaticamente 30 giorni dopo lo svolgimento dell'appuntamento. Il record della prenotazione stesso (data, ora, servizio) viene conservato per finalità contabili dell'azienda."
+msgid ""
+"<strong>Customer booking PII</strong> (name, email, phone, message): automatically anonymised 30 days after the appointment takes place. The booking record itself (date, time, service) is retained "
+"for business accounting purposes."
+msgstr ""
+"<strong>Dati personali di prenotazione del cliente</strong> (nome, e-mail, telefono, messaggio): anonimizzati automaticamente 30 giorni dopo lo svolgimento dell'appuntamento. Il record della "
+"prenotazione stesso (data, ora, servizio) viene conservato per finalità contabili dell'azienda."
 
 msgid "<strong>Customer booking data:</strong> first name, last name, email address, phone number, and any optional message provided when booking an appointment."
 msgstr "<strong>Dati di prenotazione del cliente:</strong> nome, cognome, indirizzo e-mail, numero di telefono ed eventuale messaggio opzionale fornito al momento della prenotazione di un appuntamento."
@@ -139,10 +145,14 @@ msgid "<strong>Hosting provider:</strong> the servers on which this platform run
 msgstr "<strong>Fornitore di hosting:</strong> i server su cui questa piattaforma viene eseguita. Tutti i dati memorizzati sulla piattaforma risiedono su questi server."
 
 msgid "<strong>Providing the booking service</strong> — to create, confirm, and manage appointments between businesses and their customers. Legal basis: performance of a contract (GDPR Art. 6(1)(b))."
-msgstr "<strong>Fornitura del servizio di prenotazione</strong> — per creare, confermare e gestire gli appuntamenti tra le aziende e i loro clienti. Base giuridica: esecuzione di un contratto (Art. 6(1)(b) GDPR)."
+msgstr ""
+"<strong>Fornitura del servizio di prenotazione</strong> — per creare, confermare e gestire gli appuntamenti tra le aziende e i loro clienti. Base giuridica: esecuzione di un contratto (Art. 6(1)(b)"
+" GDPR)."
 
 msgid "<strong>Security and fraud prevention</strong> — to detect and prevent abuse, rate-limit requests, and maintain the integrity of the platform. Legal basis: legitimate interests (GDPR Art. 6(1)(f))."
-msgstr "<strong>Sicurezza e prevenzione delle frodi</strong> — per individuare e prevenire abusi, limitare la frequenza delle richieste e mantenere l'integrità della piattaforma. Base giuridica: legittimo interesse (Art. 6(1)(f) GDPR)."
+msgstr ""
+"<strong>Sicurezza e prevenzione delle frodi</strong> — per individuare e prevenire abusi, limitare la frequenza delle richieste e mantenere l'integrità della piattaforma. Base giuridica: legittimo "
+"interesse (Art. 6(1)(f) GDPR)."
 
 msgid "<strong>Sending transactional notifications</strong> — confirmation, cancellation, and reminder emails sent to customers and businesses. Legal basis: performance of a contract (GDPR Art. 6(1)(b))."
 msgstr "<strong>Invio di notifiche transazionali</strong> — e-mail di conferma, cancellazione e promemoria inviate a clienti e aziende. Base giuridica: esecuzione di un contratto (Art. 6(1)(b) GDPR)."
@@ -150,8 +160,12 @@ msgstr "<strong>Invio di notifiche transazionali</strong> — e-mail di conferma
 msgid "<strong>Server access logs</strong> (IP address, user-agent, timestamps): retained for 30 days, then deleted automatically."
 msgstr "<strong>Log di accesso al server</strong> (indirizzo IP, user-agent, timestamp): conservati per 30 giorni, poi cancellati automaticamente."
 
-msgid "<strong>Session cookie (<code>sessionid</code>):</strong> strictly necessary. Keeps business users logged in to the dashboard. Expires at the end of the browser session or after 2 weeks, whichever comes first."
-msgstr "<strong>Cookie di sessione (<code>sessionid</code>):</strong> strettamente necessario. Mantiene gli utenti aziendali collegati alla dashboard. Scade al termine della sessione del browser o dopo 2 settimane, a seconda di quale evento si verifichi prima."
+msgid ""
+"<strong>Session cookie (<code>sessionid</code>):</strong> strictly necessary. Keeps business users logged in to the dashboard. Expires at the end of the browser session or after 2 weeks, whichever "
+"comes first."
+msgstr ""
+"<strong>Cookie di sessione (<code>sessionid</code>):</strong> strettamente necessario. Mantiene gli utenti aziendali collegati alla dashboard. Scade al termine della sessione del browser o dopo 2 "
+"settimane, a seconda di quale evento si verifichi prima."
 
 msgid "<strong>Session data:</strong> a session identifier stored in a strictly necessary cookie to keep you logged in."
 msgstr "<strong>Dati di sessione:</strong> un identificatore di sessione memorizzato in un cookie strettamente necessario per mantenerti collegato."
@@ -243,8 +257,12 @@ msgstr "Tutti i record di prenotazione e i dati dei clienti"
 msgid "All completed and past appointments."
 msgstr "Tutti gli appuntamenti completati e passati."
 
-msgid "All content on this website, including but not limited to text, graphics, logos, and software, is the property of the operator and is protected by applicable intellectual property law. Reproduction or distribution without prior written consent is prohibited."
-msgstr "Tutti i contenuti di questo sito web, inclusi a titolo esemplificativo ma non esaustivo testi, grafica, loghi e software, sono di proprietà del gestore e sono protetti dalla normativa applicabile sulla proprietà intellettuale. È vietata la riproduzione o la distribuzione senza previo consenso scritto."
+msgid ""
+"All content on this website, including but not limited to text, graphics, logos, and software, is the property of the operator and is protected by applicable intellectual property law. Reproduction"
+" or distribution without prior written consent is prohibited."
+msgstr ""
+"Tutti i contenuti di questo sito web, inclusi a titolo esemplificativo ma non esaustivo testi, grafica, loghi e software, sono di proprietà del gestore e sono protetti dalla normativa applicabile "
+"sulla proprietà intellettuale. È vietata la riproduzione o la distribuzione senza previo consenso scritto."
 
 msgid "All services and service configurations"
 msgstr "Tutti i servizi e le relative configurazioni"
@@ -273,11 +291,19 @@ msgstr "Qualsiasi membro del personale"
 msgid "Appointment"
 msgstr "Appuntamento"
 
-msgid "Terminklick is a software-as-a-service platform that allows businesses (\"you\" or the \"Controller\") to create and manage appointment bookings for their customers. We provide the technical infrastructure; you use it to operate your own booking workflow."
-msgstr "Terminklick è una piattaforma software-as-a-service che consente alle aziende (\"tu\" o il \"Titolare del trattamento\") di creare e gestire prenotazioni di appuntamenti per i propri clienti. Noi forniamo l'infrastruttura tecnica; tu la utilizzi per gestire il tuo flusso di prenotazione."
+msgid ""
+"Terminklick is a software-as-a-service platform that allows businesses (\"you\" or the \"Controller\") to create and manage appointment bookings for their customers. We provide the technical "
+"infrastructure; you use it to operate your own booking workflow."
+msgstr ""
+"Terminklick è una piattaforma software-as-a-service che consente alle aziende (\"tu\" o il \"Titolare del trattamento\") di creare e gestire prenotazioni di appuntamenti per i propri clienti. Noi "
+"forniamo l'infrastruttura tecnica; tu la utilizzi per gestire il tuo flusso di prenotazione."
 
-msgid "Terminklick is an online platform that enables businesses to manage and accept appointments from their customers. This policy explains what personal data we collect, why we collect it, and how we protect it. It applies to business accounts that use our platform and to customers who book appointments through it."
-msgstr "Terminklick è una piattaforma online che consente alle aziende di gestire e accettare appuntamenti dai propri clienti. Questa informativa spiega quali dati personali raccogliamo, perché li raccogliamo e come li proteggiamo. Si applica agli account aziendali che utilizzano la nostra piattaforma e ai clienti che prenotano appuntamenti tramite essa."
+msgid ""
+"Terminklick is an online platform that enables businesses to manage and accept appointments from their customers. This policy explains what personal data we collect, why we collect it, and how we "
+"protect it. It applies to business accounts that use our platform and to customers who book appointments through it."
+msgstr ""
+"Terminklick è una piattaforma online che consente alle aziende di gestire e accettare appuntamenti dai propri clienti. Questa informativa spiega quali dati personali raccogliamo, perché li "
+"raccogliamo e come li proteggiamo. Si applica agli account aziendali che utilizzano la nostra piattaforma e ai clienti che prenotano appuntamenti tramite essa."
 
 msgid "Are you sure you want to cancel?"
 msgstr "Sei sicuro di voler annullare?"
@@ -541,8 +567,12 @@ msgstr "Password attuale"
 msgid "Customer"
 msgstr "Cliente"
 
-msgid "Customer booking personal data (name, email, phone, message) is automatically anonymised 30 days after the appointment takes place. Upon account deletion, all remaining data associated with your account is permanently removed within 7 days."
-msgstr "I dati personali di prenotazione dei clienti (nome, e-mail, telefono, messaggio) vengono anonimizzati automaticamente 30 giorni dopo lo svolgimento dell'appuntamento. In caso di cancellazione dell'account, tutti i dati residui associati al tuo account vengono rimossi definitivamente entro 7 giorni."
+msgid ""
+"Customer booking personal data (name, email, phone, message) is automatically anonymised 30 days after the appointment takes place. Upon account deletion, all remaining data associated with your "
+"account is permanently removed within 7 days."
+msgstr ""
+"I dati personali di prenotazione dei clienti (nome, e-mail, telefono, messaggio) vengono anonimizzati automaticamente 30 giorni dopo lo svolgimento dell'appuntamento. In caso di cancellazione "
+"dell'account, tutti i dati residui associati al tuo account vengono rimossi definitivamente entro 7 giorni."
 
 msgid "Customer:"
 msgstr "Cliente:"
@@ -710,8 +740,12 @@ msgstr "Funzionalità"
 msgid "First name"
 msgstr "Nome"
 
-msgid "For any privacy-related questions, requests, or complaints:<br><br> <strong>[TODO_OPERATOR_NAME]</strong><br> [TODO_OPERATOR_ADDRESS]<br> <a href=\"mailto:[TODO_PRIVACY_EMAIL]\">[TODO_PRIVACY_EMAIL]</a>"
-msgstr "Per qualsiasi domanda, richiesta o reclamo relativo alla privacy:<br><br> <strong>[TODO_OPERATOR_NAME]</strong><br> [TODO_OPERATOR_ADDRESS]<br> <a href=\"mailto:[TODO_PRIVACY_EMAIL]\">[TODO_PRIVACY_EMAIL]</a>"
+msgid ""
+"For any privacy-related questions, requests, or complaints:<br><br> <strong>[TODO_OPERATOR_NAME]</strong><br> [TODO_OPERATOR_ADDRESS]<br> <a "
+"href=\"mailto:[TODO_PRIVACY_EMAIL]\">[TODO_PRIVACY_EMAIL]</a>"
+msgstr ""
+"Per qualsiasi domanda, richiesta o reclamo relativo alla privacy:<br><br> <strong>[TODO_OPERATOR_NAME]</strong><br> [TODO_OPERATOR_ADDRESS]<br> <a "
+"href=\"mailto:[TODO_PRIVACY_EMAIL]\">[TODO_PRIVACY_EMAIL]</a>"
 
 msgid "Forgot your password?"
 msgstr "Hai dimenticato la password?"
@@ -754,6 +788,7 @@ msgstr "Accetto la <a href=\"#\" style=\"color:#111;\">politica sulla privacy</a
 msgid "I accept the privacy policy."
 msgstr "Accetto la politica sulla privacy."
 
+#, python-format
 msgid "I have read and accept the updated <a href=\"%(tos_url)s\" target=\"_blank\" rel=\"noopener noreferrer\">Terms of Service</a>."
 msgstr "Ho letto e accetto i <a href=\"%(tos_url)s\" target=\"_blank\" rel=\"noopener noreferrer\">termini di servizio</a> aggiornati."
 
@@ -776,8 +811,12 @@ msgstr "Se non hai richiesto la reimpostazione della password, puoi ignorare que
 msgid "If you have any questions, please contact %(business_name)s directly."
 msgstr "Per qualsiasi domanda, contatta direttamente %(business_name)s."
 
-msgid "In the event of a personal data breach affecting your customers' data, we will notify you without undue delay and no later than 72 hours after becoming aware of the breach, providing sufficient information for you to meet your own notification obligations under GDPR Art. 33 and Art. 34."
-msgstr "In caso di violazione dei dati personali che interessi i dati dei tuoi clienti, ti notificheremo senza indebito ritardo e non oltre 72 ore dal momento in cui ne siamo venuti a conoscenza, fornendoti informazioni sufficienti per adempiere ai tuoi obblighi di notifica ai sensi degli articoli 33 e 34 del GDPR."
+msgid ""
+"In the event of a personal data breach affecting your customers' data, we will notify you without undue delay and no later than 72 hours after becoming aware of the breach, providing sufficient "
+"information for you to meet your own notification obligations under GDPR Art. 33 and Art. 34."
+msgstr ""
+"In caso di violazione dei dati personali che interessi i dati dei tuoi clienti, ti notificheremo senza indebito ritardo e non oltre 72 ore dal momento in cui ne siamo venuti a conoscenza, "
+"fornendoti informazioni sufficienti per adempiere ai tuoi obblighi di notifica ai sensi degli articoli 33 e 34 del GDPR."
 
 msgid "Inactive"
 msgstr "Inattivo"
@@ -1120,8 +1159,12 @@ msgstr "Richiedi la cancellazione dei tuoi dati"
 msgid "Requested"
 msgstr "Richiesto"
 
-msgid "Requesting deletion will permanently remove your account, all staff members, services, availability, and booking records. A support agent will call you to verify your identity before anything is deleted."
-msgstr "La richiesta di cancellazione comporterà la rimozione permanente del tuo account, di tutti i membri del personale, dei servizi, delle disponibilità e dei record di prenotazione. Un agente del supporto ti chiamerà per verificare la tua identità prima che venga eliminato qualcosa."
+msgid ""
+"Requesting deletion will permanently remove your account, all staff members, services, availability, and booking records. A support agent will call you to verify your identity before anything is "
+"deleted."
+msgstr ""
+"La richiesta di cancellazione comporterà la rimozione permanente del tuo account, di tutti i membri del personale, dei servizi, delle disponibilità e dei record di prenotazione. Un agente del "
+"supporto ti chiamerà per verificare la tua identità prima che venga eliminato qualcosa."
 
 msgid "Require a one-time code from an authenticator app in addition to your password when logging in."
 msgstr "Richiede, oltre alla password, un codice univoco generato da un'app di autenticazione al momento dell'accesso."
@@ -1331,17 +1374,34 @@ msgstr "Termini di servizio"
 msgid "Thank you."
 msgstr "Grazie."
 
-msgid "The Service and its original content, features, and functionality are and will remain the exclusive property of <strong>[TODO_OPERATOR_NAME]</strong>. You retain ownership of any content or data you upload. You grant us a limited licence to process that content solely to provide the Service."
-msgstr "Il Servizio e i suoi contenuti, funzionalità e caratteristiche originali sono e rimarranno proprietà esclusiva di <strong>[TODO_OPERATOR_NAME]</strong>. Conservi la proprietà di qualsiasi contenuto o dato che carichi. Ci concedi una licenza limitata per trattare tale contenuto esclusivamente al fine di fornire il Servizio."
+msgid ""
+"The Service and its original content, features, and functionality are and will remain the exclusive property of <strong>[TODO_OPERATOR_NAME]</strong>. You retain ownership of any content or data "
+"you upload. You grant us a limited licence to process that content solely to provide the Service."
+msgstr ""
+"Il Servizio e i suoi contenuti, funzionalità e caratteristiche originali sono e rimarranno proprietà esclusiva di <strong>[TODO_OPERATOR_NAME]</strong>. Conservi la proprietà di qualsiasi contenuto"
+" o dato che carichi. Ci concedi una licenza limitata per trattare tale contenuto esclusivamente al fine di fornire il Servizio."
 
-msgid "The Service is provided \"as is\" and \"as available\" without warranties of any kind, either express or implied. We do not warrant that the Service will be uninterrupted, error-free, or free of harmful components."
-msgstr "Il Servizio è fornito \"così com'è\" e \"nella misura in cui è disponibile\", senza garanzie di alcun tipo, espresse o implicite. Non garantiamo che il Servizio sarà ininterrotto, privo di errori o di componenti dannosi."
+msgid ""
+"The Service is provided \"as is\" and \"as available\" without warranties of any kind, either express or implied. We do not warrant that the Service will be uninterrupted, error-free, or free of "
+"harmful components."
+msgstr ""
+"Il Servizio è fornito \"così com'è\" e \"nella misura in cui è disponibile\", senza garanzie di alcun tipo, espresse o implicite. Non garantiamo che il Servizio sarà ininterrotto, privo di errori o"
+" di componenti dannosi."
 
-msgid "The data controller responsible for this platform is:<br><br> <strong>[TODO_OPERATOR_NAME]</strong><br> [TODO_OPERATOR_ADDRESS]<br> [TODO_OPERATOR_CITY_COUNTRY]<br> Privacy contact: <a href=\"mailto:[TODO_PRIVACY_EMAIL]\">[TODO_PRIVACY_EMAIL]</a>"
-msgstr "Il titolare del trattamento responsabile di questa piattaforma è:<br><br> <strong>[TODO_OPERATOR_NAME]</strong><br> [TODO_OPERATOR_ADDRESS]<br> [TODO_OPERATOR_CITY_COUNTRY]<br> Contatto privacy: <a href=\"mailto:[TODO_PRIVACY_EMAIL]\">[TODO_PRIVACY_EMAIL]</a>"
+msgid ""
+"The data controller responsible for this platform is:<br><br> <strong>[TODO_OPERATOR_NAME]</strong><br> [TODO_OPERATOR_ADDRESS]<br> [TODO_OPERATOR_CITY_COUNTRY]<br> Privacy contact: <a "
+"href=\"mailto:[TODO_PRIVACY_EMAIL]\">[TODO_PRIVACY_EMAIL]</a>"
+msgstr ""
+"Il titolare del trattamento responsabile di questa piattaforma è:<br><br> <strong>[TODO_OPERATOR_NAME]</strong><br> [TODO_OPERATOR_ADDRESS]<br> [TODO_OPERATOR_CITY_COUNTRY]<br> Contatto privacy: <a"
+" href=\"mailto:[TODO_PRIVACY_EMAIL]\">[TODO_PRIVACY_EMAIL]</a>"
 
-msgid "The information provided on this website is for general informational purposes only. While we strive to keep the content accurate and up to date, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, or suitability of the information. Any reliance you place on such information is therefore strictly at your own risk."
-msgstr "Le informazioni fornite su questo sito web hanno scopo puramente informativo generale. Sebbene ci impegniamo a mantenere il contenuto accurato e aggiornato, non rilasciamo alcuna dichiarazione o garanzia di alcun tipo, espressa o implicita, circa la completezza, l'accuratezza, l'affidabilità o l'idoneità delle informazioni. Qualsiasi affidamento su tali informazioni avviene quindi a tuo esclusivo rischio."
+msgid ""
+"The information provided on this website is for general informational purposes only. While we strive to keep the content accurate and up to date, we make no representations or warranties of any "
+"kind, express or implied, about the completeness, accuracy, reliability, or suitability of the information. Any reliance you place on such information is therefore strictly at your own risk."
+msgstr ""
+"Le informazioni fornite su questo sito web hanno scopo puramente informativo generale. Sebbene ci impegniamo a mantenere il contenuto accurato e aggiornato, non rilasciamo alcuna dichiarazione o "
+"garanzia di alcun tipo, espressa o implicita, circa la completezza, l'accuratezza, l'affidabilità o l'idoneità delle informazioni. Qualsiasi affidamento su tali informazioni avviene quindi a tuo "
+"esclusivo rischio."
 
 msgid "The page you're looking for doesn't exist or has been moved."
 msgstr "La pagina che stai cercando non esiste o è stata spostata."
@@ -1356,10 +1416,16 @@ msgid "There are currently no services available."
 msgstr "Al momento non ci sono servizi disponibili."
 
 msgid "These Terms are governed by the laws of <strong>[TODO_JURISDICTION]</strong>. Any disputes shall be subject to the exclusive jurisdiction of the courts of <strong>[TODO_JURISDICTION]</strong>."
-msgstr "I presenti Termini sono regolati dalla legge di <strong>[TODO_JURISDICTION]</strong>. Qualsiasi controversia sarà soggetta alla giurisdizione esclusiva dei tribunali di <strong>[TODO_JURISDICTION]</strong>."
+msgstr ""
+"I presenti Termini sono regolati dalla legge di <strong>[TODO_JURISDICTION]</strong>. Qualsiasi controversia sarà soggetta alla giurisdizione esclusiva dei tribunali di "
+"<strong>[TODO_JURISDICTION]</strong>."
 
-msgid "These Terms of Service (\"Terms\") govern your access to and use of Terminklick (the \"Service\"), operated by <strong>[TODO_OPERATOR_NAME]</strong> (\"we\", \"us\", or \"our\"). By registering for or using the Service, you agree to be bound by these Terms. If you do not agree, do not use the Service."
-msgstr "I presenti termini di servizio (\"Termini\") regolano l'accesso e l'utilizzo di Terminklick (il \"Servizio\"), gestito da <strong>[TODO_OPERATOR_NAME]</strong> (\"noi\"). Registrandoti o utilizzando il Servizio, accetti di essere vincolato dai presenti Termini. Se non sei d'accordo, non utilizzare il Servizio."
+msgid ""
+"These Terms of Service (\"Terms\") govern your access to and use of Terminklick (the \"Service\"), operated by <strong>[TODO_OPERATOR_NAME]</strong> (\"we\", \"us\", or \"our\"). By registering for"
+" or using the Service, you agree to be bound by these Terms. If you do not agree, do not use the Service."
+msgstr ""
+"I presenti termini di servizio (\"Termini\") regolano l'accesso e l'utilizzo di Terminklick (il \"Servizio\"), gestito da <strong>[TODO_OPERATOR_NAME]</strong> (\"noi\"). Registrandoti o "
+"utilizzando il Servizio, accetti di essere vincolato dai presenti Termini. Se non sei d'accordo, non utilizzare il Servizio."
 
 msgid "These codes are shown only once and cannot be retrieved later. If you lose them, you can generate a new set from your security settings (this invalidates the old ones)."
 msgstr "Questi codici vengono mostrati solo una volta e non possono essere recuperati in seguito. Se li perdi, puoi generare un nuovo set dalle impostazioni di sicurezza (questo invalida quelli precedenti)."
@@ -1403,11 +1469,19 @@ msgstr "Questa pagina non è disponibile."
 msgid "This password reset link has already been used or has expired. Please request a new one."
 msgstr "Questo link per la reimpostazione della password è già stato utilizzato o è scaduto. Richiedine uno nuovo."
 
-msgid "This platform is not directed at children under the age of 16. We do not knowingly collect personal data from anyone under 16. If you believe we have inadvertently collected data from a child, please contact us and we will delete it promptly."
-msgstr "Questa piattaforma non è destinata a minori di 16 anni. Non raccogliamo consapevolmente dati personali da persone di età inferiore a 16 anni. Se ritieni che abbiamo inavvertitamente raccolto dati di un minore, contattaci e li elimineremo prontamente."
+msgid ""
+"This platform is not directed at children under the age of 16. We do not knowingly collect personal data from anyone under 16. If you believe we have inadvertently collected data from a child, "
+"please contact us and we will delete it promptly."
+msgstr ""
+"Questa piattaforma non è destinata a minori di 16 anni. Non raccogliamo consapevolmente dati personali da persone di età inferiore a 16 anni. Se ritieni che abbiamo inavvertitamente raccolto dati "
+"di un minore, contattaci e li elimineremo prontamente."
 
-msgid "This section constitutes the Data Processing Agreement between you (the Controller) and us (the Processor) as required by Article 28 of the General Data Protection Regulation (GDPR) and applicable data protection law."
-msgstr "La presente sezione costituisce l'accordo sul trattamento dei dati tra te (il Titolare del trattamento) e noi (il Responsabile del trattamento), come richiesto dall'articolo 28 del Regolamento generale sulla protezione dei dati (GDPR) e dalla normativa applicabile in materia di protezione dei dati."
+msgid ""
+"This section constitutes the Data Processing Agreement between you (the Controller) and us (the Processor) as required by Article 28 of the General Data Protection Regulation (GDPR) and applicable "
+"data protection law."
+msgstr ""
+"La presente sezione costituisce l'accordo sul trattamento dei dati tra te (il Titolare del trattamento) e noi (il Responsabile del trattamento), come richiesto dall'articolo 28 del Regolamento "
+"generale sulla protezione dei dati (GDPR) e dalla normativa applicabile in materia di protezione dei dati."
 
 msgid "This service has existing bookings and cannot be deleted."
 msgstr "Questo servizio ha prenotazioni esistenti e non può essere eliminato."
@@ -1421,8 +1495,12 @@ msgstr "Questo membro del personale ha fasce di disponibilita esistenti. L'elimi
 msgid "This time slot was just booked by someone else."
 msgstr "Questo orario è stato appena prenotato da qualcun altro."
 
-msgid "This website may contain links to external websites operated by third parties. We have no control over the content of those sites and accept no responsibility for them or for any loss or damage that may arise from your use of them."
-msgstr "Questo sito web può contenere link a siti esterni gestiti da terzi. Non abbiamo alcun controllo sul contenuto di tali siti e non ci assumiamo alcuna responsabilità per essi o per eventuali perdite o danni derivanti dal loro utilizzo."
+msgid ""
+"This website may contain links to external websites operated by third parties. We have no control over the content of those sites and accept no responsibility for them or for any loss or damage "
+"that may arise from your use of them."
+msgstr ""
+"Questo sito web può contenere link a siti esterni gestiti da terzi. Non abbiamo alcun controllo sul contenuto di tali siti e non ci assumiamo alcuna responsabilità per essi o per eventuali perdite "
+"o danni derivanti dal loro utilizzo."
 
 msgid "This will permanently delete the service and all its staff assignments. This action cannot be undone."
 msgstr "Questo eliminerà definitivamente il servizio e tutte le sue assegnazioni del personale. Questa azione non può essere annullata."
@@ -1435,8 +1513,12 @@ msgstr ""
 "Questo eliminerà definitivamente questa prenotazione, libererà nuovamente l'orario e notificherà al cliente via e-mail che il suo appuntamento è stato annullato. Questa azione non può essere "
 "annullata."
 
-msgid "This will permanently remove your name, email, phone number, and message from this booking. The appointment date, time, and service stay on file for the company's business records, but will no longer be linked to you personally."
-msgstr "Questa azione rimuoverà definitivamente il tuo nome, indirizzo e-mail, numero di telefono e messaggio da questa prenotazione. La data, l'ora e il servizio dell'appuntamento rimarranno registrati per la contabilità aziendale, ma non saranno più collegati a te personalmente."
+msgid ""
+"This will permanently remove your name, email, phone number, and message from this booking. The appointment date, time, and service stay on file for the company's business records, but will no "
+"longer be linked to you personally."
+msgstr ""
+"Questa azione rimuoverà definitivamente il tuo nome, indirizzo e-mail, numero di telefono e messaggio da questa prenotazione. La data, l'ora e il servizio dell'appuntamento rimarranno registrati "
+"per la contabilità aziendale, ma non saranno più collegati a te personalmente."
 
 msgid "Thu"
 msgstr "Gio"
@@ -1460,8 +1542,12 @@ msgstr "A"
 msgid "To exercise any of these rights, contact us at <a href=\"mailto:[TODO_PRIVACY_EMAIL]\">[TODO_PRIVACY_EMAIL]</a>. We will respond within 30 days."
 msgstr "Per esercitare uno di questi diritti, contattaci all'indirizzo <a href=\"mailto:[TODO_PRIVACY_EMAIL]\">[TODO_PRIVACY_EMAIL]</a>. Risponderemo entro 30 giorni."
 
-msgid "To the fullest extent permitted by law, <strong>[TODO_OPERATOR_NAME]</strong> shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of or inability to use the Service, even if we have been advised of the possibility of such damages."
-msgstr "Nella misura massima consentita dalla legge, <strong>[TODO_OPERATOR_NAME]</strong> non sarà responsabile per eventuali danni indiretti, incidentali, speciali, consequenziali o punitivi derivanti dall'utilizzo o dall'impossibilità di utilizzare il Servizio, anche qualora siamo stati informati della possibilità di tali danni."
+msgid ""
+"To the fullest extent permitted by law, <strong>[TODO_OPERATOR_NAME]</strong> shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of "
+"or inability to use the Service, even if we have been advised of the possibility of such damages."
+msgstr ""
+"Nella misura massima consentita dalla legge, <strong>[TODO_OPERATOR_NAME]</strong> non sarà responsabile per eventuali danni indiretti, incidentali, speciali, consequenziali o punitivi derivanti "
+"dall'utilizzo o dall'impossibilità di utilizzare il Servizio, anche qualora siamo stati informati della possibilità di tali danni."
 
 msgid "Today's Bookings"
 msgstr "Prenotazioni di oggi"
@@ -1553,26 +1639,49 @@ msgstr "Non vendiamo dati personali a terzi. Non condividiamo dati con reti pubb
 msgid "We do not use analytics, advertising, or any non-essential cookies."
 msgstr "Non utilizziamo cookie di analisi, pubblicitari o altri cookie non essenziali."
 
-msgid "We may update these Terms from time to time. Material changes will be communicated to your registered email address at least 14 days before they take effect. Continued use of the Service after changes take effect constitutes acceptance of the revised Terms. If you do not agree to the new Terms, you must stop using the Service and delete your account."
-msgstr "Potremmo aggiornare periodicamente i presenti Termini. Le modifiche sostanziali ti saranno comunicate al tuo indirizzo e-mail registrato almeno 14 giorni prima della loro entrata in vigore. L'uso continuato del Servizio dopo l'entrata in vigore delle modifiche costituisce accettazione dei Termini rivisti. Se non accetti i nuovi Termini, devi interrompere l'utilizzo del Servizio ed eliminare il tuo account."
+msgid ""
+"We may update these Terms from time to time. Material changes will be communicated to your registered email address at least 14 days before they take effect. Continued use of the Service after "
+"changes take effect constitutes acceptance of the revised Terms. If you do not agree to the new Terms, you must stop using the Service and delete your account."
+msgstr ""
+"Potremmo aggiornare periodicamente i presenti Termini. Le modifiche sostanziali ti saranno comunicate al tuo indirizzo e-mail registrato almeno 14 giorni prima della loro entrata in vigore. L'uso "
+"continuato del Servizio dopo l'entrata in vigore delle modifiche costituisce accettazione dei Termini rivisti. Se non accetti i nuovi Termini, devi interrompere l'utilizzo del Servizio ed eliminare"
+" il tuo account."
 
-msgid "We may update this policy from time to time. Material changes will be communicated to registered business accounts via email and will be clearly noted at the top of this page with an updated date. Continued use of the platform after changes take effect constitutes acceptance of the revised policy."
-msgstr "Potremmo aggiornare periodicamente questa informativa. Le modifiche sostanziali saranno comunicate agli account aziendali registrati via e-mail e chiaramente indicate in cima a questa pagina con una data aggiornata. L'uso continuato della piattaforma dopo l'entrata in vigore delle modifiche costituisce accettazione dell'informativa rivista."
+msgid ""
+"We may update this policy from time to time. Material changes will be communicated to registered business accounts via email and will be clearly noted at the top of this page with an updated date. "
+"Continued use of the platform after changes take effect constitutes acceptance of the revised policy."
+msgstr ""
+"Potremmo aggiornare periodicamente questa informativa. Le modifiche sostanziali saranno comunicate agli account aziendali registrati via e-mail e chiaramente indicate in cima a questa pagina con "
+"una data aggiornata. L'uso continuato della piattaforma dopo l'entrata in vigore delle modifiche costituisce accettazione dell'informativa rivista."
 
-msgid "We process customer personal data exclusively for the purpose of operating the appointment management features of the Service. We do not use customer data for advertising, profiling, analytics sold to third parties, or any other purpose."
-msgstr "Trattiamo i dati personali dei clienti esclusivamente per finalità di gestione delle funzionalità di prenotazione appuntamenti del Servizio. Non utilizziamo i dati dei clienti per pubblicità, profilazione, analisi vendute a terzi o per qualsiasi altra finalità."
+msgid ""
+"We process customer personal data exclusively for the purpose of operating the appointment management features of the Service. We do not use customer data for advertising, profiling, analytics sold"
+" to third parties, or any other purpose."
+msgstr ""
+"Trattiamo i dati personali dei clienti esclusivamente per finalità di gestione delle funzionalità di prenotazione appuntamenti del Servizio. Non utilizziamo i dati dei clienti per pubblicità, "
+"profilazione, analisi vendute a terzi o per qualsiasi altra finalità."
 
 msgid "We process personal data for the following purposes:"
 msgstr "Trattiamo i dati personali per le seguenti finalità:"
 
-msgid "We protect personal data using industry-standard measures: all connections are encrypted in transit via HTTPS, passwords are stored as one-way hashes and never in plain text, and access to production systems is restricted to authorised personnel. No method of transmission or storage is completely secure; we cannot guarantee absolute security but we take reasonable precautions to minimise risk."
-msgstr "Proteggiamo i dati personali utilizzando misure conformi agli standard di settore: tutte le connessioni sono cifrate in transito tramite HTTPS, le password sono memorizzate come hash unidirezionali e mai in chiaro, e l'accesso ai sistemi di produzione è limitato al personale autorizzato. Nessun metodo di trasmissione o archiviazione è completamente sicuro; non possiamo garantire la sicurezza assoluta, ma adottiamo precauzioni ragionevoli per minimizzare i rischi."
+msgid ""
+"We protect personal data using industry-standard measures: all connections are encrypted in transit via HTTPS, passwords are stored as one-way hashes and never in plain text, and access to "
+"production systems is restricted to authorised personnel. No method of transmission or storage is completely secure; we cannot guarantee absolute security but we take reasonable precautions to "
+"minimise risk."
+msgstr ""
+"Proteggiamo i dati personali utilizzando misure conformi agli standard di settore: tutte le connessioni sono cifrate in transito tramite HTTPS, le password sono memorizzate come hash unidirezionali"
+" e mai in chiaro, e l'accesso ai sistemi di produzione è limitato al personale autorizzato. Nessun metodo di trasmissione o archiviazione è completamente sicuro; non possiamo garantire la sicurezza"
+" assoluta, ma adottiamo precauzioni ragionevoli per minimizzare i rischi."
 
 msgid "We share personal data only with the following categories of service providers, solely to the extent necessary to operate the platform:"
 msgstr "Condividiamo i dati personali solo con le seguenti categorie di fornitori di servizi, esclusivamente nella misura necessaria per il funzionamento della piattaforma:"
 
-msgid "We use the following categories of sub-processors to deliver the Service: email delivery providers (to send booking notifications) and hosting/infrastructure providers (to store and serve the application). We will inform you of any material changes to sub-processors."
-msgstr "Utilizziamo le seguenti categorie di sub-responsabili del trattamento per fornire il Servizio: fornitori di consegna e-mail (per l'invio di notifiche di prenotazione) e fornitori di hosting/infrastruttura (per archiviare ed eseguire l'applicazione). Ti informeremo di eventuali modifiche rilevanti ai sub-responsabili del trattamento."
+msgid ""
+"We use the following categories of sub-processors to deliver the Service: email delivery providers (to send booking notifications) and hosting/infrastructure providers (to store and serve the "
+"application). We will inform you of any material changes to sub-processors."
+msgstr ""
+"Utilizziamo le seguenti categorie di sub-responsabili del trattamento per fornire il Servizio: fornitori di consegna e-mail (per l'invio di notifiche di prenotazione) e fornitori di "
+"hosting/infrastruttura (per archiviare ed eseguire l'applicazione). Ti informeremo di eventuali modifiche rilevanti ai sub-responsabili del trattamento."
 
 msgid "We use the following cookies:"
 msgstr "Utilizziamo i seguenti cookie:"
@@ -1580,8 +1689,14 @@ msgstr "Utilizziamo i seguenti cookie:"
 msgid "We will call:"
 msgstr "Chiameremo:"
 
-msgid "We will: (a) process personal data only on your documented instructions; (b) ensure that persons authorised to process personal data are bound by confidentiality; (c) implement appropriate technical and organisational security measures; (d) assist you in fulfilling data subject rights requests to the extent technically feasible; (e) delete or return all personal data upon termination of the Service relationship."
-msgstr "Ci impegniamo a: (a) trattare i dati personali solo sulla base delle tue istruzioni documentate; (b) garantire che le persone autorizzate al trattamento dei dati personali siano vincolate da obblighi di riservatezza; (c) implementare adeguate misure di sicurezza tecniche e organizzative; (d) assisterti nell'adempimento delle richieste relative ai diritti degli interessati, nella misura tecnicamente possibile; (e) cancellare o restituire tutti i dati personali alla cessazione del rapporto di Servizio."
+msgid ""
+"We will: (a) process personal data only on your documented instructions; (b) ensure that persons authorised to process personal data are bound by confidentiality; (c) implement appropriate "
+"technical and organisational security measures; (d) assist you in fulfilling data subject rights requests to the extent technically feasible; (e) delete or return all personal data upon termination"
+" of the Service relationship."
+msgstr ""
+"Ci impegniamo a: (a) trattare i dati personali solo sulla base delle tue istruzioni documentate; (b) garantire che le persone autorizzate al trattamento dei dati personali siano vincolate da "
+"obblighi di riservatezza; (c) implementare adeguate misure di sicurezza tecniche e organizzative; (d) assisterti nell'adempimento delle richieste relative ai diritti degli interessati, nella misura"
+" tecnicamente possibile; (e) cancellare o restituire tutti i dati personali alla cessazione del rapporto di Servizio."
 
 msgid "Website"
 msgstr "Sito web"
@@ -1601,11 +1716,19 @@ msgstr "Se disattivata, i nomi del personale vengono nascosti nelle pagine di pr
 msgid "When enabled and you have multiple staff members, customers can book the first available appointment with any staff member."
 msgstr "Se attivata e disponi di più membri del personale, i clienti possono prenotare il primo appuntamento disponibile con qualsiasi membro del personale."
 
-msgid "When your customers book appointments through the Service, you are the data controller and we act solely as a data processor on your behalf. We process customer personal data only to provide the Service to you."
-msgstr "Quando i tuoi clienti prenotano appuntamenti tramite il Servizio, tu sei il titolare del trattamento e noi agiamo esclusivamente come responsabile del trattamento per tuo conto. Trattiamo i dati personali dei tuoi clienti solo per fornirti il Servizio."
+msgid ""
+"When your customers book appointments through the Service, you are the data controller and we act solely as a data processor on your behalf. We process customer personal data only to provide the "
+"Service to you."
+msgstr ""
+"Quando i tuoi clienti prenotano appuntamenti tramite il Servizio, tu sei il titolare del trattamento e noi agiamo esclusivamente come responsabile del trattamento per tuo conto. Trattiamo i dati "
+"personali dei tuoi clienti solo per fornirti il Servizio."
 
-msgid "Where personal data is transferred to service providers outside the European Economic Area, we ensure an appropriate level of protection is in place through Standard Contractual Clauses or an applicable adequacy decision. Contact us at the address above for details of the specific safeguards applied."
-msgstr "Quando i dati personali vengono trasferiti a fornitori di servizi situati fuori dello Spazio economico europeo, garantiamo un livello di protezione adeguato tramite clausole contrattuali standard o una decisione di adeguatezza applicabile. Contattaci all'indirizzo sopra indicato per i dettagli sulle specifiche garanzie applicate."
+msgid ""
+"Where personal data is transferred to service providers outside the European Economic Area, we ensure an appropriate level of protection is in place through Standard Contractual Clauses or an "
+"applicable adequacy decision. Contact us at the address above for details of the specific safeguards applied."
+msgstr ""
+"Quando i dati personali vengono trasferiti a fornitori di servizi situati fuori dello Spazio economico europeo, garantiamo un livello di protezione adeguato tramite clausole contrattuali standard o"
+" una decisione di adeguatezza applicabile. Contattaci all'indirizzo sopra indicato per i dettagli sulle specifiche garanzie applicate."
 
 msgid "With"
 msgstr "Con"
@@ -1631,11 +1754,19 @@ msgstr "Accetti di non:"
 msgid "You are about to remove the following open hours block."
 msgstr "Stai per rimuovere il seguente blocco di orari di apertura."
 
-msgid "You are responsible for ensuring that you have a lawful basis for collecting your customers' personal data, that you provide them with appropriate privacy information at the point of booking, and that you handle any data subject rights requests they raise with you."
-msgstr "Sei responsabile di assicurarti di disporre di una base giuridica per la raccolta dei dati personali dei tuoi clienti, di fornire loro informazioni sulla privacy adeguate al momento della prenotazione, e di gestire qualsiasi richiesta relativa ai diritti degli interessati che ti venga presentata."
+msgid ""
+"You are responsible for ensuring that you have a lawful basis for collecting your customers' personal data, that you provide them with appropriate privacy information at the point of booking, and "
+"that you handle any data subject rights requests they raise with you."
+msgstr ""
+"Sei responsabile di assicurarti di disporre di una base giuridica per la raccolta dei dati personali dei tuoi clienti, di fornire loro informazioni sulla privacy adeguate al momento della "
+"prenotazione, e di gestire qualsiasi richiesta relativa ai diritti degli interessati che ti venga presentata."
 
-msgid "You may delete your account at any time by contacting us. We reserve the right to suspend or terminate your account if you breach these Terms. Upon termination, your right to use the Service ceases immediately and we will process any data deletion in accordance with section 4.7."
-msgstr "Puoi eliminare il tuo account in qualsiasi momento contattandoci. Ci riserviamo il diritto di sospendere o terminare il tuo account in caso di violazione dei presenti Termini. Alla cessazione, il tuo diritto di utilizzare il Servizio termina immediatamente e procederemo alla cancellazione dei dati conformemente alla sezione 4.7."
+msgid ""
+"You may delete your account at any time by contacting us. We reserve the right to suspend or terminate your account if you breach these Terms. Upon termination, your right to use the Service ceases"
+" immediately and we will process any data deletion in accordance with section 4.7."
+msgstr ""
+"Puoi eliminare il tuo account in qualsiasi momento contattandoci. Ci riserviamo il diritto di sospendere o terminare il tuo account in caso di violazione dei presenti Termini. Alla cessazione, il "
+"tuo diritto di utilizzare il Servizio termina immediatamente e procederemo alla cancellazione dei dati conformemente alla sezione 4.7."
 
 msgid "You must accept the privacy policy to proceed."
 msgstr "Devi accettare la politica sulla privacy per procedere."
@@ -1646,8 +1777,12 @@ msgstr "Devi aggiungere un numero di telefono in"
 msgid "You must be at least 18 years old and have the legal authority to enter into these Terms on behalf of your business."
 msgstr "Devi avere almeno 18 anni e disporre del potere legale di sottoscrivere i presenti Termini per conto della tua attività."
 
-msgid "You must provide accurate and complete information when creating an account. You are responsible for maintaining the confidentiality of your credentials and for all activity that occurs under your account. Notify us immediately at <a href=\"mailto:[TODO_CONTACT_EMAIL]\">[TODO_CONTACT_EMAIL]</a> if you suspect unauthorised access."
-msgstr "Devi fornire informazioni accurate e complete al momento della creazione di un account. Sei responsabile della riservatezza delle tue credenziali e di qualsiasi attività che si verifichi nel tuo account. Avvisaci immediatamente all'indirizzo <a href=\"mailto:[TODO_CONTACT_EMAIL]\">[TODO_CONTACT_EMAIL]</a> se sospetti un accesso non autorizzato."
+msgid ""
+"You must provide accurate and complete information when creating an account. You are responsible for maintaining the confidentiality of your credentials and for all activity that occurs under your "
+"account. Notify us immediately at <a href=\"mailto:[TODO_CONTACT_EMAIL]\">[TODO_CONTACT_EMAIL]</a> if you suspect unauthorised access."
+msgstr ""
+"Devi fornire informazioni accurate e complete al momento della creazione di un account. Sei responsabile della riservatezza delle tue credenziali e di qualsiasi attività che si verifichi nel tuo "
+"account. Avvisaci immediatamente all'indirizzo <a href=\"mailto:[TODO_CONTACT_EMAIL]\">[TODO_CONTACT_EMAIL]</a> se sospetti un accesso non autorizzato."
 
 #, python-format
 msgid "You're receiving this email because a password reset was requested for your account at %(domain)s."
@@ -1770,8 +1905,6 @@ msgstr "%(name)s (%(minutes)s min)"
 msgid "— Select staff member —"
 msgstr "— Seleziona membro del personale —"
 
-
-
 #, python-format
 msgid "%(count)d skipped due to overlap or past date."
 msgid_plural "%(count)d skipped due to overlap or past date."
@@ -1801,3 +1934,607 @@ msgid "%(counter)s backup code remaining."
 msgid_plural "%(counter)s backup codes remaining."
 msgstr[0] "%(counter)s codice di backup rimanente."
 msgstr[1] "%(counter)s codici di backup rimanenti."
+
+msgid "1. Choose a service"
+msgstr "1. Scegli un servizio"
+
+msgid "45 min"
+msgstr "45 min"
+
+msgid "90 min"
+msgstr "90 min"
+
+msgid "A booking page that just works"
+msgstr "Una pagina di prenotazione che funziona e basta"
+
+msgid "A clean, mobile-friendly page at your own link. Customers book in under a minute, with no account required."
+msgstr "Una pagina chiara e ottimizzata per il mobile, raggiungibile dal tuo link personale. I clienti prenotano in meno di un minuto, senza bisogno di un account."
+
+msgid "A few principles we don't compromise on"
+msgstr "Alcuni principi su cui non scendiamo a compromessi"
+
+msgid "Accept bookings automatically, or review and confirm each one yourself before it's final."
+msgstr "Accetta le prenotazioni automaticamente, oppure verifica e conferma ciascuna di persona prima che diventi definitiva."
+
+msgid "Add as many staff members and services as you need, and decide who offers what."
+msgstr "Aggiungi tutti i membri del personale e i servizi di cui hai bisogno, e decidi chi offre cosa."
+
+msgid ""
+"Add every staff member and service you offer, with no limit on either. Assign which staff perform which services, set a duration for each, and switch between automatic and manual booking "
+"confirmation whenever you like."
+msgstr ""
+"Aggiungi ogni membro del personale e ogni servizio che offri, senza alcun limite. Stabilisci chi esegue quale servizio, imposta una durata per ciascuno e passa in qualsiasi momento tra conferma "
+"automatica e manuale delle prenotazioni."
+
+msgid "Add your staff and services"
+msgstr "Aggiungi personale e servizi"
+
+msgid "And the rest"
+msgstr "E non è tutto"
+
+msgid "Answers to common questions about how Terminklick works, pricing, security, and customer data."
+msgstr "Risposte alle domande più frequenti sul funzionamento di Terminklick, sui prezzi, sulla sicurezza e sui dati dei clienti."
+
+msgid "Automatic data cleanup"
+msgstr "Pulizia automatica dei dati"
+
+msgid "Automatic or manual booking confirmation"
+msgstr "Conferma della prenotazione automatica o manuale"
+
+msgid "Automatic or manual confirmation"
+msgstr "Conferma automatica o manuale"
+
+msgid "Automatic or manual confirmation, per your workflow"
+msgstr "Conferma automatica o manuale, in base al tuo modo di lavorare"
+
+msgid "Availability"
+msgstr "Disponibilità"
+
+msgid "Billed monthly."
+msgstr "Fatturazione mensile."
+
+msgid "Booking confirmed"
+msgstr "Prenotazione confermata"
+
+msgid "Bookings and availability"
+msgstr "Prenotazioni e disponibilità"
+
+msgid "Built for how service businesses actually run"
+msgstr "Pensato per il funzionamento reale delle aziende di servizi"
+
+msgid "Built in Switzerland, for businesses that live on their calendar."
+msgstr "Sviluppato in Svizzera, per le aziende che vivono in base alla propria agenda."
+
+msgid "Built with privacy as a feature, not an afterthought"
+msgstr "La privacy come funzionalità vera e propria, non come ripensamento"
+
+msgid "Can I review bookings before they're confirmed?"
+msgstr "Posso verificare le prenotazioni prima che vengano confermate?"
+
+msgid "Can I switch between monthly and yearly billing?"
+msgstr "Posso passare dalla fatturazione mensile a quella annuale?"
+
+msgid "Can a customer cancel their own booking?"
+msgstr "Un cliente può annullare la propria prenotazione?"
+
+msgid "Can two customers book the same time slot by mistake?"
+msgstr "Due clienti possono prenotare per errore lo stesso orario?"
+
+msgid "Can't find what you're looking for? Reach out on our Contact page."
+msgstr "Non trovi quello che cerchi? Contattaci tramite la nostra pagina Contatti."
+
+msgid "Colour &amp; Treatment"
+msgstr "Colore &amp; trattamento"
+
+msgid "Common questions about bookings, pricing, and security."
+msgstr "Domande frequenti su prenotazioni, prezzi e sicurezza."
+
+msgid "Confirmation your way"
+msgstr "La conferma come preferisci"
+
+msgid "Create your account"
+msgstr "Crea il tuo account"
+
+msgid "Create your account and publish your first booking page today."
+msgstr "Crea oggi stesso il tuo account e pubblica la tua prima pagina di prenotazione."
+
+msgid "Customer contact details are anonymised automatically a set number of days after the appointment, keeping your records lean by default."
+msgstr "I dati di contatto dei clienti vengono anonimizzati automaticamente dopo un numero prestabilito di giorni dall'appuntamento, mantenendo i tuoi archivi essenziali per impostazione predefinita."
+
+msgid ""
+"Customer contact details are anonymised automatically a set number of days after the appointment. Customers can also request an export or deletion of their own data at any time through their "
+"private booking link."
+msgstr ""
+"I dati di contatto dei clienti vengono anonimizzati automaticamente dopo un numero prestabilito di giorni dall'appuntamento. I clienti possono inoltre richiedere in qualsiasi momento l'esportazione"
+" o la cancellazione dei propri dati tramite il loro link di prenotazione privato."
+
+msgid "Customer data rights, built in"
+msgstr "Diritti sui dati dei clienti, integrati di serie"
+
+msgid "Customers and staff get plain-text emails for each step: new request, confirmation, decline, or cancellation. No tracking pixels, no HTML email trackers."
+msgstr "Clienti e personale ricevono un'e-mail in puro testo per ogni fase: nuova richiesta, conferma, rifiuto o annullamento. Nessun pixel di tracciamento, nessun tracker nelle e-mail HTML."
+
+msgid "Define recurring weekly hours in a few clicks, or add one-off blocks for specific dates. You can change either at any time."
+msgstr "Definisci orari settimanali ricorrenti in pochi clic, oppure aggiungi blocchi occasionali per date specifiche. Puoi modificare entrambi in qualsiasi momento."
+
+msgid "Define recurring weekly hours in a few clicks, or block off one-off days. Change it anytime as your schedule shifts."
+msgstr "Definisci orari settimanali ricorrenti in pochi clic, oppure blocca singole giornate. Modificali in qualsiasi momento se il tuo programma cambia."
+
+msgid "Do my customers need to create an account?"
+msgstr "I miei clienti devono creare un account?"
+
+msgid "Do you offer more than one plan?"
+msgstr "Offrite più di un piano?"
+
+msgid "Does Terminklick track my customers?"
+msgstr "Terminklick traccia i miei clienti?"
+
+msgid "Double-booking prevented automatically"
+msgstr "Doppie prenotazioni evitate automaticamente"
+
+msgid "Email notifications for you and your customers"
+msgstr "Notifiche via e-mail per te e per i tuoi clienti"
+
+msgid "Email us"
+msgstr "Scrivici"
+
+msgid "Every booking, in one place"
+msgstr "Tutte le prenotazioni in un unico posto"
+
+msgid "Everything a booking page needs. Nothing it doesn't."
+msgstr "Tutto ciò che serve a una pagina di prenotazione. Niente di superfluo."
+
+msgid "Everything included"
+msgstr "Tutto incluso"
+
+msgid "Flexible availability"
+msgstr "Disponibilità flessibile"
+
+msgid "For your business"
+msgstr "Per la tua azienda"
+
+msgid "For your customers"
+msgstr "Per i tuoi clienti"
+
+msgid "Frequently asked questions"
+msgstr "Domande frequenti"
+
+msgid "Fri, 10:30"
+msgstr "Ven, 10:30"
+
+msgid "Fri, 16:15"
+msgstr "Ven, 16:15"
+
+msgid "Full operator and contact details."
+msgstr "Dati completi del gestore e di contatto."
+
+msgid "GDPR self-service tools for your customers"
+msgstr "Strumenti self-service GDPR per i tuoi clienti"
+
+msgid "GDPR-friendly by design"
+msgstr "Conforme al GDPR fin dalla progettazione"
+
+msgid "German, French, Italian, and English interface"
+msgstr "Interfaccia in tedesco, francese, italiano e inglese"
+
+msgid "Get in touch"
+msgstr "Contattaci"
+
+msgid "Get in touch with the team behind Terminklick."
+msgstr "Mettiti in contatto con il team di Terminklick."
+
+msgid "Get started"
+msgstr "Inizia ora"
+
+msgid "Getting started"
+msgstr "Per iniziare"
+
+msgid "Give your customers a booking page that works around the clock. Set your availability, manage staff and services, and let clients book without an account."
+msgstr "Offri ai tuoi clienti una pagina di prenotazione attiva 24 ore su 24. Imposta la tua disponibilità, gestisci personale e servizi e lascia che i clienti prenotino senza bisogno di un account."
+
+msgid "Haircut &amp; Styling"
+msgstr "Taglio &amp; piega"
+
+msgid "How do I set my availability?"
+msgstr "Come imposto la mia disponibilità?"
+
+msgid "How it works"
+msgstr "Come funziona"
+
+msgid "How long does setup take?"
+msgstr "Quanto tempo richiede la configurazione?"
+
+msgid "How much does Terminklick cost?"
+msgstr "Quanto costa Terminklick?"
+
+msgid "Is my account protected by two-factor authentication?"
+msgstr "Il mio account è protetto dall'autenticazione a due fattori?"
+
+msgid "Is my staff or service count limited?"
+msgstr "Il numero di membri del personale o di servizi è limitato?"
+
+msgid "Is there a limit on staff, services, or bookings?"
+msgstr "Esiste un limite per personale, servizi o prenotazioni?"
+
+msgid "Is there a setup fee?"
+msgstr "È prevista una quota di attivazione?"
+
+msgid "Kept simple, on purpose"
+msgstr "Volutamente semplice"
+
+msgid "Legal"
+msgstr "Legale"
+
+msgid "Let bookings confirm themselves the moment a slot is chosen, or review every request yourself before it's final. Set once in settings, change anytime."
+msgstr ""
+"Lascia che le prenotazioni si confermino da sole non appena viene scelto un orario, oppure verifica ogni richiesta di persona prima che diventi definitiva. Si imposta una volta nelle impostazioni e"
+" si può modificare in qualsiasi momento."
+
+msgid "Let customers book you. Without the phone tag."
+msgstr "Lasciati prenotare. Senza rincorrersi al telefono."
+
+msgid "List who works for you and what you offer, with a duration for each service. No limit on how many you add."
+msgstr "Indica chi lavora per te e cosa offri, con una durata per ogni servizio. Senza alcun limite di numero."
+
+msgid "Live in three steps"
+msgstr "Operativo in tre passaggi"
+
+msgid "Made in Switzerland."
+msgstr "Realizzato in Svizzera."
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Mobile-friendly page at your own link"
+msgstr "Pagina ottimizzata per il mobile, con il tuo link personale"
+
+msgid "Monthly"
+msgstr "Mensile"
+
+msgid "Most businesses add their staff, services, and availability, and publish their booking page within the same day. There's no onboarding call required."
+msgstr "La maggior parte delle aziende aggiunge personale, servizi e disponibilità e pubblica la propria pagina di prenotazione lo stesso giorno. Non è necessaria alcuna chiamata di avvio."
+
+msgid "Multi-language"
+msgstr "Multilingua"
+
+msgid "Multi-language interface"
+msgstr "Interfaccia multilingua"
+
+msgid "No add-ons to buy, no features locked behind a higher tier."
+msgstr "Nessun componente aggiuntivo da acquistare, nessuna funzione riservata a un piano superiore."
+
+msgid "No credit card required to create your account."
+msgstr "Nessuna carta di credito richiesta per creare il tuo account."
+
+msgid "No setup calls, no onboarding project. Most businesses are ready to take their first booking the same day."
+msgstr "Nessuna chiamata di configurazione, nessun progetto di avvio. La maggior parte delle aziende è pronta a ricevere la prima prenotazione lo stesso giorno."
+
+msgid "No third-party trackers or ad cookies"
+msgstr "Nessun tracker o cookie pubblicitario di terze parti"
+
+msgid "No third-party trackers or ad cookies on any page, and customer data is anonymised automatically after a set period. Nothing to configure."
+msgstr "Nessun tracker o cookie pubblicitario di terze parti su nessuna pagina, e i dati dei clienti vengono anonimizzati automaticamente dopo un periodo prestabilito. Niente da configurare."
+
+msgid "No third-party trackers, optional two-factor authentication, and self-service data export or deletion for every customer."
+msgstr "Nessun tracker di terze parti, autenticazione a due fattori opzionale ed esportazione o cancellazione dei dati in self-service per ogni cliente."
+
+msgid "No tiers to compare, no per-seat fees, no features locked behind a higher plan. Everything Terminklick does is included."
+msgstr "Nessun piano da confrontare, nessuna quota per utente, nessuna funzione riservata a un piano superiore. Tutto ciò che fa Terminklick è incluso."
+
+msgid "No. Customers book with just their name, email, and phone number. They manage or cancel their booking later through a private link sent by email, without ever registering."
+msgstr "No. I clienti prenotano solo con nome, e-mail e numero di telefono. Gestiscono o annullano la prenotazione in seguito tramite un link privato inviato via e-mail, senza mai doversi registrare."
+
+msgid "No. The plan includes unlimited staff members, services, and bookings."
+msgstr "No. Il piano include un numero illimitato di membri del personale, servizi e prenotazioni."
+
+msgid "No. There are no third-party trackers, ad cookies, or analytics scripts on the public booking page or your dashboard."
+msgstr "No. Non sono presenti tracker, cookie pubblicitari o script di analisi di terze parti, né sulla pagina di prenotazione pubblica né nella tua dashboard."
+
+msgid "No. Your plan includes unlimited staff members, services, and bookings."
+msgstr "No. Il tuo piano include un numero illimitato di membri del personale, servizi e prenotazioni."
+
+msgid "One dashboard for staff, services, and bookings"
+msgstr "Un'unica dashboard per personale, servizi e prenotazioni"
+
+msgid "One plan, every feature. Nothing to unlock."
+msgstr "Un piano, tutte le funzionalità. Niente da sbloccare."
+
+msgid "One plan, everything included: 18 CHF per month or 160 CHF billed yearly."
+msgstr "Un piano, tutto incluso: 18 CHF al mese oppure 160 CHF con fatturazione annuale."
+
+msgid "One plan, one focus: helping customers book you. We'd rather do that well than add features that get in the way."
+msgstr "Un piano, un solo obiettivo: aiutare i clienti a prenotarti. Preferiamo farlo bene piuttosto che aggiungere funzioni che intralciano."
+
+msgid "One plan. 18 CHF a month."
+msgstr "Un piano. 18 CHF al mese."
+
+msgid "One plan. Every feature. 18 CHF a month."
+msgstr "Un piano. Tutte le funzionalità. 18 CHF al mese."
+
+msgid "One plan. Nothing hidden."
+msgstr "Un piano. Nulla di nascosto."
+
+msgid "One price, billed monthly or yearly. No usage tiers, no surprise invoices."
+msgstr "Un solo prezzo, fatturato mensilmente o annualmente. Nessuna soglia di utilizzo, nessuna fattura a sorpresa."
+
+msgid "Online booking for service businesses"
+msgstr "Prenotazione online per le aziende di servizi"
+
+msgid "Online booking pages for service businesses. Simple to set up, easy for your customers, built with privacy in mind."
+msgstr "Pagine di prenotazione online per le aziende di servizi. Semplici da configurare, semplici per i tuoi clienti, progettate pensando alla privacy."
+
+msgid "Optional \"any available staff\" mode for faster booking"
+msgstr "Modalità opzionale «qualsiasi membro del personale disponibile» per prenotazioni più rapide"
+
+msgid "Optional two-factor authentication"
+msgstr "Autenticazione a due fattori opzionale"
+
+msgid "Plain-text email notifications, no tracking"
+msgstr "Notifiche e-mail in puro testo, senza tracciamento"
+
+msgid "Plain-text notifications"
+msgstr "Notifiche in puro testo"
+
+msgid "Pricing FAQ"
+msgstr "FAQ sui prezzi"
+
+msgid "Pricing and billing"
+msgstr "Prezzi e fatturazione"
+
+msgid "Privacy and security"
+msgstr "Privacy e sicurezza"
+
+msgid "Privacy by default"
+msgstr "Privacy per impostazione predefinita"
+
+msgid "Product"
+msgstr "Prodotto"
+
+msgid "Public booking page"
+msgstr "Pagina di prenotazione pubblica"
+
+msgid "Public booking page with your own link"
+msgstr "Pagina di prenotazione pubblica con il tuo link personale"
+
+msgid "Questions"
+msgstr "Domande"
+
+msgid "Ready to stop juggling phone calls?"
+msgstr "Pronto a smettere di destreggiarti tra le telefonate?"
+
+msgid "Recurring availability and one-off scheduling"
+msgstr "Disponibilità ricorrente e pianificazione occasionale"
+
+msgid "Recurring weekly hours or one-off availability blocks"
+msgstr "Orari settimanali ricorrenti o blocchi di disponibilità occasionali"
+
+msgid "Recurring weekly hours or one-off blocks, with a slot interval you control down to the minute."
+msgstr "Orari settimanali ricorrenti o blocchi occasionali, con un intervallo tra gli slot regolabile al minuto."
+
+msgid "Save 26%"
+msgstr "Risparmia il 26%"
+
+msgid "Security and privacy"
+msgstr "Sicurezza e privacy"
+
+msgid "See all FAQs"
+msgstr "Vedi tutte le FAQ"
+
+msgid "See all features"
+msgstr "Vedi tutte le funzionalità"
+
+msgid "See how it works"
+msgstr "Scopri come funziona"
+
+msgid "See it on your own booking page"
+msgstr "Provalo sulla tua pagina di prenotazione"
+
+msgid "See what's included and how billing works."
+msgstr "Scopri cosa è incluso e come funziona la fatturazione."
+
+msgid "Send us an email"
+msgstr "Inviaci un'e-mail"
+
+msgid "Set up your booking page today and let customers reach you whenever it suits them."
+msgstr "Configura oggi stesso la tua pagina di prenotazione e lascia che i clienti ti contattino quando preferiscono."
+
+msgid "Set your availability"
+msgstr "Imposta la tua disponibilità"
+
+msgid "Share your booking page"
+msgstr "Condividi la tua pagina di prenotazione"
+
+msgid "Simple pricing"
+msgstr "Prezzi semplici"
+
+msgid "Slot spacing you control, from 5 to 120 minutes"
+msgstr "Intervallo tra gli slot regolabile, da 5 a 120 minuti"
+
+msgid "Staff and services"
+msgstr "Personale e servizi"
+
+msgid "Still have questions? Contact us"
+msgstr "Hai ancora domande? Contattaci"
+
+msgid "Straightforward pricing"
+msgstr "Prezzi chiari e trasparenti"
+
+msgid "Swiss-made"
+msgstr "Prodotto in Svizzera"
+
+msgid "Switzerland"
+msgstr "Svizzera"
+
+msgid "Terminklick is built by Laib Technologies GmbH in Romanshorn, Switzerland, to give service businesses a simple, privacy-first booking page."
+msgstr "Terminklick è sviluppato da Laib Technologies GmbH a Romanshorn, in Svizzera, per offrire alle aziende di servizi una pagina di prenotazione semplice e orientata alla privacy."
+
+msgid "Terminklick is made by Laib Technologies GmbH, an independent software company based in Romanshorn, Switzerland."
+msgstr "Terminklick è realizzato da Laib Technologies GmbH, una software house indipendente con sede a Romanshorn, in Svizzera."
+
+msgid "Terminklick is operated by <strong>Laib Technologies GmbH</strong>, registered in Romanshorn, Switzerland (UID CHE-266.537.384)."
+msgstr "Terminklick è gestito da <strong>Laib Technologies GmbH</strong>, registrata a Romanshorn, in Svizzera (UID CHE-266.537.384)."
+
+msgid "The company behind Terminklick"
+msgstr "L'azienda dietro Terminklick"
+
+msgid "Thu, 14:00"
+msgstr "Gio, 14:00"
+
+msgid "Turn on TOTP-based two-factor login for your account, with single-use backup codes in case you lose your device."
+msgstr "Attiva l'accesso a due fattori basato su TOTP per il tuo account, con codici di backup monouso nel caso in cui perdessi il tuo dispositivo."
+
+msgid "Unlimited staff and services"
+msgstr "Personale e servizi illimitati"
+
+msgid "Unlimited staff members and services"
+msgstr "Numero illimitato di membri del personale e servizi"
+
+msgid "View pricing"
+msgstr "Vedi i prezzi"
+
+msgid "What happens to customer data over time?"
+msgstr "Cosa succede ai dati dei clienti nel tempo?"
+
+msgid "What if I want to stop using Terminklick?"
+msgstr "Cosa succede se voglio smettere di usare Terminklick?"
+
+msgid "What is Terminklick?"
+msgstr "Cos'è Terminklick?"
+
+msgid "What languages is Terminklick available in?"
+msgstr "In quali lingue è disponibile Terminklick?"
+
+msgid "What we care about"
+msgstr "Ciò a cui teniamo"
+
+msgid "Why we built it"
+msgstr "Perché lo abbiamo creato"
+
+msgid "Works for one staff member or a whole team"
+msgstr "Funziona per una singola persona o per un intero team"
+
+msgid "Yearly"
+msgstr "Annuale"
+
+msgid "Yes. Choose manual confirmation in your settings and every request waits for your approval. Or leave it on automatic and bookings confirm themselves the moment a slot is chosen."
+msgstr ""
+"Sì. Scegli la conferma manuale nelle impostazioni e ogni richiesta attenderà la tua approvazione. Oppure lascia l'opzione automatica e le prenotazioni si confermeranno da sole non appena viene "
+"scelto un orario."
+
+msgid "Yes. Get in touch and we'll adjust your billing cycle."
+msgstr "Sì. Contattaci e adegueremo il tuo ciclo di fatturazione."
+
+msgid "You can request deletion of your account and all associated data at any time from your account settings."
+msgstr "Puoi richiedere la cancellazione del tuo account e di tutti i dati associati in qualsiasi momento dalle impostazioni del tuo account."
+
+msgid "You can turn on optional two-factor authentication (TOTP, using any standard authenticator app) with single-use backup codes in your account settings."
+msgstr "Puoi attivare l'autenticazione a due fattori opzionale (TOTP, con qualsiasi app di autenticazione standard) con codici di backup monouso nelle impostazioni del tuo account."
+
+msgid "Your dashboard"
+msgstr "La tua dashboard"
+
+msgid "Your dashboard, booking page, and customer emails are available in German, French, Italian, and English."
+msgstr "La tua dashboard, la pagina di prenotazione e le e-mail ai tuoi clienti sono disponibili in tedesco, francese, italiano e inglese."
+
+msgid "Your dashboard, public booking page, and every customer email are available in German, French, Italian, and English."
+msgstr "La tua dashboard, la pagina di prenotazione pubblica e ogni e-mail ai tuoi clienti sono disponibili in tedesco, francese, italiano e inglese."
+
+msgid "month"
+msgstr "mese"
+
+msgid "year"
+msgstr "anno"
+
+msgid "Terminklick gives your business a public booking page. Customers pick a staff member, a service, and a time slot, and the booking lands directly in your dashboard. No phone calls needed."
+msgstr ""
+"Terminklick offre alla tua azienda una pagina di prenotazione pubblica. I clienti scelgono un membro del personale, un servizio e un orario, e la prenotazione arriva direttamente nella tua "
+"dashboard. Nessuna telefonata necessaria."
+
+msgid "Yes, at any time, using the private link they received by email. No account or phone call needed."
+msgstr "Sì, in qualsiasi momento, tramite il link privato ricevuto via e-mail. Senza bisogno di account o telefonate."
+
+msgid "No, one plan includes every feature, so there's nothing to compare or upgrade later."
+msgstr "No, un solo piano include tutte le funzionalità, quindi non c'è nulla da confrontare o aggiornare in seguito."
+
+msgid "German, French, Italian, and English: for your dashboard, your public booking page, and every email sent to your customers."
+msgstr "Tedesco, francese, italiano e inglese: per la tua dashboard, la tua pagina di prenotazione pubblica e ogni e-mail inviata ai tuoi clienti."
+
+msgid "Anna K., Haircut &amp; Styling"
+msgstr "Anna K., Taglio &amp; piega"
+
+msgid "Marco P., Colour &amp; Treatment"
+msgstr "Marco P., Colore &amp; trattamento"
+
+msgid "Julia S., Manicure"
+msgstr "Julia S., Manicure"
+
+msgid "2. Pick a time (Thursday)"
+msgstr "2. Scegli un orario (giovedì)"
+
+msgid "Billed yearly, equivalent to about 13.30 CHF a month."
+msgstr "Fatturazione annuale, equivalente a circa 13.30 CHF al mese."
+
+msgid "No. 18 CHF a month or 160 CHF a year is the full price. There are no setup costs or hidden extras."
+msgstr "No. 18 CHF al mese o 160 CHF all'anno è il prezzo completo. Nessun costo di attivazione né extra nascosto."
+
+msgid ""
+"Too many service businesses still take appointments by phone, one call at a time, with no view of the calendar until someone picks up. Every missed call is a booking that goes to a competitor "
+"instead."
+msgstr ""
+"Troppe aziende di servizi prendono ancora gli appuntamenti per telefono, una chiamata alla volta, senza visibilità sull'agenda finché qualcuno non risponde. Ogni chiamata persa è una prenotazione "
+"che finisce alla concorrenza."
+
+msgid ""
+"Terminklick replaces that with a booking page your customers can use whenever it suits them, while keeping the parts that matter to you (your hours, your staff, your confirmation process) entirely "
+"in your control."
+msgstr ""
+"Terminklick sostituisce tutto ciò con una pagina di prenotazione che i tuoi clienti possono usare quando preferiscono, lasciando comunque interamente nelle tue mani ciò che conta per te (i tuoi "
+"orari, il tuo personale, il tuo processo di conferma)."
+
+msgid "Questions about Terminklick, your account, or anything else: we read every message ourselves."
+msgstr "Domande su Terminklick, sul tuo account o su qualsiasi altra cosa: leggiamo personalmente ogni messaggio."
+
+msgid "Online appointment booking for service businesses"
+msgstr "Prenotazione di appuntamenti online per aziende di servizi"
+
+msgid "Terminklick gives your business a booking page customers can use anytime. No account needed on their end. You set the hours, the services, and the staff; we handle the calendar."
+msgstr ""
+"Terminklick offre alla tua azienda una pagina di prenotazione che i clienti possono usare in qualsiasi momento. Non serve alcun account da parte loro. Tu definisci gli orari, i servizi e il "
+"personale; al calendario pensiamo noi."
+
+msgid "Send customers your personal link. They pick a service, a staff member, and a time. No account, no app to install."
+msgstr "Invia ai tuoi clienti il tuo link personale. Scelgono un servizio, un membro del personale e un orario. Senza account, senza app da installare."
+
+msgid "See new requests as they come in. Confirm automatically, or review each booking yourself: your choice, set once in settings."
+msgstr "Visualizza le nuove richieste non appena arrivano. Conferma automaticamente oppure verifica ogni prenotazione di persona: la scelta è tua, si imposta una volta nelle impostazioni."
+
+msgid "Or 160 CHF billed yearly, saving more than a quarter."
+msgstr "Oppure 160 CHF con fatturazione annuale, risparmiando più di un quarto."
+
+msgid "A public booking page, flexible staff scheduling, and privacy-first tools for service businesses. Everything is included in one plan."
+msgstr "Una pagina di prenotazione pubblica, una pianificazione del personale flessibile e strumenti orientati alla privacy per le aziende di servizi. Tutto è incluso in un unico piano."
+
+msgid "One plan, fully unlocked from day one: a public booking page, staff and service management, flexible availability, and the privacy tools your customers expect."
+msgstr ""
+"Un piano, completamente sbloccato fin dal primo giorno: pagina di prenotazione pubblica, gestione di personale e servizi, disponibilità flessibile e gli strumenti per la privacy che i tuoi clienti "
+"si aspettano."
+
+msgid "Customers pick a staff member, a service, and a time: no account, no app, no back-and-forth. They get a confirmation by email and a private link to view or cancel their booking at any time."
+msgstr ""
+"I clienti scelgono un membro del personale, un servizio e un orario: senza account, senza app, senza andirivieni. Ricevono una conferma via e-mail e un link privato per visualizzare o annullare la "
+"prenotazione in qualsiasi momento."
+
+msgid "Every customer can view, export, or request erasure of their own booking data through a private link, with no account or support ticket needed."
+msgstr "Ogni cliente può visualizzare, esportare o richiedere la cancellazione dei propri dati di prenotazione tramite un link privato, senza bisogno di account o richieste di assistenza."
+
+#, python-format
+msgid "18 CHF a month, or 160 CHF billed yearly. See our <a href=\"%(pricing_url)s\">pricing page</a> for full details."
+msgstr "18 CHF al mese, oppure 160 CHF con fatturazione annuale. Tutti i dettagli nella nostra <a href=\"%(pricing_url)s\">pagina prezzi</a>."
+
+#, python-format
+msgid "Full operator details are listed in our <a href=\"%(legal_url)s\">Legal Notice</a>."
+msgstr "I dati completi del gestore sono disponibili nelle nostre <a href=\"%(legal_url)s\">note legali</a>."
+
+msgid "No. Once a slot is booked or has a pending request, it's no longer offered to other customers, so double-booking isn't possible."
+msgstr "No. Non appena un orario viene prenotato o ha una richiesta in attesa, non viene più proposto ad altri clienti: le doppie prenotazioni sono quindi impossibili."
+

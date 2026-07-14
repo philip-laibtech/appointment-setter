@@ -1,106 +1,84 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load static %}
-{% block title %}{% translate "About" %} — Terminklick{% endblock %}
+{% block title %}{% translate "About" %} | Terminklick{% endblock %}
 
 {% block head %}
+<meta name="description" content="{% translate 'Terminklick is built by Laib Technologies GmbH in Romanshorn, Switzerland, to give service businesses a simple, privacy-first booking page.' %}">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --sb-border: #e5e7eb;
-    --text-primary: #2b364c;
-    --text-muted: #6b7280;
-    --bg-body: #f1f4f4;
-    --topbar-h: 56px;
-  }
-
-  body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: var(--bg-body);
-    color: var(--text-primary);
-    min-height: 100vh;
-  }
-
-  nav {
-    background: #fff;
-    border-bottom: 1px solid var(--sb-border);
-    padding: 0 1.75rem;
-    height: var(--topbar-h);
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-  }
-
-  .brand { display: flex; align-items: center; text-decoration: none; justify-self: start; }
-  .brand img { height: 40px; width: auto; transform: translateY(9px); }
-  .nav-links { display: flex; align-items: center; gap: 1.75rem; justify-self: center; }
-  .nav-actions { display: flex; align-items: center; gap: 1.5rem; justify-self: end; }
-  nav a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
-  nav a:hover { color: var(--text-primary); }
-
-  main {
-    max-width: 760px;
-    margin: 2.5rem auto;
-    padding: 0 1.25rem 4rem;
-  }
-
-  .card {
-    background: #fff;
-    border: 1px solid var(--sb-border);
-    border-radius: 10px;
-    padding: 2.5rem 3rem;
-  }
-
-  h1 { font-size: 1.625rem; font-weight: 700; margin-bottom: 0.375rem; }
-  .meta { font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 2.5rem; }
-
-  p, li {
-    font-size: 0.9375rem;
-    line-height: 1.7;
-    color: #374151;
-  }
-
-  a.back {
-    display: inline-block;
-    margin-bottom: 1.25rem;
-    font-size: 0.875rem;
-    color: var(--text-muted);
-    text-decoration: none;
-  }
-  a.back:hover { color: var(--text-primary); }
-
-  @media (max-width: 600px) {
-    .card { padding: 1.5rem 1.25rem; }
-  }
+{% include "landing/_marketing_styles.html" %}
 </style>
 {% endblock %}
 
 {% block body %}
-<nav>
-  <a class="brand" href="/">
-    <img src="{% static 'img/logo.svg' %}" alt="Terminklick">
-  </a>
-  <div class="nav-links">
-    <a href="{% url 'landing:features' %}">{% translate "Features" %}</a>
-    <a href="{% url 'landing:pricing' %}">{% translate "Pricing" %}</a>
-    <a href="{% url 'landing:about' %}">{% translate "About" %}</a>
-    <a href="{% url 'landing:faq' %}">{% translate "FAQ" %}</a>
-    <a href="{% url 'landing:contact' %}">{% translate "Contact" %}</a>
-  </div>
-  <div class="nav-actions">
-    <a href="{% url 'company_accounts:login' %}">{% translate "Login" %}</a>
-    <a href="{% url 'company_accounts:register' %}">{% translate "Register" %}</a>
-  </div>
-</nav>
+{% include "landing/_nav.html" %}
 
 <main>
-  <a class="back" href="/">&larr; {% translate "Back to home" %}</a>
 
-  <div class="card">
-    <h1>{% translate "About" %}</h1>
-    <p class="meta">{% translate "Coming soon." %}</p>
-    <p>{% translate "More about who we are and why we built Terminklick is on its way." %}</p>
-  </div>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">{% translate "About" %}</span>
+      <h1>{% translate "Built in Switzerland, for businesses that live on their calendar." %}</h1>
+      <p>{% translate "Terminklick is made by Laib Technologies GmbH, an independent software company based in Romanshorn, Switzerland." %}</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container text-page">
+      <h2 style="margin-bottom:1.25rem;">{% translate "Why we built it" %}</h2>
+      <p style="margin-bottom:1rem;">{% translate "Too many service businesses still take appointments by phone, one call at a time, with no view of the calendar until someone picks up. Every missed call is a booking that goes to a competitor instead." %}</p>
+      <p>{% translate "Terminklick replaces that with a booking page your customers can use whenever it suits them, while keeping the parts that matter to you (your hours, your staff, your confirmation process) entirely in your control." %}</p>
+    </div>
+  </section>
+
+  <section class="bg-alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">{% translate "What we care about" %}</span>
+        <h2>{% translate "A few principles we don't compromise on" %}</h2>
+      </div>
+      <div class="grid grid-3">
+        <div class="card feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6l8-4z"/></svg></div>
+          <h3>{% translate "Privacy by default" %}</h3>
+          <p>{% translate "No third-party trackers or ad cookies on any page, and customer data is anonymised automatically after a set period. Nothing to configure." %}</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+          <h3>{% translate "Kept simple, on purpose" %}</h3>
+          <p>{% translate "One plan, one focus: helping customers book you. We'd rather do that well than add features that get in the way." %}</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+          <h3>{% translate "Straightforward pricing" %}</h3>
+          <p>{% translate "One price, billed monthly or yearly. No usage tiers, no surprise invoices." %}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container text-page">
+      <div class="card" style="padding:2.5rem;">
+        <h3 style="margin-bottom:0.75rem;">{% translate "The company behind Terminklick" %}</h3>
+        <p style="margin-bottom:0.5rem;">{% blocktranslate trimmed %}Terminklick is operated by <strong>Laib Technologies GmbH</strong>, registered in Romanshorn, Switzerland (UID CHE-266.537.384).{% endblocktranslate %}</p>
+        {% url 'landing:legal_notice' as legal_url %}
+        <p>{% blocktranslate trimmed %}Full operator details are listed in our <a href="{{ legal_url }}">Legal Notice</a>.{% endblocktranslate %}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-alt">
+    <div class="container" style="max-width:760px;">
+      <div class="cta-band">
+        <h2>{% translate "See it on your own booking page" %}</h2>
+        <p>{% translate "Create your account and publish your first booking page today." %}</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'company_accounts:register' %}">{% translate "Get started" %}</a>
+      </div>
+    </div>
+  </section>
+
 </main>
+
+{% include "landing/_footer.html" %}
 {% endblock %}

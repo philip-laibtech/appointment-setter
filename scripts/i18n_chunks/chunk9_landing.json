@@ -1,0 +1,957 @@
+{
+ "1. Choose a service": {
+  "de": "1. Leistung auswählen",
+  "fr": "1. Choisissez une prestation",
+  "it": "1. Scegli un servizio"
+ },
+ "45 min": {
+  "de": "45 Min.",
+  "fr": "45 min",
+  "it": "45 min"
+ },
+ "90 min": {
+  "de": "90 Min.",
+  "fr": "90 min",
+  "it": "90 min"
+ },
+ "A booking page that just works": {
+  "de": "Eine Buchungsseite, die einfach funktioniert",
+  "fr": "Une page de réservation qui fonctionne, tout simplement",
+  "it": "Una pagina di prenotazione che funziona e basta"
+ },
+ "A clean, mobile-friendly page at your own link. Customers book in under a minute, with no account required.": {
+  "de": "Eine übersichtliche, mobilfreundliche Seite unter Ihrem eigenen Link. Kundinnen und Kunden buchen in weniger als einer Minute, ganz ohne Konto.",
+  "fr": "Une page claire et adaptée aux mobiles, accessible via votre propre lien. Vos clients réservent en moins d'une minute, sans compte.",
+  "it": "Una pagina chiara e ottimizzata per il mobile, raggiungibile dal tuo link personale. I clienti prenotano in meno di un minuto, senza bisogno di un account."
+ },
+ "A few principles we don't compromise on": {
+  "de": "Ein paar Prinzipien, bei denen wir keine Kompromisse eingehen",
+  "fr": "Quelques principes sur lesquels nous ne transigeons pas",
+  "it": "Alcuni principi su cui non scendiamo a compromessi"
+ },
+ "Accept bookings automatically, or review and confirm each one yourself before it's final.": {
+  "de": "Buchungen automatisch akzeptieren oder jede einzelne selbst prüfen und bestätigen, bevor sie verbindlich wird.",
+  "fr": "Acceptez les réservations automatiquement, ou examinez et confirmez chacune vous-même avant qu'elle ne soit définitive.",
+  "it": "Accetta le prenotazioni automaticamente, oppure verifica e conferma ciascuna di persona prima che diventi definitiva."
+ },
+ "Add as many staff members and services as you need, and decide who offers what.": {
+  "de": "Fügen Sie so viele Mitarbeitende und Dienstleistungen hinzu, wie Sie brauchen, und legen Sie fest, wer was anbietet.",
+  "fr": "Ajoutez autant de membres du personnel et de prestations que nécessaire, et définissez qui propose quoi.",
+  "it": "Aggiungi tutti i membri del personale e i servizi di cui hai bisogno, e decidi chi offre cosa."
+ },
+ "Add every staff member and service you offer, with no limit on either. Assign which staff perform which services, set a duration for each, and switch between automatic and manual booking confirmation whenever you like.": {
+  "de": "Erfassen Sie jedes Teammitglied und jede Dienstleistung, die Sie anbieten, ohne Obergrenze. Legen Sie fest, wer welche Leistung ausführt, bestimmen Sie die Dauer je Leistung und wechseln Sie jederzeit zwischen automatischer und manueller Buchungsbestätigung.",
+  "fr": "Ajoutez chaque membre du personnel et chaque prestation que vous proposez, sans aucune limite. Définissez qui réalise quelle prestation, indiquez une durée pour chacune, et basculez à tout moment entre confirmation automatique et manuelle des réservations.",
+  "it": "Aggiungi ogni membro del personale e ogni servizio che offri, senza alcun limite. Stabilisci chi esegue quale servizio, imposta una durata per ciascuno e passa in qualsiasi momento tra conferma automatica e manuale delle prenotazioni."
+ },
+ "Add your staff and services": {
+  "de": "Personal und Dienstleistungen hinzufügen",
+  "fr": "Ajoutez votre personnel et vos prestations",
+  "it": "Aggiungi personale e servizi"
+ },
+ "And the rest": {
+  "de": "Und das war noch nicht alles",
+  "fr": "Et ce n'est pas tout",
+  "it": "E non è tutto"
+ },
+ "Answers to common questions about how Terminklick works, pricing, security, and customer data.": {
+  "de": "Antworten auf häufige Fragen zur Funktionsweise von Terminklick, zu Preisen, Sicherheit und Kundendaten.",
+  "fr": "Réponses aux questions fréquentes sur le fonctionnement de Terminklick, les tarifs, la sécurité et les données clients.",
+  "it": "Risposte alle domande più frequenti sul funzionamento di Terminklick, sui prezzi, sulla sicurezza e sui dati dei clienti."
+ },
+ "Automatic data cleanup": {
+  "de": "Automatische Datenbereinigung",
+  "fr": "Nettoyage automatique des données",
+  "it": "Pulizia automatica dei dati"
+ },
+ "Automatic or manual booking confirmation": {
+  "de": "Automatische oder manuelle Buchungsbestätigung",
+  "fr": "Confirmation de réservation automatique ou manuelle",
+  "it": "Conferma della prenotazione automatica o manuale"
+ },
+ "Automatic or manual confirmation": {
+  "de": "Automatische oder manuelle Bestätigung",
+  "fr": "Confirmation automatique ou manuelle",
+  "it": "Conferma automatica o manuale"
+ },
+ "Automatic or manual confirmation, per your workflow": {
+  "de": "Automatische oder manuelle Bestätigung, passend zu Ihrem Ablauf",
+  "fr": "Confirmation automatique ou manuelle, selon votre façon de travailler",
+  "it": "Conferma automatica o manuale, in base al tuo modo di lavorare"
+ },
+ "Availability": {
+  "de": "Verfügbarkeit",
+  "fr": "Disponibilités",
+  "it": "Disponibilità"
+ },
+ "Billed monthly.": {
+  "de": "Monatliche Abrechnung.",
+  "fr": "Facturation mensuelle.",
+  "it": "Fatturazione mensile."
+ },
+ "Booking confirmed": {
+  "de": "Buchung bestätigt",
+  "fr": "Réservation confirmée",
+  "it": "Prenotazione confermata"
+ },
+ "Bookings and availability": {
+  "de": "Buchungen und Verfügbarkeit",
+  "fr": "Réservations et disponibilités",
+  "it": "Prenotazioni e disponibilità"
+ },
+ "Built for how service businesses actually run": {
+  "de": "Gemacht für den Alltag von Dienstleistungsunternehmen",
+  "fr": "Pensé pour le quotidien réel des entreprises de services",
+  "it": "Pensato per il funzionamento reale delle aziende di servizi"
+ },
+ "Built in Switzerland, for businesses that live on their calendar.": {
+  "de": "In der Schweiz entwickelt für Unternehmen, deren Alltag sich um den Terminkalender dreht.",
+  "fr": "Conçu en Suisse, pour les entreprises dont le quotidien tourne autour de leur agenda.",
+  "it": "Sviluppato in Svizzera, per le aziende che vivono in base alla propria agenda."
+ },
+ "Built with privacy as a feature, not an afterthought": {
+  "de": "Datenschutz als Funktion, nicht als Nachgedanke",
+  "fr": "La confidentialité comme fonctionnalité à part entière, pas comme réflexion après coup",
+  "it": "La privacy come funzionalità vera e propria, non come ripensamento"
+ },
+ "Can I review bookings before they're confirmed?": {
+  "de": "Kann ich Buchungen prüfen, bevor sie bestätigt werden?",
+  "fr": "Puis-je vérifier les réservations avant qu'elles soient confirmées ?",
+  "it": "Posso verificare le prenotazioni prima che vengano confermate?"
+ },
+ "Can I switch between monthly and yearly billing?": {
+  "de": "Kann ich zwischen monatlicher und jährlicher Abrechnung wechseln?",
+  "fr": "Puis-je passer d'une facturation mensuelle à annuelle ?",
+  "it": "Posso passare dalla fatturazione mensile a quella annuale?"
+ },
+ "Can a customer cancel their own booking?": {
+  "de": "Kann eine Kundin oder ein Kunde die eigene Buchung stornieren?",
+  "fr": "Un client peut-il annuler sa propre réservation ?",
+  "it": "Un cliente può annullare la propria prenotazione?"
+ },
+ "Can two customers book the same time slot by mistake?": {
+  "de": "Können zwei Kundinnen oder Kunden versehentlich denselben Termin buchen?",
+  "fr": "Deux clients peuvent-ils réserver le même créneau par erreur ?",
+  "it": "Due clienti possono prenotare per errore lo stesso orario?"
+ },
+ "Can't find what you're looking for? Reach out on our Contact page.": {
+  "de": "Nicht das Richtige gefunden? Kontaktieren Sie uns über unsere Kontaktseite.",
+  "fr": "Vous ne trouvez pas ce que vous cherchez ? Contactez-nous via notre page de contact.",
+  "it": "Non trovi quello che cerchi? Contattaci tramite la nostra pagina Contatti."
+ },
+ "Colour &amp; Treatment": {
+  "de": "Farbe &amp; Behandlung",
+  "fr": "Coloration &amp; soin",
+  "it": "Colore &amp; trattamento"
+ },
+ "Common questions about bookings, pricing, and security.": {
+  "de": "Häufige Fragen zu Buchungen, Preisen und Sicherheit.",
+  "fr": "Questions fréquentes sur les réservations, les tarifs et la sécurité.",
+  "it": "Domande frequenti su prenotazioni, prezzi e sicurezza."
+ },
+ "Confirmation your way": {
+  "de": "Bestätigung nach Ihren Regeln",
+  "fr": "La confirmation selon vos règles",
+  "it": "La conferma come preferisci"
+ },
+ "Create your account": {
+  "de": "Konto erstellen",
+  "fr": "Créez votre compte",
+  "it": "Crea il tuo account"
+ },
+ "Create your account and publish your first booking page today.": {
+  "de": "Erstellen Sie noch heute Ihr Konto und veröffentlichen Sie Ihre erste Buchungsseite.",
+  "fr": "Créez votre compte dès aujourd'hui et publiez votre première page de réservation.",
+  "it": "Crea oggi stesso il tuo account e pubblica la tua prima pagina di prenotazione."
+ },
+ "Customer contact details are anonymised automatically a set number of days after the appointment, keeping your records lean by default.": {
+  "de": "Kontaktdaten von Kundinnen und Kunden werden automatisch nach einer festgelegten Anzahl Tage nach dem Termin anonymisiert. Ihre Daten bleiben so von Grund auf schlank.",
+  "fr": "Les coordonnées des clients sont anonymisées automatiquement un nombre défini de jours après le rendez-vous, ce qui garde vos données à jour sans effort.",
+  "it": "I dati di contatto dei clienti vengono anonimizzati automaticamente dopo un numero prestabilito di giorni dall'appuntamento, mantenendo i tuoi archivi essenziali per impostazione predefinita."
+ },
+ "Customer contact details are anonymised automatically a set number of days after the appointment. Customers can also request an export or deletion of their own data at any time through their private booking link.": {
+  "de": "Kontaktdaten von Kundinnen und Kunden werden automatisch nach einer festgelegten Anzahl Tage nach dem Termin anonymisiert. Kundinnen und Kunden können zudem jederzeit über ihren privaten Buchungslink den Export oder die Löschung ihrer eigenen Daten anfordern.",
+  "fr": "Les coordonnées des clients sont anonymisées automatiquement un nombre défini de jours après le rendez-vous. Les clients peuvent aussi demander à tout moment l'export ou la suppression de leurs propres données via leur lien de réservation privé.",
+  "it": "I dati di contatto dei clienti vengono anonimizzati automaticamente dopo un numero prestabilito di giorni dall'appuntamento. I clienti possono inoltre richiedere in qualsiasi momento l'esportazione o la cancellazione dei propri dati tramite il loro link di prenotazione privato."
+ },
+ "Customer data rights, built in": {
+  "de": "Datenrechte für Kundinnen und Kunden, von Anfang an integriert",
+  "fr": "Les droits sur les données des clients, intégrés d'office",
+  "it": "Diritti sui dati dei clienti, integrati di serie"
+ },
+ "Customers and staff get plain-text emails for each step: new request, confirmation, decline, or cancellation. No tracking pixels, no HTML email trackers.": {
+  "de": "Kundinnen, Kunden und Personal erhalten zu jedem Schritt eine reine Text-E-Mail: neue Anfrage, Bestätigung, Ablehnung oder Stornierung. Keine Tracking-Pixel, keine HTML-E-Mail-Tracker.",
+  "fr": "Clients et personnel reçoivent un e-mail en texte brut à chaque étape : nouvelle demande, confirmation, refus ou annulation. Aucun pixel de suivi, aucun traqueur dans les e-mails HTML.",
+  "it": "Clienti e personale ricevono un'e-mail in puro testo per ogni fase: nuova richiesta, conferma, rifiuto o annullamento. Nessun pixel di tracciamento, nessun tracker nelle e-mail HTML."
+ },
+ "Define recurring weekly hours in a few clicks, or add one-off blocks for specific dates. You can change either at any time.": {
+  "de": "Legen Sie in wenigen Klicks wiederkehrende Wochenarbeitszeiten fest oder fügen Sie einmalige Blöcke für bestimmte Tage hinzu. Beides können Sie jederzeit ändern.",
+  "fr": "Définissez des horaires hebdomadaires récurrents en quelques clics, ou ajoutez des blocs ponctuels pour des dates précises. Vous pouvez modifier les deux à tout moment.",
+  "it": "Definisci orari settimanali ricorrenti in pochi clic, oppure aggiungi blocchi occasionali per date specifiche. Puoi modificare entrambi in qualsiasi momento."
+ },
+ "Define recurring weekly hours in a few clicks, or block off one-off days. Change it anytime as your schedule shifts.": {
+  "de": "Legen Sie in wenigen Klicks wiederkehrende Wochenarbeitszeiten fest oder blockieren Sie einzelne Tage. Passen Sie es jederzeit an, wenn sich Ihr Zeitplan ändert.",
+  "fr": "Définissez des horaires hebdomadaires récurrents en quelques clics, ou bloquez des journées ponctuelles. Modifiez-les à tout moment selon vos changements d'emploi du temps.",
+  "it": "Definisci orari settimanali ricorrenti in pochi clic, oppure blocca singole giornate. Modificali in qualsiasi momento se il tuo programma cambia."
+ },
+ "Do my customers need to create an account?": {
+  "de": "Müssen meine Kundinnen und Kunden ein Konto erstellen?",
+  "fr": "Mes clients doivent-ils créer un compte ?",
+  "it": "I miei clienti devono creare un account?"
+ },
+ "Do you offer more than one plan?": {
+  "de": "Gibt es mehr als einen Plan?",
+  "fr": "Proposez-vous plusieurs offres ?",
+  "it": "Offrite più di un piano?"
+ },
+ "Does Terminklick track my customers?": {
+  "de": "Verfolgt Terminklick meine Kundinnen und Kunden (Tracking)?",
+  "fr": "Terminklick suit-il mes clients (tracking) ?",
+  "it": "Terminklick traccia i miei clienti?"
+ },
+ "Double-booking prevented automatically": {
+  "de": "Doppelbuchungen werden automatisch verhindert",
+  "fr": "Double réservation évitée automatiquement",
+  "it": "Doppie prenotazioni evitate automaticamente"
+ },
+ "Email notifications for you and your customers": {
+  "de": "E-Mail-Benachrichtigungen für Sie und Ihre Kundschaft",
+  "fr": "Notifications par e-mail pour vous et vos clients",
+  "it": "Notifiche via e-mail per te e per i tuoi clienti"
+ },
+ "Email us": {
+  "de": "E-Mail schreiben",
+  "fr": "Écrivez-nous",
+  "it": "Scrivici"
+ },
+ "Every booking, in one place": {
+  "de": "Jede Buchung an einem Ort",
+  "fr": "Toutes vos réservations au même endroit",
+  "it": "Tutte le prenotazioni in un unico posto"
+ },
+ "Everything a booking page needs. Nothing it doesn't.": {
+  "de": "Alles, was eine Buchungsseite braucht. Nichts, was sie nicht braucht.",
+  "fr": "Tout ce dont une page de réservation a besoin. Rien de superflu.",
+  "it": "Tutto ciò che serve a una pagina di prenotazione. Niente di superfluo."
+ },
+ "Everything included": {
+  "de": "Alles inklusive",
+  "fr": "Tout est inclus",
+  "it": "Tutto incluso"
+ },
+ "Flexible availability": {
+  "de": "Flexible Verfügbarkeit",
+  "fr": "Disponibilités flexibles",
+  "it": "Disponibilità flessibile"
+ },
+ "For your business": {
+  "de": "Für Ihr Unternehmen",
+  "fr": "Pour votre entreprise",
+  "it": "Per la tua azienda"
+ },
+ "For your customers": {
+  "de": "Für Ihre Kundschaft",
+  "fr": "Pour vos clients",
+  "it": "Per i tuoi clienti"
+ },
+ "Frequently asked questions": {
+  "de": "Häufig gestellte Fragen",
+  "fr": "Questions fréquentes",
+  "it": "Domande frequenti"
+ },
+ "Fri, 10:30": {
+  "de": "Fr., 10:30",
+  "fr": "Ven. 10h30",
+  "it": "Ven, 10:30"
+ },
+ "Fri, 16:15": {
+  "de": "Fr., 16:15",
+  "fr": "Ven. 16h15",
+  "it": "Ven, 16:15"
+ },
+ "Full operator and contact details.": {
+  "de": "Vollständige Betreiber- und Kontaktangaben.",
+  "fr": "Coordonnées complètes de l'exploitant et de contact.",
+  "it": "Dati completi del gestore e di contatto."
+ },
+ "GDPR self-service tools for your customers": {
+  "de": "DSGVO-Selfservice-Tools für Ihre Kundschaft",
+  "fr": "Outils libre-service RGPD pour vos clients",
+  "it": "Strumenti self-service GDPR per i tuoi clienti"
+ },
+ "GDPR-friendly by design": {
+  "de": "DSGVO-freundlich von Grund auf",
+  "fr": "Conforme RGPD par conception",
+  "it": "Conforme al GDPR fin dalla progettazione"
+ },
+ "German, French, Italian, and English interface": {
+  "de": "Oberfläche auf Deutsch, Französisch, Italienisch und Englisch",
+  "fr": "Interface en allemand, français, italien et anglais",
+  "it": "Interfaccia in tedesco, francese, italiano e inglese"
+ },
+ "Get in touch": {
+  "de": "Kontakt aufnehmen",
+  "fr": "Contactez-nous",
+  "it": "Contattaci"
+ },
+ "Get in touch with the team behind Terminklick.": {
+  "de": "Nehmen Sie Kontakt mit dem Team hinter Terminklick auf.",
+  "fr": "Contactez l'équipe derrière Terminklick.",
+  "it": "Mettiti in contatto con il team di Terminklick."
+ },
+ "Get started": {
+  "de": "Jetzt starten",
+  "fr": "Commencer",
+  "it": "Inizia ora"
+ },
+ "Getting started": {
+  "de": "Erste Schritte",
+  "fr": "Premiers pas",
+  "it": "Per iniziare"
+ },
+ "Give your customers a booking page that works around the clock. Set your availability, manage staff and services, and let clients book without an account.": {
+  "de": "Bieten Sie Ihrer Kundschaft eine Buchungsseite, die rund um die Uhr funktioniert. Legen Sie Ihre Verfügbarkeit fest, verwalten Sie Personal und Dienstleistungen und lassen Sie Kundinnen und Kunden ohne Konto buchen.",
+  "fr": "Offrez à vos clients une page de réservation disponible 24h/24. Définissez vos disponibilités, gérez votre personnel et vos prestations, et laissez vos clients réserver sans compte.",
+  "it": "Offri ai tuoi clienti una pagina di prenotazione attiva 24 ore su 24. Imposta la tua disponibilità, gestisci personale e servizi e lascia che i clienti prenotino senza bisogno di un account."
+ },
+ "Haircut &amp; Styling": {
+  "de": "Haarschnitt &amp; Styling",
+  "fr": "Coupe &amp; coiffage",
+  "it": "Taglio &amp; piega"
+ },
+ "How do I set my availability?": {
+  "de": "Wie lege ich meine Verfügbarkeit fest?",
+  "fr": "Comment définir mes disponibilités ?",
+  "it": "Come imposto la mia disponibilità?"
+ },
+ "How it works": {
+  "de": "So funktioniert's",
+  "fr": "Comment ça marche",
+  "it": "Come funziona"
+ },
+ "How long does setup take?": {
+  "de": "Wie lange dauert die Einrichtung?",
+  "fr": "Combien de temps prend la mise en place ?",
+  "it": "Quanto tempo richiede la configurazione?"
+ },
+ "How much does Terminklick cost?": {
+  "de": "Was kostet Terminklick?",
+  "fr": "Combien coûte Terminklick ?",
+  "it": "Quanto costa Terminklick?"
+ },
+ "Is my account protected by two-factor authentication?": {
+  "de": "Ist mein Konto durch Zwei-Faktor-Authentifizierung geschützt?",
+  "fr": "Mon compte est-il protégé par l'authentification à deux facteurs ?",
+  "it": "Il mio account è protetto dall'autenticazione a due fattori?"
+ },
+ "Is my staff or service count limited?": {
+  "de": "Ist die Anzahl an Personal oder Dienstleistungen begrenzt?",
+  "fr": "Le nombre de membres du personnel ou de prestations est-il limité ?",
+  "it": "Il numero di membri del personale o di servizi è limitato?"
+ },
+ "Is there a limit on staff, services, or bookings?": {
+  "de": "Gibt es eine Begrenzung bei Personal, Dienstleistungen oder Buchungen?",
+  "fr": "Y a-t-il une limite sur le personnel, les prestations ou les réservations ?",
+  "it": "Esiste un limite per personale, servizi o prenotazioni?"
+ },
+ "Is there a setup fee?": {
+  "de": "Fällt eine Einrichtungsgebühr an?",
+  "fr": "Y a-t-il des frais de mise en place ?",
+  "it": "È prevista una quota di attivazione?"
+ },
+ "Kept simple, on purpose": {
+  "de": "Bewusst einfach gehalten",
+  "fr": "Volontairement simple",
+  "it": "Volutamente semplice"
+ },
+ "Legal": {
+  "de": "Rechtliches",
+  "fr": "Juridique",
+  "it": "Legale"
+ },
+ "Let bookings confirm themselves the moment a slot is chosen, or review every request yourself before it's final. Set once in settings, change anytime.": {
+  "de": "Lassen Sie Buchungen sich selbst bestätigen, sobald ein Termin gewählt wird, oder prüfen Sie jede Anfrage selbst, bevor sie verbindlich wird. Einmal in den Einstellungen festgelegt, jederzeit änderbar.",
+  "fr": "Laissez les réservations se confirmer automatiquement dès qu'un créneau est choisi, ou examinez chaque demande vous-même avant qu'elle soit définitive. Réglable une fois dans les paramètres, modifiable à tout moment.",
+  "it": "Lascia che le prenotazioni si confermino da sole non appena viene scelto un orario, oppure verifica ogni richiesta di persona prima che diventi definitiva. Si imposta una volta nelle impostazioni e si può modificare in qualsiasi momento."
+ },
+ "Let customers book you. Without the phone tag.": {
+  "de": "Lassen Sie sich buchen. Ohne Telefon-Pingpong.",
+  "fr": "Laissez vos clients vous réserver. Sans jouer au téléphone.",
+  "it": "Lasciati prenotare. Senza rincorrersi al telefono."
+ },
+ "List who works for you and what you offer, with a duration for each service. No limit on how many you add.": {
+  "de": "Erfassen Sie, wer bei Ihnen arbeitet und was Sie anbieten, inklusive Dauer je Dienstleistung. Ohne Obergrenze.",
+  "fr": "Indiquez qui travaille pour vous et ce que vous proposez, avec une durée pour chaque prestation. Sans limite de nombre.",
+  "it": "Indica chi lavora per te e cosa offri, con una durata per ogni servizio. Senza alcun limite di numero."
+ },
+ "Live in three steps": {
+  "de": "In drei Schritten startklar",
+  "fr": "Opérationnel en trois étapes",
+  "it": "Operativo in tre passaggi"
+ },
+ "Made in Switzerland.": {
+  "de": "Hergestellt in der Schweiz.",
+  "fr": "Conçu en Suisse.",
+  "it": "Realizzato in Svizzera."
+ },
+ "Menu": {
+  "de": "Menü",
+  "fr": "Menu",
+  "it": "Menu"
+ },
+ "Mobile-friendly page at your own link": {
+  "de": "Mobilfreundliche Seite unter Ihrem eigenen Link",
+  "fr": "Page adaptée aux mobiles, accessible via votre propre lien",
+  "it": "Pagina ottimizzata per il mobile, con il tuo link personale"
+ },
+ "Monthly": {
+  "de": "Monatlich",
+  "fr": "Mensuel",
+  "it": "Mensile"
+ },
+ "Most businesses add their staff, services, and availability, and publish their booking page within the same day. There's no onboarding call required.": {
+  "de": "Die meisten Unternehmen erfassen Personal, Dienstleistungen und Verfügbarkeit und veröffentlichen ihre Buchungsseite noch am selben Tag. Ein Einführungsgespräch ist nicht nötig.",
+  "fr": "La plupart des entreprises ajoutent leur personnel, leurs prestations et leurs disponibilités, puis publient leur page de réservation le jour même. Aucun appel d'intégration n'est nécessaire.",
+  "it": "La maggior parte delle aziende aggiunge personale, servizi e disponibilità e pubblica la propria pagina di prenotazione lo stesso giorno. Non è necessaria alcuna chiamata di avvio."
+ },
+ "Multi-language": {
+  "de": "Mehrsprachig",
+  "fr": "Multilingue",
+  "it": "Multilingua"
+ },
+ "Multi-language interface": {
+  "de": "Mehrsprachige Oberfläche",
+  "fr": "Interface multilingue",
+  "it": "Interfaccia multilingua"
+ },
+ "No add-ons to buy, no features locked behind a higher tier.": {
+  "de": "Keine Zusatzkäufe, keine Funktionen hinter einem höheren Plan versteckt.",
+  "fr": "Aucun module complémentaire à acheter, aucune fonctionnalité réservée à une offre supérieure.",
+  "it": "Nessun componente aggiuntivo da acquistare, nessuna funzione riservata a un piano superiore."
+ },
+ "No credit card required to create your account.": {
+  "de": "Keine Kreditkarte nötig, um Ihr Konto zu erstellen.",
+  "fr": "Aucune carte de crédit requise pour créer votre compte.",
+  "it": "Nessuna carta di credito richiesta per creare il tuo account."
+ },
+ "No setup calls, no onboarding project. Most businesses are ready to take their first booking the same day.": {
+  "de": "Keine Einrichtungsgespräche, kein Onboarding-Projekt. Die meisten Unternehmen sind noch am selben Tag bereit für die erste Buchung.",
+  "fr": "Aucun appel de mise en place, aucun projet d'intégration. La plupart des entreprises sont prêtes à recevoir leur première réservation le jour même.",
+  "it": "Nessuna chiamata di configurazione, nessun progetto di avvio. La maggior parte delle aziende è pronta a ricevere la prima prenotazione lo stesso giorno."
+ },
+ "No third-party trackers or ad cookies": {
+  "de": "Keine Tracker oder Werbe-Cookies von Drittanbietern",
+  "fr": "Aucun traqueur ni cookie publicitaire tiers",
+  "it": "Nessun tracker o cookie pubblicitario di terze parti"
+ },
+ "No third-party trackers or ad cookies on any page, and customer data is anonymised automatically after a set period. Nothing to configure.": {
+  "de": "Keine Tracker oder Werbe-Cookies von Drittanbietern auf irgendeiner Seite, und Kundendaten werden nach einer festgelegten Frist automatisch anonymisiert. Nichts zu konfigurieren.",
+  "fr": "Aucun traqueur ni cookie publicitaire tiers sur aucune page, et les données clients sont anonymisées automatiquement après une période définie. Rien à configurer.",
+  "it": "Nessun tracker o cookie pubblicitario di terze parti su nessuna pagina, e i dati dei clienti vengono anonimizzati automaticamente dopo un periodo prestabilito. Niente da configurare."
+ },
+ "No third-party trackers, optional two-factor authentication, and self-service data export or deletion for every customer.": {
+  "de": "Keine Tracker von Drittanbietern, optionale Zwei-Faktor-Authentifizierung und Selfservice-Export oder -Löschung der Daten für jede Kundin und jeden Kunden.",
+  "fr": "Aucun traqueur tiers, authentification à deux facteurs optionnelle, et export ou suppression des données en libre-service pour chaque client.",
+  "it": "Nessun tracker di terze parti, autenticazione a due fattori opzionale ed esportazione o cancellazione dei dati in self-service per ogni cliente."
+ },
+ "No tiers to compare, no per-seat fees, no features locked behind a higher plan. Everything Terminklick does is included.": {
+  "de": "Keine Pläne zum Vergleichen, keine Gebühren pro Nutzer, keine Funktionen hinter einem höheren Plan versteckt. Alles, was Terminklick kann, ist inklusive.",
+  "fr": "Aucune offre à comparer, aucuns frais par utilisateur, aucune fonctionnalité réservée à une offre supérieure. Tout ce que fait Terminklick est inclus.",
+  "it": "Nessun piano da confrontare, nessuna quota per utente, nessuna funzione riservata a un piano superiore. Tutto ciò che fa Terminklick è incluso."
+ },
+ "No. Customers book with just their name, email, and phone number. They manage or cancel their booking later through a private link sent by email, without ever registering.": {
+  "de": "Nein. Kundinnen und Kunden buchen nur mit Name, E-Mail-Adresse und Telefonnummer. Sie verwalten oder stornieren ihre Buchung später über einen privaten, per E-Mail zugesandten Link, ganz ohne Registrierung.",
+  "fr": "Non. Les clients réservent uniquement avec leur nom, e-mail et numéro de téléphone. Ils gèrent ou annulent ensuite leur réservation via un lien privé envoyé par e-mail, sans jamais s'inscrire.",
+  "it": "No. I clienti prenotano solo con nome, e-mail e numero di telefono. Gestiscono o annullano la prenotazione in seguito tramite un link privato inviato via e-mail, senza mai doversi registrare."
+ },
+ "No. Once a slot is booked or has a pending request, it's no longer offered to other customers, so double-booking isn't possible.": {
+  "de": "Nein. Sobald ein Termin gebucht ist oder eine Anfrage aussteht, wird er anderen Kundinnen und Kunden nicht mehr angeboten. Doppelbuchungen sind damit ausgeschlossen.",
+  "fr": "Non. Dès qu'un créneau est réservé ou fait l'objet d'une demande en attente, il n'est plus proposé aux autres clients : la double réservation est donc impossible.",
+  "it": "No. Non appena un orario viene prenotato o ha una richiesta in attesa, non viene più proposto ad altri clienti: le doppie prenotazioni sono quindi impossibili."
+ },
+ "No. The plan includes unlimited staff members, services, and bookings.": {
+  "de": "Nein. Der Plan umfasst unbegrenzt viele Mitarbeitende, Dienstleistungen und Buchungen.",
+  "fr": "Non. L'offre inclut un nombre illimité de membres du personnel, de prestations et de réservations.",
+  "it": "No. Il piano include un numero illimitato di membri del personale, servizi e prenotazioni."
+ },
+ "No. There are no third-party trackers, ad cookies, or analytics scripts on the public booking page or your dashboard.": {
+  "de": "Nein. Weder auf der öffentlichen Buchungsseite noch in Ihrem Dashboard gibt es Tracker, Werbe-Cookies oder Analyse-Skripte von Drittanbietern.",
+  "fr": "Non. Il n'y a aucun traqueur, cookie publicitaire ou script d'analyse tiers, ni sur la page de réservation publique ni dans votre tableau de bord.",
+  "it": "No. Non sono presenti tracker, cookie pubblicitari o script di analisi di terze parti, né sulla pagina di prenotazione pubblica né nella tua dashboard."
+ },
+ "No. Your plan includes unlimited staff members, services, and bookings.": {
+  "de": "Nein. Ihr Plan umfasst unbegrenzt viele Mitarbeitende, Dienstleistungen und Buchungen.",
+  "fr": "Non. Votre offre inclut un nombre illimité de membres du personnel, de prestations et de réservations.",
+  "it": "No. Il tuo piano include un numero illimitato di membri del personale, servizi e prenotazioni."
+ },
+ "One dashboard for staff, services, and bookings": {
+  "de": "Ein Dashboard für Personal, Dienstleistungen und Buchungen",
+  "fr": "Un seul tableau de bord pour le personnel, les prestations et les réservations",
+  "it": "Un'unica dashboard per personale, servizi e prenotazioni"
+ },
+ "One plan, every feature. Nothing to unlock.": {
+  "de": "Ein Plan, alle Funktionen. Nichts freizuschalten.",
+  "fr": "Une offre, toutes les fonctionnalités. Rien à débloquer.",
+  "it": "Un piano, tutte le funzionalità. Niente da sbloccare."
+ },
+ "One plan, everything included: 18 CHF per month or 160 CHF billed yearly.": {
+  "de": "Ein Plan, alles inklusive: 18 CHF pro Monat oder 160 CHF bei jährlicher Abrechnung.",
+  "fr": "Une offre, tout inclus : 18 CHF par mois ou 160 CHF en facturation annuelle.",
+  "it": "Un piano, tutto incluso: 18 CHF al mese oppure 160 CHF con fatturazione annuale."
+ },
+ "One plan, one focus: helping customers book you. We'd rather do that well than add features that get in the way.": {
+  "de": "Ein Plan, ein Fokus: Kundinnen und Kunden helfen, Sie zu buchen. Das machen wir lieber richtig gut, statt Funktionen hinzuzufügen, die im Weg stehen.",
+  "fr": "Une offre, un seul objectif : aider vos clients à vous réserver. Nous préférons bien faire cela plutôt que d'ajouter des fonctionnalités superflues.",
+  "it": "Un piano, un solo obiettivo: aiutare i clienti a prenotarti. Preferiamo farlo bene piuttosto che aggiungere funzioni che intralciano."
+ },
+ "One plan. 18 CHF a month.": {
+  "de": "Ein Plan. 18 CHF im Monat.",
+  "fr": "Une offre. 18 CHF par mois.",
+  "it": "Un piano. 18 CHF al mese."
+ },
+ "One plan. Every feature. 18 CHF a month.": {
+  "de": "Ein Plan. Alle Funktionen. 18 CHF im Monat.",
+  "fr": "Une offre. Toutes les fonctionnalités. 18 CHF par mois.",
+  "it": "Un piano. Tutte le funzionalità. 18 CHF al mese."
+ },
+ "One plan. Nothing hidden.": {
+  "de": "Ein Plan. Nichts versteckt.",
+  "fr": "Une offre. Rien de caché.",
+  "it": "Un piano. Nulla di nascosto."
+ },
+ "One price, billed monthly or yearly. No usage tiers, no surprise invoices.": {
+  "de": "Ein Preis, monatlich oder jährlich abgerechnet. Keine Nutzungsstufen, keine überraschenden Rechnungen.",
+  "fr": "Un seul prix, facturé mensuellement ou annuellement. Aucun palier d'utilisation, aucune facture surprise.",
+  "it": "Un solo prezzo, fatturato mensilmente o annualmente. Nessuna soglia di utilizzo, nessuna fattura a sorpresa."
+ },
+ "Online booking for service businesses": {
+  "de": "Online-Buchung für Dienstleistungsunternehmen",
+  "fr": "Réservation en ligne pour les entreprises de services",
+  "it": "Prenotazione online per le aziende di servizi"
+ },
+ "Online booking pages for service businesses. Simple to set up, easy for your customers, built with privacy in mind.": {
+  "de": "Online-Buchungsseiten für Dienstleistungsunternehmen. Einfach eingerichtet, einfach für Ihre Kundschaft, mit Blick auf den Datenschutz entwickelt.",
+  "fr": "Des pages de réservation en ligne pour les entreprises de services. Simples à mettre en place, simples pour vos clients, conçues dans le respect de la confidentialité.",
+  "it": "Pagine di prenotazione online per le aziende di servizi. Semplici da configurare, semplici per i tuoi clienti, progettate pensando alla privacy."
+ },
+ "Optional \"any available staff\" mode for faster booking": {
+  "de": "Optionaler Modus „beliebiges verfügbares Personal“ für schnellere Buchungen",
+  "fr": "Mode facultatif « personnel disponible, peu importe qui » pour une réservation plus rapide",
+  "it": "Modalità opzionale «qualsiasi membro del personale disponibile» per prenotazioni più rapide"
+ },
+ "Optional two-factor authentication": {
+  "de": "Optionale Zwei-Faktor-Authentifizierung",
+  "fr": "Authentification à deux facteurs optionnelle",
+  "it": "Autenticazione a due fattori opzionale"
+ },
+ "Plain-text email notifications, no tracking": {
+  "de": "Reine Text-E-Mail-Benachrichtigungen, kein Tracking",
+  "fr": "Notifications par e-mail en texte brut, sans suivi",
+  "it": "Notifiche e-mail in puro testo, senza tracciamento"
+ },
+ "Plain-text notifications": {
+  "de": "Reine Text-Benachrichtigungen",
+  "fr": "Notifications en texte brut",
+  "it": "Notifiche in puro testo"
+ },
+ "Pricing FAQ": {
+  "de": "Häufige Fragen zu den Preisen",
+  "fr": "FAQ tarifs",
+  "it": "FAQ sui prezzi"
+ },
+ "Pricing and billing": {
+  "de": "Preise und Abrechnung",
+  "fr": "Tarifs et facturation",
+  "it": "Prezzi e fatturazione"
+ },
+ "Privacy and security": {
+  "de": "Datenschutz und Sicherheit",
+  "fr": "Confidentialité et sécurité",
+  "it": "Privacy e sicurezza"
+ },
+ "Privacy by default": {
+  "de": "Datenschutz von Grund auf",
+  "fr": "Confidentialité par défaut",
+  "it": "Privacy per impostazione predefinita"
+ },
+ "Product": {
+  "de": "Produkt",
+  "fr": "Produit",
+  "it": "Prodotto"
+ },
+ "Public booking page": {
+  "de": "Öffentliche Buchungsseite",
+  "fr": "Page de réservation publique",
+  "it": "Pagina di prenotazione pubblica"
+ },
+ "Public booking page with your own link": {
+  "de": "Öffentliche Buchungsseite mit eigenem Link",
+  "fr": "Page de réservation publique avec votre propre lien",
+  "it": "Pagina di prenotazione pubblica con il tuo link personale"
+ },
+ "Questions": {
+  "de": "Fragen",
+  "fr": "Questions",
+  "it": "Domande"
+ },
+ "Ready to stop juggling phone calls?": {
+  "de": "Bereit, das Telefon-Jonglieren zu beenden?",
+  "fr": "Prêt à arrêter de jongler avec les appels téléphoniques ?",
+  "it": "Pronto a smettere di destreggiarti tra le telefonate?"
+ },
+ "Recurring availability and one-off scheduling": {
+  "de": "Wiederkehrende Verfügbarkeit und einmalige Planung",
+  "fr": "Disponibilités récurrentes et planification ponctuelle",
+  "it": "Disponibilità ricorrente e pianificazione occasionale"
+ },
+ "Recurring weekly hours or one-off availability blocks": {
+  "de": "Wiederkehrende Wochenarbeitszeiten oder einmalige Verfügbarkeitsblöcke",
+  "fr": "Horaires hebdomadaires récurrents ou blocs de disponibilité ponctuels",
+  "it": "Orari settimanali ricorrenti o blocchi di disponibilità occasionali"
+ },
+ "Recurring weekly hours or one-off blocks, with a slot interval you control down to the minute.": {
+  "de": "Wiederkehrende Wochenarbeitszeiten oder einmalige Blöcke, mit einem Zeitraster, das Sie minutengenau steuern.",
+  "fr": "Horaires hebdomadaires récurrents ou blocs ponctuels, avec un intervalle de créneaux réglable à la minute près.",
+  "it": "Orari settimanali ricorrenti o blocchi occasionali, con un intervallo tra gli slot regolabile al minuto."
+ },
+ "Save 26%": {
+  "de": "26 % sparen",
+  "fr": "Économisez 26 %",
+  "it": "Risparmia il 26%"
+ },
+ "Security and privacy": {
+  "de": "Sicherheit und Datenschutz",
+  "fr": "Sécurité et confidentialité",
+  "it": "Sicurezza e privacy"
+ },
+ "See all FAQs": {
+  "de": "Alle FAQs ansehen",
+  "fr": "Voir toute la FAQ",
+  "it": "Vedi tutte le FAQ"
+ },
+ "See all features": {
+  "de": "Alle Funktionen ansehen",
+  "fr": "Voir toutes les fonctionnalités",
+  "it": "Vedi tutte le funzionalità"
+ },
+ "See how it works": {
+  "de": "So funktioniert's ansehen",
+  "fr": "Découvrir comment ça marche",
+  "it": "Scopri come funziona"
+ },
+ "See it on your own booking page": {
+  "de": "Erleben Sie es auf Ihrer eigenen Buchungsseite",
+  "fr": "Découvrez-le sur votre propre page de réservation",
+  "it": "Provalo sulla tua pagina di prenotazione"
+ },
+ "See what's included and how billing works.": {
+  "de": "Sehen Sie, was enthalten ist und wie die Abrechnung funktioniert.",
+  "fr": "Découvrez ce qui est inclus et comment fonctionne la facturation.",
+  "it": "Scopri cosa è incluso e come funziona la fatturazione."
+ },
+ "Send us an email": {
+  "de": "E-Mail senden",
+  "fr": "Envoyez-nous un e-mail",
+  "it": "Inviaci un'e-mail"
+ },
+ "Set up your booking page today and let customers reach you whenever it suits them.": {
+  "de": "Richten Sie Ihre Buchungsseite noch heute ein und lassen Sie Kundinnen und Kunden Sie erreichen, wann immer es ihnen passt.",
+  "fr": "Configurez votre page de réservation dès aujourd'hui et laissez vos clients vous contacter quand cela leur convient.",
+  "it": "Configura oggi stesso la tua pagina di prenotazione e lascia che i clienti ti contattino quando preferiscono."
+ },
+ "Set your availability": {
+  "de": "Verfügbarkeit festlegen",
+  "fr": "Définissez vos disponibilités",
+  "it": "Imposta la tua disponibilità"
+ },
+ "Share your booking page": {
+  "de": "Buchungsseite teilen",
+  "fr": "Partagez votre page de réservation",
+  "it": "Condividi la tua pagina di prenotazione"
+ },
+ "Simple pricing": {
+  "de": "Einfache Preise",
+  "fr": "Tarifs simples",
+  "it": "Prezzi semplici"
+ },
+ "Slot spacing you control, from 5 to 120 minutes": {
+  "de": "Zeitraster selbst bestimmen: von 5 bis 120 Minuten",
+  "fr": "Intervalle des créneaux réglable, de 5 à 120 minutes",
+  "it": "Intervallo tra gli slot regolabile, da 5 a 120 minuti"
+ },
+ "Staff and services": {
+  "de": "Personal und Dienstleistungen",
+  "fr": "Personnel et prestations",
+  "it": "Personale e servizi"
+ },
+ "Still have questions? Contact us": {
+  "de": "Noch Fragen? Kontaktieren Sie uns",
+  "fr": "Encore des questions ? Contactez-nous",
+  "it": "Hai ancora domande? Contattaci"
+ },
+ "Straightforward pricing": {
+  "de": "Klare Preise",
+  "fr": "Tarifs simples et transparents",
+  "it": "Prezzi chiari e trasparenti"
+ },
+ "Swiss-made": {
+  "de": "Schweizer Qualität",
+  "fr": "Fabriqué en Suisse",
+  "it": "Prodotto in Svizzera"
+ },
+ "Switzerland": {
+  "de": "Schweiz",
+  "fr": "Suisse",
+  "it": "Svizzera"
+ },
+ "Terminklick is built by Laib Technologies GmbH in Romanshorn, Switzerland, to give service businesses a simple, privacy-first booking page.": {
+  "de": "Terminklick wird von der Laib Technologies GmbH in Romanshorn, Schweiz, entwickelt, um Dienstleistungsunternehmen eine einfache, datenschutzorientierte Buchungsseite zu bieten.",
+  "fr": "Terminklick est développé par Laib Technologies GmbH à Romanshorn, en Suisse, pour offrir aux entreprises de services une page de réservation simple, axée sur la confidentialité.",
+  "it": "Terminklick è sviluppato da Laib Technologies GmbH a Romanshorn, in Svizzera, per offrire alle aziende di servizi una pagina di prenotazione semplice e orientata alla privacy."
+ },
+ "Terminklick is made by Laib Technologies GmbH, an independent software company based in Romanshorn, Switzerland.": {
+  "de": "Terminklick wird von der Laib Technologies GmbH entwickelt, einem unabhängigen Softwareunternehmen mit Sitz in Romanshorn, Schweiz.",
+  "fr": "Terminklick est conçu par Laib Technologies GmbH, une société de logiciels indépendante basée à Romanshorn, en Suisse.",
+  "it": "Terminklick è realizzato da Laib Technologies GmbH, una software house indipendente con sede a Romanshorn, in Svizzera."
+ },
+ "Terminklick is operated by <strong>Laib Technologies GmbH</strong>, registered in Romanshorn, Switzerland (UID CHE-266.537.384).": {
+  "de": "Terminklick wird von der <strong>Laib Technologies GmbH</strong> betrieben, eingetragen in Romanshorn, Schweiz (UID CHE-266.537.384).",
+  "fr": "Terminklick est exploité par <strong>Laib Technologies GmbH</strong>, enregistrée à Romanshorn, en Suisse (n° UID CHE-266.537.384).",
+  "it": "Terminklick è gestito da <strong>Laib Technologies GmbH</strong>, registrata a Romanshorn, in Svizzera (UID CHE-266.537.384)."
+ },
+ "The company behind Terminklick": {
+  "de": "Das Unternehmen hinter Terminklick",
+  "fr": "L'entreprise derrière Terminklick",
+  "it": "L'azienda dietro Terminklick"
+ },
+ "Thu, 14:00": {
+  "de": "Do., 14:00",
+  "fr": "Jeu. 14h00",
+  "it": "Gio, 14:00"
+ },
+ "Turn on TOTP-based two-factor login for your account, with single-use backup codes in case you lose your device.": {
+  "de": "Aktivieren Sie die TOTP-basierte Zwei-Faktor-Anmeldung für Ihr Konto, mit einmalig verwendbaren Backup-Codes für den Fall, dass Sie Ihr Gerät verlieren.",
+  "fr": "Activez la connexion à deux facteurs basée sur TOTP pour votre compte, avec des codes de secours à usage unique en cas de perte de votre appareil.",
+  "it": "Attiva l'accesso a due fattori basato su TOTP per il tuo account, con codici di backup monouso nel caso in cui perdessi il tuo dispositivo."
+ },
+ "Unlimited staff and services": {
+  "de": "Unbegrenzt Personal und Dienstleistungen",
+  "fr": "Personnel et prestations illimités",
+  "it": "Personale e servizi illimitati"
+ },
+ "Unlimited staff members and services": {
+  "de": "Unbegrenzt viele Mitarbeitende und Dienstleistungen",
+  "fr": "Nombre illimité de membres du personnel et de prestations",
+  "it": "Numero illimitato di membri del personale e servizi"
+ },
+ "View pricing": {
+  "de": "Preise ansehen",
+  "fr": "Voir les tarifs",
+  "it": "Vedi i prezzi"
+ },
+ "What happens to customer data over time?": {
+  "de": "Was geschieht mit Kundendaten im Laufe der Zeit?",
+  "fr": "Que deviennent les données clients avec le temps ?",
+  "it": "Cosa succede ai dati dei clienti nel tempo?"
+ },
+ "What if I want to stop using Terminklick?": {
+  "de": "Was, wenn ich Terminklick nicht mehr nutzen möchte?",
+  "fr": "Que se passe-t-il si je souhaite arrêter d'utiliser Terminklick ?",
+  "it": "Cosa succede se voglio smettere di usare Terminklick?"
+ },
+ "What is Terminklick?": {
+  "de": "Was ist Terminklick?",
+  "fr": "Qu'est-ce que Terminklick ?",
+  "it": "Cos'è Terminklick?"
+ },
+ "What languages is Terminklick available in?": {
+  "de": "In welchen Sprachen ist Terminklick verfügbar?",
+  "fr": "Dans quelles langues Terminklick est-il disponible ?",
+  "it": "In quali lingue è disponibile Terminklick?"
+ },
+ "What we care about": {
+  "de": "Was uns wichtig ist",
+  "fr": "Ce qui compte pour nous",
+  "it": "Ciò a cui teniamo"
+ },
+ "Why we built it": {
+  "de": "Warum wir es gebaut haben",
+  "fr": "Pourquoi nous l'avons créé",
+  "it": "Perché lo abbiamo creato"
+ },
+ "Works for one staff member or a whole team": {
+  "de": "Funktioniert für eine einzelne Person oder ein ganzes Team",
+  "fr": "Fonctionne pour une seule personne ou toute une équipe",
+  "it": "Funziona per una singola persona o per un intero team"
+ },
+ "Yearly": {
+  "de": "Jährlich",
+  "fr": "Annuel",
+  "it": "Annuale"
+ },
+ "Yes. Choose manual confirmation in your settings and every request waits for your approval. Or leave it on automatic and bookings confirm themselves the moment a slot is chosen.": {
+  "de": "Ja. Wählen Sie in den Einstellungen die manuelle Bestätigung, dann wartet jede Anfrage auf Ihre Freigabe. Oder belassen Sie es bei automatisch, und Buchungen bestätigen sich selbst, sobald ein Termin gewählt wird.",
+  "fr": "Oui. Choisissez la confirmation manuelle dans vos paramètres et chaque demande attendra votre validation. Ou laissez l'automatique activé et les réservations se confirmeront dès qu'un créneau est choisi.",
+  "it": "Sì. Scegli la conferma manuale nelle impostazioni e ogni richiesta attenderà la tua approvazione. Oppure lascia l'opzione automatica e le prenotazioni si confermeranno da sole non appena viene scelto un orario."
+ },
+ "Yes. Get in touch and we'll adjust your billing cycle.": {
+  "de": "Ja. Kontaktieren Sie uns, und wir passen Ihren Abrechnungszyklus an.",
+  "fr": "Oui. Contactez-nous et nous ajusterons votre cycle de facturation.",
+  "it": "Sì. Contattaci e adegueremo il tuo ciclo di fatturazione."
+ },
+ "You can request deletion of your account and all associated data at any time from your account settings.": {
+  "de": "Sie können die Löschung Ihres Kontos und aller zugehörigen Daten jederzeit in Ihren Kontoeinstellungen beantragen.",
+  "fr": "Vous pouvez demander la suppression de votre compte et de toutes les données associées à tout moment depuis les paramètres de votre compte.",
+  "it": "Puoi richiedere la cancellazione del tuo account e di tutti i dati associati in qualsiasi momento dalle impostazioni del tuo account."
+ },
+ "You can turn on optional two-factor authentication (TOTP, using any standard authenticator app) with single-use backup codes in your account settings.": {
+  "de": "Sie können die optionale Zwei-Faktor-Authentifizierung (TOTP, mit jeder gängigen Authenticator-App) inklusive einmalig verwendbarer Backup-Codes in Ihren Kontoeinstellungen aktivieren.",
+  "fr": "Vous pouvez activer l'authentification à deux facteurs optionnelle (TOTP, avec n'importe quelle application d'authentification standard) avec des codes de secours à usage unique dans les paramètres de votre compte.",
+  "it": "Puoi attivare l'autenticazione a due fattori opzionale (TOTP, con qualsiasi app di autenticazione standard) con codici di backup monouso nelle impostazioni del tuo account."
+ },
+ "Your dashboard": {
+  "de": "Ihr Dashboard",
+  "fr": "Votre tableau de bord",
+  "it": "La tua dashboard"
+ },
+ "Your dashboard, booking page, and customer emails are available in German, French, Italian, and English.": {
+  "de": "Ihr Dashboard, Ihre Buchungsseite und die E-Mails an Ihre Kundschaft sind auf Deutsch, Französisch, Italienisch und Englisch verfügbar.",
+  "fr": "Votre tableau de bord, votre page de réservation et les e-mails à vos clients sont disponibles en allemand, français, italien et anglais.",
+  "it": "La tua dashboard, la pagina di prenotazione e le e-mail ai tuoi clienti sono disponibili in tedesco, francese, italiano e inglese."
+ },
+ "Your dashboard, public booking page, and every customer email are available in German, French, Italian, and English.": {
+  "de": "Ihr Dashboard, Ihre öffentliche Buchungsseite und jede E-Mail an Ihre Kundschaft sind auf Deutsch, Französisch, Italienisch und Englisch verfügbar.",
+  "fr": "Votre tableau de bord, votre page de réservation publique et chaque e-mail à vos clients sont disponibles en allemand, français, italien et anglais.",
+  "it": "La tua dashboard, la pagina di prenotazione pubblica e ogni e-mail ai tuoi clienti sono disponibili in tedesco, francese, italiano e inglese."
+ },
+ "month": {
+  "de": "Monat",
+  "fr": "mois",
+  "it": "mese"
+ },
+ "year": {
+  "de": "Jahr",
+  "fr": "an",
+  "it": "anno"
+ },
+ "Terminklick gives your business a public booking page. Customers pick a staff member, a service, and a time slot, and the booking lands directly in your dashboard. No phone calls needed.": {
+  "de": "Terminklick gibt Ihrem Unternehmen eine öffentliche Buchungsseite. Kundinnen und Kunden wählen ein Teammitglied, eine Dienstleistung und einen Zeitpunkt, und die Buchung landet direkt in Ihrem Dashboard. Ganz ohne Telefonanruf.",
+  "fr": "Terminklick offre à votre entreprise une page de réservation publique. Les clients choisissent un membre du personnel, une prestation et un horaire, et la réservation arrive directement dans votre tableau de bord. Aucun appel téléphonique nécessaire.",
+  "it": "Terminklick offre alla tua azienda una pagina di prenotazione pubblica. I clienti scelgono un membro del personale, un servizio e un orario, e la prenotazione arriva direttamente nella tua dashboard. Nessuna telefonata necessaria."
+ },
+ "Yes, at any time, using the private link they received by email. No account or phone call needed.": {
+  "de": "Ja, jederzeit über den privaten Link, den sie per E-Mail erhalten haben. Kein Konto und kein Anruf nötig.",
+  "fr": "Oui, à tout moment, via le lien privé reçu par e-mail. Sans compte ni appel téléphonique.",
+  "it": "Sì, in qualsiasi momento, tramite il link privato ricevuto via e-mail. Senza bisogno di account o telefonate."
+ },
+ "No, one plan includes every feature, so there's nothing to compare or upgrade later.": {
+  "de": "Nein, ein Plan enthält alle Funktionen, es gibt also nichts zu vergleichen oder später upzugraden.",
+  "fr": "Non, une seule offre inclut toutes les fonctionnalités, il n'y a donc rien à comparer ni à mettre à niveau plus tard.",
+  "it": "No, un solo piano include tutte le funzionalità, quindi non c'è nulla da confrontare o aggiornare in seguito."
+ },
+ "German, French, Italian, and English: for your dashboard, your public booking page, and every email sent to your customers.": {
+  "de": "Deutsch, Französisch, Italienisch und Englisch: für Ihr Dashboard, Ihre öffentliche Buchungsseite und jede E-Mail an Ihre Kundschaft.",
+  "fr": "Allemand, français, italien et anglais : pour votre tableau de bord, votre page de réservation publique et chaque e-mail envoyé à vos clients.",
+  "it": "Tedesco, francese, italiano e inglese: per la tua dashboard, la tua pagina di prenotazione pubblica e ogni e-mail inviata ai tuoi clienti."
+ },
+ "Anna K., Haircut &amp; Styling": {
+  "de": "Anna K., Haarschnitt &amp; Styling",
+  "fr": "Anna K., Coupe &amp; coiffage",
+  "it": "Anna K., Taglio &amp; piega"
+ },
+ "Marco P., Colour &amp; Treatment": {
+  "de": "Marco P., Farbe &amp; Behandlung",
+  "fr": "Marco P., Coloration &amp; soin",
+  "it": "Marco P., Colore &amp; trattamento"
+ },
+ "Julia S., Manicure": {
+  "de": "Julia S., Maniküre",
+  "fr": "Julia S., Manucure",
+  "it": "Julia S., Manicure"
+ },
+ "2. Pick a time (Thursday)": {
+  "de": "2. Uhrzeit wählen (Donnerstag)",
+  "fr": "2. Choisissez un horaire (jeudi)",
+  "it": "2. Scegli un orario (giovedì)"
+ },
+ "Billed yearly, equivalent to about 13.30 CHF a month.": {
+  "de": "Jährliche Abrechnung, entspricht etwa 13.30 CHF pro Monat.",
+  "fr": "Facturation annuelle, soit environ 13.30 CHF par mois.",
+  "it": "Fatturazione annuale, equivalente a circa 13.30 CHF al mese."
+ },
+ "No. 18 CHF a month or 160 CHF a year is the full price. There are no setup costs or hidden extras.": {
+  "de": "Nein. 18 CHF pro Monat oder 160 CHF pro Jahr ist der volle Preis. Es gibt keine Einrichtungskosten oder versteckten Extras.",
+  "fr": "Non. 18 CHF par mois ou 160 CHF par an, c'est le prix complet. Aucun frais de mise en place ni extra caché.",
+  "it": "No. 18 CHF al mese o 160 CHF all'anno è il prezzo completo. Nessun costo di attivazione né extra nascosto."
+ },
+ "Too many service businesses still take appointments by phone, one call at a time, with no view of the calendar until someone picks up. Every missed call is a booking that goes to a competitor instead.": {
+  "de": "Zu viele Dienstleistungsunternehmen nehmen Termine noch per Telefon entgegen, ein Anruf nach dem anderen, ohne Blick auf den Kalender, bis jemand abnimmt. Jeder verpasste Anruf ist eine Buchung, die stattdessen zur Konkurrenz geht.",
+  "fr": "Trop d'entreprises de services prennent encore leurs rendez-vous par téléphone, un appel à la fois, sans visibilité sur l'agenda tant que personne ne décroche. Chaque appel manqué est une réservation qui part chez un concurrent.",
+  "it": "Troppe aziende di servizi prendono ancora gli appuntamenti per telefono, una chiamata alla volta, senza visibilità sull'agenda finché qualcuno non risponde. Ogni chiamata persa è una prenotazione che finisce alla concorrenza."
+ },
+ "Terminklick replaces that with a booking page your customers can use whenever it suits them, while keeping the parts that matter to you (your hours, your staff, your confirmation process) entirely in your control.": {
+  "de": "Terminklick ersetzt das durch eine Buchungsseite, die Ihre Kundschaft nutzen kann, wann immer es passt, während die Punkte, die für Sie zählen (Ihre Zeiten, Ihr Personal und Ihr Bestätigungsprozess), vollständig in Ihrer Hand bleiben.",
+  "fr": "Terminklick remplace cela par une page de réservation que vos clients peuvent utiliser quand cela leur convient, tout en laissant entièrement entre vos mains ce qui compte pour vous (vos horaires, votre personnel, votre processus de confirmation).",
+  "it": "Terminklick sostituisce tutto ciò con una pagina di prenotazione che i tuoi clienti possono usare quando preferiscono, lasciando comunque interamente nelle tue mani ciò che conta per te (i tuoi orari, il tuo personale, il tuo processo di conferma)."
+ },
+ "Questions about Terminklick, your account, or anything else: we read every message ourselves.": {
+  "de": "Fragen zu Terminklick, Ihrem Konto oder allem anderen: wir lesen jede Nachricht persönlich.",
+  "fr": "Des questions sur Terminklick, votre compte ou autre chose : nous lisons chaque message nous-mêmes.",
+  "it": "Domande su Terminklick, sul tuo account o su qualsiasi altra cosa: leggiamo personalmente ogni messaggio."
+ },
+ "Online appointment booking for service businesses": {
+  "de": "Online-Terminbuchung für Dienstleistungsunternehmen",
+  "fr": "Prise de rendez-vous en ligne pour les entreprises de services",
+  "it": "Prenotazione di appuntamenti online per aziende di servizi"
+ },
+ "Terminklick gives your business a booking page customers can use anytime. No account needed on their end. You set the hours, the services, and the staff; we handle the calendar.": {
+  "de": "Terminklick gibt Ihrem Unternehmen eine Buchungsseite, die Ihre Kundschaft jederzeit nutzen kann. Kein eigenes Konto nötig. Sie legen die Zeiten, Dienstleistungen und das Personal fest; wir kümmern uns um den Kalender.",
+  "fr": "Terminklick offre à votre entreprise une page de réservation que vos clients peuvent utiliser à tout moment. Aucun compte n'est nécessaire de leur côté. Vous définissez les horaires, les prestations et le personnel ; nous gérons le calendrier.",
+  "it": "Terminklick offre alla tua azienda una pagina di prenotazione che i clienti possono usare in qualsiasi momento. Non serve alcun account da parte loro. Tu definisci gli orari, i servizi e il personale; al calendario pensiamo noi."
+ },
+ "Send customers your personal link. They pick a service, a staff member, and a time. No account, no app to install.": {
+  "de": "Senden Sie Ihrer Kundschaft Ihren persönlichen Link. Sie wählen eine Dienstleistung, ein Teammitglied und eine Uhrzeit. Kein Konto, keine App-Installation.",
+  "fr": "Envoyez à vos clients votre lien personnel. Ils choisissent une prestation, un membre du personnel et un horaire. Sans compte, sans application à installer.",
+  "it": "Invia ai tuoi clienti il tuo link personale. Scelgono un servizio, un membro del personale e un orario. Senza account, senza app da installare."
+ },
+ "See new requests as they come in. Confirm automatically, or review each booking yourself: your choice, set once in settings.": {
+  "de": "Sehen Sie neue Anfragen, sobald sie eingehen. Automatisch bestätigen oder jede Buchung selbst prüfen: Ihre Wahl, einmal in den Einstellungen festgelegt.",
+  "fr": "Voyez les nouvelles demandes dès leur arrivée. Confirmez automatiquement ou examinez chaque réservation vous-même : à vous de choisir, réglable une fois dans les paramètres.",
+  "it": "Visualizza le nuove richieste non appena arrivano. Conferma automaticamente oppure verifica ogni prenotazione di persona: la scelta è tua, si imposta una volta nelle impostazioni."
+ },
+ "Or 160 CHF billed yearly, saving more than a quarter.": {
+  "de": "Oder 160 CHF bei jährlicher Abrechnung, damit sparen Sie mehr als ein Viertel.",
+  "fr": "Ou 160 CHF en facturation annuelle, pour économiser plus d'un quart.",
+  "it": "Oppure 160 CHF con fatturazione annuale, risparmiando più di un quarto."
+ },
+ "A public booking page, flexible staff scheduling, and privacy-first tools for service businesses. Everything is included in one plan.": {
+  "de": "Eine öffentliche Buchungsseite, flexible Personalplanung und datenschutzfreundliche Werkzeuge für Dienstleistungsunternehmen. Alles ist in einem Plan enthalten.",
+  "fr": "Une page de réservation publique, une planification du personnel flexible et des outils axés sur la confidentialité pour les entreprises de services. Tout est inclus dans une seule offre.",
+  "it": "Una pagina di prenotazione pubblica, una pianificazione del personale flessibile e strumenti orientati alla privacy per le aziende di servizi. Tutto è incluso in un unico piano."
+ },
+ "One plan, fully unlocked from day one: a public booking page, staff and service management, flexible availability, and the privacy tools your customers expect.": {
+  "de": "Ein Plan, von Tag eins an vollständig freigeschaltet: öffentliche Buchungsseite, Personal- und Dienstleistungsverwaltung, flexible Verfügbarkeit und die Datenschutz-Tools, die Ihre Kundschaft erwartet.",
+  "fr": "Une offre, entièrement débloquée dès le premier jour : page de réservation publique, gestion du personnel et des prestations, disponibilités flexibles et les outils de confidentialité qu'attendent vos clients.",
+  "it": "Un piano, completamente sbloccato fin dal primo giorno: pagina di prenotazione pubblica, gestione di personale e servizi, disponibilità flessibile e gli strumenti per la privacy che i tuoi clienti si aspettano."
+ },
+ "Customers pick a staff member, a service, and a time: no account, no app, no back-and-forth. They get a confirmation by email and a private link to view or cancel their booking at any time.": {
+  "de": "Kundinnen und Kunden wählen ein Teammitglied, eine Dienstleistung und eine Uhrzeit: ohne Konto, ohne App, ohne Hin und Her. Sie erhalten eine Bestätigung per E-Mail sowie einen privaten Link, um ihre Buchung jederzeit einzusehen oder zu stornieren.",
+  "fr": "Les clients choisissent un membre du personnel, une prestation et un horaire : sans compte, sans application, sans allers-retours. Ils reçoivent une confirmation par e-mail ainsi qu'un lien privé pour consulter ou annuler leur réservation à tout moment.",
+  "it": "I clienti scelgono un membro del personale, un servizio e un orario: senza account, senza app, senza andirivieni. Ricevono una conferma via e-mail e un link privato per visualizzare o annullare la prenotazione in qualsiasi momento."
+ },
+ "Every customer can view, export, or request erasure of their own booking data through a private link, with no account or support ticket needed.": {
+  "de": "Jede Kundin und jeder Kunde kann die eigenen Buchungsdaten über einen privaten Link einsehen, exportieren oder deren Löschung beantragen, ganz ohne Konto und ohne Support-Ticket.",
+  "fr": "Chaque client peut consulter, exporter ou demander la suppression de ses propres données de réservation via un lien privé, sans compte ni ticket d'assistance.",
+  "it": "Ogni cliente può visualizzare, esportare o richiedere la cancellazione dei propri dati di prenotazione tramite un link privato, senza bisogno di account o richieste di assistenza."
+ },
+ "18 CHF a month, or 160 CHF billed yearly. See our <a href=\"%(pricing_url)s\">pricing page</a> for full details.": {
+  "de": "18 CHF pro Monat oder 160 CHF bei jährlicher Abrechnung. Alle Details finden Sie auf unserer <a href=\"%(pricing_url)s\">Preisseite</a>.",
+  "fr": "18 CHF par mois, ou 160 CHF en facturation annuelle. Tous les détails sur notre <a href=\"%(pricing_url)s\">page tarifs</a>.",
+  "it": "18 CHF al mese, oppure 160 CHF con fatturazione annuale. Tutti i dettagli nella nostra <a href=\"%(pricing_url)s\">pagina prezzi</a>."
+ },
+ "Full operator details are listed in our <a href=\"%(legal_url)s\">Legal Notice</a>.": {
+  "de": "Vollständige Angaben zum Betreiber finden Sie in unserem <a href=\"%(legal_url)s\">Impressum</a>.",
+  "fr": "Les coordonnées complètes de l'exploitant figurent dans nos <a href=\"%(legal_url)s\">mentions légales</a>.",
+  "it": "I dati completi del gestore sono disponibili nelle nostre <a href=\"%(legal_url)s\">note legali</a>."
+ }
+}

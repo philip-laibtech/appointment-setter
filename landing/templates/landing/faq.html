@@ -1,106 +1,103 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load static %}
-{% block title %}{% translate "FAQ" %} — Terminklick{% endblock %}
+{% block title %}{% translate "FAQ" %} | Terminklick{% endblock %}
 
 {% block head %}
+<meta name="description" content="{% translate 'Answers to common questions about how Terminklick works, pricing, security, and customer data.' %}">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --sb-border: #e5e7eb;
-    --text-primary: #2b364c;
-    --text-muted: #6b7280;
-    --bg-body: #f1f4f4;
-    --topbar-h: 56px;
-  }
-
-  body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: var(--bg-body);
-    color: var(--text-primary);
-    min-height: 100vh;
-  }
-
-  nav {
-    background: #fff;
-    border-bottom: 1px solid var(--sb-border);
-    padding: 0 1.75rem;
-    height: var(--topbar-h);
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-  }
-
-  .brand { display: flex; align-items: center; text-decoration: none; justify-self: start; }
-  .brand img { height: 40px; width: auto; transform: translateY(9px); }
-  .nav-links { display: flex; align-items: center; gap: 1.75rem; justify-self: center; }
-  .nav-actions { display: flex; align-items: center; gap: 1.5rem; justify-self: end; }
-  nav a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
-  nav a:hover { color: var(--text-primary); }
-
-  main {
-    max-width: 760px;
-    margin: 2.5rem auto;
-    padding: 0 1.25rem 4rem;
-  }
-
-  .card {
-    background: #fff;
-    border: 1px solid var(--sb-border);
-    border-radius: 10px;
-    padding: 2.5rem 3rem;
-  }
-
-  h1 { font-size: 1.625rem; font-weight: 700; margin-bottom: 0.375rem; }
-  .meta { font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 2.5rem; }
-
-  p, li {
-    font-size: 0.9375rem;
-    line-height: 1.7;
-    color: #374151;
-  }
-
-  a.back {
-    display: inline-block;
-    margin-bottom: 1.25rem;
-    font-size: 0.875rem;
-    color: var(--text-muted);
-    text-decoration: none;
-  }
-  a.back:hover { color: var(--text-primary); }
-
-  @media (max-width: 600px) {
-    .card { padding: 1.5rem 1.25rem; }
-  }
+{% include "landing/_marketing_styles.html" %}
 </style>
 {% endblock %}
 
 {% block body %}
-<nav>
-  <a class="brand" href="/">
-    <img src="{% static 'img/logo.svg' %}" alt="Terminklick">
-  </a>
-  <div class="nav-links">
-    <a href="{% url 'landing:features' %}">{% translate "Features" %}</a>
-    <a href="{% url 'landing:pricing' %}">{% translate "Pricing" %}</a>
-    <a href="{% url 'landing:about' %}">{% translate "About" %}</a>
-    <a href="{% url 'landing:faq' %}">{% translate "FAQ" %}</a>
-    <a href="{% url 'landing:contact' %}">{% translate "Contact" %}</a>
-  </div>
-  <div class="nav-actions">
-    <a href="{% url 'company_accounts:login' %}">{% translate "Login" %}</a>
-    <a href="{% url 'company_accounts:register' %}">{% translate "Register" %}</a>
-  </div>
-</nav>
+{% include "landing/_nav.html" %}
 
 <main>
-  <a class="back" href="/">&larr; {% translate "Back to home" %}</a>
 
-  <div class="card">
-    <h1>{% translate "FAQ" %}</h1>
-    <p class="meta">{% translate "Coming soon." %}</p>
-    <p>{% translate "Answers to frequently asked questions are on their way." %}</p>
-  </div>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">{% translate "FAQ" %}</span>
+      <h1>{% translate "Frequently asked questions" %}</h1>
+      <p>{% translate "Can't find what you're looking for? Reach out on our Contact page." %}</p>
+    </div>
+  </section>
+
+  <section style="padding-top:1rem;">
+    <div class="container text-page">
+
+      <h2 style="margin-bottom:0.5rem;">{% translate "Getting started" %}</h2>
+      <details class="faq-item" open>
+        <summary>{% translate "What is Terminklick?" %}</summary>
+        <p>{% translate "Terminklick gives your business a public booking page. Customers pick a staff member, a service, and a time slot, and the booking lands directly in your dashboard. No phone calls needed." %}</p>
+      </details>
+      <details class="faq-item">
+        <summary>{% translate "Do my customers need to create an account?" %}</summary>
+        <p>{% translate "No. Customers book with just their name, email, and phone number. They manage or cancel their booking later through a private link sent by email, without ever registering." %}</p>
+      </details>
+      <details class="faq-item">
+        <summary>{% translate "How long does setup take?" %}</summary>
+        <p>{% translate "Most businesses add their staff, services, and availability, and publish their booking page within the same day. There's no onboarding call required." %}</p>
+      </details>
+      <details class="faq-item">
+        <summary>{% translate "Is there a limit on staff, services, or bookings?" %}</summary>
+        <p>{% translate "No. Your plan includes unlimited staff members, services, and bookings." %}</p>
+      </details>
+
+      <h2 style="margin:2.5rem 0 0.5rem;">{% translate "Bookings and availability" %}</h2>
+      <details class="faq-item">
+        <summary>{% translate "Can I review bookings before they're confirmed?" %}</summary>
+        <p>{% translate "Yes. Choose manual confirmation in your settings and every request waits for your approval. Or leave it on automatic and bookings confirm themselves the moment a slot is chosen." %}</p>
+      </details>
+      <details class="faq-item">
+        <summary>{% translate "How do I set my availability?" %}</summary>
+        <p>{% translate "Define recurring weekly hours in a few clicks, or add one-off blocks for specific dates. You can change either at any time." %}</p>
+      </details>
+      <details class="faq-item">
+        <summary>{% translate "Can two customers book the same time slot by mistake?" %}</summary>
+        <p>{% translate "No. Once a slot is booked or has a pending request, it's no longer offered to other customers, so double-booking isn't possible." %}</p>
+      </details>
+      <details class="faq-item">
+        <summary>{% translate "Can a customer cancel their own booking?" %}</summary>
+        <p>{% translate "Yes, at any time, using the private link they received by email. No account or phone call needed." %}</p>
+      </details>
+
+      <h2 style="margin:2.5rem 0 0.5rem;">{% translate "Security and privacy" %}</h2>
+      <details class="faq-item">
+        <summary>{% translate "Is my account protected by two-factor authentication?" %}</summary>
+        <p>{% translate "You can turn on optional two-factor authentication (TOTP, using any standard authenticator app) with single-use backup codes in your account settings." %}</p>
+      </details>
+      <details class="faq-item">
+        <summary>{% translate "Does Terminklick track my customers?" %}</summary>
+        <p>{% translate "No. There are no third-party trackers, ad cookies, or analytics scripts on the public booking page or your dashboard." %}</p>
+      </details>
+      <details class="faq-item">
+        <summary>{% translate "What happens to customer data over time?" %}</summary>
+        <p>{% translate "Customer contact details are anonymised automatically a set number of days after the appointment. Customers can also request an export or deletion of their own data at any time through their private booking link." %}</p>
+      </details>
+
+      <h2 style="margin:2.5rem 0 0.5rem;">{% translate "Pricing and billing" %}</h2>
+      <details class="faq-item">
+        <summary>{% translate "How much does Terminklick cost?" %}</summary>
+        {% url 'landing:pricing' as pricing_url %}
+        <p>{% blocktranslate trimmed %}18 CHF a month, or 160 CHF billed yearly. See our <a href="{{ pricing_url }}">pricing page</a> for full details.{% endblocktranslate %}</p>
+      </details>
+      <details class="faq-item">
+        <summary>{% translate "Do you offer more than one plan?" %}</summary>
+        <p>{% translate "No, one plan includes every feature, so there's nothing to compare or upgrade later." %}</p>
+      </details>
+      <details class="faq-item">
+        <summary>{% translate "What languages is Terminklick available in?" %}</summary>
+        <p>{% translate "German, French, Italian, and English: for your dashboard, your public booking page, and every email sent to your customers." %}</p>
+      </details>
+
+      <div style="text-align:center;margin-top:2.5rem;">
+        <a class="btn btn-secondary" href="{% url 'landing:contact' %}">{% translate "Still have questions? Contact us" %}</a>
+      </div>
+    </div>
+  </section>
+
 </main>
+
+{% include "landing/_footer.html" %}
 {% endblock %}
