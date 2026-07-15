@@ -43,6 +43,7 @@
 
   .bk-table {
     width: 100%;
+    table-layout: fixed;
     border-collapse: collapse;
     background: #fff;
     border: 1px solid #e5e7eb;
@@ -62,6 +63,7 @@
     text-transform: uppercase;
     color: #6b7280;
     border-bottom: 1px solid #e5e7eb;
+    overflow-wrap: break-word;
   }
   .bk-table td {
     padding: 0;
@@ -69,6 +71,11 @@
     color: #2b364c;
     vertical-align: middle;
   }
+  .bk-table th:nth-child(1), .bk-table td:nth-child(1) { width: 23%; }
+  .bk-table th:nth-child(2), .bk-table td:nth-child(2) { width: 23%; }
+  .bk-table th:nth-child(3), .bk-table td:nth-child(3) { width: 15%; }
+  .bk-table th:nth-child(4), .bk-table td:nth-child(4) { width: 19%; }
+  .bk-table th:nth-child(5), .bk-table td:nth-child(5) { width: 20%; }
   .bk-table tbody tr:last-child td { border-bottom: none; }
   .bk-table tbody tr:hover { background: #fafbfc; }
   .bk-row-link {
@@ -76,6 +83,12 @@
     padding: 0.9rem 1.1rem;
     color: inherit;
     text-decoration: none;
+  }
+  .bk-table td:nth-child(2) .bk-row-link,
+  .bk-table td:nth-child(3) .bk-row-link {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .bk-cell {
     padding: 0.9rem 1.1rem;
@@ -91,7 +104,13 @@
     font-size: 0.875rem;
   }
 
-  .bk-name { font-weight: 600; color: #2b364c; }
+  .bk-name {
+    font-weight: 600;
+    color: #2b364c;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   .bk-timeslot-date { font-weight: 600; }
   .bk-timeslot-time { font-size: 0.8rem; color: #6b7280; margin-top: 0.1rem; }
@@ -106,6 +125,7 @@
     letter-spacing: 0.05em;
     padding: 0.25rem 0.65rem;
     border-radius: 999px;
+    white-space: nowrap;
   }
   .bk-badge::before {
     content: "";
@@ -162,9 +182,68 @@
   .bk-page-btn:hover { border-color: #9ca3af; background: #f1f4f4; color: #2b364c; text-decoration: none; }
   .bk-page-info { color: #6b7280; }
 
-  @media (max-width: 760px) {
-    .bk-table th:nth-child(3),
-    .bk-table td:nth-child(3) { display: none; }
+  .bk-cards { display: none; }
+
+  @media (max-width: 1185px) {
+    .bk-table { display: none; }
+    .bk-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0.6rem;
+    }
+
+    .bk-card {
+      display: block;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 1px 2px rgba(16, 24, 40, 0.03);
+    }
+
+    .bk-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.55rem;
+    }
+    .bk-card-name {
+      font-weight: 600;
+      color: #2b364c;
+      font-size: 0.9375rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      min-width: 0;
+    }
+
+    .bk-card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: 0.4rem;
+      column-gap: 0.9rem;
+      color: #6b7280;
+      font-size: 0.8rem;
+    }
+    .bk-card-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      min-width: 0;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .bk-card-meta-item svg {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+      color: #9ca3af;
+    }
   }
 </style>
 {% endblock %}
@@ -236,6 +315,40 @@
       {% endfor %}
     </tbody>
   </table>
+
+  <div class="bk-cards">
+    {% for booking in page_obj %}
+    {% url 'bookings:booking_detail' booking_id=booking.pk as booking_url %}
+    <a class="bk-card" href="{{ booking_url }}?from=past">
+      <div class="bk-card-top">
+        <div class="bk-card-name">{{ booking.customer_first_name }} {{ booking.customer_last_name }}</div>
+        {% if booking.is_confirmed %}
+          <span class="bk-badge bk-badge-confirmed">{% translate "Confirmed" %}</span>
+        {% elif booking.is_cancelled %}
+          <span class="bk-badge bk-badge-cancelled">{% translate "Cancelled" %}</span>
+        {% elif booking.is_declined %}
+          <span class="bk-badge bk-badge-declined">{% translate "Declined" %}</span>
+        {% else %}
+          <span class="bk-badge bk-badge-pending">{{ booking.get_status_display }}</span>
+        {% endif %}
+      </div>
+      <div class="bk-card-meta">
+        <span class="bk-card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 8-9 9-8-8V3h9z"/><circle cx="7.5" cy="7.5" r="1.4"/></svg>
+          {{ booking.service_offering.name }}
+        </span>
+        <span class="bk-card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3"/><path d="M5 21v-1a7 7 0 0 1 14 0v1"/></svg>
+          {{ booking.staff_member.name }}
+        </span>
+        <span class="bk-card-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          {{ booking.start_at|date:"D, j M" }} · {{ booking.start_at|date:"H:i" }}–{{ booking.end_at|date:"H:i" }}
+        </span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
 
   {% if page_obj.paginator.num_pages > 1 %}
   <div class="bk-pagination">
