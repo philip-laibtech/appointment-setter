@@ -42,6 +42,7 @@
   .bk-checkbox-row input[type=checkbox] { width: 1rem; height: 1rem; cursor: pointer; accent-color: #2b364c; margin-top: 0.15rem; flex-shrink: 0; }
   .bk-checkbox-label { font-size: 0.9rem; color: #374151; line-height: 1.5; }
   .bk-privacy-note { font-size: 0.8rem; color: #9ca3af; margin-top: 0.5rem; line-height: 1.5; }
+  .bk-privacy-link { color: #2b364c; }
   .bk-divider { border: none; border-top: 1px solid #f3f4f6; margin: 1.25rem 0; }
   .bk-submit {
     width: 100%; padding: 0.7rem; background: #2b364c; color: #fff; border: none;
@@ -173,7 +174,7 @@
                {% if form.privacy_accepted.value %}checked{% endif %}
                required>
         <label class="bk-checkbox-label" for="{{ form.privacy_accepted.id_for_label }}">
-          {% blocktranslate with url=privacy_url %}I accept the <a href="{{ url }}" target="_blank" rel="noopener noreferrer" style="color:#2b364c;">privacy policy</a>.{% endblocktranslate %}
+          {% blocktranslate with url=privacy_url %}I accept the <a href="{{ url }}" target="_blank" rel="noopener noreferrer" class="bk-privacy-link">privacy policy</a>.{% endblocktranslate %}
         </label>
       </div>
       {% for error in form.privacy_accepted.errors %}<p class="bk-field-error">{{ error }}</p>{% endfor %}

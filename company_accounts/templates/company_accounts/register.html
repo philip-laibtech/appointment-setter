@@ -38,7 +38,7 @@
                {% if form.tos_accepted.value %}checked{% endif %}
                required>
         <label for="{{ form.tos_accepted.id_for_label }}">
-          {% blocktranslate with tos_url=tos_url privacy_url=privacy_url %}
+          {% blocktranslate with tos_url=tos_url privacy_url=privacy_url trimmed %}
             I accept the <a href="{{ tos_url }}" target="_blank" rel="noopener noreferrer">Terms of Service</a>
             and the <a href="{{ privacy_url }}" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
           {% endblocktranslate %}

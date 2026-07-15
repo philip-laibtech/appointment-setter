@@ -775,6 +775,7 @@ def any_booking_form_view(request, company_slug, service_uid, date, start_time):
             "end_at": end_at,
             "target_date": start_at.date(),
             "form": form,
+            "privacy_url": reverse("landing:privacy_policy"),
         },
     )
 

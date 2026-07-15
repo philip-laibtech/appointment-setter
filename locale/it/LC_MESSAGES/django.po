@@ -2652,3 +2652,192 @@ msgstr "Il tuo messaggio è stato inviato. Ti risponderemo il prima possibile."
 msgid "Send message"
 msgstr "Invia messaggio"
 
+msgid "A deletion request is already pending for your account. Our support team will contact you shortly."
+msgstr "Per il tuo account è già in corso una richiesta di cancellazione. Il nostro team di supporto ti contatterà a breve."
+
+msgid "A phone number is required so we can verify your identity if you request account deletion."
+msgstr "È necessario un numero di telefono per poter verificare la tua identità in caso di richiesta di cancellazione dell'account."
+
+msgid "All services and availability"
+msgstr "Tutti i servizi e le disponibilità"
+
+msgid "Authentication code"
+msgstr "Codice di autenticazione"
+
+#, python-format
+msgid "Customer data anonymised for %(count)s booking(s)"
+msgstr "Dati dei clienti anonimizzati per %(count)s prenotazione/i"
+
+msgid "Enter a code."
+msgstr "Inserisci un codice."
+
+msgid "Enter the 6-digit code shown in your authenticator app."
+msgstr "Inserisci il codice a 6 cifre mostrato nella tua app di autenticazione."
+
+msgid ""
+"For any privacy-related questions, requests, or complaints:<br><br> <strong>Laib Technologies GmbH</strong><br> Martina-Hälg-Strasse 1, 8590 Romanshorn, Schweiz<br> <a "
+"href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a>"
+msgstr ""
+"Per qualsiasi domanda, richiesta o reclamo relativo alla privacy:<br><br> <strong>Laib Technologies GmbH</strong><br> Martina-Hälg-Strasse 1, 8590 Romanshorn, Schweiz<br> <a "
+"href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a>"
+
+#, python-format
+msgid "I accept the <a href=\"%(url)s\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"bk-privacy-link\">privacy policy</a>."
+msgstr "Accetto l'<a href=\"%(url)s\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"bk-privacy-link\">informativa sulla privacy</a>."
+
+#, python-format
+msgid ""
+"I accept the <a href=\"%(tos_url)s\" target=\"_blank\" rel=\"noopener noreferrer\">Terms of Service</a> and the <a href=\"%(privacy_url)s\" target=\"_blank\" rel=\"noopener noreferrer\">Privacy "
+"Policy</a>."
+msgstr ""
+"Accetto i <a href=\"%(tos_url)s\" target=\"_blank\" rel=\"noopener noreferrer\">termini di servizio</a> e l'<a href=\"%(privacy_url)s\" target=\"_blank\" rel=\"noopener noreferrer\">informativa "
+"sulla privacy</a>."
+
+msgid "Incorrect password."
+msgstr "Password errata."
+
+msgid "Incorrect password. Backup codes were not regenerated."
+msgstr "Password errata. I codici di backup non sono stati rigenerati."
+
+msgid "Incorrect password. Two-factor authentication was not disabled."
+msgstr "Password errata. L'autenticazione a due fattori non è stata disattivata."
+
+msgid "Invalid or expired code. You can also use one of your backup codes."
+msgstr "Codice non valido o scaduto. Puoi anche utilizzare uno dei tuoi codici di backup."
+
+msgid "New backup codes have been generated. Your old codes no longer work."
+msgstr "Sono stati generati nuovi codici di backup. I vecchi codici non sono più validi."
+
+msgid "No action is required on your part."
+msgstr "Non è richiesta alcuna azione da parte tua."
+
+msgid "Our Privacy Policy has been updated"
+msgstr "La nostra informativa sulla privacy è stata aggiornata"
+
+msgid "Privacy Policy:"
+msgstr "Informativa sulla privacy:"
+
+msgid "Questions about these Terms:<br><br> <strong>Laib Technologies GmbH</strong><br> Martina-Hälg-Strasse 1, 8590 Romanshorn, Schweiz<br> <a href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a>"
+msgstr ""
+"Domande relative ai presenti termini:<br><br> <strong>Laib Technologies GmbH</strong><br> Martina-Hälg-Strasse 1, 8590 Romanshorn, Schweiz<br> <a "
+"href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a>"
+
+msgid "Slot interval must be at least 5 minutes."
+msgstr "L'intervallo delle fasce orarie deve essere di almeno 5 minuti."
+
+msgid "Slot interval must not exceed 120 minutes."
+msgstr "L'intervallo delle fasce orarie non deve superare i 120 minuti."
+
+msgid ""
+"Terminklick is an online platform that enables businesses to manage and accept appointments from their customers. This policy explains what personal data we collect, why we collect it, and how we "
+"protect it. It applies to business accounts that use our platform and to customers who book appointments through it. Terminklick is operated from Switzerland and primarily serves customers in "
+"Switzerland; this policy is therefore governed by the Swiss Federal Act on Data Protection (FADP). Where relevant, we also reference the EU General Data Protection Regulation (GDPR) below."
+msgstr ""
+"Terminklick è una piattaforma online che consente alle aziende di gestire e accettare appuntamenti dai propri clienti. La presente informativa spiega quali dati personali raccogliamo, perché li "
+"raccogliamo e come li proteggiamo. Si applica agli account aziendali che utilizzano la nostra piattaforma e ai clienti che prenotano appuntamenti tramite essa. Terminklick opera dalla Svizzera e "
+"serve principalmente clienti in Svizzera; questa informativa è pertanto disciplinata dalla legge federale svizzera sulla protezione dei dati (LPD). Ove pertinente, di seguito facciamo anche "
+"riferimento al Regolamento generale sulla protezione dei dati dell'UE (GDPR)."
+
+msgid "That code is incorrect or has expired. Please try again."
+msgstr "Questo codice non è corretto o è scaduto. Riprova."
+
+msgid ""
+"The Service and its original content, features, and functionality are and will remain the exclusive property of <strong>Laib Technologies GmbH</strong>. You retain ownership of any content or data "
+"you upload. You grant us a limited licence to process that content solely to provide the Service."
+msgstr ""
+"Il Servizio e i relativi contenuti, funzionalità e caratteristiche originali sono e rimarranno di proprietà esclusiva di <strong>Laib Technologies GmbH</strong>. Mantieni la proprietà di qualsiasi "
+"contenuto o dato che carichi. Ci concedi una licenza limitata per trattare tali contenuti esclusivamente al fine di fornire il Servizio."
+
+msgid "The appointment date, time, service, and staff member are kept for your business records. The booking itself was not deleted — only the customer's personal details."
+msgstr "La data, l'ora, il servizio e il collaboratore dell'appuntamento vengono conservati per i tuoi registri aziendali. La prenotazione in sé non è stata eliminata — solo i dati personali del cliente."
+
+msgid ""
+"The data controller responsible for this platform is:<br><br> <strong>Laib Technologies GmbH</strong><br> Martina-Hälg-Strasse 1<br> 8590 Romanshorn, Schweiz<br> Privacy contact: <a "
+"href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a>"
+msgstr ""
+"Il titolare del trattamento responsabile di questa piattaforma è:<br><br> <strong>Laib Technologies GmbH</strong><br> Martina-Hälg-Strasse 1<br> 8590 Romanshorn, Schweiz<br> Contatto privacy: <a "
+"href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a>"
+
+msgid "These Terms are governed by the laws of <strong>Switzerland</strong>. Any disputes shall be subject to the exclusive jurisdiction of the courts of <strong>Switzerland</strong>."
+msgstr "I presenti termini sono disciplinati dalla legge <strong>svizzera</strong>. Qualsiasi controversia sarà soggetta alla giurisdizione esclusiva dei tribunali <strong>svizzeri</strong>."
+
+msgid ""
+"These Terms of Service (\"Terms\") govern your access to and use of Terminklick (the \"Service\"), operated by <strong>Laib Technologies GmbH</strong> (\"we\", \"us\", or \"our\"). By registering "
+"for or using the Service, you agree to be bound by these Terms. If you do not agree, do not use the Service."
+msgstr ""
+"I presenti termini di servizio (\"Termini\") disciplinano l'accesso e l'utilizzo di Terminklick (il \"Servizio\"), gestito da <strong>Laib Technologies GmbH</strong> (\"noi\" o \"nostro\"). "
+"Registrandoti o utilizzando il Servizio, accetti di essere vincolato dai presenti Termini. Se non accetti, non utilizzare il Servizio."
+
+msgid "This does not require any action from you. If you have questions about how your data is handled, please contact the company you booked with."
+msgstr "Non è richiesta alcuna azione da parte tua. Per domande su come vengono trattati i tuoi dati, contatta direttamente l'azienda presso cui hai prenotato."
+
+msgid "To exercise any of these rights, contact us at <a href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a>. We will respond within 30 days."
+msgstr "Per esercitare uno di questi diritti, contattaci all'indirizzo <a href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a>. Risponderemo entro 30 giorni."
+
+msgid ""
+"To the fullest extent permitted by law, <strong>Laib Technologies GmbH</strong> shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use "
+"of or inability to use the Service, even if we have been advised of the possibility of such damages."
+msgstr ""
+"Nella misura massima consentita dalla legge, <strong>Laib Technologies GmbH</strong> non sarà responsabile per eventuali danni indiretti, incidentali, speciali, consequenziali o punitivi derivanti "
+"dall'utilizzo o dall'impossibilità di utilizzare il Servizio, anche qualora fossimo stati informati della possibilità di tali danni."
+
+#, python-format
+msgid "Too many failed login attempts for this account. Please try again in %(minutes)d minutes."
+msgstr "Troppi tentativi di accesso falliti per questo account. Riprova tra %(minutes)d minuti."
+
+msgid "Two-factor authentication has been disabled."
+msgstr "L'autenticazione a due fattori è stata disattivata."
+
+msgid "Two-factor authentication is already enabled."
+msgstr "L'autenticazione a due fattori è già attiva."
+
+msgid "Two-factor authentication is now enabled."
+msgstr "L'autenticazione a due fattori è ora attiva."
+
+msgid "UID:"
+msgstr "UID:"
+
+msgid "Verification code"
+msgstr "Codice di verifica"
+
+msgid "View, export, or request erasure of your data"
+msgstr "Visualizza, esporta o richiedi la cancellazione dei tuoi dati"
+
+msgid "You must accept the Terms of Service to register."
+msgstr "Devi accettare i termini di servizio per registrarti."
+
+msgid ""
+"You must provide accurate and complete information when creating an account. You are responsible for maintaining the confidentiality of your credentials and for all activity that occurs under your "
+"account. Notify us immediately at <a href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a> if you suspect unauthorised access."
+msgstr ""
+"Devi fornire informazioni accurate e complete al momento della creazione di un account. Sei responsabile della riservatezza delle tue credenziali e di tutte le attività che si verificano sotto il "
+"tuo account. Contattaci immediatamente all'indirizzo <a href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a> se sospetti un accesso non autorizzato."
+
+#, python-format
+msgid "Your deletion request has been received. A support agent will call you at %(phone)s within 1 business day to verify your identity."
+msgstr "La tua richiesta di cancellazione è stata ricevuta. Un agente del supporto ti chiamerà al numero %(phone)s entro un giorno lavorativo per verificare la tua identità."
+
+msgid "Your setup session expired. Please start again."
+msgstr "La sessione di configurazione è scaduta. Riprova dall'inizio."
+
+msgid "Your sign-in session expired. Please log in again."
+msgstr "La sessione di accesso è scaduta. Effettua nuovamente l'accesso."
+
+#, python-format
+msgid "you have an upcoming appointment with %(business_name)s, and we've updated our Privacy Policy since you booked."
+msgstr "hai un appuntamento imminente presso %(business_name)s e da quando hai effettuato la prenotazione abbiamo aggiornato la nostra informativa sulla privacy."
+
+#, python-format
+msgid ""
+"%(count)s booking on your account has passed its data retention period and its customer details (name, email, phone, message) have now been automatically anonymised, as described in our Privacy "
+"Policy."
+msgid_plural ""
+"%(count)s bookings on your account have passed their data retention period and their customer details (name, email, phone, message) have now been automatically anonymised, as described in our "
+"Privacy Policy."
+msgstr[0] ""
+"%(count)s prenotazione del tuo account ha superato il periodo di conservazione e i dati del cliente (nome, e-mail, telefono, messaggio) sono stati anonimizzati automaticamente, come descritto nella"
+" nostra informativa sulla privacy."
+msgstr[1] ""
+"%(count)s prenotazioni del tuo account hanno superato il periodo di conservazione e i dati dei clienti (nome, e-mail, telefono, messaggio) sono stati anonimizzati automaticamente, come descritto "
+"nella nostra informativa sulla privacy."
+

@@ -1,0 +1,227 @@
+{
+ "\"Any employee\" option": {
+  "de": "Option „Beliebige Mitarbeitende“",
+  "fr": "Option «N'importe quel employé»",
+  "it": "Opzione «Qualsiasi collaboratore»"
+ },
+ "A deletion request is already pending for your account. Our support team will contact you shortly.": {
+  "de": "Für Ihr Konto liegt bereits ein Löschantrag vor. Unser Support-Team wird sich in Kürze bei Ihnen melden.",
+  "fr": "Une demande de suppression est déjà en cours pour votre compte. Notre équipe d'assistance vous contactera prochainement.",
+  "it": "Per il tuo account è già in corso una richiesta di cancellazione. Il nostro team di supporto ti contatterà a breve."
+ },
+ "A phone number is required so we can verify your identity if you request account deletion.": {
+  "de": "Eine Telefonnummer ist erforderlich, damit wir Ihre Identität bei einem Löschantrag verifizieren können.",
+  "fr": "Un numéro de téléphone est requis afin de pouvoir vérifier votre identité en cas de demande de suppression de compte.",
+  "it": "È necessario un numero di telefono per poter verificare la tua identità in caso di richiesta di cancellazione dell'account."
+ },
+ "All services and availability": {
+  "de": "Alle Dienstleistungen und Verfügbarkeiten",
+  "fr": "Tous les services et disponibilités",
+  "it": "Tutti i servizi e le disponibilità"
+ },
+ "Authentication code": {
+  "de": "Authentifizierungscode",
+  "fr": "Code d'authentification",
+  "it": "Codice di autenticazione"
+ },
+ "Customer data anonymised for %(count)s booking(s)": {
+  "de": "Kundendaten für %(count)s Buchung(en) anonymisiert",
+  "fr": "Données clients anonymisées pour %(count)s réservation(s)",
+  "it": "Dati dei clienti anonimizzati per %(count)s prenotazione/i"
+ },
+ "Enter a code.": {
+  "de": "Geben Sie einen Code ein.",
+  "fr": "Saisissez un code.",
+  "it": "Inserisci un codice."
+ },
+ "Enter the 6-digit code shown in your authenticator app.": {
+  "de": "Geben Sie den 6-stelligen Code aus Ihrer Authenticator-App ein.",
+  "fr": "Saisissez le code à 6 chiffres affiché dans votre application d'authentification.",
+  "it": "Inserisci il codice a 6 cifre mostrato nella tua app di autenticazione."
+ },
+ "For any privacy-related questions, requests, or complaints:<br><br> <strong>Laib Technologies GmbH</strong><br> Martina-Hälg-Strasse 1, 8590 Romanshorn, Schweiz<br> <a href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a>": {
+  "de": "Für Fragen, Anträge oder Beschwerden zum Datenschutz:<br><br> <strong>Laib Technologies GmbH</strong><br> Martina-Hälg-Strasse 1, 8590 Romanshorn, Schweiz<br> <a href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a>",
+  "fr": "Pour toute question, demande ou réclamation relative à la protection des données :<br><br> <strong>Laib Technologies GmbH</strong><br> Martina-Hälg-Strasse 1, 8590 Romanshorn, Schweiz<br> <a href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a>",
+  "it": "Per qualsiasi domanda, richiesta o reclamo relativo alla privacy:<br><br> <strong>Laib Technologies GmbH</strong><br> Martina-Hälg-Strasse 1, 8590 Romanshorn, Schweiz<br> <a href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a>"
+ },
+ "I accept the <a href=\"%(tos_url)s\" target=\"_blank\" rel=\"noopener noreferrer\">Terms of Service</a> and the <a href=\"%(privacy_url)s\" target=\"_blank\" rel=\"noopener noreferrer\">Privacy Policy</a>.": {
+  "de": "Ich akzeptiere die <a href=\"%(tos_url)s\" target=\"_blank\" rel=\"noopener noreferrer\">Nutzungsbedingungen</a> und die <a href=\"%(privacy_url)s\" target=\"_blank\" rel=\"noopener noreferrer\">Datenschutzerklärung</a>.",
+  "fr": "J'accepte les <a href=\"%(tos_url)s\" target=\"_blank\" rel=\"noopener noreferrer\">conditions d'utilisation</a> et la <a href=\"%(privacy_url)s\" target=\"_blank\" rel=\"noopener noreferrer\">politique de confidentialité</a>.",
+  "it": "Accetto i <a href=\"%(tos_url)s\" target=\"_blank\" rel=\"noopener noreferrer\">termini di servizio</a> e l'<a href=\"%(privacy_url)s\" target=\"_blank\" rel=\"noopener noreferrer\">informativa sulla privacy</a>."
+ },
+ "I accept the <a href=\"%(url)s\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"bk-privacy-link\">privacy policy</a>.": {
+  "de": "Ich akzeptiere die <a href=\"%(url)s\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"bk-privacy-link\">Datenschutzerklärung</a>.",
+  "fr": "J'accepte la <a href=\"%(url)s\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"bk-privacy-link\">politique de confidentialité</a>.",
+  "it": "Accetto l'<a href=\"%(url)s\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"bk-privacy-link\">informativa sulla privacy</a>."
+ },
+ "Incorrect password.": {
+  "de": "Falsches Passwort.",
+  "fr": "Mot de passe incorrect.",
+  "it": "Password errata."
+ },
+ "Incorrect password. Backup codes were not regenerated.": {
+  "de": "Falsches Passwort. Die Backup-Codes wurden nicht neu erstellt.",
+  "fr": "Mot de passe incorrect. Les codes de secours n'ont pas été régénérés.",
+  "it": "Password errata. I codici di backup non sono stati rigenerati."
+ },
+ "Incorrect password. Two-factor authentication was not disabled.": {
+  "de": "Falsches Passwort. Die Zwei-Faktor-Authentifizierung wurde nicht deaktiviert.",
+  "fr": "Mot de passe incorrect. L'authentification à deux facteurs n'a pas été désactivée.",
+  "it": "Password errata. L'autenticazione a due fattori non è stata disattivata."
+ },
+ "Invalid or expired code. You can also use one of your backup codes.": {
+  "de": "Ungültiger oder abgelaufener Code. Sie können auch einen Ihrer Backup-Codes verwenden.",
+  "fr": "Code invalide ou expiré. Vous pouvez aussi utiliser l'un de vos codes de secours.",
+  "it": "Codice non valido o scaduto. Puoi anche utilizzare uno dei tuoi codici di backup."
+ },
+ "New backup codes have been generated. Your old codes no longer work.": {
+  "de": "Neue Backup-Codes wurden erstellt. Ihre alten Codes funktionieren nicht mehr.",
+  "fr": "De nouveaux codes de secours ont été générés. Vos anciens codes ne fonctionnent plus.",
+  "it": "Sono stati generati nuovi codici di backup. I vecchi codici non sono più validi."
+ },
+ "No action is required on your part.": {
+  "de": "Sie müssen nichts weiter unternehmen.",
+  "fr": "Aucune action n'est requise de votre part.",
+  "it": "Non è richiesta alcuna azione da parte tua."
+ },
+ "Our Privacy Policy has been updated": {
+  "de": "Unsere Datenschutzerklärung wurde aktualisiert",
+  "fr": "Notre politique de confidentialité a été mise à jour",
+  "it": "La nostra informativa sulla privacy è stata aggiornata"
+ },
+ "Privacy Policy:": {
+  "de": "Datenschutzerklärung:",
+  "fr": "Politique de confidentialité :",
+  "it": "Informativa sulla privacy:"
+ },
+ "Questions about these Terms:<br><br> <strong>Laib Technologies GmbH</strong><br> Martina-Hälg-Strasse 1, 8590 Romanshorn, Schweiz<br> <a href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a>": {
+  "de": "Fragen zu diesen Bedingungen:<br><br> <strong>Laib Technologies GmbH</strong><br> Martina-Hälg-Strasse 1, 8590 Romanshorn, Schweiz<br> <a href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a>",
+  "fr": "Questions concernant les présentes conditions :<br><br> <strong>Laib Technologies GmbH</strong><br> Martina-Hälg-Strasse 1, 8590 Romanshorn, Schweiz<br> <a href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a>",
+  "it": "Domande relative ai presenti termini:<br><br> <strong>Laib Technologies GmbH</strong><br> Martina-Hälg-Strasse 1, 8590 Romanshorn, Schweiz<br> <a href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a>"
+ },
+ "Slot interval must be at least 5 minutes.": {
+  "de": "Der Zeitfenster-Abstand muss mindestens 5 Minuten betragen.",
+  "fr": "L'intervalle des créneaux doit être d'au moins 5 minutes.",
+  "it": "L'intervallo delle fasce orarie deve essere di almeno 5 minuti."
+ },
+ "Slot interval must not exceed 120 minutes.": {
+  "de": "Der Zeitfenster-Abstand darf 120 Minuten nicht überschreiten.",
+  "fr": "L'intervalle des créneaux ne doit pas dépasser 120 minutes.",
+  "it": "L'intervallo delle fasce orarie non deve superare i 120 minuti."
+ },
+ "Terminklick is an online platform that enables businesses to manage and accept appointments from their customers. This policy explains what personal data we collect, why we collect it, and how we protect it. It applies to business accounts that use our platform and to customers who book appointments through it. Terminklick is operated from Switzerland and primarily serves customers in Switzerland; this policy is therefore governed by the Swiss Federal Act on Data Protection (FADP). Where relevant, we also reference the EU General Data Protection Regulation (GDPR) below.": {
+  "de": "Terminklick ist eine Online-Plattform, die es Unternehmen ermöglicht, Termine ihrer Kundschaft zu verwalten und entgegenzunehmen. Diese Erklärung beschreibt, welche personenbezogenen Daten wir erheben, warum wir sie erheben und wie wir sie schützen. Sie gilt für Geschäftskonten, die unsere Plattform nutzen, sowie für Kundinnen und Kunden, die darüber Termine buchen. Terminklick wird von der Schweiz aus betrieben und bedient in erster Linie Kundschaft in der Schweiz; diese Erklärung unterliegt daher dem Schweizer Bundesgesetz über den Datenschutz (DSG). Wo relevant, verweisen wir nachfolgend zusätzlich auf die EU-Datenschutz-Grundverordnung (DSGVO).",
+  "fr": "Terminklick est une plateforme en ligne qui permet aux entreprises de gérer et d'accepter les rendez-vous de leurs clients. La présente politique explique quelles données personnelles nous collectons, pourquoi nous les collectons et comment nous les protégeons. Elle s'applique aux comptes professionnels qui utilisent notre plateforme ainsi qu'aux clients qui réservent des rendez-vous par ce biais. Terminklick est exploité depuis la Suisse et sert principalement une clientèle suisse ; cette politique est donc régie par la loi fédérale suisse sur la protection des données (LPD). Le cas échéant, nous faisons également référence ci-dessous au Règlement général sur la protection des données de l'UE (RGPD).",
+  "it": "Terminklick è una piattaforma online che consente alle aziende di gestire e accettare appuntamenti dai propri clienti. La presente informativa spiega quali dati personali raccogliamo, perché li raccogliamo e come li proteggiamo. Si applica agli account aziendali che utilizzano la nostra piattaforma e ai clienti che prenotano appuntamenti tramite essa. Terminklick opera dalla Svizzera e serve principalmente clienti in Svizzera; questa informativa è pertanto disciplinata dalla legge federale svizzera sulla protezione dei dati (LPD). Ove pertinente, di seguito facciamo anche riferimento al Regolamento generale sulla protezione dei dati dell'UE (GDPR)."
+ },
+ "That code is incorrect or has expired. Please try again.": {
+  "de": "Dieser Code ist falsch oder abgelaufen. Bitte versuchen Sie es erneut.",
+  "fr": "Ce code est incorrect ou a expiré. Veuillez réessayer.",
+  "it": "Questo codice non è corretto o è scaduto. Riprova."
+ },
+ "The Service and its original content, features, and functionality are and will remain the exclusive property of <strong>Laib Technologies GmbH</strong>. You retain ownership of any content or data you upload. You grant us a limited licence to process that content solely to provide the Service.": {
+  "de": "Der Dienst sowie seine ursprünglichen Inhalte, Funktionen und Merkmale sind und bleiben ausschliessliches Eigentum der <strong>Laib Technologies GmbH</strong>. Sie behalten das Eigentum an sämtlichen Inhalten oder Daten, die Sie hochladen. Sie gewähren uns eine beschränkte Lizenz, diese Inhalte ausschliesslich zur Bereitstellung des Dienstes zu verarbeiten.",
+  "fr": "Le Service ainsi que son contenu, ses fonctionnalités et ses caractéristiques d'origine sont et demeureront la propriété exclusive de <strong>Laib Technologies GmbH</strong>. Vous conservez la propriété de tout contenu ou donnée que vous téléversez. Vous nous accordez une licence limitée pour traiter ce contenu uniquement dans le but de fournir le Service.",
+  "it": "Il Servizio e i relativi contenuti, funzionalità e caratteristiche originali sono e rimarranno di proprietà esclusiva di <strong>Laib Technologies GmbH</strong>. Mantieni la proprietà di qualsiasi contenuto o dato che carichi. Ci concedi una licenza limitata per trattare tali contenuti esclusivamente al fine di fornire il Servizio."
+ },
+ "The appointment date, time, service, and staff member are kept for your business records. The booking itself was not deleted — only the customer's personal details.": {
+  "de": "Datum, Uhrzeit, Dienstleistung und Mitarbeiter des Termins bleiben für Ihre geschäftlichen Unterlagen erhalten. Die Buchung selbst wurde nicht gelöscht — nur die persönlichen Daten des Kunden.",
+  "fr": "La date, l'heure, le service et le membre du personnel du rendez-vous sont conservés pour vos registres commerciaux. La réservation elle-même n'a pas été supprimée — seules les données personnelles du client l'ont été.",
+  "it": "La data, l'ora, il servizio e il collaboratore dell'appuntamento vengono conservati per i tuoi registri aziendali. La prenotazione in sé non è stata eliminata — solo i dati personali del cliente."
+ },
+ "The data controller responsible for this platform is:<br><br> <strong>Laib Technologies GmbH</strong><br> Martina-Hälg-Strasse 1<br> 8590 Romanshorn, Schweiz<br> Privacy contact: <a href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a>": {
+  "de": "Der für diese Plattform Verantwortliche ist:<br><br> <strong>Laib Technologies GmbH</strong><br> Martina-Hälg-Strasse 1<br> 8590 Romanshorn, Schweiz<br> Datenschutzkontakt: <a href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a>",
+  "fr": "Le responsable du traitement de cette plateforme est :<br><br> <strong>Laib Technologies GmbH</strong><br> Martina-Hälg-Strasse 1<br> 8590 Romanshorn, Schweiz<br> Contact protection des données : <a href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a>",
+  "it": "Il titolare del trattamento responsabile di questa piattaforma è:<br><br> <strong>Laib Technologies GmbH</strong><br> Martina-Hälg-Strasse 1<br> 8590 Romanshorn, Schweiz<br> Contatto privacy: <a href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a>"
+ },
+ "These Terms are governed by the laws of <strong>Switzerland</strong>. Any disputes shall be subject to the exclusive jurisdiction of the courts of <strong>Switzerland</strong>.": {
+  "de": "Diese Bedingungen unterliegen dem Recht der <strong>Schweiz</strong>. Für Streitigkeiten sind ausschliesslich die Gerichte der <strong>Schweiz</strong> zuständig.",
+  "fr": "Les présentes conditions sont régies par le droit <strong>suisse</strong>. Tout litige relève de la compétence exclusive des tribunaux <strong>suisses</strong>.",
+  "it": "I presenti termini sono disciplinati dalla legge <strong>svizzera</strong>. Qualsiasi controversia sarà soggetta alla giurisdizione esclusiva dei tribunali <strong>svizzeri</strong>."
+ },
+ "These Terms of Service (\"Terms\") govern your access to and use of Terminklick (the \"Service\"), operated by <strong>Laib Technologies GmbH</strong> (\"we\", \"us\", or \"our\"). By registering for or using the Service, you agree to be bound by these Terms. If you do not agree, do not use the Service.": {
+  "de": "Diese Nutzungsbedingungen (\"Bedingungen\") regeln Ihren Zugriff auf und Ihre Nutzung von Terminklick (der \"Dienst\"), betrieben von der <strong>Laib Technologies GmbH</strong> (\"wir\", \"uns\" oder \"unser\"). Mit der Registrierung oder Nutzung des Dienstes erklären Sie sich mit diesen Bedingungen einverstanden. Falls Sie nicht einverstanden sind, nutzen Sie den Dienst bitte nicht.",
+  "fr": "Les présentes conditions d'utilisation (\"Conditions\") régissent votre accès à Terminklick (le \"Service\") ainsi que son utilisation, exploité par <strong>Laib Technologies GmbH</strong> (\"nous\" ou \"notre\"). En vous inscrivant ou en utilisant le Service, vous acceptez d'être lié par les présentes Conditions. Si vous n'êtes pas d'accord, veuillez ne pas utiliser le Service.",
+  "it": "I presenti termini di servizio (\"Termini\") disciplinano l'accesso e l'utilizzo di Terminklick (il \"Servizio\"), gestito da <strong>Laib Technologies GmbH</strong> (\"noi\" o \"nostro\"). Registrandoti o utilizzando il Servizio, accetti di essere vincolato dai presenti Termini. Se non accetti, non utilizzare il Servizio."
+ },
+ "This does not require any action from you. If you have questions about how your data is handled, please contact the company you booked with.": {
+  "de": "Sie müssen deswegen nichts unternehmen. Bei Fragen zum Umgang mit Ihren Daten wenden Sie sich bitte direkt an das Unternehmen, bei dem Sie gebucht haben.",
+  "fr": "Cela ne nécessite aucune action de votre part. Pour toute question sur le traitement de vos données, veuillez contacter directement l'entreprise auprès de laquelle vous avez réservé.",
+  "it": "Non è richiesta alcuna azione da parte tua. Per domande su come vengono trattati i tuoi dati, contatta direttamente l'azienda presso cui hai prenotato."
+ },
+ "To exercise any of these rights, contact us at <a href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a>. We will respond within 30 days.": {
+  "de": "Um eines dieser Rechte auszuüben, kontaktieren Sie uns unter <a href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a>. Wir antworten innerhalb von 30 Tagen.",
+  "fr": "Pour exercer l'un de ces droits, contactez-nous à l'adresse <a href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a>. Nous répondrons dans un délai de 30 jours.",
+  "it": "Per esercitare uno di questi diritti, contattaci all'indirizzo <a href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a>. Risponderemo entro 30 giorni."
+ },
+ "To the fullest extent permitted by law, <strong>Laib Technologies GmbH</strong> shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of or inability to use the Service, even if we have been advised of the possibility of such damages.": {
+  "de": "Soweit gesetzlich zulässig, haftet die <strong>Laib Technologies GmbH</strong> nicht für indirekte, zufällige, besondere, Folge- oder Strafschäden, die aus Ihrer Nutzung oder der Unmöglichkeit der Nutzung des Dienstes entstehen, selbst wenn wir auf die Möglichkeit solcher Schäden hingewiesen wurden.",
+  "fr": "Dans toute la mesure permise par la loi, <strong>Laib Technologies GmbH</strong> ne saurait être tenue responsable de tout dommage indirect, accessoire, spécial, consécutif ou punitif résultant de votre utilisation ou de votre incapacité à utiliser le Service, même si nous avons été informés de la possibilité de tels dommages.",
+  "it": "Nella misura massima consentita dalla legge, <strong>Laib Technologies GmbH</strong> non sarà responsabile per eventuali danni indiretti, incidentali, speciali, consequenziali o punitivi derivanti dall'utilizzo o dall'impossibilità di utilizzare il Servizio, anche qualora fossimo stati informati della possibilità di tali danni."
+ },
+ "Too many failed login attempts for this account. Please try again in %(minutes)d minutes.": {
+  "de": "Zu viele fehlgeschlagene Anmeldeversuche für dieses Konto. Bitte versuchen Sie es in %(minutes)d Minuten erneut.",
+  "fr": "Trop de tentatives de connexion échouées pour ce compte. Veuillez réessayer dans %(minutes)d minutes.",
+  "it": "Troppi tentativi di accesso falliti per questo account. Riprova tra %(minutes)d minuti."
+ },
+ "Two-factor authentication has been disabled.": {
+  "de": "Die Zwei-Faktor-Authentifizierung wurde deaktiviert.",
+  "fr": "L'authentification à deux facteurs a été désactivée.",
+  "it": "L'autenticazione a due fattori è stata disattivata."
+ },
+ "Two-factor authentication is already enabled.": {
+  "de": "Die Zwei-Faktor-Authentifizierung ist bereits aktiviert.",
+  "fr": "L'authentification à deux facteurs est déjà activée.",
+  "it": "L'autenticazione a due fattori è già attiva."
+ },
+ "Two-factor authentication is now enabled.": {
+  "de": "Die Zwei-Faktor-Authentifizierung ist jetzt aktiviert.",
+  "fr": "L'authentification à deux facteurs est maintenant activée.",
+  "it": "L'autenticazione a due fattori è ora attiva."
+ },
+ "UID:": {
+  "de": "UID:",
+  "fr": "UID :",
+  "it": "UID:"
+ },
+ "Verification code": {
+  "de": "Bestätigungscode",
+  "fr": "Code de vérification",
+  "it": "Codice di verifica"
+ },
+ "View, export, or request erasure of your data": {
+  "de": "Daten einsehen, exportieren oder deren Löschung beantragen",
+  "fr": "Consulter, exporter ou demander l'effacement de vos données",
+  "it": "Visualizza, esporta o richiedi la cancellazione dei tuoi dati"
+ },
+ "You must accept the Terms of Service to register.": {
+  "de": "Sie müssen die Nutzungsbedingungen akzeptieren, um sich zu registrieren.",
+  "fr": "Vous devez accepter les conditions d'utilisation pour vous inscrire.",
+  "it": "Devi accettare i termini di servizio per registrarti."
+ },
+ "You must provide accurate and complete information when creating an account. You are responsible for maintaining the confidentiality of your credentials and for all activity that occurs under your account. Notify us immediately at <a href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a> if you suspect unauthorised access.": {
+  "de": "Bei der Erstellung eines Kontos müssen Sie korrekte und vollständige Angaben machen. Sie sind für die Vertraulichkeit Ihrer Zugangsdaten sowie für sämtliche Aktivitäten verantwortlich, die unter Ihrem Konto stattfinden. Benachrichtigen Sie uns umgehend unter <a href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a>, falls Sie einen unbefugten Zugriff vermuten.",
+  "fr": "Vous devez fournir des informations exactes et complètes lors de la création d'un compte. Vous êtes responsable de la confidentialité de vos identifiants ainsi que de toute activité se produisant sous votre compte. Informez-nous immédiatement à l'adresse <a href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a> si vous soupçonnez un accès non autorisé.",
+  "it": "Devi fornire informazioni accurate e complete al momento della creazione di un account. Sei responsabile della riservatezza delle tue credenziali e di tutte le attività che si verificano sotto il tuo account. Contattaci immediatamente all'indirizzo <a href=\"mailto:info@terminklick.ch\">info@terminklick.ch</a> se sospetti un accesso non autorizzato."
+ },
+ "Your deletion request has been received. A support agent will call you at %(phone)s within 1 business day to verify your identity.": {
+  "de": "Ihr Löschantrag ist eingegangen. Ein Support-Mitarbeiter wird Sie innerhalb eines Werktages unter %(phone)s anrufen, um Ihre Identität zu verifizieren.",
+  "fr": "Votre demande de suppression a été reçue. Un agent du support vous appellera au %(phone)s dans un délai d'un jour ouvré afin de vérifier votre identité.",
+  "it": "La tua richiesta di cancellazione è stata ricevuta. Un agente del supporto ti chiamerà al numero %(phone)s entro un giorno lavorativo per verificare la tua identità."
+ },
+ "Your setup session expired. Please start again.": {
+  "de": "Ihre Einrichtungssitzung ist abgelaufen. Bitte beginnen Sie erneut.",
+  "fr": "Votre session de configuration a expiré. Veuillez recommencer.",
+  "it": "La sessione di configurazione è scaduta. Riprova dall'inizio."
+ },
+ "Your sign-in session expired. Please log in again.": {
+  "de": "Ihre Anmeldesitzung ist abgelaufen. Bitte melden Sie sich erneut an.",
+  "fr": "Votre session de connexion a expiré. Veuillez vous reconnecter.",
+  "it": "La sessione di accesso è scaduta. Effettua nuovamente l'accesso."
+ },
+ "you have an upcoming appointment with %(business_name)s, and we've updated our Privacy Policy since you booked.": {
+  "de": "Sie haben einen bevorstehenden Termin bei %(business_name)s, und wir haben unsere Datenschutzerklärung seit Ihrer Buchung aktualisiert.",
+  "fr": "vous avez un rendez-vous à venir chez %(business_name)s, et nous avons mis à jour notre politique de confidentialité depuis votre réservation.",
+  "it": "hai un appuntamento imminente presso %(business_name)s e da quando hai effettuato la prenotazione abbiamo aggiornato la nostra informativa sulla privacy."
+ }
+}

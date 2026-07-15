@@ -62,5 +62,21 @@
       "Nessun blocco è stato creato — %(count)d saltato (già passato o sovrapposto).",
       "Nessun blocco è stato creato — %(count)d saltati (già passati o sovrapposti)."
     ]
+  },
+  {
+    "singular": "%(count)s booking on your account has passed its data retention period and its customer details (name, email, phone, message) have now been automatically anonymised, as described in our Privacy Policy.",
+    "plural": "%(count)s bookings on your account have passed their data retention period and their customer details (name, email, phone, message) have now been automatically anonymised, as described in our Privacy Policy.",
+    "de": [
+      "%(count)s Buchung in Ihrem Konto hat ihre Aufbewahrungsfrist überschritten, und die Kundendaten (Name, E-Mail, Telefon, Nachricht) wurden gemäss unserer Datenschutzerklärung automatisch anonymisiert.",
+      "%(count)s Buchungen in Ihrem Konto haben ihre Aufbewahrungsfrist überschritten, und die Kundendaten (Name, E-Mail, Telefon, Nachricht) wurden gemäss unserer Datenschutzerklärung automatisch anonymisiert."
+    ],
+    "fr": [
+      "%(count)s réservation de votre compte a dépassé sa durée de conservation et les coordonnées du client (nom, e-mail, téléphone, message) ont été automatiquement anonymisées, comme décrit dans notre politique de confidentialité.",
+      "%(count)s réservations de votre compte ont dépassé leur durée de conservation et les coordonnées des clients (nom, e-mail, téléphone, message) ont été automatiquement anonymisées, comme décrit dans notre politique de confidentialité."
+    ],
+    "it": [
+      "%(count)s prenotazione del tuo account ha superato il periodo di conservazione e i dati del cliente (nome, e-mail, telefono, messaggio) sono stati anonimizzati automaticamente, come descritto nella nostra informativa sulla privacy.",
+      "%(count)s prenotazioni del tuo account hanno superato il periodo di conservazione e i dati dei clienti (nome, e-mail, telefono, messaggio) sono stati anonimizzati automaticamente, come descritto nella nostra informativa sulla privacy."
+    ]
   }
 ]
