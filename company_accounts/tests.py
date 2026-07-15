@@ -268,17 +268,18 @@ class CompanySettingsTest(TestCase):
         self.assertContains(response, f"/b/{self.account.slug}/")
 
     # 5. Settings page shows account email as read-only (not in a form field)
-    def test_settings_shows_account_email_readonly(self):
+    def test_settings_shows_editable_email_field(self):
         self.client.force_login(self.account)
         response = self.client.get(self.settings_url)
         self.assertContains(response, self.account.email)
-        # email must not appear as a form input
-        self.assertNotContains(response, f'name="email"')
+        # email is an editable form input
+        self.assertContains(response, 'name="email"')
 
     # 6. Company can update business name
     def test_can_update_business_name(self):
         self.client.force_login(self.account)
         self.client.post(self.settings_url, {
+            "email": self.account.email,
             "business_name": "New Name Ltd",
             "public_page_enabled": "on",
             "timezone": "Europe/Zurich",
@@ -293,6 +294,7 @@ class CompanySettingsTest(TestCase):
     def test_can_update_public_page_enabled(self):
         self.client.force_login(self.account)
         self.client.post(self.settings_url, {
+            "email": self.account.email,
             "business_name": self.account.business_name,
             "timezone": "Europe/Zurich",
             "booking_confirmation_mode": "automatic",
@@ -315,15 +317,33 @@ class CompanySettingsTest(TestCase):
         self.account.refresh_from_db()
         self.assertEqual(self.account.business_name, "Acme AG")
 
-    # 11. Email cannot be changed through settings POST
-    def test_email_cannot_be_changed(self):
+    # 11. Company can update email
+    def test_company_can_update_email(self):
         self.client.force_login(self.account)
         self.client.post(self.settings_url, {
+            "email": "new-address@example.com",
             "business_name": self.account.business_name,
             "public_page_enabled": "on",
             "timezone": "Europe/Zurich",
-            "email": "hacker@evil.com",
+            "booking_confirmation_mode": "automatic",
         })
+        self.account.refresh_from_db()
+        self.assertEqual(self.account.email, "new-address@example.com")
+
+    def test_settings_rejects_duplicate_email(self):
+        make_account(email="other@example.com")
+        self.client.force_login(self.account)
+        response = self.client.post(self.settings_url, {
+            "email": "other@example.com",
+            "business_name": self.account.business_name,
+            "public_page_enabled": "on",
+            "timezone": "Europe/Zurich",
+            "booking_confirmation_mode": "automatic",
+        })
+        # Company language defaults to German, so the error message is translated.
+        self.assertFormError(
+            response.context["form"], "email", "Diese E-Mail-Adresse wird bereits verwendet."
+        )
         self.account.refresh_from_db()
         self.assertEqual(self.account.email, "acme@example.com")
 
@@ -332,9 +352,11 @@ class CompanySettingsTest(TestCase):
         original_slug = self.account.slug
         self.client.force_login(self.account)
         self.client.post(self.settings_url, {
+            "email": self.account.email,
             "business_name": self.account.business_name,
             "public_page_enabled": "on",
             "timezone": "Europe/Zurich",
+            "booking_confirmation_mode": "automatic",
             "slug": "injected-slug",
         })
         self.account.refresh_from_db()
@@ -344,9 +366,11 @@ class CompanySettingsTest(TestCase):
     def test_password_cannot_be_changed(self):
         self.client.force_login(self.account)
         self.client.post(self.settings_url, {
+            "email": self.account.email,
             "business_name": self.account.business_name,
             "public_page_enabled": "on",
             "timezone": "Europe/Zurich",
+            "booking_confirmation_mode": "automatic",
             "password": "newpassword123",
         })
         self.account.refresh_from_db()
@@ -356,6 +380,7 @@ class CompanySettingsTest(TestCase):
     def test_booking_page_respects_public_page_enabled(self):
         self.client.force_login(self.account)
         self.client.post(self.settings_url, {
+            "email": self.account.email,
             "business_name": self.account.business_name,
             "timezone": "Europe/Zurich",
             "booking_confirmation_mode": "automatic",
@@ -376,6 +401,7 @@ class CompanySettingsTest(TestCase):
     def test_can_disable_any_employee_option(self):
         self.client.force_login(self.account)
         self.client.post(self.settings_url, {
+            "email": self.account.email,
             "business_name": self.account.business_name,
             "public_page_enabled": "on",
             "timezone": "Europe/Zurich",
@@ -412,6 +438,7 @@ class CompanySettingsTest(TestCase):
     def test_can_hide_staff_names_publicly(self):
         self.client.force_login(self.account)
         self.client.post(self.settings_url, {
+            "email": self.account.email,
             "business_name": self.account.business_name,
             "public_page_enabled": "on",
             "timezone": "Europe/Zurich",
@@ -480,6 +507,7 @@ class BookingConfirmationModeSettingsTests(TestCase):
     def test_company_can_set_confirmation_mode_to_automatic(self):
         self.client.force_login(self.company)
         self.client.post(self.settings_url, {
+            "email": self.company.email,
             "business_name": self.company.business_name,
             "timezone": self.company.timezone,
             "public_page_enabled": "on",
@@ -493,6 +521,7 @@ class BookingConfirmationModeSettingsTests(TestCase):
     def test_company_can_set_confirmation_mode_to_manual(self):
         self.client.force_login(self.company)
         self.client.post(self.settings_url, {
+            "email": self.company.email,
             "business_name": self.company.business_name,
             "timezone": self.company.timezone,
             "booking_confirmation_mode": "manual",
@@ -544,6 +573,7 @@ class SlotIntervalSettingsTests(TestCase):
     def test_company_can_set_valid_slot_interval(self):
         self.client.force_login(self.company)
         self.client.post(self.settings_url, {
+            "email": self.company.email,
             "business_name": self.company.business_name,
             "timezone": self.company.timezone,
             "booking_confirmation_mode": "automatic",
@@ -555,6 +585,7 @@ class SlotIntervalSettingsTests(TestCase):
     def test_slot_interval_below_minimum_is_rejected(self):
         self.client.force_login(self.company)
         response = self.client.post(self.settings_url, {
+            "email": self.company.email,
             "business_name": self.company.business_name,
             "timezone": self.company.timezone,
             "booking_confirmation_mode": "automatic",
@@ -567,6 +598,7 @@ class SlotIntervalSettingsTests(TestCase):
     def test_slot_interval_above_maximum_is_rejected(self):
         self.client.force_login(self.company)
         response = self.client.post(self.settings_url, {
+            "email": self.company.email,
             "business_name": self.company.business_name,
             "timezone": self.company.timezone,
             "booking_confirmation_mode": "automatic",
@@ -581,6 +613,7 @@ class SlotIntervalSettingsTests(TestCase):
         self.company.save()
         self.client.force_login(self.company)
         self.client.post(self.settings_url, {
+            "email": self.company.email,
             "business_name": self.company.business_name,
             "timezone": self.company.timezone,
             "booking_confirmation_mode": "automatic",
@@ -611,6 +644,7 @@ class CompanyLanguageSettingsTests(TestCase):
     def test_company_can_update_language(self):
         self.client.force_login(self.company)
         self.client.post(self.settings_url, {
+            "email": self.company.email,
             "business_name": self.company.business_name,
             "timezone": self.company.timezone,
             "booking_confirmation_mode": "automatic",
@@ -622,6 +656,7 @@ class CompanyLanguageSettingsTests(TestCase):
     def test_invalid_language_code_rejected(self):
         self.client.force_login(self.company)
         response = self.client.post(self.settings_url, {
+            "email": self.company.email,
             "business_name": self.company.business_name,
             "timezone": self.company.timezone,
             "booking_confirmation_mode": "automatic",
@@ -636,6 +671,7 @@ class CompanyLanguageSettingsTests(TestCase):
         other = make_account(email="lang_other@example.com", business_name="Other Lang Co")
         self.client.force_login(self.company)
         self.client.post(self.settings_url, {
+            "email": self.company.email,
             "business_name": self.company.business_name,
             "timezone": self.company.timezone,
             "booking_confirmation_mode": "automatic",

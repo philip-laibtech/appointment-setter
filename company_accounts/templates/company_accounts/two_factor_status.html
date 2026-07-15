@@ -35,6 +35,7 @@
       {% if enabled %}
         <span class="settings-badge is-on">{% translate "Enabled" %}</span>
       {% else %}
+        <span class="settings-badge is-off">{% translate "Disabled" %}</span>
         <a href="{% url 'company_accounts:two_factor_setup' %}" class="settings-btn settings-btn-primary settings-btn-sm">{% translate "Enable" %}</a>
       {% endif %}
     </div>
