@@ -33,7 +33,7 @@
   }
 
   .brand { display: flex; align-items: center; text-decoration: none; justify-self: start; }
-  .brand img { height: 40px; width: auto; transform: translateY(9px); }
+  .brand img { height: 40px; width: auto; }
   .nav-links { display: flex; align-items: center; gap: 1.75rem; justify-self: center; }
   .nav-actions { display: flex; align-items: center; gap: 1.5rem; justify-self: end; }
   nav a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
@@ -110,6 +110,7 @@
     <a href="{% url 'landing:pricing' %}">{% translate "Pricing" %}</a>
     <a href="{% url 'landing:about' %}">{% translate "About" %}</a>
     <a href="{% url 'landing:faq' %}">{% translate "FAQ" %}</a>
+    <a href="{% url 'landing:documentation' %}">{% translate "Documentation" %}</a>
     <a href="{% url 'landing:contact' %}">{% translate "Contact" %}</a>
   </div>
   <div class="nav-actions">

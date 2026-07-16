@@ -82,13 +82,9 @@
   }
 
   .sb-logo {
-    height: 40px;
+    height: 42px;
     width: auto;
     flex-shrink: 0;
-    /* The wordmark sits above the taller icon in the source file, so
-       flex-centering the whole image leaves the text looking too high.
-       Nudge down so the wordmark itself lands on the row's center. */
-    transform: translateY(9px);
   }
 
   .sb-brand {
@@ -335,7 +331,7 @@
     gap: 1.5rem;
   }
   .guest-nav .brand { display: flex; align-items: center; text-decoration: none; }
-  .guest-nav .brand img { height: 40px; width: auto; transform: translateY(9px); }
+  .guest-nav .brand img { height: 40px; width: auto; }
   .guest-nav .spacer { flex: 1; }
   .guest-nav a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
   .guest-nav a:hover { color: var(--text-primary); }

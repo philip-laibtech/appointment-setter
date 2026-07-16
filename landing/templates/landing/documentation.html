@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %}{% translate "Documentation" %} | Terminklick{% endblock %}
+
+{% block head %}
+<meta name="description" content="{% translate 'Guides and how-tos for getting the most out of Terminklick.' %}">
+<style>
+{% include "landing/_marketing_styles.html" %}
+</style>
+{% endblock %}
+
+{% block body %}
+{% include "landing/_nav.html" %}
+
+<main>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">{% translate "Documentation" %}</span>
+      <h1>{% translate "Guides are on their way" %}</h1>
+      <p>{% translate "We're putting together step-by-step guides for setting up and running your booking page. In the meantime, check the FAQ or reach out on Contact." %}</p>
+    </div>
+  </section>
+
+  <section style="padding-top:1rem;">
+    <div class="container text-page" style="text-align:center;">
+      <div style="display:flex; gap:0.85rem; justify-content:center; flex-wrap:wrap;">
+        <a class="btn btn-secondary" href="{% url 'landing:faq' %}">{% translate "Read the FAQ" %}</a>
+        <a class="btn btn-secondary" href="{% url 'landing:contact' %}">{% translate "Contact us" %}</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+{% include "landing/_footer.html" %}
+{% endblock %}

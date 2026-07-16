@@ -56,6 +56,10 @@ class FaqView(TemplateView):
     template_name = "landing/faq.html"
 
 
+class DocumentationView(TemplateView):
+    template_name = "landing/documentation.html"
+
+
 class RobotsTxtView(TemplateView):
     template_name = "landing/robots.txt"
     content_type = "text/plain"

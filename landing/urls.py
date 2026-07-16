@@ -5,6 +5,7 @@ from .sitemaps import StaticViewSitemap
 from .views import (
     AboutView,
     ContactView,
+    DocumentationView,
     FaqView,
     FeaturesView,
     HomeView,
@@ -27,6 +28,7 @@ urlpatterns = [
     path("about/", AboutView.as_view(), name="about"),
     path("contact/", ContactView.as_view(), name="contact"),
     path("faq/", FaqView.as_view(), name="faq"),
+    path("docs/", DocumentationView.as_view(), name="documentation"),
     path("robots.txt", RobotsTxtView.as_view(), name="robots_txt"),
     path(
         "sitemap.xml",

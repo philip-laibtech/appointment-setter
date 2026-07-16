@@ -61,18 +61,26 @@ a { color: inherit; }
   margin: 0 auto;
   height: 100%;
   padding: 0 1.5rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   gap: 1.5rem;
 }
 
-.brand { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
-.brand img { height: 34px; width: auto; display: block; }
+.brand { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; justify-self: start; }
+.brand img { height: 40px; width: auto; display: block; }
 
-.nav-menu { display: flex; align-items: center; gap: 2.5rem; }
+/* On desktop, .nav-menu itself doesn't participate in layout: its two
+   children become direct grid items of .nav-inner so the links can sit
+   in the true center column regardless of how wide brand/actions are. */
+.nav-menu { display: contents; }
 
-.nav-links { display: flex; align-items: center; gap: 2rem; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-self: center;
+}
 .nav-links a {
   color: var(--text-muted);
   text-decoration: none;
@@ -82,7 +90,7 @@ a { color: inherit; }
 }
 .nav-links a:hover { color: var(--text-primary); }
 
-.nav-actions { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+.nav-actions { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; justify-self: end; }
 .nav-actions .btn { padding: 0.5rem 1.1rem; font-size: 0.875rem; }
 
 .nav-toggle-input { display: none; }
@@ -534,7 +542,7 @@ p, li { font-size: 1rem; line-height: 1.7; color: var(--text-body); }
   margin-bottom: 2.5rem;
 }
 @media (max-width: 720px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
-.footer-brand img { height: 30px; margin-bottom: 0.85rem; }
+.footer-brand img { height: 34px; margin-bottom: 0.85rem; }
 .footer-brand p { font-size: 0.875rem; color: var(--text-muted); max-width: 260px; }
 .footer-col h4 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.9rem; }
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }

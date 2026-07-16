@@ -91,7 +91,8 @@
         <p>{% translate "German, French, Italian, and English: for your dashboard, your public booking page, and every email sent to your customers." %}</p>
       </details>
 
-      <div style="text-align:center;margin-top:2.5rem;">
+      <div style="text-align:center;margin-top:2.5rem;display:flex;gap:0.85rem;justify-content:center;flex-wrap:wrap;">
+        <a class="btn btn-secondary" href="{% url 'landing:documentation' %}">{% translate "Browse the documentation" %}</a>
         <a class="btn btn-secondary" href="{% url 'landing:contact' %}">{% translate "Still have questions? Contact us" %}</a>
       </div>
     </div>

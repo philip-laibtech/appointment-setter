@@ -17,6 +17,7 @@ class StaticViewSitemap(Sitemap):
             "landing:about",
             "landing:contact",
             "landing:faq",
+            "landing:documentation",
             "landing:privacy_policy",
             "landing:terms_of_service",
             "landing:legal_notice",
