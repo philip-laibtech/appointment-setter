@@ -7,5 +7,6 @@ django-csp==4.0
 babel==2.18.0
 django-otp==1.7.0
 qrcode==8.2
+pillow>=12.3.0
 gunicorn==23.0.0
 whitenoise==6.11.0

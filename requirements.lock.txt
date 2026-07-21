@@ -9,7 +9,7 @@ django-simple-captcha==0.6.3
 gunicorn==23.0.0
 mysqlclient==2.2.7
 packaging==26.2
-pillow==12.2.0
+pillow==12.3.0
 python-dotenv==1.1.1
 qrcode==8.2
 sqlparse==0.5.5
