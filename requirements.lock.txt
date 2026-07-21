@@ -1,11 +1,3 @@
-# Fully pinned dependency snapshot (direct + transitive), generated with:
-#   pip install -r requirements.txt && pip freeze > requirements.lock.txt
-#
-# Use this file for reproducible installs (CI, production):
-#   pip install -r requirements.lock.txt
-#
-# requirements.txt remains the source of truth for direct dependencies.
-# Regenerate this file whenever requirements.txt changes.
 asgiref==3.11.1
 babel==2.18.0
 Django==6.0.5
