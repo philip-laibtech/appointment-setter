@@ -2,8 +2,13 @@
 {% load i18n %}
 {% load static %}
 {% block title %}{% translate "Privacy Policy" %} — Terminklick{% endblock %}
+{% block og_title %}{% translate "Privacy Policy" %}{% endblock %}
+{% block og_description %}{% translate 'How Terminklick collects, uses, and protects personal data for businesses and their customers.' %}{% endblock %}
+{% block twitter_title %}{% translate "Privacy Policy" %}{% endblock %}
+{% block twitter_description %}{% translate 'How Terminklick collects, uses, and protects personal data for businesses and their customers.' %}{% endblock %}
 
 {% block head %}
+<meta name="description" content="{% translate 'How Terminklick collects, uses, and protects personal data for businesses and their customers.' %}">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 

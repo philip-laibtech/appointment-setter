@@ -2,6 +2,11 @@
 {% load i18n %}
 {% load static %}
 {% block title %}{% translate "Pricing" %} | Terminklick{% endblock %}
+{% block og_title %}{% translate "One plan. Nothing hidden." %}{% endblock %}
+{% block og_description %}{% translate 'One plan, everything included: 18 CHF per month or 160 CHF billed yearly.' %}{% endblock %}
+{% block twitter_title %}{% translate "One plan. Nothing hidden." %}{% endblock %}
+{% block twitter_description %}{% translate 'One plan, everything included: 18 CHF per month or 160 CHF billed yearly.' %}{% endblock %}
+{% block structured_data %}{{ block.super }}<script type="application/ld+json">{{ pricing_schema|safe }}</script>{% endblock %}
 
 {% block head %}
 <meta name="description" content="{% translate 'One plan, everything included: 18 CHF per month or 160 CHF billed yearly.' %}">

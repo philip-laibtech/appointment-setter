@@ -2,8 +2,13 @@
 {% load i18n %}
 {% load static %}
 {% block title %}{% translate "Legal Notice" %} — Terminklick{% endblock %}
+{% block og_title %}{% translate "Legal Notice" %}{% endblock %}
+{% block og_description %}{% translate 'Legal notice and operator details for Terminklick, operated by Laib Technologies GmbH in Romanshorn, Switzerland.' %}{% endblock %}
+{% block twitter_title %}{% translate "Legal Notice" %}{% endblock %}
+{% block twitter_description %}{% translate 'Legal notice and operator details for Terminklick, operated by Laib Technologies GmbH in Romanshorn, Switzerland.' %}{% endblock %}
 
 {% block head %}
+<meta name="description" content="{% translate 'Legal notice and operator details for Terminklick, operated by Laib Technologies GmbH in Romanshorn, Switzerland.' %}">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 

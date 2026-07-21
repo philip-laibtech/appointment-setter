@@ -1,11 +1,53 @@
+{% load static i18n %}
 <!DOCTYPE html>
-<html lang="en">
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
-  {% load static %}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="{% static 'img/favicon.svg' %}" type="image/svg+xml">
   <title>{% block title %}Terminklick{% endblock %}</title>
+  <link rel="canonical" href="{% block canonical_url %}{{ canonical_url }}{% endblock %}">
+  {% block hreflang %}
+  {% if request.resolver_match.namespace == "landing" %}
+    {% get_available_languages as LANDING_LANGUAGES %}
+    {% for lang_code, lang_name in LANDING_LANGUAGES %}
+      {% language lang_code %}
+  <link rel="alternate" hreflang="{{ lang_code }}" href="{{ request.scheme }}://{{ request.get_host }}{% url request.resolver_match.view_name %}">
+      {% endlanguage %}
+    {% endfor %}
+    {% language "de" %}
+  <link rel="alternate" hreflang="x-default" href="{{ request.scheme }}://{{ request.get_host }}{% url request.resolver_match.view_name %}">
+    {% endlanguage %}
+  {% endif %}
+  {% endblock %}
+  <meta property="og:site_name" content="Terminklick">
+  <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta property="og:locale" content="{% if LANGUAGE_CODE == 'de' %}de_CH{% elif LANGUAGE_CODE == 'fr' %}fr_CH{% elif LANGUAGE_CODE == 'it' %}it_CH{% else %}en_US{% endif %}">
+  <meta property="og:title" content="{% block og_title %}Terminklick{% endblock %}">
+  <meta property="og:description" content="{% block og_description %}{% endblock %}">
+  <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/logo.png' %}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% block twitter_title %}Terminklick{% endblock %}">
+  <meta name="twitter:description" content="{% block twitter_description %}{% endblock %}">
+  <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/logo.png' %}">
+  {% block structured_data %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Terminklick",
+    "url": "{{ request.scheme }}://{{ request.get_host }}{% url 'landing:home' %}",
+    "logo": "{{ request.scheme }}://{{ request.get_host }}{% static 'img/logo.png' %}",
+    "email": "info@terminklick.ch",
+    "founder": {
+      "@type": "Organization",
+      "name": "Laib Technologies GmbH"
+    }
+  }
+  </script>
+  {% endblock %}
   {% block head %}{% endblock %}
 </head>
 <body{% block body_attrs %}{% endblock %}>

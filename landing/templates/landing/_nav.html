@@ -16,6 +16,15 @@
         <a href="{% url 'landing:contact' %}">{% translate "Contact" %}</a>
       </div>
       <div class="nav-actions">
+        {% get_current_language as CURRENT_LANG %}
+        {% get_available_languages as NAV_LANGUAGES %}
+        <div class="lang-switch">
+          {% for lang_code, lang_name in NAV_LANGUAGES %}
+            {% language lang_code %}
+            <a href="{% url request.resolver_match.view_name %}" class="{% if lang_code == CURRENT_LANG %}active{% endif %}" lang="{{ lang_code }}">{{ lang_code|upper }}</a>
+            {% endlanguage %}
+          {% endfor %}
+        </div>
         <a class="btn btn-ghost" href="{% url 'company_accounts:login' %}">{% translate "Login" %}</a>
         <a class="btn btn-primary" href="{% url 'company_accounts:register' %}">{% translate "Get started" %}</a>
       </div>

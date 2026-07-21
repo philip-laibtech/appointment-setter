@@ -83,6 +83,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "bookings.context_processors.pending_bookings_count",
+                "core.context_processors.canonical_url",
             ],
         },
     },

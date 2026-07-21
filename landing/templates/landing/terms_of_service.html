@@ -2,8 +2,13 @@
 {% load i18n %}
 {% load static %}
 {% block title %}{% translate "Terms of Service" %} — Terminklick{% endblock %}
+{% block og_title %}{% translate "Terms of Service" %}{% endblock %}
+{% block og_description %}{% translate 'The terms that govern use of Terminklick, the online booking platform from Laib Technologies GmbH.' %}{% endblock %}
+{% block twitter_title %}{% translate "Terms of Service" %}{% endblock %}
+{% block twitter_description %}{% translate 'The terms that govern use of Terminklick, the online booking platform from Laib Technologies GmbH.' %}{% endblock %}
 
 {% block head %}
+<meta name="description" content="{% translate 'The terms that govern use of Terminklick, the online booking platform from Laib Technologies GmbH.' %}">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 

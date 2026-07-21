@@ -9,6 +9,15 @@ class StaticViewSitemap(Sitemap):
     changefreq = "monthly"
     protocol = "https"
 
+    # Emit one <url> entry per language (using settings.LANGUAGES), each
+    # carrying <xhtml:link rel="alternate" hreflang="..."> pointers to every
+    # other language version plus an x-default, matching the hreflang tags
+    # rendered in templates/base.html and the i18n_patterns() routing in
+    # core/urls.py (German is unprefixed, so this reuses the same URLs).
+    i18n = True
+    alternates = True
+    x_default = True
+
     def items(self):
         return [
             "landing:home",

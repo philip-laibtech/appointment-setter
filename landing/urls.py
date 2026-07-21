@@ -1,7 +1,5 @@
-from django.contrib.sitemaps.views import sitemap
 from django.urls import path
 
-from .sitemaps import StaticViewSitemap
 from .views import (
     AboutView,
     ContactView,
@@ -12,10 +10,13 @@ from .views import (
     LegalNoticeView,
     PricingView,
     PrivacyPolicyView,
-    RobotsTxtView,
     TermsOfServiceView,
 )
 
+# Only the language-prefixable marketing/legal pages live here — this
+# urlconf is wrapped in i18n_patterns() by core/urls.py. robots.txt and
+# sitemap.xml must stay at a single, unprefixed root path, so they're
+# registered directly in core/urls.py instead.
 app_name = "landing"
 
 urlpatterns = [
@@ -29,11 +30,4 @@ urlpatterns = [
     path("contact/", ContactView.as_view(), name="contact"),
     path("faq/", FaqView.as_view(), name="faq"),
     path("docs/", DocumentationView.as_view(), name="documentation"),
-    path("robots.txt", RobotsTxtView.as_view(), name="robots_txt"),
-    path(
-        "sitemap.xml",
-        sitemap,
-        {"sitemaps": {"static": StaticViewSitemap}},
-        name="sitemap",
-    ),
 ]
